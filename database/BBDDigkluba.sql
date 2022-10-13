@@ -18,7 +18,6 @@ Create Database IGKLUBA;
 );  
 CREATE TABLE IDIOMA (
     ID_Libro Varchar(20) NOT NULL PRIMARY KEY,
-    Idioma Varchar(30) NOT NULL,
     Titulo_libro INT(4) NOT NULL,
     Idioma Varchar(15) NOT NULL
 );
