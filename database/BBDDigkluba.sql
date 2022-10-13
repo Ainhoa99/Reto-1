@@ -8,15 +8,15 @@ Create Database IGKLUBA;
     Foto varchar(15),
     Centro varchar(20) NOT NULL,
     Fecha_Nacimiento DATE,
-    TIPO ENUM('Alumno','Profesor', 'Administrador') NOT NULL,
-    VALIDADO BOOLEAN NOT NULL,
-    movil char(9), 
+    Tipo ENUM('Alumno','Profesor', 'Administrador') NOT NULL,
+    Validado BOOLEAN NOT NULL,
+    Movil char(9), 
     Contraseña Varchar(30) NOT NULL,
-    NIVEL ENUM('DBH1','DBH2', 'DBH3', 'DBH4') NOT NULL,
-    CURSO YEAR
+    Nivel ENUM('DBH1','DBH2', 'DBH3', 'DBH4') NOT NULL,
+    Curso YEAR
 
 );  
-CREATE TABLE IDIOMA (
+CREATE TABLE Idioma (
     ID_Libro Varchar(20) NOT NULL PRIMARY KEY,
     Titulo_libro INT(4) NOT NULL,
     Idioma Varchar(15) NOT NULL
@@ -26,7 +26,7 @@ CREATE TABLE Valoraciones (
     Nota Varchar(30) NOT NULL,
     Edad INT(4) NOT NULL,
     Nickname Varchar(30) NOT NULL,
-    TTULO  Varchar(20) NOT NULL,
+    Titulo_libro  Varchar(20) NOT NULL,
     Idioma Varchar(15) NOT NULL 
 );
 CREATE TABLE Opiniones (
@@ -36,7 +36,7 @@ CREATE TABLE Opiniones (
 );
 CREATE TABLE Libros (
     ID_Libro  Varchar(20) NOT NULL PRIMARY KEY,
-    TTULO  Varchar(20) NOT NULL,
+    Titulo_libro  Varchar(20) NOT NULL,
     Foto varchar(15) NOT NULL,
     Autor varchar(100) NOT NULL,
     AñoDeLibro  Varchar(20) NOT NULL,  
@@ -48,7 +48,7 @@ CREATE TABLE Libros (
     Idioma ENUM('Gaztelania','Euskara', 'Ingelesa')
 ); 
 CREATE TABLE PeticionDeLibro (
-    TTULO  Varchar(20) NOT NULL,
+    Titulo_libro  Varchar(20) NOT NULL,
     ID_Peticion Varchar(20) NOT NULL PRIMARY KEY,
     Edad INT(4) NOT NULL,
     Estado ENUM('Aceptada','EnEspera', 'Denegada'),
