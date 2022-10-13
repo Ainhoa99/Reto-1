@@ -25,7 +25,9 @@ CREATE TABLE Valoraciones (
     ID_Valoracion Varchar(20) NOT NULL PRIMARY KEY,
     Nota Varchar(30) NOT NULL,
     Edad INT(4) NOT NULL,
-    Idioma Varchar(15) NOT NULL PRIMARY KEY
+    Nickname Varchar(30) NOT NULL,
+    TTULO  Varchar(20) NOT NULL,
+    Idioma Varchar(15) NOT NULL 
 );
 CREATE TABLE Opiniones (
     ID_Opinion Varchar(20) NOT NULL PRIMARY KEY, 
