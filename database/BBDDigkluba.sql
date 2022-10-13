@@ -40,7 +40,7 @@ CREATE TABLE Libros (
     Foto varchar(15) NOT NULL,
     Autor varchar(100) NOT NULL,
     AñoDeLibro  Varchar(20) NOT NULL,  
-    Sinopsis Varchar(300) NOT NULL,
+    Sinopsis Varchar(2300) NOT NULL,
     Formato varchar(15) NOT NULL,
     EdadMedia INT(2) NOT NULL,
     NotaMedia INT(2) NOT NULL,
