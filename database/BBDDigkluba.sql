@@ -50,8 +50,8 @@ CREATE TABLE PeticionDeLibro (
     TTULO  Varchar(20) NOT NULL,
     ID_Peticion Varchar(20) NOT NULL PRIMARY KEY,
     Edad INT(4) NOT NULL,
-    Estado ENUM('Aceptada','EnEspera', 'Denegada')
-    ID_Usuario
+    Estado ENUM('Aceptada','EnEspera', 'Denegada'),
+    Nickname Varchar(30) NOT NULL,
 );
 CREATE TABLE ListaDeClases (
     ID_Clase Varchar(20) NOT NULL PRIMARY KEY, 
