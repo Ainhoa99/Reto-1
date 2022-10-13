@@ -12,13 +12,21 @@ Create Database IGKLUBA;
     VALIDADO BOOLEAN NOT NULL,
     movil char(9), 
     Contraseña Varchar(30) NOT NULL,
+    NIVEL ENUM('DBH1','DBH2', 'DBH3', 'DBH4') NOT NULL,
+    CURSO YEAR
 
+);  
+CREATE TABLE IDIOMA (
+    ID_Libro Varchar(20) NOT NULL PRIMARY KEY,
+    Idioma Varchar(30) NOT NULL,
+    Titulo_libro INT(4) NOT NULL,
+    Idioma Varchar(15) NOT NULL
 );
-  CREATE TABLE Valoraciones (
+CREATE TABLE Valoraciones (
     ID_Valoracion Varchar(20) NOT NULL PRIMARY KEY,
     Nota Varchar(30) NOT NULL,
     Edad INT(4) NOT NULL,
-    Idioma Varchar(15) NOT NULL
+    Idioma Varchar(15) NOT NULL PRIMARY KEY
 );
 CREATE TABLE Opiniones (
     ID_Opinion Varchar(20) NOT NULL PRIMARY KEY, 
@@ -27,7 +35,7 @@ CREATE TABLE Opiniones (
 );
 CREATE TABLE Libros (
     ID_Libro  Varchar(20) NOT NULL PRIMARY KEY,
-    Nombre  Varchar(20) NOT NULL,
+    TTULO  Varchar(20) NOT NULL,
     Foto varchar(15) NOT NULL,
     Autor varchar(100) NOT NULL,
     AñoDeLibro  Varchar(20) NOT NULL,  
