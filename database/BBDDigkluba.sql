@@ -1,5 +1,6 @@
-Create Database IGKLUBA;
-    use IGKLUBA;
+drop database if exists igkluba;
+create database igkluba default character set utf8 default collate utf8_general_ci;
+use igkluba;
     CREATE TABLE Centro (
     id_centro Varchar(20) NOT NULL PRIMARY KEY,
     nombre_centro Varchar(30)
