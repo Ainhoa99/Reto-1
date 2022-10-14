@@ -1,15 +1,15 @@
 drop database if exists igkluba;
 create database igkluba default character set utf8 default collate utf8_general_ci;
 use igkluba;
-    CREATE TABLE Centro (
+    CREATE TABLE centro (
     id_centro Varchar(20) NOT NULL PRIMARY KEY,
     nombre_centro Varchar(30)
 );
-    CREATE TABLE Usuarios (
+    CREATE TABLE usuarios (
     nombre Varchar(20) NOT NULL,
     apellidos Varchar(30) NOT NULL,
-    correo Varchar(30) NOT NULL PRIMARY KEY,
-    nickname Varchar(30) NOT NULL,
+    correo Varchar(30) NOT NULL ,
+    nickname Varchar(30) NOT NULL PRIMARY KEY,
     foto varchar(15),
     centro Varchar(20),
     fecha_nacimiento DATE,
@@ -18,15 +18,15 @@ use igkluba;
     movil char(9), 
     contraseña Varchar(25) NOT NULL,
     nivel ENUM('DBH1','DBH2', 'DBH3', 'DBH4') NOT NULL,
-    curso YEAR,
-    FOREIGN KEY  (centro) references Centro(id_centro)
+    curso INT(8),
+    FOREIGN KEY  (`centro`) references `centro`(`id_centro`)
 );  
-CREATE TABLE IdiomaLibro (
+CREATE TABLE idiomalibro (
     idioma Varchar(15) NOT NULL PRIMARY Key
 );
-CREATE TABLE Libros (
-    id_libro  Varchar(20) NOT NULL PRIMARY KEY,
-    titulo_libro  Varchar(20) NOT NULL,
+CREATE TABLE libros (
+    id_libro  Varchar(20) NOT NULL ,
+    titulo_libro  Varchar(20) NOT NULL PRIMARY KEY,
     foto varchar(15) NOT NULL,
     autor varchar(100) NOT NULL,
     año_de_libro  Varchar(20) NOT NULL,  
@@ -36,47 +36,44 @@ CREATE TABLE Libros (
     notamedia INT(2) NOT NULL,
     num_lectores INT(4) NOT NULL,
     idioma Varchar(15) NOT NULL,
-    FOREIGN KEY  (idioma) references IdiomaLibro(idioma)
+    FOREIGN KEY  (`idioma`) references `idiomalibro`(`idioma`)
 ); 
-CREATE TABLE Valoraciones (
+CREATE TABLE valoraciones (
     id_valoracion Varchar(20) NOT NULL PRIMARY KEY,
     nota Varchar(30) NOT NULL,
-    fecha_nacimiento DATE,
+    edad int(2),
     nickname Varchar(30) NOT NULL,
     titulo_libro  Varchar(20) NOT NULL,
     idioma Varchar(15) NOT NULL,
-    FOREIGN KEY  (fecha_nacimiento) references Usuarios(fecha_nacimiento),
-    FOREIGN KEY  (nickname) references Usuarios(nickname),
-    FOREIGN KEY  (titulo_libro) references Libros(titulo_libro),
-    FOREIGN KEY  (idioma) references IdiomaLibro(idioma)
+    FOREIGN KEY  (`nickname`) references `usuarios`(`nickname`),
+    FOREIGN KEY  (`titulo_libro`) references `libros`(`titulo_libro`),
+    FOREIGN KEY  (`idioma`) references `idiomalibro`(`idioma`)
 );
-CREATE TABLE Opiniones (
+CREATE TABLE opiniones (
     id_opinion Varchar(20) NOT NULL PRIMARY KEY, 
-    nombre Varchar(30) NOT NULL,
-    fecha_nacimiento DATE,
-    FOREIGN KEY  (nombre) references Usuarios(nombre),
-    FOREIGN KEY  (fecha_nacimiento) references Usuarios(fecha_nacimiento)
+    nickname Varchar(30) NOT NULL,
+    edad int(2),
+    FOREIGN KEY  (`nickname`) references `usuarios`(`nickname`)
 );
 
-CREATE TABLE PeticionDeLibro (
+CREATE TABLE peticiondelibro (
     titulo_libro  Varchar(20) NOT NULL,
-    estado ENUM('Aceptada','EnEspera', 'Denegada'),
+    estado ENUM('Aceptada','Espera', 'Denegada'),
     nickname Varchar(30) NOT NULL,
-    fecha_nacimiento DATE,
+    edad int(2),
     id_peticion Varchar(20) NOT NULL PRIMARY KEY,
-    FOREIGN KEY  (titulo_libro) references Libros(titulo_libro),
-    FOREIGN KEY  (fecha_nacimiento) references Usuarios(fecha_nacimiento),
-    FOREIGN KEY  (nickname) references Usuarios(nickname)
+    FOREIGN KEY  (`titulo_libro`) references `libros`(`titulo_libro`),
+    FOREIGN KEY  (`nickname`) references `usuarios`(`nickname`)
 );
-CREATE TABLE Clase (
+CREATE TABLE clase (
     fecha_limite Date NOT NULL,
-    correo Varchar(30) NOT NULL,
+    nickname Varchar(30) NOT NULL,
     codigo INT(4) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-    FOREIGN KEY  (correo) references Usuarios(correo)
+    FOREIGN KEY  (`nickname`) references `usuarios`(`nickname`)
 );
-CREATE TABLE ListaDeClases (
-    id_clase Varchar(20) NOT NULL PRIMARY KEY,
-    nombre Varchar(30) NOT NULL, 
-    FOREIGN KEY  (id_clase) references Clase(id_clase),
-    FOREIGN KEY (nombre) references Usuarios(nombre)
+CREATE TABLE listadeclases (
+    codigo INT(4) NOT NULL AUTO_INCREMENT,
+    nickname Varchar(30) NOT NULL, 
+    FOREIGN KEY  (`codigo`) references `Clase`(`codigo`),
+    FOREIGN KEY (`nickname`) references `Usuarios`(`nickname`)
 );
