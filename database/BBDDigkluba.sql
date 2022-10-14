@@ -1,81 +1,81 @@
 Create Database IGKLUBA;
     use IGKLUBA;
     CREATE TABLE Centro (
-    ID_Centro Varchar(20) NOT NULL PRIMARY KEY,
-    NombreCentro Varchar(30)
+    id_centro Varchar(20) NOT NULL PRIMARY KEY,
+    nombre_centro Varchar(30)
 );
     CREATE TABLE Usuarios (
-    Nombre Varchar(20) NOT NULL,
-    Apellidos Varchar(30) NOT NULL,
-    Correo Varchar(30) NOT NULL PRIMARY KEY,
-    Nickname Varchar(30) NOT NULL,
-    Foto varchar(15),
-    Centro Varchar(20),
-    FOREIGN KEY  (Centro) references Centro(ID_Centro),
-    Fecha_Nacimiento DATE,
-    Tipo ENUM('Alumno','Profesor', 'Administrador') NOT NULL,
-    Validado BOOLEAN NOT NULL,
-    Movil char(9), 
-    Contraseña Varchar(25) NOT NULL,
-    Nivel ENUM('DBH1','DBH2', 'DBH3', 'DBH4') NOT NULL,
-    Curso YEAR
+    nombre Varchar(20) NOT NULL,
+    apellidos Varchar(30) NOT NULL,
+    correo Varchar(30) NOT NULL PRIMARY KEY,
+    nickname Varchar(30) NOT NULL,
+    foto varchar(15),
+    centro Varchar(20),
+    fecha_nacimiento DATE,
+    tipo ENUM('Alumno','Profesor', 'Administrador') NOT NULL,
+    validado BOOLEAN NOT NULL,
+    movil char(9), 
+    contraseña Varchar(25) NOT NULL,
+    nivel ENUM('DBH1','DBH2', 'DBH3', 'DBH4') NOT NULL,
+    curso YEAR,
+    FOREIGN KEY  (centro) references Centro(id_centro)
 );  
 CREATE TABLE IdiomaLibro (
-    Idioma Varchar(15) NOT NULL PRIMARY Key
+    idioma Varchar(15) NOT NULL PRIMARY Key
 );
 CREATE TABLE Libros (
-    ID_Libro  Varchar(20) NOT NULL PRIMARY KEY,
-    Titulo_libro  Varchar(20) NOT NULL,
-    Foto varchar(15) NOT NULL,
-    Autor varchar(100) NOT NULL,
-    AñoDeLibro  Varchar(20) NOT NULL,  
-    Sinopsis Varchar(2300) NOT NULL,
-    Formato varchar(15) NOT NULL,
-    EdadMedia INT(2) NOT NULL,
-    NotaMedia INT(2) NOT NULL,
-    Num_Lectores INT(4) NOT NULL,
-    Idioma Varchar(15) NOT NULL,
-     FOREIGN KEY  (Idioma) references IdiomaLibro(Idioma)
+    id_libro  Varchar(20) NOT NULL PRIMARY KEY,
+    titulo_libro  Varchar(20) NOT NULL,
+    foto varchar(15) NOT NULL,
+    autor varchar(100) NOT NULL,
+    año_de_libro  Varchar(20) NOT NULL,  
+    sinopsis Varchar(2300) NOT NULL,
+    formato varchar(15) NOT NULL,
+    edadmedia INT(2) NOT NULL,
+    notamedia INT(2) NOT NULL,
+    num_lectores INT(4) NOT NULL,
+    idioma Varchar(15) NOT NULL,
+    FOREIGN KEY  (idioma) references IdiomaLibro(idioma)
 ); 
 CREATE TABLE Valoraciones (
-    ID_Valoracion Varchar(20) NOT NULL PRIMARY KEY,
-    Nota Varchar(30) NOT NULL,
-    Edad INT(4) NOT NULL,
-    Nickname Varchar(30) NOT NULL,
-     FOREIGN KEY  (Nickname) references Usuarios(Nickname),
-    Titulo_libro  Varchar(20) NOT NULL,
-     FOREIGN KEY  (Titulo_libro) references Libros(Titulo_libro),
-    Idioma Varchar(15) NOT NULL,
-     FOREIGN KEY  (Idioma) references IdiomaLibro(Idioma)
+    id_valoracion Varchar(20) NOT NULL PRIMARY KEY,
+    nota Varchar(30) NOT NULL,
+    fecha_nacimiento DATE,
+    nickname Varchar(30) NOT NULL,
+    titulo_libro  Varchar(20) NOT NULL,
+    idioma Varchar(15) NOT NULL,
+    FOREIGN KEY  (fecha_nacimiento) references Usuarios(fecha_nacimiento),
+    FOREIGN KEY  (nickname) references Usuarios(nickname),
+    FOREIGN KEY  (titulo_libro) references Libros(titulo_libro),
+    FOREIGN KEY  (idioma) references IdiomaLibro(idioma)
 );
 CREATE TABLE Opiniones (
-    ID_Opinion Varchar(20) NOT NULL PRIMARY KEY, 
-    Nombre Varchar(30) NOT NULL,
-     FOREIGN KEY  (Nombre) references Usuarios(Nombre),
-    Fecha_Nacimiento DATE,
-     FOREIGN KEY  (Fecha_Nacimiento) references Usuarios(Fecha_Nacimiento)
+    id_opinion Varchar(20) NOT NULL PRIMARY KEY, 
+    nombre Varchar(30) NOT NULL,
+    fecha_nacimiento DATE,
+    FOREIGN KEY  (nombre) references Usuarios(nombre),
+    FOREIGN KEY  (fecha_nacimiento) references Usuarios(fecha_nacimiento)
 );
 
 CREATE TABLE PeticionDeLibro (
-    Titulo_libro  Varchar(20) NOT NULL,
-     FOREIGN KEY  (Titulo_libro) references Libros(Titulo_libro),
-    ID_Peticion Varchar(20) NOT NULL PRIMARY KEY,
-    Fecha_Nacimiento DATE,
-     FOREIGN KEY  (Fecha_Nacimiento) references Usuarios(Fecha_Nacimiento),
-    Estado ENUM('Aceptada','EnEspera', 'Denegada'),
-    Nickname Varchar(30) NOT NULL,
-    FOREIGN KEY  (Nickname) references Usuarios(Nickname)
+    titulo_libro  Varchar(20) NOT NULL,
+    estado ENUM('Aceptada','EnEspera', 'Denegada'),
+    nickname Varchar(30) NOT NULL,
+    fecha_nacimiento DATE,
+    id_peticion Varchar(20) NOT NULL PRIMARY KEY,
+    FOREIGN KEY  (titulo_libro) references Libros(titulo_libro),
+    FOREIGN KEY  (fecha_nacimiento) references Usuarios(fecha_nacimiento),
+    FOREIGN KEY  (nickname) references Usuarios(nickname)
 );
 CREATE TABLE Clase (
-    ID_Clase Varchar(20) NOT NULL PRIMARY KEY,
-    FechaLimite Date NOT NULL,
-    Codigo INT(4) NOT NULL, 
-    Correo Varchar(30) NOT NULL,
-     FOREIGN KEY  (Correo) references Usuarios(Correo)
+    fecha_limite Date NOT NULL,
+    correo Varchar(30) NOT NULL,
+    codigo INT(4) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    FOREIGN KEY  (correo) references Usuarios(correo)
 );
 CREATE TABLE ListaDeClases (
-    ID_Clase Varchar(20) NOT NULL PRIMARY KEY, 
-    FOREIGN KEY  (ID_Clase) references Clase(ID_Clase),
-    Nombre Varchar(30) NOT NULL,
-    FOREIGN KEY (Nombre) references Usuarios(Nombre)
+    id_clase Varchar(20) NOT NULL PRIMARY KEY,
+    nombre Varchar(30) NOT NULL, 
+    FOREIGN KEY  (id_clase) references Clase(id_clase),
+    FOREIGN KEY (nombre) references Usuarios(nombre)
 );
