@@ -16,7 +16,7 @@ Create Database IGKLUBA;
     Tipo ENUM('Alumno','Profesor', 'Administrador') NOT NULL,
     Validado BOOLEAN NOT NULL,
     Movil char(9), 
-    Contraseña Varchar(30) NOT NULL,
+    Contraseña Varchar(25) NOT NULL,
     Nivel ENUM('DBH1','DBH2', 'DBH3', 'DBH4') NOT NULL,
     Curso YEAR
 );  
