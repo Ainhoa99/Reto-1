@@ -1,7 +1,7 @@
 <?php
     //Variables
     $hostDB = '127.0.0.1';
-    $nombreDB = 'IGKLUBA';
+    $nombreDB = 'igkluba';
     $usuarioDB = 'root';
     $contrasenyaDB = '';
 
