@@ -36,6 +36,7 @@ CREATE TABLE libros (
     notamedia INT(2) NOT NULL,
     num_lectores INT(4) NOT NULL,
     idioma Varchar(15) NOT NULL,
+    link_compra varchar(100),
     FOREIGN KEY  (`idioma`) references `idiomalibro`(`idioma`)
 ); 
 CREATE TABLE valoraciones (
