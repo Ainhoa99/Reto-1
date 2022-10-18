@@ -16,7 +16,7 @@ use igkluba;
     tipo ENUM('Alumno','Profesor', 'Administrador') NOT NULL,
     validado BOOLEAN NOT NULL,
     movil char(9), 
-    contraseña Varchar(25) NOT NULL,
+    password Varchar(25) NOT NULL,
     nivel ENUM('DBH1','DBH2', 'DBH3', 'DBH4') NOT NULL,
     curso varchar(9),
     FOREIGN KEY  (`centro`) references `centro`(`id_centro`)
@@ -29,7 +29,7 @@ CREATE TABLE libros (
     titulo_libro  Varchar(70) NOT NULL PRIMARY KEY,
     foto varchar(15) NOT NULL,
     autor varchar(100) NOT NULL,
-    año_de_libro  Varchar(20) NOT NULL,  
+    ano_de_libro  Varchar(20) NOT NULL,  
     sinopsis Varchar(2300) NOT NULL,
     formato varchar(15) NOT NULL,
     edadmedia INT(2) NOT NULL,
