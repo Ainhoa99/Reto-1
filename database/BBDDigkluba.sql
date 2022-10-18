@@ -26,8 +26,8 @@ CREATE TABLE idiomalibro (
 );
 CREATE TABLE libros (
     id_libro  Varchar(20) NOT NULL ,
-    titulo_libro  Varchar(70) NOT NULL PRIMARY KEY,
-    foto varchar(15) NOT NULL,
+    titulo_libro  Varchar(160) NOT NULL PRIMARY KEY,
+    foto varchar(80) NOT NULL,
     autor varchar(100) NOT NULL,
     ano_de_libro  Varchar(20) NOT NULL,  
     sinopsis Varchar(2300) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE libros (
     edadmedia INT(2) NOT NULL,
     notamedia INT(2) NOT NULL,
     num_lectores INT(4) NOT NULL,
-    idioma Varchar(15) NOT NULL,
+    idioma Varchar(50) NOT NULL,
     link_compra varchar(100),
     FOREIGN KEY  (`idioma`) references `idiomalibro`(`idioma`)
 ); 
