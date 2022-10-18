@@ -1,20 +1,21 @@
 <?php
-    include_once "database/conexion.php";
+include_once('database/conexion.php');
 ?>
-
+ 
 <!DOCTYPE html>
 <html lang="en">
+ 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo/estilo_general.css">
-    <script src="script.js"></script>
-    <title>REGISTER</title>
+    <title>Añadir nuevo profesor</title>
 </head>
+ 
 <body>
     <div class="container">
-        <?php 
+    <?php 
             // Comprobamos que nos llega los datos del formulario
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Variables del formulario
@@ -25,12 +26,11 @@
                 $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
                 $centro = isset($_REQUEST['centro']) ? $_REQUEST['centro'] : null;
                 $fecha = isset($_REQUEST['fecha']) ? $_REQUEST['fecha'] : null;
-                $nivel = isset($_REQUEST['nivel']) ? $_REQUEST['nivel'] : null;
                 
 
                 // Base de datos.
-                $consulta = $miPDO ->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, password, nivel, curso)
-                                            VALUES (:nombre, :apellidos, :correo, :nickname, :id_centro, :fecha_nacimiento, :tipo, :validado, :password, :nivel, :curso)');
+                $consulta = $miPDO ->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, password, curso)
+                                            VALUES (:nombre, :apellidos, :correo, :nickname, :id_centro, :fecha_nacimiento, :tipo, :validado, :password, :curso)');
                 $consulta ->execute([
                     'nombre' => $nombre,
                     'apellidos' => $apellidos,
@@ -38,10 +38,9 @@
                     'nickname' => $nickname,
                     'id_centro' => $centro,
                     'fecha_nacimiento' => $fecha,
-                    'tipo' => 'Alumno',
-                    'validado' => 0,
+                    'tipo' => 'Profesor',
+                    'validado' => 1,
                     'password' => $password,
-                    'nivel' => $nivel,
                     'curso' => '2022-2023'
 
                 ]);
@@ -66,15 +65,6 @@
                         <input type="text" class="form__input" name="email" id="email" size="40" autofocus placeholder="Email">
                     </div>
                     <div class="form__input-group">
-                        <span>Curso:</span>
-                        <select name="nivel" id="nivel">
-                            <option value="DBH1">DBH 1</option>
-                            <option value="DBH2">DBH 2</option>
-                            <option value="DBH3">DBH 3</option>
-                            <option value="DBH4">DBH 4</option>
-                        </select>
-                    </div>
-                    <div class="form__input-group">
                         <input type="text" name="fecha" class="form__input" id="fecha" size="40" autofocus placeholder="Fecha de nacimiento" onfocus="(this.type='date')">
                     </div>
                 </div>
@@ -89,7 +79,6 @@
                         <input type="password" class="form__input" id="password2" size="40" autofocus placeholder="Repeat password">
                     </div>
                     <div class="form__input-group">
-                        <span>Centro:</span>
                         <select name="centro" id="centro">
                             <?php
                                 //Consulta
@@ -107,11 +96,10 @@
             </div>
             
             
-            <button class="form__button" type="submit" id="btnRegistro">Sign up</button>
-            <p class="form__text">
-                <a class="form__link" href="login.php" id="linkCreateAccount">Alredy have an account? Sign in</a>
-            </p>
+            <button class="form__button" type="submit" id="btnRegistro">Crear profesor</button>
+           
         </form>
     </div>
 </body>
+ 
 </html>

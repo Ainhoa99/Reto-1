@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo/estilo_login_registro.css">
+    <link rel="stylesheet" href="estilo/estilo_general.css">
     <title>LOGIN</title>
 </head>
 <body>
@@ -22,14 +22,14 @@
                 $contrasenyaFormulario = isset($_REQUEST['cont']) ? $_REQUEST['cont'] : null;
 
                 // Base de datos.
-                $consulta = $miPDO ->prepare('SELECT correo, nickname, contraseña, VALIDADO FROM usuarios');
+                $consulta = $miPDO ->prepare('SELECT correo, nickname, password, validado FROM usuarios');
                 $consulta ->execute();
                 $usuarios = $consulta ->fetchAll();
                 foreach($usuarios as $posicion =>$usuario){
                     $correo = $usuario['correo'];
                     $nickname = $usuario['nickname'];
-                    $password = $usuario['contraseña'];
-                    $validado = $usuario['VALIDADO'];
+                    $password = $usuario['password'];
+                    $validado = $usuario['validado'];
 
                     // Comprobamos si los datos son correctos
                     if (($correo == $usuarioFormulario || $nickname == $usuarioFormulario) && $contrasenyaFormulario == $password && $validado == 1) {
@@ -41,7 +41,7 @@
                         die();
                     } 
                 }
-                echo '<p style="color: red">El email o la contraseña es incorrecta.</p>';
+                echo '<p style="color: red" class="form__text">El email o la contraseña es incorrecta.</p>';
 
             }
         ?>
