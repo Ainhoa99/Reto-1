@@ -11,7 +11,7 @@ use igkluba;
     correo Varchar(30) NOT NULL ,
     nickname Varchar(30) NOT NULL PRIMARY KEY,
     foto varchar(15),
-    centro Varchar(20),
+    id_centro Varchar(20),
     fecha_nacimiento DATE,
     tipo ENUM('Alumno','Profesor', 'Administrador') NOT NULL,
     validado BOOLEAN NOT NULL,
