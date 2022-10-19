@@ -37,7 +37,7 @@
                         session_start();
                         $_SESSION['correo'] = $_REQUEST['correo'];
                         // Redireccionamos a la página segura
-                        header('Location: validacion.php');
+                        header('Location: index.php');
                         die();
                     } 
                 }

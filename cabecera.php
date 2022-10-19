@@ -31,8 +31,9 @@
                 <li><a href=""><i class="fas fa-chalkboard-teacher"></i>Mi clase</a></li>
                 <li><a href=""><i class="fa fa-book-open"></i>Mis libros</a></li>
                 <li><a href=""><i class="fas fa-user"></i>Mis datos</a></li>
-                <li><a href=""><i class="fas fa-check"></i>Validaciones</a></li>
-                <li><a href=""><i class="fas fa-times"></i>Cerrar sesión</a></li>
+                <li><a href="nuevo_profesor.php"><i class="	far fa-id-badge"></i>Nuevo profesor</a></li>
+                <li><a href="validacion.php"><i class="fas fa-check"></i>Validaciones</a></li>
+                <li><a href="login.php"><i class="fas fa-times"></i>Cerrar sesión</a></li>
            </ul>
        </nav>
       
