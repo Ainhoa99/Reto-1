@@ -1,3 +1,5 @@
+<?php include('database/conexion.php');?>
+    
 <!DOCTYPE html>
 <html lang="es">
 
@@ -26,8 +28,6 @@
     <main id="contenido">
         
             <?php 
-            
-            include('database/conexion.php');
         
             // Prepara SELECT
             $consulta = $miPDO->prepare('SELECT * FROM libros;');
@@ -36,22 +36,40 @@
             $consulta->execute();
 
                 $respuesta = $consulta ->fetchAll();
-                foreach($respuesta as $posicion =>$libros):   
-                
+               // foreach($respuesta as $posicion =>$libros):   
             ?>
+              
+                       <?php 
+                    foreach($respuesta as $posicion =>$libros){
+                    echo "<div id='libro'>";
+                    
+                        //Imagen
+                        echo "<figure class='img-libro'><img src='img/" . $libros['foto'] . "'></figure>";
+                    
+                            
+                        echo "<div class='caja-info-libro'>";
+                        //Titulo
+                        echo "<p class='libro-titulo'>" . $libros['titulo_libro'] . "</p>";
+                    
+                        //Autor
+                        echo "<p class='libro-autor'>" . $libros['autor'] . "</p>";
+                        
+                        //Valoración
+                        echo "<div class='caja-notamedia'>";
+                        echo "<p class='libro-notamedia-text'> Nota media</p>";
+                        echo "<p class='libro-notamedia'>" . $libros['notamedia'] . "</p>";
+                        echo "</div>";                        
+                        //Edad media
+                        echo "<p class='libro-edad-media'> Edad media: " . $libros['edadmedia'] . "</p>";
 
-            <div id="contenedor-libros">
-                <div id="libro">
-                    <figure class="img-libro"> 
-                        <img src="<?= $libros['foto']; ?>" alt="">
-                    </figure>
-                    <p id="libro-titulo"><?= $libros['titulo_libro']; ?></p>
-                    <p id="libro-autor"><?= $libros['autor']; ?></p>
-                    <p class="enlace-ficha"><a href="fichalibro.php">Ver ficha del libro</a></p>
-                </div>
-            </div>
-           
-            <?php endforeach; ?>
+                        //Enlace a la ficha
+                        echo "<p class='enlace-ficha'><a href='fichalibro.php'>Ver ficha</a></p>";
+                        echo "</div>";
+                    echo "</div>";
+                }
+                    
+                  ?>  
+
         
     </main>
     
