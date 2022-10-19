@@ -1,0 +1,527 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 0.625em;
+}
+
+body{
+    font-size: 1.5rem;
+}
+
+/*** Cabecera ****/
+
+#cabecera{
+
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/** Logo **/
+
+#logo{
+    width: 25%;
+}
+
+#logo img{
+    width: 100%;
+    max-width: 200px;
+    display: block;
+}
+
+#cabecera h1{
+    letter-spacing: 1em;
+    font-size: 1.6rem;
+}
+
+
+#caja-logo-titulo{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(184, 52, 3);
+}
+
+#caja-botones{
+    background-color: whitesmoke;
+    border-bottom: 1px solid #c7c7c7;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    position: relative;
+}
+
+/** Buscador **/
+
+#buscador{
+    position: absolute;
+    top: 8px;
+    right: 70px;
+    background-color: whitesmoke;
+    text-align: center;
+    z-index: 9999;
+}
+
+#buscador-texto{
+    border-radius: 3px;
+    height: 35px;
+    margin-left: 100px;
+    border: 1px solid grey;
+    padding-left: 30px;
+}
+
+#buscador .fa-search{
+    color: #555555;
+    position: absolute;
+    top: 10px;
+    right: 198px;
+    cursor: pointer;
+}
+
+#btn-buscador{
+    color: #555555;
+    font-size: 1.7rem;
+    font-weight: normal;
+    cursor: pointer;
+    padding: 8px;
+}
+
+#btn-buscador:hover{
+    background-color: #dedede;
+    border-radius: 50%;
+}
+
+
+/**** Menú navegación ****/
+
+/** Botón **/
+
+#btn-nav{
+    height: 20px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 15px 0;
+}
+
+#btn-nav .linea {
+    border-bottom: 3px solid #555555;
+    border-radius: 10px;
+    width: 100%;
+    transition: 0.4s;
+}
+
+#btn-nav .linea{
+    position: absolute;
+    right: 0;
+}
+
+.linea:first-child {
+    top: 0;
+}
+
+.linea:nth-child(2) {
+    top: 50%;
+}
+
+.linea:last-child {
+    top: 100%;
+}
+
+
+.efecto-btn .linea:first-child {
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.efecto-btn .linea:nth-child(2) {
+    display: none;
+}
+
+.efecto-btn .linea:last-child {
+    top: 50%;
+    transform: rotate(-45deg);
+}
+
+.btn {
+    cursor: pointer;
+    user-select: none;
+}
+
+/** Menú **/
+
+.ocultar {
+    display: none;
+}
+
+#menu-nav{
+    position: absolute;
+    top: 100%;
+    left: -5px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    z-index: 99999;
+}
+
+#menu-nav ul{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: rgb(229, 229, 229);
+    border-radius: 0 0 20px 20px;
+
+}
+
+#menu-nav li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid whitesmoke;
+    transition: 0.5s;
+}
+
+#menu-nav a {
+    width: 100%;
+    color:#535353;
+    text-decoration: none;
+    padding: 0 20px;
+}
+
+#menu-nav li:hover a{
+    width: 100%;
+    text-decoration: none;
+    font-size: 1.7rem;
+    transform: translateX(20px);
+    transition: 0.7s;
+}
+
+#menu-nav .pag-activa{
+    font-weight: bold;
+    color: black;
+}
+
+#menu-nav a>i{
+    padding-right: 7px;
+}
+
+
+/***** Contenido página inicio - listado libros *******/
+
+#libro{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid rgb(185, 185, 185);
+    margin: 30px;
+    font-family: Arial;
+    font-size: 1.4rem;
+    position: relative;
+}
+
+#libro p{
+    padding: 7px;
+}
+
+.libro-titulo{
+    font-weight: bold;
+}
+
+/* Imagen libro */
+
+#libro .img-libro{
+    width: 50%;
+    padding: 5px 0;
+    max-width: 250px;
+    position: relative;
+}
+
+#libro .img-libro img{
+    width: 100%;
+}
+
+/* Enlace a la ficha */
+
+.enlace-ficha{
+    margin: 20px;
+    display: none;
+    text-transform: uppercase;
+    border: 1px solid rgb(71, 71, 71);
+    border-radius: 4px;
+    transition: 0.7s;
+}
+
+.enlace-ficha:hover{
+    background-color: rgb(184, 52, 3);
+    border: none;
+}
+
+.enlace-ficha:hover a{
+    color: whitesmoke;
+}
+
+#libro:hover .enlace-ficha{
+    display: block;
+}
+
+.enlace-ficha a{
+    color: rgb(71, 71, 71);
+    font-size: 1.3rem;
+    padding:10px;
+    text-decoration: none;
+}
+
+.caja-info-libro{
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    transition: 0.5s;
+    height: 200px;
+}
+
+#libro:hover .caja-info-libro{
+    transform: translateY(-60px);
+    transition: 0.5s;
+}
+
+/* Nota media del libro */
+
+.caja-notamedia{
+    position: sticky;
+    top: 0;
+    right: 0;
+}
+
+.libro-notamedia{
+    color: rgb(184, 52, 3);
+    font-weight: bold;
+}
+
+.libro-notamedia-text{
+    background-color: white;
+    color: rgb(184, 52, 3);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/***** Ficha libro ******/
+
+/** Valoración **/
+
+#valoracion{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 20px;
+}
+
+#valoracion a{
+    text-decoration: none;
+    color: #d6d6d6;
+    background-color: rgb(184, 52, 3);
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 1.3rem;
+}
+
+
+
+/**** Pie de página ****/
+
+
+#pie-pagina{
+    font-size: 1.4rem;
+    background-color: whitesmoke;
+    color: #6c6c6c;
+}
+
+#pie-pagina a{
+    text-decoration: none;
+    color: black;
+}
+
+#pie-pagina p{
+    border-bottom: 1px solid #c7c7c7;
+    padding: 20px;
+}
+
+#pie-pagina>p:last-child{
+    background-color: rgb(184, 52, 3);
+    width: 100%;
+    color: #d0d0d0;
+}
+
+#pie-pagina i{
+    padding: 7px;
+}
+
+#pie-pagina .copyright{
+    text-align: center;
+    font-family: arial;
+    letter-spacing: 0.9em;
+}
+
+
+
+  /***********************    CORTE - TRAMO PANTALLA     **********************/
+
+  @media (min-width: 850px){
+
+    /* Buscador */
+      
+      #buscador{
+         
+      }
+      
+      #btn-buscador{
+          padding: 8px;
+          margin: 6px;
+      }
+      
+      
+    /* Menú navegacion */
+
+    #btn-nav{
+        display: none;
+    }
+
+    #menu-nav{
+        display: block;
+        background: rgb(229, 229, 229);
+        border-radius: 0;
+        width: 100%;
+    }
+
+    
+    #menu-nav ul{
+        flex-direction: row;
+        justify-content: right;
+    }
+    
+    #menu-nav>ul>li{
+        display: flex;
+        align-items: center;
+        width: auto;
+        padding: 10px;
+        border-bottom: 1px solid whitesmoke;
+        transition: 0.5s;
+        position: relative;
+    }
+    
+    #menu-nav>ul>li:hover a{
+        transform: translateX(0px);
+    }
+
+    #menu-nav>ul>li>a{
+        padding: 5px;
+    }
+    
+    #menu-nav>ul>li>a::after{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-bottom: 2px rgb(59, 58, 58) solid;
+        width: 3%;
+        opacity: 0;
+    }
+
+    #menu-nav>ul>li>a:hover{
+        color:rgb(49, 45, 45);
+    }
+    
+    #menu-nav>ul a:hover::after{
+        width: 100%;
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+    /*Pie pagina*/
+
+    #contenedor-pie{
+        display: flex;
+        justify-content: space-around;
+    
+    }
+
+    #contenedor-pie p{
+        width: 50%;
+        max-width: 550px;
+        margin: 20px;
+        border-top: none;
+    }
+
+    #pie-pagina p{
+        border-right: 1px solid rgb(77, 77, 77);
+    }
+
+    #pie-pagina p:last-child{
+        border-right: none;
+    }
+
+    /* contenido libros */
+
+    #contenido{
+        display: flex;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    #libro{
+        width: 45%;
+        margin: 20px;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 50px;
+    }
+      
+      #contenido{
+          margin-top: 100px;
+      }
+    
+
+  }
+
+    /***********************  CORTE - TRAMO PANTALLA 2    **********************/
+
+    @media (min-width: 1000px){
+
+        
+        #libro{
+            width: 25%;
+            margin: 10px;
+        }
+    
+      }
+
+
+  /***********************  CORTE - TRAMO PANTALLA 3    **********************/
+
+    @media (min-width: 1300px){
+
+        
+        #libro{
+            width: 20%;
+            margin: 10px;
+        }
+    
+      }
