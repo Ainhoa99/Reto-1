@@ -10,7 +10,7 @@ include_once "database/conexion.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo/estilo_general.css">
+    <link rel="stylesheet" href="estilo/estiloGeneral.css">
     <title>Validaciones</title>
 </head>
 
@@ -39,6 +39,15 @@ include_once "database/conexion.php";
                         ]
                     );
                     // Redireccionamos a Leer
+                } else{
+                    // Prepara UPDATE
+                    $miDelete = $miPDO->prepare('DELETE FROM usuarios WHERE correo = :correo');
+                    // Ejecuta UPDATE con los datos
+                    $miDelete->execute(
+                        [
+                            'correo' => $correo,
+                        ]
+                    );
                 }
                 //Consulta
                 $consulta = $miPDO->prepare("SELECT nombre, apellidos, nickname, correo FROM usuarios WHERE validado=0");
@@ -60,6 +69,9 @@ include_once "database/conexion.php";
                 }
 
                 ?>
+                <tr>
+                    <a href="index.php" class='boton_validacion'><i ></i>Volver a la pagina principal</a></li>
+                </tr>
             </table>
         </div>
     
