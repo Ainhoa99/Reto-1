@@ -32,10 +32,6 @@ body{
     width: 100%;
     max-width: 200px;
     display: block;
-    transition: transform .7s ease-in-out;
-}
-#logo img:hover{
-    transform: rotate(360deg);
 }
 
 #cabecera h1{
@@ -86,7 +82,7 @@ body{
     color: #555555;
     position: absolute;
     top: 10px;
-    right: 198px;
+    right: 168px;
     cursor: pointer;
 }
 
@@ -292,14 +288,14 @@ body{
 
 .caja-info-libro{
     background-color: white;
-    border-radius: 20px;
     padding: 20px;
     transition: 0.5s;
     height: 200px;
+    min-width: 250px;
 }
 
 #libro:hover .caja-info-libro{
-    transform: translateY(-60px);
+    transform: translateY(-80px);
     transition: 0.5s;
 }
 
@@ -325,7 +321,101 @@ body{
 }
 
 
-/***** Ficha libro ******/
+/********* Ficha libro ************/
+
+/** Titulo y autor **/
+
+#contenido-fichalibro{
+    padding: 30px;
+    font-family: Arial;
+}
+
+.ficha-titulo, .ficha-autor{
+    text-transform: uppercase; 
+    font-weight: normal;
+    text-align: center;
+    padding: 10px;
+}
+
+.ficha-titulo{
+    letter-spacing: 0.2em;
+    color: #525252; 
+    font-size: 2rem;
+}
+
+.ficha-autor{
+    text-transform: uppercase;
+    letter-spacing: 0em;
+    color: #8d8d8d;
+    font-size: 1.6rem;
+}
+
+
+/** Imagen **/
+
+#caja-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.ficha-img{
+    width: 50%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.ficha-img img{
+    margin: 20px 0;
+    width: 100%;
+}
+
+
+/** Información libro **/
+
+#datos-libro dt{
+    text-transform: uppercase;
+    font-weight: ;
+    color: #000000;
+    padding: 5px 0;
+}
+
+#datos-libro dd{
+    color: #505050;
+    font-size: 1.3rem;
+}
+
+.ficha-sinopsis{
+    text-align: justify;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 20px;
+    line-height: 1.7em;
+}
+
+
+/** Ficha tecnica boton **/
+
+#btn-fichatecnica{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    cursor: pointer;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+
+#contenido-fichatecnica{
+    background-color: whitesmoke;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
 
 /** Valoración **/
 
@@ -338,10 +428,11 @@ body{
 
 #valoracion a{
     text-decoration: none;
+    font-family: Arial;
     color: #d6d6d6;
     background-color: rgb(184, 52, 3);
-    padding: 8px;
-    border-radius: 8px;
+    padding: 8px 10px;
+    border-radius: 6px;
     font-size: 1.3rem;
 }
 
