@@ -19,7 +19,7 @@ use igkluba;
     password Varchar(25) NOT NULL,
     nivel ENUM('DBH1','DBH2', 'DBH3', 'DBH4') NOT NULL,
     curso varchar(9),
-    FOREIGN KEY  (`centro`) references `centro`(`id_centro`)
+    FOREIGN KEY  (`id_centro`) references `centro`(`id_centro`)
 );  
 CREATE TABLE idiomalibro (
     idioma Varchar(15) NOT NULL PRIMARY Key
