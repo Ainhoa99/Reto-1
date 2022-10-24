@@ -45,7 +45,7 @@ body{
     align-items: center;
     padding: 10px;
     width: 100%;
-    background-color: rgb(184, 52, 3);
+    background: -webkit-linear-gradient(left,  rgb(184, 52, 3), rgb(193, 93, 55), rgb(234, 111, 135)); 
 }
 
 #caja-botones{
@@ -325,9 +325,15 @@ body{
 
 /** Titulo y autor **/
 
+#contenido{
+    background-image: url();
+}
+
+
 #contenido-fichalibro{
     padding: 30px;
     font-family: Arial;
+    margin-top: 60px;
 }
 
 .ficha-titulo, .ficha-autor{
@@ -366,7 +372,6 @@ body{
 }
 
 .ficha-img img{
-    margin: 20px 0;
     width: 100%;
 }
 
@@ -374,7 +379,7 @@ body{
 /** Información libro **/
 
 #datos-libro dt{
-    text-transform: uppercase;
+    text-transform: uppercase; 
     color: #000000;
     padding: 5px 0;
 }
@@ -386,7 +391,6 @@ body{
 
 .ficha-sinopsis{
     text-align: justify;
-    border-bottom: 1px solid #dedede;
     padding-bottom: 20px;
     line-height: 1.7em;
 }
@@ -394,7 +398,16 @@ body{
 
 /** Ficha tecnica boton **/
 
+#caja-fichatecnica{
+    width: 100%;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    max-width: 850px;
+}
+
 #btn-fichatecnica{
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -403,36 +416,61 @@ body{
     background-color: whitesmoke;
     border-radius: 5px;
     position: relative;
-    top: 0;
-    right: 0;
+    max-width: 850px;
 }
-
 
 #contenido-fichatecnica{
     background-color: whitesmoke;
-    position: absolute;
-    top: 50%;
-    left: 0;
+    padding: 30px;
+}
+
+#contenido-fichatecnica dt{
+    font-weight: bold;
+    color: #5a5a5a;
+}
+
+#contenido-fichatecnica dd{
+    padding-bottom: 10px;
 }
 
 
 /** Valoración **/
 
 #valoracion{
-    display: flex;
     justify-content: space-around;
     list-style: none;
     margin: 20px;
 }
 
-#valoracion a{
+#btn-valorar, #btn-opinion{
     text-decoration: none;
     font-family: Arial;
     color: #d6d6d6;
     background-color: rgb(184, 52, 3);
-    padding: 8px 10px;
+    padding: 8px;
     border-radius: 6px;
     font-size: 1.3rem;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 115px;
+}
+
+
+#btn-opinion:hover{
+    background-color: whitesmoke;
+    color: orangered;
+    border: 1px solid orangered;
+}
+
+#titulo-opinion{
+    margin: 20px 0;
+    font-family: Arial;
+}
+
+#comentarios{
+    padding: 20px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 30px;
 }
 
 
@@ -444,6 +482,7 @@ body{
     font-size: 1.4rem;
     background-color: whitesmoke;
     color: #6c6c6c;
+    font-family: Arial;
 }
 
 #pie-pagina a{
@@ -457,7 +496,7 @@ body{
 }
 
 #pie-pagina>p:last-child{
-    background-color: rgb(184, 52, 3);
+    background-color: #b2a4d4;
     width: 100%;
     color: #d0d0d0;
 }
@@ -591,7 +630,42 @@ body{
       #contenido{
           margin-top: 100px;
       }
+      
+      #contenido-fichalibro{
+          flex-direction: column;
+      }
     
+       #caja-foto-info{
+           padding: 20px;
+            display: flex;
+           justify-content: flex-start;
+        }
+      
+      .ficha-img{
+          width: 50%;
+          max-width: none;
+      }
+      
+      .ficha-img img{
+          margin: 0;
+      }
+      
+      #caja-info-fichafibro{
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          width: 50%;
+          max-width: 550px;
+          margin: 0;
+          padding: 0;
+      }
+      
+      
+      #caja-img{
+          padding-right: 50px;
+          width: 50%;
+          justify-content: flex-end;
+      }
 
   }
 
@@ -604,6 +678,28 @@ body{
             width: 25%;
             margin: 10px;
         }
+        
+        
+        #contenido-fichatecnica  .ocultar
+        {
+            display: block;
+        }
+        
+        #caja-info-fichalibro{
+             max-width:  none;
+            max-width:  500px;
+        }
+        
+        
+        .ficha-img{
+          max-width: 250px;
+      }
+        
+        
+        #caja-img{
+            width: 40%;
+        }
+       
     
       }
 
@@ -617,5 +713,7 @@ body{
             width: 20%;
             margin: 10px;
         }
+        
+        
     
       }
