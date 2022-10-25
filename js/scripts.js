@@ -25,11 +25,19 @@ jQuery(document).ready(function ($) {
         $('#contenido-fichatecnica').toggleClass('ocultar');
     });
     
+    /* Botón desplegable opiniones */
+    
+    $('#btn-opinion').on('click', function () {
+        $('#form-opinion').removeClass('ocultar');
+    });
+    
+    /* Efecto flecha arriba/abajo del botón */
+    
     $('#btn-fichatecnica').append('<i class="fas fa-angle-down"></i>');
     
     $('#btn-fichatecnica').on('click', function(){
         $(this).find('i').toggleClass('fa-angle-down');
         $(this).find('i').toggleClass('fa-angle-up');
-    }); 
+    });     
    
 });
