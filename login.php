@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo/estiloGeneral.css">
+    <link rel="stylesheet" href="estilo/estiloGenerico.css">
     <title>LOGIN</title>
 </head>
 <body>
@@ -48,12 +48,12 @@
         <form class="form" id="login" action="" method="post">
             <img id="logobueno" src="src/Logobueno.png" alt="Logo">
             
-            <div class="form__input-group">
-                <input type="text" class="form__input" name="usuario" autofocus placeholder="Email-a edo ezizena">
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="usuario" autofocus placeholder="Email-a edo ezizena">
 
             </div>
-            <div class="form__input-group">
-                <input type="password" class="form__input" name="cont" autofocus placeholder="Pasahitza">
+            <div class="formulario__grupo-input">
+                <input type="password" class="formulario__input" name="cont" autofocus placeholder="Pasahitza">
             </div>
             <button class="form__button" type="submit">Login</button>
 
