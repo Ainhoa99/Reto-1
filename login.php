@@ -19,7 +19,7 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // Variables del formulario
-                $form_nickname = isset($_REQUEST['usuario']) ? $_REQUEST['usuario'] : null;
+                $form_nickname = isset($_REQUEST['nickname']) ? $_REQUEST['nickname'] : null;
                 $form_password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
 
                 // Base de datos.
@@ -33,7 +33,7 @@
                     $validado = $usuario['validado'];
 
                     // Comprobamos si los datos son correctos
-                    if (($correo == $form_nickname || $nickname == $form_nickname) && $form_password == $password && $validado == 1) {
+                    if (($email == $form_nickname || $nickname == $form_nickname) && $form_password == $password && $validado == 1) {
                         // Si son correctos, creamos la sesión
                         session_start();
                         $_SESSION['nickname'] = $_REQUEST['nickname'];
