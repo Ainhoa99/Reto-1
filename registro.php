@@ -2,6 +2,7 @@
     include_once "database/conexion.php";
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,7 +147,7 @@
 
             </div>
             <div class="formulario__mensaje" id="formulario__mensaje">
-				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.</p>
+				<p><i class="fas fa-exclamation-triangle"></i><b>Error:</b> Por favor rellena el formulario correctamente.</p>
 			</div>
 
             <div class="formulario__grupo formulario__grupo-btn-enviar">

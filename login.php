@@ -1,6 +1,7 @@
 <?php
     include_once "database/conexion.php";
 ?>
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,24 +19,25 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // Variables del formulario
-                $usuarioFormulario = isset($_REQUEST['usuario']) ? $_REQUEST['usuario'] : null;
-                $contrasenyaFormulario = isset($_REQUEST['cont']) ? $_REQUEST['cont'] : null;
+                $form_nickname = isset($_REQUEST['usuario']) ? $_REQUEST['usuario'] : null;
+                $form_password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
 
                 // Base de datos.
                 $consulta = $miPDO ->prepare('SELECT correo, nickname, password, validado FROM usuarios');
                 $consulta ->execute();
                 $usuarios = $consulta ->fetchAll();
                 foreach($usuarios as $posicion =>$usuario){
-                    $correo = $usuario['correo'];
+                    $email = $usuario['correo'];
                     $nickname = $usuario['nickname'];
                     $password = $usuario['password'];
                     $validado = $usuario['validado'];
 
                     // Comprobamos si los datos son correctos
-                    if (($correo == $usuarioFormulario || $nickname == $usuarioFormulario) && $contrasenyaFormulario == $password && $validado == 1) {
+                    if (($correo == $form_nickname || $nickname == $form_nickname) && $form_password == $password && $validado == 1) {
                         // Si son correctos, creamos la sesión
                         session_start();
-                        $_SESSION['correo'] = $_REQUEST['correo'];
+                        $_SESSION['nickname'] = $_REQUEST['nickname'];
+                        $_SESSION['email'] = $_REQUEST['email'];
                         // Redireccionamos a la página segura
                         header('Location: index.php');
                         die();
@@ -49,11 +51,11 @@
             <img id="logobueno" src="src/Logobueno.png" alt="Logo">
             
             <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="usuario" autofocus placeholder="Email-a edo ezizena">
+                <input type="text" class="formulario__input" name="nickname" autofocus placeholder="Email-a edo ezizena">
 
             </div>
             <div class="formulario__grupo-input">
-                <input type="password" class="formulario__input" name="cont" autofocus placeholder="Pasahitza">
+                <input type="password" class="formulario__input" name="password" autofocus placeholder="Pasahitza">
             </div>
             <button class="form__button" type="submit">Login</button>
 

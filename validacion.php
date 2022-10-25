@@ -2,6 +2,15 @@
 include_once "database/conexion.php";
 ?>
 
+<?php 
+    // Comprobamos si existe la sesión de apodo
+    session_start();
+    if (!isset($_SESSION['nickname'])) {
+        // En caso contrario devolvemos a la página login.php
+        header('Location: login.php');
+        die();
+    }
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
