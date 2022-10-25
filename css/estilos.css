@@ -32,6 +32,10 @@ body{
     width: 100%;
     max-width: 200px;
     display: block;
+    transition: transform .7s ease-in-out;
+}
+#logo img:hover{
+    transform: rotate(360deg);
 }
 
 #cabecera h1{
