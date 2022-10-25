@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Ficha libro</title>
+    <title>Argitalpen-data</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google Fonts -->
 
@@ -30,7 +30,10 @@
         
         <?php 
 
+            session_start();
             //echo $titulo-libro;
+            $_SESSION['titulo_libro']=$titulo_libro;
+            $libro = ['titulo_libro'];
         ?>
         
         
@@ -38,7 +41,7 @@
          <?php 
         
             // Prepara SELECT
-            $otraconsulta = $miPDO->prepare('SELECT * FROM libros WHERE id_libro="9788420674209";');
+            $otraconsulta = $miPDO->prepare('SELECT * FROM libros WHERE titulo_libro="El principito";');
     
             // Ejecuta consulta
             $otraconsulta->execute();
@@ -85,7 +88,7 @@
                         
                         //Año publicacion
                         echo "<dt class='titulo-anyo'>Argitalpen-urtea</dt>";
-                        echo "<dd class='ficha-anyo'>" . $libros['año_de_libro'] . "</dd>";
+                        echo "<dd class='ficha-anyo'>" . $libros['ano_de_libro'] . "</dd>";
                         
                         
                         //Formato
@@ -124,7 +127,24 @@
             <div id="btn-opinion">
                <p>Eman zure iritzia</p>
             </div>
-        
+                  
+            <form id="form-opinion" class="ocultar"  action="" method="post">
+
+                    <div class="nombre-opinion">
+                        
+                    </div>
+                    <div class="fecha-opinion">
+                        <?php 
+                        $fechaActual = date('d-m-Y');
+                        echo "<p class='texto-opinion'>" . $fechaActual . "</p>";
+                        ?>
+                    </div>
+                     
+                      <div class="form-input-opinion">
+                          <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Opinión"></textarea>
+                    </div>
+                
+                </form>
         
     </main>
     

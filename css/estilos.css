@@ -347,7 +347,6 @@ body{
     letter-spacing: 0.2em;
     color: #525252; 
     font-size: 2rem;
-    padding: 3rem;
 }
 
 .ficha-autor{
@@ -380,7 +379,7 @@ body{
 /** Información libro **/
 
 #datos-libro dt{
-    text-transform: uppercase; 
+    text-transform: uppercase;
     color: #000000;
     padding: 5px 0;
 }
@@ -435,7 +434,7 @@ body{
 }
 
 
-/** Valoración **/
+/** Valoración y opinión **/
 
 #valoracion{
     justify-content: space-around;
@@ -454,10 +453,14 @@ body{
     cursor: pointer;
     margin: 10px 0;
     width: 115px;
+    user-select: none;
 }
 
 
-#btn-opinion:hover{
+
+/** Opiniones **/
+
+#btn-opinion:hover,#btn-valorar:hover{
     background-color: whitesmoke;
     color: orangered;
     border: 1px solid orangered;
@@ -470,10 +473,22 @@ body{
 
 #comentarios{
     padding: 20px;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid red;
     padding-bottom: 30px;
 }
 
+#opinion{
+    width: 100%;
+    max-width: 500px;
+    height: 100px;
+    border-radius: 5px;
+    padding: 15px;
+    border: 1px solid #cbcbcb;
+}
+
+.fecha-opinion{
+    margin: 10px;
+}
 
 
 /**** Pie de página ****/
@@ -519,11 +534,6 @@ body{
   @media (min-width: 850px){
 
     /* Buscador */
-      
-      #buscador{
-         
-      }
-      
       #btn-buscador{
           padding: 8px;
           margin: 6px;
