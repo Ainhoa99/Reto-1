@@ -78,28 +78,35 @@
             echo "<dl id='contenido-fichatecnica' class='ocultar'>";
             
             //ISBN
+            echo "<div class='elemento-fichatecnica'>";
             echo "<dt class='titulo-isbn'>ISBN</dt>";
             echo "<dd class='ficha-isbn'>" . $libros['id_libro'] . "</dd>";
-            
+            echo "</div>";
             
             //Año publicacion
+            echo "<div class='elemento-fichatecnica'>";
             echo "<dt class='titulo-anyo'>Argitalpen-urtea</dt>";
             echo "<dd class='ficha-anyo'>" . $libros['ano_de_libro'] . "</dd>";
-            
+            echo "</div>";
             
             //Formato
+            echo "<div class='elemento-fichatecnica'>";
             echo "<dt class='titulo-formato'>Formatua</dt>";
             echo "<dd class='ficha-formato'>" . $libros['formato'] . "</dd>";
-            
+            echo "</div>";
+
             //Idioma
+            echo "<div class='elemento-fichatecnica'>";
             echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
             echo "<dd class='ficha-idioma'>" . $libros['idioma'] . "</dd>";
-            
+            echo "</div>";
+
             //Valoración
             echo "<div class='caja-notamedia'>";
             echo "<p class='ficha-notamedia-text'>Batez besteko nota</p>";
             echo "<p class='ficha-notamedia'>" . $libros['notamedia'] . "</p>";
-            echo "</div>";                        
+            echo "</div>";   
+
             //Edad media
             echo "<p class='ficha-edadmedia'> Batez besteko adina: " . $libros['edadmedia'] . "</p>";
             echo "</dl>";
@@ -119,9 +126,7 @@
         <div id="comentarios" class="">
             <p>Ez dago iruzkinik, lehena izan zure iritzia ematen</p>
         </div>
-        <div id="btn-opinion">
-            <p>Eman zure iritzia</p>
-        </div>
+        
                 
         <form id="form-opinion" class="ocultar"  action="" method="post">
 
@@ -140,6 +145,9 @@
             </div>
         
         </form>
+        <div id="btn-opinion">
+            <p>Eman zure iritzia</p>
+        </div>
         
     </main>
     
