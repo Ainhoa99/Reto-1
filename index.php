@@ -59,6 +59,7 @@
                         echo "<div class='caja-info-libro'>";
                         //Titulo
                         echo "<p class='libro-titulo' method='get'>" . $libros['titulo_libro'] . "</p>";
+                       
                     
                         //Autor
                         echo "<p class='libro-autor'>" . $libros['autor'] . "</p>";
@@ -72,7 +73,7 @@
                         echo "<p class='libro-edad-media'>Batez besteko adina: " . $libros['edadmedia'] . "</p>";
 
                         //Enlace a la ficha
-                        echo "<p class='enlace-ficha'><a href='fichalibro.php'>Fitxa ikusi</a></p>";
+                        echo "<p class='enlace-ficha'><a href='fichalibro.php?liburua=" . $libros['id_libro'] . "'>Fitxa ikusi</a></p>";
                         echo "</div>";
                     echo "</div>";
                 }

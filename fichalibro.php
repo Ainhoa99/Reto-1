@@ -1,4 +1,20 @@
-<?php include('database/conexion.php');?>
+<?php 
+    include('database/conexion.php');
+
+    $libro = $_GET['liburua'];
+            // Prepara SELECT
+    $otraconsulta = $miPDO->prepare('SELECT * FROM libros WHERE id_libro = :id_libro;');
+
+    // Ejecuta consulta
+    $otraconsulta->execute(
+        [
+            'id_libro' => $libro
+        ]
+    );
+    $libros = $otraconsulta ->fetch();
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -28,123 +44,102 @@
     
     <main id="contenido-fichalibro">
         
-        <?php 
-
-            session_start();
-            //echo $titulo-libro;
-            $_SESSION['titulo_libro']=$titulo_libro;
-            $libro = ['titulo_libro'];
-        ?>
-        
-        
-        
          <?php 
         
-            // Prepara SELECT
-            $otraconsulta = $miPDO->prepare('SELECT * FROM libros WHERE titulo_libro="El principito";');
-    
-            // Ejecuta consulta
-            $otraconsulta->execute();
-
-                $registro = $otraconsulta ->fetchAll();
-
-                    foreach($registro as $posicion =>$libros){
+            echo "<div id='caja-titulo-fichafibro'>";
+            //Titulo
+            echo "<h2 class='ficha-titulo'>" . $libros['titulo_libro'] . "</h2>";
+        
+            //Autor
+            echo "<h3 class='ficha-autor'>" . $libros['autor'] . "</h3>";
+                echo "</div>";
+            
+            
+            echo "<div id='caja-foto-info'>";
+            //Imagen
+            echo "<div id='caja-img'>";
+            echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
+            echo "</div>";
+            
+            
+                echo "<div id='caja-info-fichafibro'>";
+            echo "<dl id='datos-libro'>";
+            //Sinopsis
+            echo "<dt class='titulo-sinopsis'>Sinopsia</dt>";
+            echo "<dd class='ficha-sinopsis'>" . $libros['sinopsis'] . "</dd>";
+            echo "</dl>";
+        
+            echo "<div id='caja-fichatecnica'>";
+            
+            echo "<div id='btn-fichatecnica'>
+                <p>Fitxa teknikoa</p></div>";
+            
+            //Contenedor ficha tecnica
+            echo "<dl id='contenido-fichatecnica' class='ocultar'>";
+            
+            //ISBN
+            echo "<dt class='titulo-isbn'>ISBN</dt>";
+            echo "<dd class='ficha-isbn'>" . $libros['id_libro'] . "</dd>";
+            
+            
+            //Año publicacion
+            echo "<dt class='titulo-anyo'>Argitalpen-urtea</dt>";
+            echo "<dd class='ficha-anyo'>" . $libros['ano_de_libro'] . "</dd>";
+            
+            
+            //Formato
+            echo "<dt class='titulo-formato'>Formatua</dt>";
+            echo "<dd class='ficha-formato'>" . $libros['formato'] . "</dd>";
+            
+            //Idioma
+            echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
+            echo "<dd class='ficha-idioma'>" . $libros['idioma'] . "</dd>";
+            
+            //Valoración
+            echo "<div class='caja-notamedia'>";
+            echo "<p class='ficha-notamedia-text'>Batez besteko nota</p>";
+            echo "<p class='ficha-notamedia'>" . $libros['notamedia'] . "</p>";
+            echo "</div>";                        
+            //Edad media
+            echo "<p class='ficha-edadmedia'> Batez besteko adina: " . $libros['edadmedia'] . "</p>";
+            echo "</dl>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+                  
                     
-                        echo "<div id='caja-titulo-fichafibro'>";
-                        //Titulo
-                        echo "<h2 class='ficha-titulo'>" . $libros['titulo_libro'] . "</h2>";
-                    
-                        //Autor
-                        echo "<h3 class='ficha-autor'>" . $libros['autor'] . "</h3>";
-                         echo "</div>";
-                        
-                        
-                        echo "<div id='caja-foto-info'>";
-                        //Imagen
-                        echo "<div id='caja-img'>";
-                        echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
-                        echo "</div>";
-                        
-                        
-                         echo "<div id='caja-info-fichafibro'>";
-                        echo "<dl id='datos-libro'>";
-                        //Sinopsis
-                        echo "<dt class='titulo-sinopsis'>Sinopsia</dt>";
-                        echo "<dd class='ficha-sinopsis'>" . $libros['sinopsis'] . "</dd>";
-                        echo "</dl>";
-                    
-                        echo "<div id='caja-fichatecnica'>";
-                        
-                        echo "<div id='btn-fichatecnica'>
-                            <p>Fitxa teknikoa</p></div>";
-                        
-                        //Contenedor ficha tecnica
-                        echo "<dl id='contenido-fichatecnica' class='ocultar'>";
-                        
-                        //ISBN
-                        echo "<dt class='titulo-isbn'>ISBN</dt>";
-                        echo "<dd class='ficha-isbn'>" . $libros['id_libro'] . "</dd>";
-                        
-                        
-                        //Año publicacion
-                        echo "<dt class='titulo-anyo'>Argitalpen-urtea</dt>";
-                        echo "<dd class='ficha-anyo'>" . $libros['ano_de_libro'] . "</dd>";
-                        
-                        
-                        //Formato
-                        echo "<dt class='titulo-formato'>Formatua</dt>";
-                        echo "<dd class='ficha-formato'>" . $libros['formato'] . "</dd>";
-                        
-                        //Idioma
-                        echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
-                        echo "<dd class='ficha-idioma'>" . $libros['idioma'] . "</dd>";
-                        
-                        //Valoración
-                        echo "<div class='caja-notamedia'>";
-                        echo "<p class='ficha-notamedia-text'>Batez besteko nota</p>";
-                        echo "<p class='ficha-notamedia'>" . $libros['notamedia'] . "</p>";
-                        echo "</div>";                        
-                        //Edad media
-                        echo "<p class='ficha-edadmedia'> Batez besteko adina: " . $libros['edadmedia'] . "</p>";
-                    echo "</dl>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
-                       
-                }
-                    
-                  ?>
+        ?>
 
         
-           <div id="btn-valorar">
-               <p>Baloratu liburua</p>
-           </div>
-           
-            <h3 id="titulo-opinion">Irakurleen iritzia</h3>
-            <div id="comentarios" class="">
-               <p>Ez dago iruzkinik, lehena izan zure iritzia ematen</p>
-            </div>
-            <div id="btn-opinion">
-               <p>Eman zure iritzia</p>
-            </div>
-                  
-            <form id="form-opinion" class="ocultar"  action="" method="post">
-
-                    <div class="nombre-opinion">
-                        
-                    </div>
-                    <div class="fecha-opinion">
-                        <?php 
-                        $fechaActual = date('d-m-Y');
-                        echo "<p class='texto-opinion'>" . $fechaActual . "</p>";
-                        ?>
-                    </div>
-                     
-                      <div class="form-input-opinion">
-                          <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Opinión"></textarea>
-                    </div>
+        <div id="btn-valorar">
+            <p>Baloratu liburua</p>
+        </div>
+        
+        <h3 id="titulo-opinion">Irakurleen iritzia</h3>
+        <div id="comentarios" class="">
+            <p>Ez dago iruzkinik, lehena izan zure iritzia ematen</p>
+        </div>
+        <div id="btn-opinion">
+            <p>Eman zure iritzia</p>
+        </div>
                 
-                </form>
+        <form id="form-opinion" class="ocultar"  action="" method="post">
+
+            <div class="nombre-opinion">
+                
+            </div>
+            <div class="fecha-opinion">
+                <?php 
+                $fechaActual = date('d-m-Y');
+                echo "<p class='texto-opinion'>" . $fechaActual . "</p>";
+                ?>
+            </div>
+                
+            <div class="form-input-opinion">
+                <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Opinión"></textarea>
+            </div>
+        
+        </form>
         
     </main>
     
