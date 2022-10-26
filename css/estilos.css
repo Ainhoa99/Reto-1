@@ -740,12 +740,42 @@ body {
 /***********************  perfilpersonal    **********************/
 
 #container {
-  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
   padding: 3rem;
   align-content: center;
+  height: 250px;
+  border-radius: 5%;
+  background-color: #cbcbcbaa;
+  margin-bottom: 3rem;
+}
+
+.container2 {
+  width: 100%;
+  flex-direction: row;
 }
 
 #foto-nombre-apellido,
 info {
-  padding-inline: 3rem;
+  padding-inline: 1rem;
+}
+
+.foto img {
+  width: 50px;
+}
+#foto {
+  align-items: center;
+  justify-content: center;
+}
+
+#foto,
+#foto-nombre-apellido,
+#info {
+  width: 30%;
+}
+
+.editar {
+  margin-top: 20px;
 }
