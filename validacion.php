@@ -2,15 +2,15 @@
 include_once "database/conexion.php";
 ?>
 
-<?php 
-    // Comprobamos si existe la sesión de apodo
-    session_start();
-    if (!isset($_SESSION['nickname'])) {
-        // En caso contrario devolvemos a la página login.php
-        header('Location: login.php');
-        die();
-    }
-?> 
+<?php
+// Comprobamos si existe la sesión de apodo
+session_start();
+if (!isset($_SESSION['nickname'])) {
+    // En caso contrario devolvemos a la página login.php
+    header('Location: login.php');
+    die();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +48,7 @@ include_once "database/conexion.php";
                         ]
                     );
                     // Redireccionamos a Leer
-                } else{
+                } else {
                     // Prepara UPDATE
                     $miDelete = $miPDO->prepare('DELETE FROM usuarios WHERE correo = :correo');
                     // Ejecuta UPDATE con los datos
@@ -79,13 +79,13 @@ include_once "database/conexion.php";
 
                 ?>
                 <tr>
-                    <a href="index.php" class='boton_validacion'><i ></i>Volver a la pagina principal</a></li>
+                    <a href="index.php" class='boton_validacion'><i></i>Volver a la pagina principal</a></li>
                 </tr>
             </table>
         </div>
-    
+
     </form>
-    
+
 
 </body>
 
