@@ -47,12 +47,7 @@ body {
   align-items: center;
   padding: 10px;
   width: 100%;
-  background: -webkit-linear-gradient(
-    left,
-    rgb(184, 52, 3),
-    rgb(193, 93, 55),
-    rgb(234, 111, 135)
-  );
+  background: rgb(184, 52, 3);
 }
 
 #caja-botones {
@@ -421,6 +416,7 @@ body {
 #contenido-fichatecnica {
   background-color: whitesmoke;
   padding: 30px;
+  font-size: 1.35rem;
 }
 
 #contenido-fichatecnica dt {
@@ -430,6 +426,29 @@ body {
 
 #contenido-fichatecnica dd {
   padding-bottom: 10px;
+}
+
+#caja-foto-info {
+  margin-top: 20px;
+}
+
+#datos-libro {
+  margin: 20px;
+  margin-top: 40px;
+}
+
+.elemento-fichatecnica {
+  display: flex;
+}
+
+.elemento-fichatecnica dt {
+  display: flex;
+  width: 40%;
+}
+
+.elemento-fichatecnica dt::after {
+  content: ":";
+  display: block;
 }
 
 /** Valoración y opinión **/
@@ -447,12 +466,27 @@ body {
   color: #d6d6d6;
   background-color: rgb(184, 52, 3);
   padding: 8px;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 1.3rem;
   cursor: pointer;
   margin: 10px 0;
   width: 115px;
   user-select: none;
+}
+
+.fa-star {
+  color: rgb(238, 208, 57);
+  padding-right: 3px;
+}
+
+.ficha-notamedia-text {
+  display: flex;
+  font-size: 2rem;
+}
+
+.caja-notamedia {
+  margin-left: 20%;
+  margin-top: 10px;
 }
 
 /** Opiniones **/
@@ -471,7 +505,7 @@ body {
 
 #comentarios {
   padding: 20px;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid grey;
   padding-bottom: 30px;
 }
 

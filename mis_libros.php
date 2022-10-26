@@ -84,7 +84,7 @@
                     echo "<p class='libro-edad-media'>Batez besteko adina: " . $libros['edadmedia'] . "</p>";
 
                     //Enlace a la ficha
-                    echo "<p class='enlace-ficha'><a href='fichalibro.php'>Fitxa ikusi</a></p>";
+                    echo "<p class='enlace-ficha'><a href='fichalibro.php?liburua=" . $libros['id_libro'] . "'>Fitxa ikusi</a></p>";
                     echo "</div>";
                     echo "</div>";
                 }
