@@ -43,7 +43,6 @@ $libros = $otraconsulta->fetch();
     <?php include("cabecera.php"); ?>
 
     <main id="contenido-fichalibro">
-<<<<<<< HEAD
         
          <?php 
         
@@ -80,41 +79,7 @@ $libros = $otraconsulta->fetch();
                     echo "</div>";
                 echo "</div>";
             echo "</div>";
-=======
 
-        <?php
-
-        echo "<div id='caja-titulo-fichafibro'>";
-        //Titulo
-        echo "<h2 class='ficha-titulo'>" . $libros['titulo_libro'] . "</h2>";
-
-        //Autor
-        echo "<h3 class='ficha-autor'>" . $libros['autor'] . "</h3>";
-        echo "</div>";
->>>>>>> ca8611015385ae21af2e4211290bb517974a9adb
-
-
-        echo "<div id='caja-foto-info'>";
-        //Imagen
-        echo "<div id='caja-img'>";
-        echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
-        echo "</div>";
-
-        //Contenedor nota media y edad media
-        echo "<div id='contenedor-valoracion'>";
-        //Valoración
-        echo "<div class='caja-notamedia'>";
-        echo "<p class='ficha-notamedia-text'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
-        //batez besteko nota
-        echo "</div>";
-
-        //Edad media
-        echo "<div class='caja-ficha-edadmedia'>";
-        echo "<p class='texto-edadmedia'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
-        echo "<p class='ficha-edadmedia'>" . $libros['edadmedia'] . "</p>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
 
 
         echo "<div id='caja-info-fichafibro'>";
