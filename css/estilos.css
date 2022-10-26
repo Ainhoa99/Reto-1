@@ -490,6 +490,9 @@ body {
     margin-top: 5px;
     padding-bottom:20px;
     border-bottom: 1px solid rgb(209, 209, 209);
+    max-width: 800px;
+    text-align: center;
+    width: 40%;
 }
 
 .caja-notamedia{
@@ -502,6 +505,7 @@ body {
     display:flex;
     justify-content: center;
     align-items: center;
+    padding-left: 30%;
 }
 
 .texto-edadmedia{
@@ -519,13 +523,21 @@ body {
 
 }
 
+.caja-contenedor-valoracion{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+
+
+
 /** Opiniones **/
 
 #btn-opinion:hover,
 #btn-valorar:hover {
   background-color: whitesmoke;
   color: orangered;
-  border: 1px solid orangered;
 }
 
 #titulo-opinion {
@@ -700,36 +712,33 @@ body {
     flex-direction: column;
   }
 
-  #caja-foto-info {
-    padding: 20px;
+
+#caja-info-fichafibro{
     display: flex;
-    justify-content: flex-start;
-  }
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+    margin-top: 20px;
+}
 
-  .ficha-img {
+#caja-fichatecnica{
     width: 50%;
-    max-width: none;
-  }
+}
 
-  .ficha-img img {
-    margin: 0;
-  }
-
-  #caja-info-fichafibro {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+#datos-libro{
     width: 50%;
-    max-width: 550px;
-    margin: 0;
-    padding: 0;
-  }
+    margin-top: 0;
+}
 
-  #caja-img {
-    padding-right: 50px;
-    width: 50%;
-    justify-content: flex-end;
-  }
+#contenido-fichatecnica{
+    display: block;
+}
+
+#btn-fichatecnica i{
+    display: none;
+}
+
+
 }
 
 /***********************  CORTE - TRAMO PANTALLA 2    **********************/

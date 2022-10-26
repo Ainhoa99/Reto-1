@@ -47,34 +47,37 @@
          <?php 
         
             echo "<div id='caja-titulo-fichafibro'>";
-            //Titulo
-            echo "<h2 class='ficha-titulo'>" . $libros['titulo_libro'] . "</h2>";
+                //Titulo
+                echo "<h2 class='ficha-titulo'>" . $libros['titulo_libro'] . "</h2>";
         
-            //Autor
-            echo "<h3 class='ficha-autor'>" . $libros['autor'] . "</h3>";
-                echo "</div>";
+                //Autor
+                echo "<h3 class='ficha-autor'>" . $libros['autor'] . "</h3>";
+            echo "</div>";
             
             
             echo "<div id='caja-foto-info'>";
-            //Imagen
-            echo "<div id='caja-img'>";
-            echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
-            echo "</div>";
+                //Imagen
+                echo "<div id='caja-img'>";
+                    echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
+                echo "</div>";
             
-            //Contenedor nota media y edad media
-            echo "<div id='contenedor-valoracion'>";
-            //Valoración
-            echo "<div class='caja-notamedia'>";
-            echo "<p class='ficha-notamedia-text'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
-            //batez besteko nota
-            echo "</div>"; 
+                //Contenedor nota media y edad media
+                echo "<div class='caja-contenedor-valoracion'>";
+
+                    echo "<div id='contenedor-valoracion'>";
+                        //Valoración -nota media
+                        echo "<div class='caja-notamedia'>";
+                            echo "<p class='ficha-notamedia-text'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
+                            //batez besteko nota
+                        echo "</div>"; 
             
-            //Edad media
-            echo "<div class='caja-ficha-edadmedia'>";
-            echo "<p class='texto-edadmedia'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
-            echo "<p class='ficha-edadmedia'>" . $libros['edadmedia'] . "</p>";
-            echo "</div>";
-            echo "</div>";
+                    //Edad media
+                    echo "<div class='caja-ficha-edadmedia'>";
+                        echo "<p class='texto-edadmedia'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
+                        echo "<p class='ficha-edadmedia'>" . $libros['edadmedia'] . "</p>";
+                    echo "</div>";
+                    echo "</div>";
+                echo "</div>";
             echo "</div>";
 
 
