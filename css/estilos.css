@@ -564,6 +564,94 @@ body {
   margin: 10px;
 }
 
+
+
+/****************      Página perfil personal         ***************/
+
+#container{
+    font-family: Arial;
+    color: rgb(111, 111, 111);
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .foto img {
+    width: 50px;
+  }
+  #foto {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+  }
+
+  .caja-info-usuario{
+    width: 50%;
+  }
+
+  #foto-nombre-apellido{
+    border: 2px solid green;
+  }
+
+  #caja-info-perfil{
+    display: flex;
+    width: 100%;
+    background-color: rgb(243, 242, 242);
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 800px;
+  }
+
+  #caja-info-perfil dt{
+    font-weight: bold;
+    color: #505050;
+    padding-top: 10px;
+    font-size: 1.4rem;
+  }
+
+  #caja-info-perfil dd{
+    padding: 5px 0;
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgb(213, 213, 213);
+  }
+
+  #info{
+    width: 50%;
+  }
+
+
+  .container2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .btn-editar{
+    background-color: rgb(184, 52, 3);
+    color: whitesmoke;
+    margin-top: 20px;
+    padding:7px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    max-width: 150px;
+  }
+
+  .btn-editar:hover {
+    border: 1px solid rgb(184, 52, 3);
+    color:rgb(184, 52, 3);
+    background-color: white;
+  }
+
+
+
+
+
 /**** Pie de página ****/
 
 #pie-pagina {
@@ -739,6 +827,19 @@ body {
 }
 
 
+/*** contenido perfil personal***/
+
+.container2{
+    display: flex;
+    justify-content: center;
+  }
+
+
+  
+  .btn-editar{
+    max-width: 300px;
+  }
+
 }
 
 /***********************  CORTE - TRAMO PANTALLA 2    **********************/
@@ -776,45 +877,3 @@ body {
   }
 }
 
-/***********************  perfilpersonal    **********************/
-
-#container {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  padding: 3rem;
-  align-content: center;
-  height: 250px;
-  border-radius: 5%;
-  background-color: #cbcbcbaa;
-  margin-bottom: 3rem;
-}
-
-.container2 {
-  width: 100%;
-  flex-direction: row;
-}
-
-#foto-nombre-apellido,
-info {
-  padding-inline: 1rem;
-}
-
-.foto img {
-  width: 50px;
-}
-#foto {
-  align-items: center;
-  justify-content: center;
-}
-
-#foto,
-#foto-nombre-apellido,
-#info {
-  width: 30%;
-}
-
-.editar {
-  margin-top: 20px;
-}
