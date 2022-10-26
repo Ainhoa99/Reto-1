@@ -61,12 +61,23 @@
             echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
             echo "</div>";
             
+            //Contenedor nota media y edad media
+            echo "<div id='contenedor-valoracion'>";
             //Valoración
             echo "<div class='caja-notamedia'>";
             echo "<p class='ficha-notamedia-text'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
             //batez besteko nota
-            echo "</div>";  
+            echo "</div>"; 
             
+            //Edad media
+            echo "<div class='caja-ficha-edadmedia'>";
+            echo "<p class='texto-edadmedia'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
+            echo "<p class='ficha-edadmedia'>" . $libros['edadmedia'] . "</p>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+
+
             echo "<div id='caja-info-fichafibro'>";
             echo "<dl id='datos-libro'>";
             //Sinopsis
@@ -106,8 +117,6 @@
             echo "<dd class='ficha-idioma'>" . $libros['idioma'] . "</dd>";
             echo "</div>"; 
 
-            //Edad media
-            echo "<p class='ficha-edadmedia'> Batez besteko adina: " . $libros['edadmedia'] . "</p>";
             echo "</dl>";
             echo "</div>";
             echo "</div>";
