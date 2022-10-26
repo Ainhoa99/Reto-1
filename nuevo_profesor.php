@@ -1,19 +1,20 @@
 <?php
-    include_once "database/conexion.php";
+include_once "database/conexion.php";
 ?>
 
-<?php 
-    // Comprobamos si existe la sesión de apodo
-    session_start();
-    if (!isset($_SESSION['nickname'])) {
-        // En caso contrario devolvemos a la página login.php
-        header('Location: login.php');
-        die();
-    }
-?> 
+<?php
+// Comprobamos si existe la sesión de apodo
+session_start();
+if (!isset($_SESSION['nickname'])) {
+    // En caso contrario devolvemos a la página login.php
+    header('Location: login.php');
+    die();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,52 +23,52 @@
     <script src="js/scriptValidaciones.js" defer></script>
     <title>Nuevo profesor</title>
 </head>
+
 <body>
     <div class="container">
         <?php
-            // Comprobamos que nos llega los datos del formulario
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                // Variables del formulario
-                $nombre = isset($_REQUEST['nombre']) ? $_REQUEST['nombre'] : null;
-                 $apellidos = isset($_REQUEST['apellidos']) ? $_REQUEST['apellidos'] : null;
-                $correo = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
-                $nickname = isset($_REQUEST['nickname']) ? $_REQUEST['nickname'] : null;
-                $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
-                $password2 = isset($_REQUEST['password2']) ? $_REQUEST['password2'] : null;
-                $centro = isset($_REQUEST['centro']) ? $_REQUEST['centro'] : null;
-                $fecha = isset($_REQUEST['fecha']) ? $_REQUEST['fecha'] : null;
-                $nivel = isset($_REQUEST['nivel']) ? $_REQUEST['nivel'] : null;
-    
-                $comprobar = $miPDO->prepare('SELECT nickname FROM usuarios WHERE nickname = :nickname');
-                $comprobar->execute(['nickname' => $nickname]);
-                $comprobar = $comprobar->fetch();
-    
-                if (empty($comprobar)) {
-                   // Base de datos.
-                    $consulta = $miPDO->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, password, nivel, curso)
+        // Comprobamos que nos llega los datos del formulario
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Variables del formulario
+            $nombre = isset($_REQUEST['nombre']) ? $_REQUEST['nombre'] : null;
+            $apellidos = isset($_REQUEST['apellidos']) ? $_REQUEST['apellidos'] : null;
+            $correo = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
+            $nickname = isset($_REQUEST['nickname']) ? $_REQUEST['nickname'] : null;
+            $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
+            $password2 = isset($_REQUEST['password2']) ? $_REQUEST['password2'] : null;
+            $centro = isset($_REQUEST['centro']) ? $_REQUEST['centro'] : null;
+            $fecha = isset($_REQUEST['fecha']) ? $_REQUEST['fecha'] : null;
+            $nivel = isset($_REQUEST['nivel']) ? $_REQUEST['nivel'] : null;
+
+            $comprobar = $miPDO->prepare('SELECT nickname FROM usuarios WHERE nickname = :nickname');
+            $comprobar->execute(['nickname' => $nickname]);
+            $comprobar = $comprobar->fetch();
+
+            if (empty($comprobar)) {
+                // Base de datos.
+                $consulta = $miPDO->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, password, nivel, curso)
                                             VALUES (:nombre, :apellidos, :correo, :nickname, :id_centro, :fecha_nacimiento, :tipo, :validado, :password, :nivel, :curso)');
-                    $consulta->execute([
-                        'nombre' => $nombre,
-                        'apellidos' => $apellidos,
-                        'correo' => $correo,
-                        'nickname' => $nickname,
-                        'id_centro' => $centro,
-                        'fecha_nacimiento' => $fecha,
-                        'tipo' => 'Profesor',
-                        'validado' => 1,
-                        'password' => $password,
-                        'nivel' => $nivel,
-                        'curso' => '2022-2023'
+                $consulta->execute([
+                    'nombre' => $nombre,
+                    'apellidos' => $apellidos,
+                    'correo' => $correo,
+                    'nickname' => $nickname,
+                    'id_centro' => $centro,
+                    'fecha_nacimiento' => $fecha,
+                    'tipo' => 'Profesor',
+                    'validado' => 1,
+                    'password' => $password,
+                    'nivel' => $nivel,
+                    'curso' => '2022-2023'
 
-                    ]);
+                ]);
 
-                    header('Location: login.php');
-                    die();
-                    
-                } else {
-                    echo '<div><p style="color: red" class="form__text">Badago erabiltzaile bat ezizen honekin</p></div>';
-                };
-            }
+                header('Location: login.php');
+                die();
+            } else {
+                echo '<div><p style="color: red" class="form__text">Badago erabiltzaile bat ezizen honekin</p></div>';
+            };
+        }
         ?>
         <form class="form" id="register" action="" method="post">
             <img id="logobueno" src="src/Logobueno.png" alt="Logo">
@@ -77,33 +78,33 @@
                     <!-- NOMRBRE -->
                     <div class="formulario__grupo" id="grupo__nombre">
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="nombre" id="nombre" size="40" autofocus placeholder="Nombre">
+                            <input type="text" class="formulario__input" name="nombre" id="nombre" size="40" autofocus placeholder="Izena">
                         </div>
-                        <p class="formulario__input-error">El nombre tiene que ser de 3 a 16 dígitos y solo puede contener letras, empezando siempre por mayúscula.</p>
-                    </div>   
+                        <p class="formulario__input-error">Izenak 3 eta 16 digitu artekoa izan behar du, eta letrak bakarrik eduki ditzake, beti letra larriz hasita.</p>
+                    </div>
                     <!-- APELLIDOS -->
                     <div class="formulario__grupo" id="grupo__apellidos">
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="apellidos" id="apellidos" size="40" autofocus placeholder="Apellidos">
+                            <input type="text" class="formulario__input" name="apellidos" id="apellidos" size="40" autofocus placeholder="Abizenak">
                         </div>
-                            <p class="formulario__input-error">El apellido tiene que ser de 3 a 16 dígitos y solo puede contener letras, empezando siempre por mayúscula.</p>
-                    </div>   
+                        <p class="formulario__input-error">Abizenak 3 eta 16 digitu artekoa izan behar du, eta letrak bakarrik eduki ditzake, beti letra larriz hasita.</p>
+                    </div>
                 </div>
 
                 <div class="fila">
                     <!-- CORREO -->
                     <div class="formulario__grupo" id="grupo__email">
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="email" id="email" size="40" autofocus placeholder="Email">
+                            <input type="text" class="formulario__input" name="email" id="email" size="40" autofocus placeholder="Email-a">
                         </div>
-                        <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                        <p class="formulario__input-error">Email-a letrak, zenbakiak, puntuak, gidoiak eta gidoi baxua baino ezin ditu izan.</p>
                     </div>
                     <!-- NICKNAME -->
                     <div class="formulario__grupo" id="grupo__nickname">
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="nickname" id="nickname" size="40" autofocus placeholder="Nickname">
+                            <input type="text" class="formulario__input" name="nickname" id="nickname" size="40" autofocus placeholder="Ezizena">
                         </div>
-                        <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                        <p class="formulario__input-error">Ezizena 4-16 digitu izan behar ditu, eta zenbakiak, letrak eta gidoi baxua baino ezin ditu izan.</p>
                     </div>
                 </div>
 
@@ -111,56 +112,57 @@
                     <!-- CONTRASEÑA -->
                     <div class="formulario__grupo" id="grupo__password">
                         <div class="formulario__grupo-input">
-                            <input type="password" name="password" class="formulario__input" id="password" size="40" autofocus placeholder="Password">
+                            <input type="password" name="password" class="formulario__input" id="password" size="40" autofocus placeholder="Pasahitza">
                         </div>
-                        <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+                        <p class="formulario__input-error">Pasahitzak 4 eta 12 digitu artekoa izan behar da.</p>
                     </div>
                     <!-- CONTRASEÑA 2 -->
                     <div class="formulario__grupo" id="grupo__password2">
                         <div class="formulario__grupo-input">
-                            <input type="password" class="formulario__input" id="password2" size="40" autofocus placeholder="Repeat password">
+                            <input type="password" class="formulario__input" id="password2" size="40" autofocus placeholder="Errepikatu pasahitza">
                         </div>
-                        <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+                        <p class="formulario__input-error">Pasahitzak berdinak izan behar dira.</p>
                     </div>
-                </div> 
-                
+                </div>
+
                 <div class="formulario__grupo" id="grupo__fecha">
                     <!-- FECHA_NACIMIENTO -->
                     <div class="formulario__grupo-input">
-                        <input type="text" name="fecha" class="formulario__input" id="fecha" size="40" autofocus placeholder="Fecha de nacimiento" onfocus="(this.type='date')">
+                        <input type="text" name="fecha" class="formulario__input" id="fecha" size="40" autofocus placeholder="Jaiotze-data" onfocus="(this.type='date')">
                     </div>
                 </div>
 
                 <div class="formulario__grupo-input">
-                    <span>Centro:</span>
+                    <span>Ikastetxea:</span>
                     <select name="centro" id="centro">
-                    <?php
+                        <?php
                         //Consulta
-                        $consulta = $miPDO ->prepare("SELECT * FROM centro");
-                        $consulta ->execute();
-                        $centros = $consulta ->fetchAll();
-                        foreach($centros as $posicion =>$centro){
+                        $consulta = $miPDO->prepare("SELECT * FROM centro");
+                        $consulta->execute();
+                        $centros = $consulta->fetchAll();
+                        foreach ($centros as $posicion => $centro) {
                             echo "<option value = '" . $centro['id_centro'] . "'>" . $centro['nombre_centro'] . "</option>";
                         }
-                    ?>
+                        ?>
                     </select>
                 </div>
 
             </div>
             <div class="formulario__mensaje" id="formulario__mensaje">
-                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.</p>
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Errorea:</b> Mesedez, bete formularioa behar bezala.</p>
             </div>
 
             <div class="formulario__grupo formulario__grupo-btn-enviar">
-                <button class="form__button" type="submit" id="btnRegistro">Crear profesor</button>
-                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                <button class="form__button" type="submit" id="btnRegistro">Irakaslea sortu</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Ondo bidalitako formularioa!</p>
             </div>
 
             <p class="form__text">
-                <a class="form__link" href="login.php" id="linkCreateAccount">Alredy have an account? Sign in</a>
+                <a class="form__link" href="login.php" id="linkCreateAccount">Baduzu kontu bat? Saioa hasi</a>
             </p>
-            
+
         </form>
     </div>
 </body>
+
 </html>
