@@ -26,6 +26,7 @@ if (!isset($_SESSION['nickname'])) {
 
 <body>
     <div class="container">
+        <button class="form__button" type="submit" id="volverInicio"><a href="index.php" class='boton_inicio'>Volver a la pagina principal</a></button>
         <?php
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

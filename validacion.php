@@ -25,7 +25,10 @@ if (!isset($_SESSION['nickname'])) {
 
 <body>
     <form action="validacion.php" method="post">
+
         <div class="container" id="validacion">
+            <button class="form__button" type="submit" id="volverInicio"><a href="index.php" class='boton_inicio'>Volver a la pagina principal</a></button>
+
             <h1>VALIDACIONES</h1>
             <table>
                 <tr>
@@ -78,9 +81,6 @@ if (!isset($_SESSION['nickname'])) {
                 }
 
                 ?>
-                <tr>
-                    <a href="index.php" class='boton_validacion'><i></i>Volver a la pagina principal</a></li>
-                </tr>
             </table>
         </div>
 
