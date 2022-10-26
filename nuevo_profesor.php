@@ -114,7 +114,7 @@ if (!isset($_SESSION['nickname'])) {
                         <div class="formulario__grupo-input">
                             <input type="password" name="password" class="formulario__input" id="password" size="40" autofocus placeholder="Pasahitza">
                         </div>
-                        <p class="formulario__input-error">Pasahitzak 4 eta 12 digitu artekoa izan behar da.</p>
+                        <p class="formulario__input-error">Pasahitzak 4 eta 12 digitu artekoa izan behar du.</p>
                     </div>
                     <!-- CONTRASEÑA 2 -->
                     <div class="formulario__grupo" id="grupo__password2">
@@ -157,9 +157,6 @@ if (!isset($_SESSION['nickname'])) {
                 <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Ondo bidalitako formularioa!</p>
             </div>
 
-            <p class="form__text">
-                <a class="form__link" href="login.php" id="linkCreateAccount">Baduzu kontu bat? Saioa hasi</a>
-            </p>
 
         </form>
     </div>
