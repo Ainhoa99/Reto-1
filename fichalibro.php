@@ -61,8 +61,13 @@
             echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
             echo "</div>";
             
+            //Valoración
+            echo "<div class='caja-notamedia'>";
+            echo "<p class='ficha-notamedia-text'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
+            //batez besteko nota
+            echo "</div>";  
             
-                echo "<div id='caja-info-fichafibro'>";
+            echo "<div id='caja-info-fichafibro'>";
             echo "<dl id='datos-libro'>";
             //Sinopsis
             echo "<dt class='titulo-sinopsis'>Sinopsia</dt>";
@@ -99,13 +104,7 @@
             echo "<div class='elemento-fichatecnica'>";
             echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
             echo "<dd class='ficha-idioma'>" . $libros['idioma'] . "</dd>";
-            echo "</div>";
-
-            //Valoración
-            echo "<div class='caja-notamedia'>";
-            echo "<p class='ficha-notamedia-text'>Batez besteko nota</p>";
-            echo "<p class='ficha-notamedia'>" . $libros['notamedia'] . "</p>";
-            echo "</div>";   
+            echo "</div>"; 
 
             //Edad media
             echo "<p class='ficha-edadmedia'> Batez besteko adina: " . $libros['edadmedia'] . "</p>";
@@ -113,8 +112,7 @@
             echo "</div>";
             echo "</div>";
             echo "</div>";
-                  
-                    
+                        
         ?>
 
         

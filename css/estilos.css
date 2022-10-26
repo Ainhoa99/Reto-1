@@ -484,7 +484,20 @@ body{
     user-select: none;
 }
 
+.fa-star{
+    color: rgb(238, 208, 57);
+    padding-right: 3px;
+}
 
+.ficha-notamedia-text{
+    display: flex;
+    font-size: 2rem;
+}
+
+.caja-notamedia{
+    margin-left: 20%;
+    margin-top: 10px;
+}
 
 /** Opiniones **/
 
