@@ -196,24 +196,20 @@ h1 {
   border-radius: var(--border-radius);
 }
 
-#validacion{
+#validacion {
   width: 80%;
 }
 
+/* Buscador */
+button#volverInicio {
+  margin-bottom: 0.5rem;
+}
 
-  /* Buscador */
-  button#volverInicio {
-    margin-bottom: 0.5rem;
-  }
-
-  /***********     Corte tramo de pantalla      *******/
-
+/***********     Corte tramo de pantalla      *******/
 
 @media (min-width: 850px) {
-
-  #tabla-validar tr{
+  #tabla-validar tr {
     display: flex;
     flex-direction: row;
   }
-
 }

@@ -102,14 +102,12 @@ include('database/conexion.php');
                         <dd class='nivel'><?php echo ($respuesta['nivel']) ?></dd>
 
 
-                        <p class='enlace-ficha'><a href='fichalibro.php'>Fitxa ikusi</a></p>
-                        <link href="perfilpersonal.php" id="btneditar" class="datuak aldatu">
                     </dl>
                 </div>
 
             </div>
             <div id="caja-btn-editar">
-                <button class="btn-editar">Aldatu pasahitza</button>
+                <button class="btn-editar"><a id="btneditar" href='cambioPassword.php'>Aldatu pasahitza</a></button>
             </div>
         </div>
 

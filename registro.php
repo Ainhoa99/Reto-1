@@ -48,7 +48,7 @@ include_once "database/conexion.php";
                     'fecha_nacimiento' => $fecha,
                     'tipo' => 'Alumno',
                     'validado' => 0,
-                    'password' => $password,
+                    'password' => password_hash($password, PASSWORD_DEFAULT),
                     'nivel' => $nivel,
                     'curso' => '2022-2023'
 

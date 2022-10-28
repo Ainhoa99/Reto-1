@@ -551,108 +551,108 @@ body {
   margin: 10px;
 }
 
-
-
 /****************      Página perfil personal         ***************/
 
-#container{
-    font-family: Arial;
-    color: rgb(111, 111, 111);
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+#container {
+  font-family: Arial;
+  color: rgb(111, 111, 111);
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  .foto {
-    width: 30%;
-    max-width: 150px;
-    border-radius: 50%;
-    border:1px solid rgb(211, 211, 211);
-    padding: 20px;
-  }
-  
-  .foto img {
-    width: 100%;
-  }
+.foto {
+  width: 30%;
+  max-width: 150px;
+  border-radius: 50%;
+  border: 1px solid rgb(211, 211, 211);
+  padding: 20px;
+}
 
-  #foto {
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px;
-  }
+.foto img {
+  width: 100%;
+}
 
-  .caja-info-usuario{
-    width: 50%;
-  }
+#foto {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
 
-  #foto-nombre-apellido{
-    border: 2px solid green;
-  }
+.caja-info-usuario {
+  width: 50%;
+}
 
-  #caja-info-perfil{
-    display: flex;
-    width: 100%;
-    background-color: rgb(243, 242, 242);
-    border-radius: 5px;
-    padding: 20px;
-    max-width: 800px;
-  }
+#foto-nombre-apellido {
+  border: 2px solid green;
+}
 
-  #caja-info-perfil dt{
-    font-weight: bold;
-    color: #505050;
-    padding-top: 10px;
-    font-size: 1.4rem;
-  }
+#caja-info-perfil {
+  display: flex;
+  width: 100%;
+  background-color: rgb(243, 242, 242);
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 800px;
+}
 
-  #caja-info-perfil dd{
-    padding: 5px 0;
-    font-size: 1.3rem;
-    border-bottom: 1px solid rgb(213, 213, 213);
-  }
+#caja-info-perfil dt {
+  font-weight: bold;
+  color: #505050;
+  padding-top: 10px;
+  font-size: 1.4rem;
+}
 
-  #info{
-    width: 50%;
-  }
+#caja-info-perfil dd {
+  padding: 5px 0;
+  font-size: 1.3rem;
+  border-bottom: 1px solid rgb(213, 213, 213);
+}
 
-  #caja-btn-editar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+#info {
+  width: 50%;
+}
 
+#caja-btn-editar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .container2{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
+.container2 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
-  .btn-editar{
-    background-color: rgb(184, 52, 3);
-    color: whitesmoke;
-    margin-top: 20px;
-    padding:7px;
-    border-radius: 3px;
-    border: none;
-    cursor: pointer;
-    max-width: 150px;
-  }
+.btn-editar {
+  background-color: rgb(184, 52, 3);
+  color: whitesmoke;
+  margin-top: 20px;
+  padding: 7px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  max-width: 150px;
+}
 
-  .btn-editar:hover {
-    border: 1px solid rgb(184, 52, 3);
-    color:rgb(184, 52, 3);
-    background-color: white;
-  }
+.btn-editar:hover {
+  border: 1px solid rgb(184, 52, 3);
+  background-color: white;
+}
 
-
-
-
+a#btneditar {
+  color: white;
+  text-decoration: none;
+}
+.btn-editar:hover a#btneditar {
+  color: rgb(184, 52, 3);
+}
 
 /**** Pie de página ****/
 
@@ -689,8 +689,6 @@ body {
   font-family: arial;
   letter-spacing: 0.9em;
 }
-
-
 
 /***********************    CORTE - TRAMO PANTALLA     **********************/
 
@@ -830,25 +828,21 @@ body {
     padding: 0;
   }
 
-<<<<<<< HEAD
   #caja-img {
     padding-right: 50px;
     width: 50%;
     justify-content: flex-end;
   }
-=======
-/*** contenido perfil personal***/
+  /*** contenido perfil personal***/
 
-.container2{
+  .container2 {
     display: flex;
     justify-content: center;
   }
-  
-  .btn-editar{
+
+  .btn-editar {
     max-width: 300px;
   }
-
->>>>>>> 176238308b6ed28033654d26ba118bc96246db8d
 }
 
 /***********************  CORTE - TRAMO PANTALLA 2    **********************/
@@ -878,32 +872,29 @@ body {
 
   /*** contenido perfil personal ***/
 
-  #caja-info-perfil{
+  #caja-info-perfil {
     width: 65%;
     max-width: none;
   }
 
-  #foto{
-    justify-content:flex-start;
+  #foto {
+    justify-content: flex-start;
     width: auto;
     margin-right: 20px;
     align-items: stretch;
     padding: 0 50px;
   }
 
-  .container2{
+  .container2 {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 10px;
   }
 
-
-  .foto{
+  .foto {
     width: 100%;
   }
-
-
 }
 
 /***********************  CORTE - TRAMO PANTALLA 3    **********************/
@@ -914,4 +905,3 @@ body {
     margin: 10px;
   }
 }
-
