@@ -614,6 +614,12 @@ body {
   border-bottom: 1px solid rgb(213, 213, 213);
 }
 
+#textobusqueda {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 #info {
   width: 50%;
 }
@@ -643,8 +649,15 @@ body {
 
 .btn-editar:hover {
   border: 1px solid rgb(184, 52, 3);
-  color: rgb(184, 52, 3);
   background-color: white;
+}
+
+a#btneditar {
+  color: white;
+  text-decoration: none;
+}
+.btn-editar:hover a#btneditar {
+  color: rgb(184, 52, 3);
 }
 
 /**** Pie de página ****/
