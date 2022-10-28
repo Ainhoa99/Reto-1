@@ -577,10 +577,19 @@ body {
     flex-direction: column;
     justify-content: center;
   }
+
+  .foto {
+    width: 30%;
+    max-width: 150px;
+    border-radius: 50%;
+    border:1px solid rgb(211, 211, 211);
+    padding: 20px;
+  }
   
   .foto img {
-    width: 50px;
+    width: 100%;
   }
+
   #foto {
     align-items: center;
     justify-content: center;
@@ -624,6 +633,12 @@ body {
     width: 50%;
   }
 
+  #caja-btn-editar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 
   .container2{
     display: flex;
@@ -659,6 +674,7 @@ body {
   background-color: whitesmoke;
   color: #6c6c6c;
   font-family: Arial;
+  margin-top: 30px;
 }
 
 #pie-pagina a {
@@ -686,6 +702,8 @@ body {
   font-family: arial;
   letter-spacing: 0.9em;
 }
+
+
 
 /***********************    CORTE - TRAMO PANTALLA     **********************/
 
@@ -833,8 +851,6 @@ body {
     display: flex;
     justify-content: center;
   }
-
-
   
   .btn-editar{
     max-width: 300px;
@@ -866,6 +882,35 @@ body {
   #caja-img {
     width: 40%;
   }
+
+  /*** contenido perfil personal ***/
+
+  #caja-info-perfil{
+    width: 65%;
+    max-width: none;
+  }
+
+  #foto{
+    justify-content:flex-start;
+    width: auto;
+    margin-right: 20px;
+    align-items: stretch;
+    padding: 0 50px;
+  }
+
+  .container2{
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+
+  .foto{
+    width: 100%;
+  }
+
+
 }
 
 /***********************  CORTE - TRAMO PANTALLA 3    **********************/

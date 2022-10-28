@@ -7,7 +7,7 @@ include('database/conexion.php');
 
 <head>
     <meta charset="UTF-8">
-    <title>Argitalpen-data</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google Fonts -->
 
@@ -101,9 +101,11 @@ include('database/conexion.php');
                         <link href="perfilpersonal.php" id="btneditar" class="datuak aldatu">
                     </dl>
                 </div>
+             
+            </div>
+            <div id="caja-btn-editar">
                 <button class="btn-editar">Aldatu pasahitza</button>
             </div>
-           
         </div>
 
     </main>
