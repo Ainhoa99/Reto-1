@@ -12,7 +12,7 @@ include_once "database/conexion.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo/estiloGenerico.css">
     <script src="js/scriptValidaciones.js" defer></script>
-    <title>REGISTER</title>
+    <title>AÑADIRLIBRO</title>
 </head>
 
 <body>
@@ -21,43 +21,43 @@ include_once "database/conexion.php";
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Variables del formulario
-            $nombre = isset($_REQUEST['nombre']) ? $_REQUEST['nombre'] : null;
-            $apellidos = isset($_REQUEST['apellidos']) ? $_REQUEST['apellidos'] : null;
-            $correo = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
-            $nickname = isset($_REQUEST['nickname']) ? $_REQUEST['nickname'] : null;
-            $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
-            $password2 = isset($_REQUEST['password2']) ? $_REQUEST['password2'] : null;
-            $centro = isset($_REQUEST['centro']) ? $_REQUEST['centro'] : null;
-            $fecha = isset($_REQUEST['fecha']) ? $_REQUEST['fecha'] : null;
-            $nivel = isset($_REQUEST['nivel']) ? $_REQUEST['nivel'] : null;
+            $isbn = isset($_REQUEST['isbn']) ? $_REQUEST['isbn'] : null;
+            $titulo_libro = isset($_REQUEST['titulo_libro']) ? $_REQUEST['titulo_libro'] : null;
+            $foto = isset($_REQUEST['foto']) ? $_REQUEST['foto'] : null;
+            $autor = isset($_REQUEST['autor']) ? $_REQUEST['autor'] : null;
+            $ano_de_libro = isset($_REQUEST['ano_de_libro']) ? $_REQUEST['ano_de_libro'] : null;
+            $sinopsis = isset($_REQUEST['sinopsis']) ? $_REQUEST['sinopsis'] : null;
+            $formato = isset($_REQUEST['formato']) ? $_REQUEST['formato'] : null;
+            $num_lectores     = isset($_REQUEST['num_lectores	']) ? $_REQUEST['num_lectores	'] : null;
+            $idioma  = isset($_REQUEST['idioma ']) ? $_REQUEST['idioma '] : null;
+            $link_compra = isset($_REQUEST['link_compra']) ? $_REQUEST['link_compra'] : null;
 
-            $comprobar = $miPDO->prepare('SELECT nickname FROM usuarios WHERE nickname = :nickname');
+            $comprobar = $miPDO->prepare('SELECT id_libro FROM libros WHERE id_libro = :id_libro');
             $comprobar->execute(['nickname' => $nickname]);
             $comprobar = $comprobar->fetch();
 
             if (empty($comprobar)) {
                 // Base de datos.
-                $consulta = $miPDO->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, password, nivel, curso)
-                                            VALUES (:nombre, :apellidos, :correo, :nickname, :id_centro, :fecha_nacimiento, :tipo, :validado, :password, :nivel, :curso)');
+                $consulta = $miPDO->prepare('INSERT INTO libros (isbn, titulo_libro, foto, autor, ano_de_libro, sinopsis, formato, num_lectores, idioma, link_compra)
+                                            VALUES (:isbn, :titulo_libro, :foto, :autor, :ano_de_libro, :sinopsis, :formato, :num_lectores, :idioma, :link_compra');
                 $consulta->execute([
-                    'nombre' => $nombre,
-                    'apellidos' => $apellidos,
-                    'correo' => $correo,
-                    'nickname' => $nickname,
-                    'id_centro' => $centro,
-                    'fecha_nacimiento' => $fecha,
-                    'tipo' => 'Alumno',
-                    'validado' => 0,
-                    'password' => password_hash($password, PASSWORD_DEFAULT),
-                    'nivel' => $nivel,
-                    'curso' => '2022-2023'
+                    'isbn' => $isbn,
+                    'titulo_libro' => $titulo_libro,
+                    'foto' => $foto,
+                    'autor' => $autor,
+                    'ano_de_libro' => $ano_de_libro,
+                    'sinopsis' => $sinopsis,
+                    'formato' => $formato,
+                    'num_lectores' => $num_lectores,
+                    'idioma' => $idioma,
+                    'link_compra' => $link_compra
 
                 ]);
 
-                header('Location: login.php');
+                header('Location: index.php');
                 die();
             } else {
-                echo '<div><p style="color: red" class="form__text">Badago erabiltzaile bat ezizen honekin</p></div>';
+                echo '<div><p style="color: red" class="form__text">Liburu hau web orrian dago jada.</p></div>';
             };
         }
         ?>

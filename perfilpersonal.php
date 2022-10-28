@@ -1,5 +1,11 @@
-<?php
-include('database/conexion.php');
+<?php include('database/conexion.php');
+// Comprobamos si existe la sesión de apodo
+session_start();
+if (!isset($_SESSION['nickname'])) {
+    // En caso contrario devolvemos a la página login.php
+    header('Location: login.php');
+    die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +34,6 @@ include('database/conexion.php');
     <?php include('cabecera.php'); ?>
     <main id="contenido">
         <?php
-        session_start();
 
         $nickname = $_SESSION['nickname'];
         // Prepara SELECT
@@ -78,7 +83,7 @@ include('database/conexion.php');
                         <input type='text' id='correo' style='display: none'>
 
                     </dl>
-                
+
 
                     <dl id='info'>
 
@@ -90,21 +95,24 @@ include('database/conexion.php');
                         <input type='date' id='fecha_nacimiento' style='display: none'>
 
                         <dt>Mugikorra</dt>
-                        <dd class='movil'><?php echo ($respuesta['movil']) ?></dd>
+                        <dd class='movil'><?php if ($respuesta['movil'] == '') {
+                                                echo ('Ez daukat mugikorra');
+                                            } else {
+                                                echo ($respuesta['movil']);
+                                            }
+                                            echo ($respuesta['movil']) ?></dd>
                         <input type='text' id='movil' style='display: none'>
 
                         <dt>Maila</dt>
                         <dd class='nivel'><?php echo ($respuesta['nivel']) ?></dd>
 
 
-                        <p class='enlace-ficha'><a href='fichalibro.php'>Fitxa ikusi</a></p>
-                        <link href="perfilpersonal.php" id="btneditar" class="datuak aldatu">
                     </dl>
                 </div>
-             
+
             </div>
             <div id="caja-btn-editar">
-                <button class="btn-editar">Aldatu pasahitza</button>
+                <button class="btn-editar"><a id="btneditar" href='cambioPassword.php'>Aldatu pasahitza</a></button>
             </div>
         </div>
 

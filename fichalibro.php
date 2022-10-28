@@ -1,5 +1,12 @@
 <?php
 include('database/conexion.php');
+// Comprobamos si existe la sesión de apodo
+session_start();
+if (!isset($_SESSION['nickname'])) {
+    // En caso contrario devolvemos a la página login.php
+    header('Location: login.php');
+    die();
+}
 
 $libro = $_GET['liburua'];
 // Prepara SELECT
