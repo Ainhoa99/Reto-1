@@ -1,5 +1,11 @@
-<?php
-include('database/conexion.php');
+<?php include('database/conexion.php');
+// Comprobamos si existe la sesión de apodo
+session_start();
+if (!isset($_SESSION['nickname'])) {
+    // En caso contrario devolvemos a la página login.php
+    header('Location: login.php');
+    die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +34,6 @@ include('database/conexion.php');
     <?php include('cabecera.php'); ?>
     <main id="contenido">
         <?php
-        session_start();
 
         $nickname = $_SESSION['nickname'];
         // Prepara SELECT

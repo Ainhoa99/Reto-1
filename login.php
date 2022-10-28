@@ -25,7 +25,7 @@ include_once "database/conexion.php";
             $form_password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
 
             // Base de datos.
-            $consulta = $miPDO->prepare('SELECT correo, nickname, password, validado FROM usuarios');
+            $consulta = $miPDO->prepare('SELECT correo, nickname, password, validado, tipo FROM usuarios');
             $consulta->execute();
             $usuarios = $consulta->fetchAll();
             foreach ($usuarios as $posicion => $usuario) {
@@ -40,6 +40,7 @@ include_once "database/conexion.php";
                     session_start();
                     $_SESSION['nickname'] = $_REQUEST['nickname'];
                     $_SESSION['email'] = $_REQUEST['email'];
+                    $_SESSION['tipo'] = $usuario['tipo'];
                     // Redireccionamos a la página segura
                     header('Location: index.php');
                     die();
