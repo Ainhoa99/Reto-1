@@ -78,7 +78,7 @@ include('database/conexion.php');
                         <input type='text' id='correo' style='display: none'>
 
                     </dl>
-                
+
 
                     <dl id='info'>
 
@@ -90,7 +90,12 @@ include('database/conexion.php');
                         <input type='date' id='fecha_nacimiento' style='display: none'>
 
                         <dt>Mugikorra</dt>
-                        <dd class='movil'><?php echo ($respuesta['movil']) ?></dd>
+                        <dd class='movil'><?php if ($respuesta['movil'] == '') {
+                                                echo ('Ez daukat mugikorra');
+                                            } else {
+                                                echo ($respuesta['movil']);
+                                            }
+                                            echo ($respuesta['movil']) ?></dd>
                         <input type='text' id='movil' style='display: none'>
 
                         <dt>Maila</dt>
@@ -101,7 +106,7 @@ include('database/conexion.php');
                         <link href="perfilpersonal.php" id="btneditar" class="datuak aldatu">
                     </dl>
                 </div>
-             
+
             </div>
             <div id="caja-btn-editar">
                 <button class="btn-editar">Aldatu pasahitza</button>
