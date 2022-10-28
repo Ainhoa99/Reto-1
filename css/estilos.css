@@ -72,7 +72,7 @@ body {
   z-index: 9999;
 }
 
-#buscador-texto {
+#busqueda {
   border-radius: 3px;
   height: 35px;
   margin-left: 100px;
@@ -459,19 +459,19 @@ body {
   margin: 20px;
 }
 
-
-#btn-valorar, #btn-opinion{
-    text-decoration: none;
-    font-family: Arial;
-    color: #d6d6d6;
-    background-color: rgb(184, 52, 3);
-    padding: 8px;
-    border-radius: 4px;
-    font-size: 1.3rem;
-    cursor: pointer;
-    margin: 10px 0;
-    width: 115px;
-    user-select: none;
+#btn-valorar,
+#btn-opinion {
+  text-decoration: none;
+  font-family: Arial;
+  color: #d6d6d6;
+  background-color: rgb(184, 52, 3);
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin: 10px 0;
+  width: 115px;
+  user-select: none;
 }
 
 .fa-star {
@@ -484,53 +484,39 @@ body {
   font-size: 2rem;
 }
 
-#contenedor-valoracion{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 5px;
-    padding-bottom:20px;
-    border-bottom: 1px solid rgb(209, 209, 209);
-    max-width: 800px;
-    text-align: center;
-    width: 40%;
+#contenedor-valoracion {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(209, 209, 209);
 }
 
-.caja-notamedia{
-    margin-top: 10px;
-    position: relative;
+.caja-notamedia {
+  margin-top: 10px;
+  position: relative;
 }
 
-.caja-ficha-edadmedia{
-    color: rgb(184, 52, 3);
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 30%;
+.caja-ficha-edadmedia {
+  color: rgb(184, 52, 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.texto-edadmedia{
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-    padding: 5px;
+.texto-edadmedia {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 5px;
 }
 
-.ficha-edadmedia{
-    color: whitesmoke;
-    border-radius: 50%;
-    background-color: rgb(198, 67, 19);
-    padding: 7px;
-
+.ficha-edadmedia {
+  color: whitesmoke;
+  border-radius: 50%;
+  background-color: rgb(198, 67, 19);
+  padding: 7px;
 }
-
-.caja-contenedor-valoracion{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
-
-
 
 /** Opiniones **/
 
@@ -538,6 +524,7 @@ body {
 #btn-valorar:hover {
   background-color: whitesmoke;
   color: orangered;
+  border: 1px solid orangered;
 }
 
 #titulo-opinion {
@@ -818,33 +805,38 @@ body {
     flex-direction: column;
   }
 
-
-#caja-info-fichafibro{
+  #caja-foto-info {
+    padding: 20px;
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: flex-start;
-    margin-top: 20px;
-}
+    justify-content: flex-start;
+  }
 
-#caja-fichatecnica{
+  .ficha-img {
     width: 50%;
-}
+    max-width: none;
+  }
 
-#datos-libro{
+  .ficha-img img {
+    margin: 0;
+  }
+
+  #caja-info-fichafibro {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     width: 50%;
-    margin-top: 0;
-}
+    max-width: 550px;
+    margin: 0;
+    padding: 0;
+  }
 
-#contenido-fichatecnica{
-    display: block;
-}
-
-#btn-fichatecnica i{
-    display: none;
-}
-
-
+<<<<<<< HEAD
+  #caja-img {
+    padding-right: 50px;
+    width: 50%;
+    justify-content: flex-end;
+  }
+=======
 /*** contenido perfil personal***/
 
 .container2{
@@ -856,6 +848,7 @@ body {
     max-width: 300px;
   }
 
+>>>>>>> 176238308b6ed28033654d26ba118bc96246db8d
 }
 
 /***********************  CORTE - TRAMO PANTALLA 2    **********************/

@@ -1,13 +1,13 @@
-<?php include('database/conexion.php');?>
-<?php 
-    // Comprobamos si existe la sesión de apodo
-    session_start();
-    if (!isset($_SESSION['nickname'])) {
-        // En caso contrario devolvemos a la página login.php
-        header('Location: login.php');
-        die();
-    }
-?>    
+<?php include('database/conexion.php'); ?>
+<?php
+// Comprobamos si existe la sesión de apodo
+session_start();
+if (!isset($_SESSION['nickname'])) {
+    // En caso contrario devolvemos a la página login.php
+    header('Location: login.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,7 +21,7 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/estilos.css">
-    
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -30,61 +30,52 @@
 </head>
 
 <body>
-    
+
     <?php include('cabecera.php'); ?>
+    <?php include('funcionLibros.php'); ?>
 
     <main id="contenido">
-        
-            <?php 
-        
-            // Prepara SELECT
+
+        <?php
+        $busqueda = '';
+        $busqueda = isset($_REQUEST['busqueda']) ? $_REQUEST['busqueda'] : null;
+
+
+        if ($busqueda === '' || $busqueda === null) {
             $consulta = $miPDO->prepare('SELECT * FROM libros;');
-    
+
             // Ejecuta consulta
             $consulta->execute();
 
-                $respuesta = $consulta ->fetchAll();
-               // foreach($respuesta as $posicion =>$libros):   
-     
-                    foreach($respuesta as $posicion =>$libros){
-                        
-                   //$titulo-libro = $libros['titulo_libro'];
-                        
-                    echo "<div id='libro'>";
-                    
-                        //Imagen
-                        echo "<figure class='img-libro'><img src='img/" . $libros['foto'] . "'></figure>";
-                    
-                            
-                        echo "<div class='caja-info-libro'>";
-                        //Titulo
-                        echo "<p class='libro-titulo' method='get'>" . $libros['titulo_libro'] . "</p>";
-                       
-                    
-                        //Autor
-                        echo "<p class='libro-autor'>" . $libros['autor'] . "</p>";
-                        
-                        //Valoración
-                        echo "<div class='caja-notamedia'>";
-                        echo "<p class='libro-notamedia-text'>Batez besteko nota</p>";
-                        echo "<p class='libro-notamedia'>" . $libros['notamedia'] . "</p>";
-                        echo "</div>";                        
-                        //Edad media
-                        echo "<p class='libro-edad-media'>Batez besteko adina: " . $libros['edadmedia'] . "</p>";
+            $respuesta = $consulta->fetchAll();
+            // foreach($respuesta as $posicion =>$libros): 
+            anadirlibros($respuesta);
+        } else {
+            // Variables del formulario
+            $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor = :busqueda OR titulo_libro = :busqueda");
+            $respuesta->execute(
+                [
+                    'busqueda' => $busqueda
+                ]
+            );
+            $respuesta = $respuesta->fetchAll();
 
-                        //Enlace a la ficha
-                        echo "<p class='enlace-ficha'><a href='fichalibro.php?liburua=" . $libros['id_libro'] . "'>Fitxa ikusi</a></p>";
-                        echo "</div>";
-                    echo "</div>";
-                }
-                    
-                  ?>  
+            if ($respuesta) {
+                anadirlibros($respuesta);
+            } else {
+                echo 'NO EXISTE NINGUN LIBRO CON ESTE AUTOR O TITULO';
+            }
+            // foreach($respuesta as $posicion =>$libros): 
 
-        
+        }
+
+        ?>
+
+
     </main>
-    
+
     <?php include('pie-pagina.php'); ?>
-   
+
 </body>
 
 </html>

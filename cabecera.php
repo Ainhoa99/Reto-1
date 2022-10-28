@@ -15,10 +15,12 @@
         <div id="btn-buscador" class="btn">
             <i class="fas fa-search"></i>
         </div>
-        <div id="buscador" class="ocultar">
-            <input type="text" id="buscador-texto" placeholder="Bilatu" size="20">
-            <i class="fas fa-search"></i>
-        </div>
+        <form METHOD=POST ACTION="index.php">
+            <div id="buscador" class="ocultar">
+                <input type="text" id="busqueda" name='busqueda' placeholder="Bilatu" size="20">
+                <i class="fas fa-search"></i>
+            </div>
+        </form>
 
         <div id="btn-nav" class="btn">
             <span class="linea"></span>
