@@ -52,12 +52,8 @@ if (!isset($_SESSION['nickname'])) {
             anadirlibros($respuesta);
         } else {
             // Variables del formulario
-            $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor = :busqueda OR titulo_libro = :busqueda");
-            $respuesta->execute(
-                [
-                    'busqueda' => $busqueda
-                ]
-            );
+            $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor LIKE '%$busqueda%' oR titulo_libro LIKE '%$busqueda%'");
+            $respuesta->execute();
             $respuesta = $respuesta->fetchAll();
 
             if ($respuesta) {
