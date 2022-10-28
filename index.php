@@ -37,10 +37,11 @@ if (!isset($_SESSION['nickname'])) {
     <main id="contenido">
 
         <?php
+        $busqueda = '';
         $busqueda = isset($_REQUEST['busqueda']) ? $_REQUEST['busqueda'] : null;
 
-        if ($busqueda === '' || $busqueda === null) {
 
+        if ($busqueda === '' || $busqueda === null) {
             $consulta = $miPDO->prepare('SELECT * FROM libros;');
 
             // Ejecuta consulta
@@ -51,18 +52,21 @@ if (!isset($_SESSION['nickname'])) {
             anadirlibros($respuesta);
         } else {
             // Variables del formulario
-            $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor LIKE '%$busqueda%' OR titulo_libro LIKE  '%$busqueda%'");
-            $respuesta->execute();
+            $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor = :busqueda OR titulo_libro = :busqueda");
+            $respuesta->execute(
+                [
+                    'busqueda' => $busqueda
+                ]
+            );
             $respuesta = $respuesta->fetchAll();
-            // Prepara SELECT
-            $consulta = $miPDO->prepare('SELECT * FROM libros;');
 
-            // Ejecuta consulta
-            $consulta->execute();
-
-            $respuesta = $consulta->fetchAll();
+            if ($respuesta) {
+                anadirlibros($respuesta);
+            } else {
+                echo 'NO EXISTE NINGUN LIBRO CON ESTE AUTOR O TITULO';
+            }
             // foreach($respuesta as $posicion =>$libros): 
-            anadirlibros($respuesta);
+
         }
 
         ?>
