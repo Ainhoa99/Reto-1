@@ -568,9 +568,7 @@ body {
   .foto {
     width: 30%;
     max-width: 150px;
-    border-radius: 50%;
     border:1px solid rgb(211, 211, 211);
-    padding: 20px;
   }
   
   .foto img {
@@ -787,6 +785,7 @@ body {
     margin-top: 30px;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-top: 100px;
   }
 
   #libro {
@@ -797,24 +796,6 @@ body {
     margin-top: 50px;
   }
 
-  #contenido {
-    margin-top: 100px;
-  }
-
-  #contenido-fichalibro {
-    flex-direction: column;
-  }
-
-  #caja-foto-info {
-    padding: 20px;
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  .ficha-img {
-    width: 50%;
-    max-width: none;
-  }
 
   .ficha-img img {
     margin: 0;
@@ -822,21 +803,68 @@ body {
 
   #caja-info-fichafibro {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 50%;
-    max-width: 550px;
-    margin: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 20px;
     padding: 0;
   }
 
-<<<<<<< HEAD
-  #caja-img {
-    padding-right: 50px;
+  #datos-libro{
+    margin: 0;
+    padding-right: 30px;
     width: 50%;
-    justify-content: flex-end;
   }
-=======
+
+  #caja-fichatecnica{
+    width: 50%;
+  }
+
+/* imagen y valoracion - fichalibro*/
+
+#contenido-fichalibro {
+  flex-direction: column;
+}
+
+#caja-foto-info {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  border: 2px solid red;
+}
+
+.ficha-img {
+  width: 50%;
+  max-width: 300px;
+  border: 2px solid black;
+}
+
+#caja-img{
+  border: 2px solid yellow;
+  justify-content: flex-end;
+  width: 60%;
+  margin-right: 40px;
+}
+
+
+  .caja-contenedor-valoracion{
+    border: 2px solid green;
+    margin: 0;
+  }
+
+  #contenedor-valoracion{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    width: auto;
+    border: 2px solid orange;
+  }
+
+  .caja-ficha-edadmedia{
+    margin-top: 230px;
+  }
+
 /*** contenido perfil personal***/
 
 .container2{
@@ -848,12 +876,14 @@ body {
     max-width: 300px;
   }
 
->>>>>>> 176238308b6ed28033654d26ba118bc96246db8d
+
 }
 
 /***********************  CORTE - TRAMO PANTALLA 2    **********************/
 
 @media (min-width: 1000px) {
+
+  /* ficha libro */
   #libro {
     width: 25%;
     margin: 10px;
@@ -869,12 +899,10 @@ body {
   }
 
   .ficha-img {
-    max-width: 250px;
+    max-width: 200px;
   }
 
-  #caja-img {
-    width: 40%;
-  }
+ 
 
   /*** contenido perfil personal ***/
 
@@ -903,6 +931,15 @@ body {
     width: 100%;
   }
 
+  
+  #datos-libro{
+    width: 40%;
+  }
+
+  #caja-fichatecnica{
+    width: 40%;
+  }
+
 
 }
 
@@ -913,5 +950,28 @@ body {
     width: 20%;
     margin: 10px;
   }
+
+
+  #caja-img{
+    justify-content: flex-start;
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+#contenedor-todo{
+  display: flex;
+  border: 2px solid pink;
+}
+
+#caja-fichatecnica{
+  width: 40%;
+}
+
+#caja-info-fichalibro{
+  border: 5px solid purple;
+}
+
+  
 }
 
