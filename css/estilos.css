@@ -563,7 +563,6 @@ body {
   justify-content: center;
 }
 
-<<<<<<< HEAD
   .foto {
     width: 30%;
     max-width: 150px;
@@ -573,15 +572,6 @@ body {
   .foto img {
     width: 100%;
   }
-=======
-.foto {
-  width: 30%;
-  max-width: 150px;
-  border-radius: 50%;
-  border: 1px solid rgb(211, 211, 211);
-  padding: 20px;
-}
->>>>>>> c804cd79b4afdb9ec8f792a5cbdac44b81359f6b
 
 .foto img {
   width: 100%;
@@ -829,17 +819,10 @@ a#btneditar {
     padding: 0;
   }
 
-<<<<<<< HEAD
-  #datos-libro{
-    margin: 0;
-    padding-right: 30px;
-=======
   #caja-img {
     padding-right: 50px;
->>>>>>> c804cd79b4afdb9ec8f792a5cbdac44b81359f6b
     width: 50%;
   }
-<<<<<<< HEAD
 
   #caja-fichatecnica{
     width: 50%;
@@ -890,9 +873,6 @@ a#btneditar {
   }
 
 /*** contenido perfil personal***/
-=======
-  /*** contenido perfil personal***/
->>>>>>> c804cd79b4afdb9ec8f792a5cbdac44b81359f6b
 
   .container2 {
     display: flex;
@@ -954,7 +934,6 @@ a#btneditar {
   .foto {
     width: 100%;
   }
-<<<<<<< HEAD
 
   
   #datos-libro{
@@ -966,8 +945,6 @@ a#btneditar {
   }
 
 
-=======
->>>>>>> c804cd79b4afdb9ec8f792a5cbdac44b81359f6b
 }
 
 /***********************  CORTE - TRAMO PANTALLA 3    **********************/
