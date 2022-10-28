@@ -30,7 +30,7 @@ if (!isset($_SESSION['nickname'])) {
             <button class="form__button" type="submit" id="volverInicio"><a href="index.php" class='boton_inicio'>Volver a la pagina principal</a></button>
 
             <h1>VALIDACIONES</h1>
-            <table>
+            <table id="tabla-validar">
                 <tr>
                     <th>NOMBRE</th>
                     <th>APELLIDOS</th>

@@ -3,14 +3,25 @@ include('database/conexion.php');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argitalpen-data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts -->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="css/estilos.css">
-    <title>FichaAlumno</title>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="js/scripts.js"></script>
 </head>
 
 <body>
@@ -46,52 +57,53 @@ include('database/conexion.php');
                     <input type='file' id='foto' style='display: none'>
                 </div>
 
-                <div id='foto-nombre-apellido'>
+                <div id='caja-info-perfil'>
 
-                    <div class='caja-info-usuario'>
+                    <dl class='caja-info-usuario'>
 
-                        <h3>Izena</h3>
-                        <p class='nombre' method='get'><?php echo ($respuesta['nombre']) ?></p>
+                        <dt>Izena</dt>
+                        <dd class='nombre' method='get'><?php echo ($respuesta['nombre']) ?></dd>
                         <input type='text' id='nombre' style='display: none'>
 
-                        <h3>Abizena</h3>
-                        <p class='apellidos'><?php echo ($respuesta['apellidos']) ?></p>
+                        <dt>Abizena</dt>
+                        <dd class='apellidos'><?php echo ($respuesta['apellidos']) ?></dd>
                         <input type='text' id='apellidos' style='display: none'>
 
-                        <h3>Ezizena</h3>
-                        <p class='nickname'><?php echo ($respuesta['nickname']) ?></p>
+                        <dt>Ezizena</dt>
+                        <dd class='nickname'><?php echo ($respuesta['nickname']) ?></dd>
                         <input type='text' id='nickname' style='display: none'>
 
-                        <h3>Emaila</h3>
-                        <p class='correo'><?php echo ($respuesta['correo']) ?></p>
+                        <dt>Emaila</dt>
+                        <dd class='correo'><?php echo ($respuesta['correo']) ?></dd>
                         <input type='text' id='correo' style='display: none'>
 
-                    </div>
+                    </dl>
+                
+
+                    <dl id='info'>
+
+                        <dt>Eskola</dt>
+                        <dd><?php echo ($respuesta2['nombre_centro']) ?></dd>
+
+                        <dt>Jahiotze data</dt>
+                        <dd class='fecha_nacimiento'><?php echo ($respuesta['fecha_nacimiento']) ?></dd>
+                        <input type='date' id='fecha_nacimiento' style='display: none'>
+
+                        <dt>Mugikorra</dt>
+                        <dd class='movil'><?php echo ($respuesta['movil']) ?></dd>
+                        <input type='text' id='movil' style='display: none'>
+
+                        <dt>Maila</dt>
+                        <dd class='nivel'><?php echo ($respuesta['nivel']) ?></dd>
+
+
+                        <p class='enlace-ficha'><a href='fichalibro.php'>Fitxa ikusi</a></p>
+                        <link href="perfilpersonal.php" id="btneditar" class="datuak aldatu">
+                    </dl>
                 </div>
-
-                <div id='info'>
-
-                    <h3>Eskola</h3>
-                    <span><?php echo ($respuesta2['nombre_centro']) ?></span>
-
-                    <h3>Jahiotze data</h3>
-                    <p class='fecha_nacimiento'><?php echo ($respuesta['fecha_nacimiento']) ?></p>
-                    <input type='date' id='fecha_nacimiento' style='display: none'>
-
-                    <h3>Mugikorra</h3>
-                    <p class='movil'><?php echo ($respuesta['movil']) ?></p>
-                    <input type='text' id='movil' style='display: none'>
-
-                    <h3>Maila</h3>
-                    <p class='nivel'></p>
-                    <span><?php echo ($respuesta['nivel']) ?></span>
-
-
-                    <p class='enlace-ficha'><a href='fichalibro.php'>Fitxa ikusi</a></p>
-                    <link href="perfilpersonal.php" id="btneditar" class="datuak aldatu">
-                </div>
+                <button class="btn-editar">Aldatu pasahitza</button>
             </div>
-            <button class="editar">Aldatu pasahitza</button>
+           
         </div>
 
     </main>

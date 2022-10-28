@@ -131,7 +131,6 @@ select {
 
 table {
   padding: 1.5rem;
-  text-align: center;
 }
 
 th,
@@ -197,10 +196,24 @@ h1 {
   border-radius: var(--border-radius);
 }
 
-@media (max-width: 870px) {
+#validacion{
+  width: 80%;
+}
+
+
   /* Buscador */
   button#volverInicio {
-    width: 100%;
     margin-bottom: 0.5rem;
   }
+
+  /***********     Corte tramo de pantalla      *******/
+
+
+@media (min-width: 850px) {
+
+  #tabla-validar tr{
+    display: flex;
+    flex-direction: row;
+  }
+
 }
