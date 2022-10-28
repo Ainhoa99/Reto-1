@@ -1,4 +1,5 @@
 <?php
+//hh
 function anadirlibros($respuesta)
 {
     foreach ($respuesta as $posicion => $libros) {

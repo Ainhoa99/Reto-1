@@ -36,38 +36,36 @@ if (!isset($_SESSION['nickname'])) {
 
     <main id="contenido">
 
-    <?php
-    $busqueda = isset($_REQUEST['busqueda']) ? $_REQUEST['busqueda'] : null;
-    
-    if($busqueda === '' || $busqueda === null){
+        <?php
+        $busqueda = isset($_REQUEST['busqueda']) ? $_REQUEST['busqueda'] : null;
 
-        $consulta = $miPDO->prepare('SELECT * FROM libros;');
+        if ($busqueda === '' || $busqueda === null) {
 
-        // Ejecuta consulta
-        $consulta->execute();
+            $consulta = $miPDO->prepare('SELECT * FROM libros;');
 
-        $respuesta = $consulta->fetchAll();
-        // foreach($respuesta as $posicion =>$libros): 
-        anadirlibros($respuesta);
-        
-        }else{
-       // Variables del formulario
-        $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor LIKE '%$busqueda%' OR titulo_libro LIKE  '%$busqueda%'");
-        $respuesta->execute();
-        $respuesta = $respuesta->fetchAll();
-        // Prepara SELECT
-        $consulta = $miPDO->prepare('SELECT * FROM libros;');
+            // Ejecuta consulta
+            $consulta->execute();
 
-        // Ejecuta consulta
-        $consulta->execute();
+            $respuesta = $consulta->fetchAll();
+            // foreach($respuesta as $posicion =>$libros): 
+            anadirlibros($respuesta);
+        } else {
+            // Variables del formulario
+            $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor LIKE '%$busqueda%' OR titulo_libro LIKE  '%$busqueda%'");
+            $respuesta->execute();
+            $respuesta = $respuesta->fetchAll();
+            // Prepara SELECT
+            $consulta = $miPDO->prepare('SELECT * FROM libros;');
 
-        $respuesta = $consulta->fetchAll();
-        // foreach($respuesta as $posicion =>$libros): 
-        anadirlibros($respuesta);
+            // Ejecuta consulta
+            $consulta->execute();
 
-    }
- 
-    ?>
+            $respuesta = $consulta->fetchAll();
+            // foreach($respuesta as $posicion =>$libros): 
+            anadirlibros($respuesta);
+        }
+
+        ?>
 
 
     </main>
