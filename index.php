@@ -47,20 +47,22 @@ if (!isset($_SESSION['nickname'])) {
             $consulta->execute();
 
             $respuesta = $consulta->fetchAll();
-            // foreach($respuesta as $posicion =>$libros): 
+            // funcion de cargar libros
             anadirlibros($respuesta);
         } else {
             // Variables del formulario
-            $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor = :busqueda OR titulo_libro = :busqueda");
-            $respuesta->execute(
-                [
-                    'busqueda' => $busqueda
-                ]
-            );
+            $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor LIKE '%$busqueda%' oR titulo_libro LIKE '%$busqueda%'");
+            $respuesta->execute();
             $respuesta = $respuesta->fetchAll();
 
+            //texto de informacion de la busqueda
             if ($respuesta) {
-                anadirlibros($respuesta);
+                $contador = count($respuesta);
+                echo ("<div id='textobusqueda'>
+                <p>(<strong>" . $contador . "</strong>) aurkipen daude (<strong>" . $busqueda . "</strong>) libururekin erlazionatuta. 
+                </p></div>"
+                );
+                echo ('<div id = "contenedorLibros">' . anadirlibros($respuesta) . '</div>');
             } else {
                 echo 'NO EXISTE NINGUN LIBRO CON ESTE AUTOR O TITULO';
             }
