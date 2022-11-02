@@ -131,7 +131,7 @@ CREATE TABLE listadeclases (
 CREATE TABLE opiniones (
   id_opinion int(11) NOT NULL AUTO_INCREMENT,
   nickname varchar(30) NOT NULL,
-  edad int(2) NOT NULL,
+  id_libro int(11) NOT NULL,
   PRIMARY KEY (id_opinion)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -245,7 +245,8 @@ ALTER TABLE listadeclases
 -- Indices de la tabla opiniones
 --
 ALTER TABLE opiniones
-  ADD KEY nickname (nickname);
+  ADD KEY nickname (nickname),
+  ADD KEY id_libro (id_libro);
 
 --
 -- Indices de la tabla peticiondelibro
@@ -312,7 +313,8 @@ ALTER TABLE listadeclases
 -- Filtros para la tabla opiniones
 --
 ALTER TABLE opiniones
-  ADD CONSTRAINT opiniones_ibfk_1 FOREIGN KEY (nickname) REFERENCES usuarios (nickname);
+  ADD CONSTRAINT opiniones_ibfk_1 FOREIGN KEY (nickname) REFERENCES usuarios (nickname),
+  ADD CONSTRAINT opiniones_ibfk_2 FOREIGN KEY (id_libro) REFERENCES libros (id_libro);
 
 --
 -- Filtros para la tabla peticiondelibro
