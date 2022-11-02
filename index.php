@@ -1,5 +1,4 @@
-<?php include('database/conexion.php'); ?>
-<?php
+<?php include('database/conexion.php');
 // Comprobamos si existe la sesión de apodo
 session_start();
 if (!isset($_SESSION['nickname'])) {

@@ -1,5 +1,11 @@
-<?php
-include_once "database/conexion.php";
+<?php include('database/conexion.php');
+// Comprobamos si existe la sesión de apodo
+session_start();
+if (!isset($_SESSION['nickname'])) {
+    // En caso contrario devolvemos a la página login.php
+    header('Location: login.php');
+    die();
+}
 ?>
 
 
@@ -19,7 +25,7 @@ include_once "database/conexion.php";
         <?php
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            session_start();
+
             // Variables del formulario
             $contActual = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
             $contNueva = isset($_REQUEST['password1']) ? $_REQUEST['password1'] : null;

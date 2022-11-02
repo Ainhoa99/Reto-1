@@ -1,5 +1,12 @@
 <?php
 include('database/conexion.php');
+// Comprobamos si existe la sesión de apodo
+session_start();
+if (!isset($_SESSION['nickname'])) {
+    // En caso contrario devolvemos a la página login.php
+    header('Location: login.php');
+    die();
+}
 
 $libro = $_GET['liburua'];
 // Prepara SELECT
@@ -45,86 +52,85 @@ $libros = $otraconsulta->fetch();
     <main id="contenido-fichalibro">
         
          <?php 
-        
+           
             echo "<div id='caja-titulo-fichafibro'>";
                 //Titulo
                 echo "<h2 class='ficha-titulo'>" . $libros['titulo_libro'] . "</h2>";
-        
                 //Autor
                 echo "<h3 class='ficha-autor'>" . $libros['autor'] . "</h3>";
             echo "</div>";
-            
-            
-            echo "<div id='caja-foto-info'>";
-                //Imagen
-                echo "<div id='caja-img'>";
-                    echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
-                echo "</div>";
-            
-                //Contenedor nota media y edad media
-                echo "<div class='caja-contenedor-valoracion'>";
 
-                    echo "<div id='contenedor-valoracion'>";
-                        //Valoración -nota media
-                        echo "<div class='caja-notamedia'>";
-                            echo "<p class='ficha-notamedia-text'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
-                            //batez besteko nota
-                        echo "</div>"; 
+            echo "<div id='contenedor-todo'>";
             
-                    //Edad media
-                    echo "<div class='caja-ficha-edadmedia'>";
-                        echo "<p class='texto-edadmedia'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
-                        echo "<p class='ficha-edadmedia'>" . $libros['edadmedia'] . "</p>";
+                echo "<div id='caja-foto-info'>";
+                    //Imagen
+                    echo "<div id='caja-img'>";
+                        echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
                     echo "</div>";
+            
+                    //Contenedor nota media y edad media
+                    echo "<div class='caja-contenedor-valoracion'>";
+
+                        echo "<div id='contenedor-valoracion'>";
+                            //Valoración -nota media
+                            echo "<div class='caja-notamedia'>";
+                                echo "<p class='ficha-notamedia-text'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
+                            //batez besteko nota
+                            echo "</div>"; 
+            
+                            //Edad media
+                            echo "<div class='caja-ficha-edadmedia'>";
+                                echo "<p class='texto-edadmedia'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
+                                echo "<p class='ficha-edadmedia'>" . $libros['edadmedia'] . "</p>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+
+                echo "<div id='caja-info-fichafibro'>";
+                    echo "<dl id='datos-libro'>";
+                        //Sinopsis
+                        echo "<dt class='titulo-sinopsis'>Sinopsia</dt>";
+                        echo "<dd class='ficha-sinopsis'>" . $libros['sinopsis'] . "</dd>";
+                    echo "</dl>";
+
+                    echo "<div id='caja-fichatecnica'>";
+
+                        echo "<div id='btn-fichatecnica'>
+                            <p>Fitxa teknikoa</p>";
+                        echo "</div>";
+
+                        //Contenedor ficha tecnica
+                        echo "<dl id='contenido-fichatecnica' class='ocultar'>";
+
+                            //ISBN
+                            echo "<div class='elemento-fichatecnica'>";
+                                echo "<dt class='titulo-isbn'>ISBN</dt>";
+                                echo "<dd class='ficha-isbn'>" . $libros['id_libro'] . "</dd>";
+                            echo "</div>";
+
+                            //Año publicacion
+                            echo "<div class='elemento-fichatecnica'>";
+                                echo "<dt class='titulo-anyo'>Argitalpen-urtea</dt>";
+                                echo "<dd class='ficha-anyo'>" . $libros['ano_de_libro'] . "</dd>";
+                            echo "</div>";
+
+                            //Formato
+                            echo "<div class='elemento-fichatecnica'>";
+                                echo "<dt class='titulo-formato'>Formatua</dt>";
+                                echo "<dd class='ficha-formato'>" . $libros['formato'] . "</dd>";
+                            echo "</div>";
+
+                            //Idioma
+                            echo "<div class='elemento-fichatecnica'>";
+                                echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
+                                echo "<dd class='ficha-idioma'>" . $libros['idioma'] . "</dd>";
+                            echo "</div>";
+
+                        echo "</dl>";
                     echo "</div>";
                 echo "</div>";
             echo "</div>";
-
-
-
-        echo "<div id='caja-info-fichafibro'>";
-        echo "<dl id='datos-libro'>";
-        //Sinopsis
-        echo "<dt class='titulo-sinopsis'>Sinopsia</dt>";
-        echo "<dd class='ficha-sinopsis'>" . $libros['sinopsis'] . "</dd>";
-        echo "</dl>";
-
-        echo "<div id='caja-fichatecnica'>";
-
-        echo "<div id='btn-fichatecnica'>
-                <p>Fitxa teknikoa</p></div>";
-
-        //Contenedor ficha tecnica
-        echo "<dl id='contenido-fichatecnica' class='ocultar'>";
-
-        //ISBN
-        echo "<div class='elemento-fichatecnica'>";
-        echo "<dt class='titulo-isbn'>ISBN</dt>";
-        echo "<dd class='ficha-isbn'>" . $libros['id_libro'] . "</dd>";
-        echo "</div>";
-
-        //Año publicacion
-        echo "<div class='elemento-fichatecnica'>";
-        echo "<dt class='titulo-anyo'>Argitalpen-urtea</dt>";
-        echo "<dd class='ficha-anyo'>" . $libros['ano_de_libro'] . "</dd>";
-        echo "</div>";
-
-        //Formato
-        echo "<div class='elemento-fichatecnica'>";
-        echo "<dt class='titulo-formato'>Formatua</dt>";
-        echo "<dd class='ficha-formato'>" . $libros['formato'] . "</dd>";
-        echo "</div>";
-
-        //Idioma
-        echo "<div class='elemento-fichatecnica'>";
-        echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
-        echo "<dd class='ficha-idioma'>" . $libros['idioma'] . "</dd>";
-        echo "</div>";
-
-        echo "</dl>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
 
         ?>
 
