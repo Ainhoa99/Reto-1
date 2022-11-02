@@ -165,8 +165,9 @@ $libros = $otraconsulta->fetch();
                 echo "<br>";
                 echo "<div id='comentario'>";
 
-                echo "<p class='opinion' method='get'>" . $opinion['nickname'] . "</p>";
+                echo "<p class='nombre-opinion' method='get'>" . $opinion['nickname'] . "</p>";
                 echo "<p class='opinion' method='get'>" . $opinion['opinion'] . "</p>";
+                echo "<div class='responder'><p>Erantzun</p></div>";
                 echo "</div>";
             }
 

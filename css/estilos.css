@@ -563,6 +563,64 @@ body {
   margin: 10px;
 }
 
+/** estilo comentarios **/
+
+#comentario{
+  background-color: whitesmoke;
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 500px;
+}
+
+.opinion{
+font-size: 1.4rem;
+color:rgb(71, 71, 71);
+padding: 0 10px;
+}
+
+.responder{
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.responder p{
+  font-size: 1.2rem;
+  color:rgb(71, 71, 71);
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  position: relative;
+}
+
+.nombre-opinion{
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color:rgb(71, 71, 71);
+}
+
+
+.responder p::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  border-bottom: 2px rgb(59, 58, 58) solid;
+  width: 3%;
+  opacity: 0;
+}
+
+.responder p:hover::after {
+  width: 100%;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+
+
+
 /****************      Página perfil personal         ***************/
 
 #container {
