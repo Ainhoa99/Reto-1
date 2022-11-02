@@ -106,7 +106,7 @@ $libros = $otraconsulta->fetch();
         //ISBN
         echo "<div class='elemento-fichatecnica'>";
         echo "<dt class='titulo-isbn'>ISBN</dt>";
-        echo "<dd class='ficha-isbn'>" . $libros['id_libro'] . "</dd>";
+        echo "<dd class='ficha-isbn'>" . $libros['isbn'] . "</dd>";
         echo "</div>";
 
         //Año publicacion
@@ -124,7 +124,7 @@ $libros = $otraconsulta->fetch();
         //Idioma
         echo "<div class='elemento-fichatecnica'>";
         echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
-        echo "<dd class='ficha-idioma'>" . $libros['idioma'] . "</dd>";
+        echo "<dd class='ficha-idioma'>" . $libros['id_idioma'] . "</dd>";
         echo "</div>";
 
         echo "</dl>";
