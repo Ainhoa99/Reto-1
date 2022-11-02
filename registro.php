@@ -31,8 +31,13 @@ include_once "database/conexion.php";
             $fecha = isset($_REQUEST['fecha']) ? $_REQUEST['fecha'] : null;
             $nivel = isset($_REQUEST['nivel']) ? $_REQUEST['nivel'] : null;
 
-            $comprobar = $miPDO->prepare('SELECT nickname FROM usuarios WHERE nickname = :nickname');
-            $comprobar->execute(['nickname' => $nickname]);
+            $comprobar = $miPDO->prepare('SELECT nickname FROM usuarios WHERE nickname = :nickname OR correo = :correo');
+            $comprobar->execute(
+                [
+                    'nickname' => $nickname,
+                    'correo' => $correo
+                ]
+            );
             $comprobar = $comprobar->fetch();
 
             if (empty($comprobar)) {
@@ -57,7 +62,7 @@ include_once "database/conexion.php";
                 header('Location: login.php');
                 die();
             } else {
-                echo '<div><p style="color: red" class="form__text">Badago erabiltzaile bat ezizen honekin</p></div>';
+                echo '<div><p style="color: red" class="form__text">Badago erabiltzaile bat ezizen edo email honekin</p></div>';
             };
         }
         ?>

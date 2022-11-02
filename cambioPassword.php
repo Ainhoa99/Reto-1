@@ -48,6 +48,8 @@ if (!isset($_SESSION['nickname'])) {
                             'nickname' => $_SESSION['nickname'],
                         ]
                     );
+                    header('Location: perfilpersonal.php');
+                    die();
                 } else {
                     echo "Las contraseñas no coinciden";
                 }
