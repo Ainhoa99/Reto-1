@@ -62,7 +62,9 @@ CREATE TABLE clase (
 --
 
 CREATE TABLE idiomalibro (
-  idioma varchar(15) NOT NULL
+  id_idioma int(11) NOT NULL AUTO_INCREMENT,
+  idioma varchar(15) NOT NULL,
+  PRIMARY KEY (id_idioma)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -92,7 +94,7 @@ CREATE TABLE libros (
   edadmedia int(2) NOT NULL,
   notamedia int(2) NOT NULL,
   num_lectores int(4) NOT NULL,
-  idioma varchar(50) NOT NULL,
+  id_idioma int(11) NOT NULL,
   link_compra varchar(100) DEFAULT NULL,
   PRIMARY KEY (id_libro)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -101,13 +103,13 @@ CREATE TABLE libros (
 -- Volcado de datos para la tabla libros
 --
 
-INSERT INTO libros (isbn, titulo_libro, foto, autor, ano_de_libro, sinopsis, formato, edadmedia, notamedia, num_lectores, idioma, link_compra) VALUES
-('9788420674209', 'El guardián entre el centeno', 'elguardianentrelcenteno.jpg', 'J.D. Salinger', 1951, 'Por expreso deseo del autor, no está permitido que la editorial aporte en su material promocional ningún tipo de texto adicional, información biográfica, cita o reseña relacionados con esta obra. El lector interesado podrá, no obstante, encontrar abundante información al respecto en internet.', 'Novela', 16, 7, 4, 'Castellano', '' ),
-('9788478887194', 'El principito', 'elprincipito.jpg', 'Antoine de Saint-Exupéry', 1943, 'Fábula mítica y relato filosófico que interroga acerca de la relación del ser humano con su prójimo y con el mundo, El Principito concentra, con maravillosa simplicidad, la constante reflexión de Saint-Exupery sobre la amistad, el amor, la responsabilidad y el sentido de la vida.', 'Novela', 16, 7, 4, 'Castellano', '' ),
-('9788466794992', 'La isla del tesoro', 'laisladeltesoro.jpg', 'Robert Louis Stevenson', 1883, 'El protagonista de este magnífico libro es un niño, Jim Hawkins. Su emocionante aventura comienza el día en que un viejo marinero con la cara marcada por un sablazo llega a la posada de su padre. El cofre que transporta el desconocido contiene un extraño mapa, que Jim descubrirá por casualidad. A partir de este momento, nuestro joven protagonista emprenderá un arriesgado viaje en busca del tesoro del temido capitán Flint.', 'Novela', 14, 8, 4, 'Castellano',''  ),
-('9783140464066', 'Los juegos del hambre', 'losjuegosdelhambre.jpg', 'Suzanne Collins', 2008, 'En una oscura versión del futuro próximo, doce chicos y doce chicas se ven obligados a participar en un reality show llamado Los Juegos del Hambre. Solo hay una regla: matar o morir.Cuando Katniss Everdeen, una joven de dieciseis años se presenta voluntaria para ocupar el lugar de su hermana en los juegos, lo entiende como una condena a muerte. Sin embargo, Katniss ya ha visto la muerte de cerca y la supervivencia forma parte de su naturaleza.', 'Novela', 16, 7, 4, 'Castellano',''  ),
-('9788467502695', 'Memorias de Idhún. La Resistencia', 'memoriasdeidhun.jpg', 'Laura Gallego', 2004, 'El día en que se produjo en Idhún la conjunción astral de los tres soles y las tres lunas, Ashran el Nigromante se hizo con el poder en aquel planeta. En nuestro mundo, un guerrero y un mago exiliados de Idhún han formado la Resistencia, a la que pertenecen también Jack y Victoria, dos adolescentes nacidos en la Tierra. El objetivo del grupo es acabar con el reinado de las serpientes aladas, pero Kirtash, un joven y despiadado asesino, enviado por Ashran a la Tierra, no se lo va a permitir.', 'Novela', 16, 9, 3, 'Castellano','' ),
-('9788420482767', 'Momo', 'momo.jpg',' Michael Ende', 1973, 'Momo es una niña con un don muy especial: sólo con escuchar consigue que los que están tristes se sientan mejor, los que están enfadados solucionen sus problemas o que a los que están aburridos se les ocurran cosas divertidas. De repente, la llegada de los hombres grises va a cambiar su vida. Porque prometen que ahorrar tiempo es lo mejor que se puede hacer, y pronto nadie va a tener tiempo para nada. Ni siquiera para jugar con los niños. Momo es la unica que no cae en la trampa, y con la ayuda de la tortuga Casiopea y del maestro Hora, llevará al lector a una aventura fantástica llena de enseñanzas sobre la amistad, la bondad y el valor de las cosas sencillas. En definitiva, sobre lo que de verdad nos hace felices.', 'Novela', 13, 8, 3, 'Castellano','' );
+INSERT INTO libros (isbn, titulo_libro, foto, autor, ano_de_libro, sinopsis, formato, edadmedia, notamedia, num_lectores, id_idioma, link_compra) VALUES
+('9788420674209', 'El guardián entre el centeno', 'elguardianentrelcenteno.jpg', 'J.D. Salinger', 1951, 'Por expreso deseo del autor, no está permitido que la editorial aporte en su material promocional ningún tipo de texto adicional, información biográfica, cita o reseña relacionados con esta obra. El lector interesado podrá, no obstante, encontrar abundante información al respecto en internet.', 'Novela', 16, 7, 4, '1', '' ),
+('9788478887194', 'El principito', 'elprincipito.jpg', 'Antoine de Saint-Exupéry', 1943, 'Fábula mítica y relato filosófico que interroga acerca de la relación del ser humano con su prójimo y con el mundo, El Principito concentra, con maravillosa simplicidad, la constante reflexión de Saint-Exupery sobre la amistad, el amor, la responsabilidad y el sentido de la vida.', 'Novela', 16, 7, 4, '1', '' ),
+('9788466794992', 'La isla del tesoro', 'laisladeltesoro.jpg', 'Robert Louis Stevenson', 1883, 'El protagonista de este magnífico libro es un niño, Jim Hawkins. Su emocionante aventura comienza el día en que un viejo marinero con la cara marcada por un sablazo llega a la posada de su padre. El cofre que transporta el desconocido contiene un extraño mapa, que Jim descubrirá por casualidad. A partir de este momento, nuestro joven protagonista emprenderá un arriesgado viaje en busca del tesoro del temido capitán Flint.', 'Novela', 14, 8, 4, '1',''  ),
+('9783140464066', 'Los juegos del hambre', 'losjuegosdelhambre.jpg', 'Suzanne Collins', 2008, 'En una oscura versión del futuro próximo, doce chicos y doce chicas se ven obligados a participar en un reality show llamado Los Juegos del Hambre. Solo hay una regla: matar o morir.Cuando Katniss Everdeen, una joven de dieciseis años se presenta voluntaria para ocupar el lugar de su hermana en los juegos, lo entiende como una condena a muerte. Sin embargo, Katniss ya ha visto la muerte de cerca y la supervivencia forma parte de su naturaleza.', 'Novela', 16, 7, 4, '1',''  ),
+('9788467502695', 'Memorias de Idhún. La Resistencia', 'memoriasdeidhun.jpg', 'Laura Gallego', 2004, 'El día en que se produjo en Idhún la conjunción astral de los tres soles y las tres lunas, Ashran el Nigromante se hizo con el poder en aquel planeta. En nuestro mundo, un guerrero y un mago exiliados de Idhún han formado la Resistencia, a la que pertenecen también Jack y Victoria, dos adolescentes nacidos en la Tierra. El objetivo del grupo es acabar con el reinado de las serpientes aladas, pero Kirtash, un joven y despiadado asesino, enviado por Ashran a la Tierra, no se lo va a permitir.', 'Novela', 16, 9, 3, '1','' ),
+('9788420482767', 'Momo', 'momo.jpg',' Michael Ende', 1973, 'Momo es una niña con un don muy especial: sólo con escuchar consigue que los que están tristes se sientan mejor, los que están enfadados solucionen sus problemas o que a los que están aburridos se les ocurran cosas divertidas. De repente, la llegada de los hombres grises va a cambiar su vida. Porque prometen que ahorrar tiempo es lo mejor que se puede hacer, y pronto nadie va a tener tiempo para nada. Ni siquiera para jugar con los niños. Momo es la unica que no cae en la trampa, y con la ayuda de la tortuga Casiopea y del maestro Hora, llevará al lector a una aventura fantástica llena de enseñanzas sobre la amistad, la bondad y el valor de las cosas sencillas. En definitiva, sobre lo que de verdad nos hace felices.', 'Novela', 13, 8, 3, '1','' );
 
 -- --------------------------------------------------------
 
@@ -195,7 +197,7 @@ CREATE TABLE valoraciones (
   edad int(2) NOT NULL,
   nickname varchar(30) NOT NULL,
   titulo_libro varchar(160) NOT NULL,
-  idioma varchar(15) NOT NULL,
+  id_idioma int(11) NOT NULL,
   PRIMARY KEY (id_valoracion)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -203,11 +205,11 @@ CREATE TABLE valoraciones (
 -- Volcado de datos para la tabla valoraciones
 --
 
-INSERT INTO valoraciones (nota, edad, nickname, titulo_libro, idioma) VALUES
-(8, 15, 'ainhoa', 'El guardián entre el centeno', 'Euskera'),
-(6, 16, 'claragutc', 'Momo', 'Inglés'),
-(9, 16, 'ainhoa', 'El principito', 'Euskera'),
-(6, 16, 'ainhoa', 'La isla del tesoro', 'Castellano');
+INSERT INTO valoraciones (nota, edad, nickname, titulo_libro, id_idioma) VALUES
+(8, 15, 'ainhoa', 'El guardián entre el centeno', '2'),
+(6, 16, 'claragutc', 'Momo', '3'),
+(9, 16, 'ainhoa', 'El principito', '2'),
+(6, 16, 'ainhoa', 'La isla del tesoro', '1');
 
 --
 -- Índices para tablas volcadas
@@ -224,17 +226,13 @@ ALTER TABLE clase
   ADD PRIMARY KEY (codigo),
   ADD KEY nickname (nickname);
 
---
--- Indices de la tabla idiomalibro
---
-ALTER TABLE idiomalibro
-  ADD PRIMARY KEY (idioma);
+
 
 --
 -- Indices de la tabla libros
 --
 ALTER TABLE libros
-  ADD KEY idioma (idioma);
+  ADD KEY id_idioma (id_idioma);
 
 --
 -- Indices de la tabla listadeclases
@@ -270,7 +268,7 @@ ALTER TABLE usuarios
 ALTER TABLE valoraciones
   ADD KEY nickname (nickname),
   ADD KEY titulo_libro (titulo_libro),
-  ADD KEY idioma (idioma);
+  ADD KEY id_idioma (id_idioma);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -301,7 +299,7 @@ ALTER TABLE clase
 -- Filtros para la tabla libros
 --
 ALTER TABLE libros
-  ADD CONSTRAINT libros_ibfk_1 FOREIGN KEY (idioma) REFERENCES idiomalibro (idioma);
+  ADD CONSTRAINT libros_ibfk_1 FOREIGN KEY (id_idioma) REFERENCES idiomalibro (id_idioma);
 
 --
 -- Filtros para la tabla listadeclases
@@ -333,7 +331,7 @@ ALTER TABLE usuarios
 --
 ALTER TABLE valoraciones
   ADD CONSTRAINT valoraciones_ibfk_1 FOREIGN KEY (nickname) REFERENCES usuarios (nickname),
-  ADD CONSTRAINT valoraciones_ibfk_3 FOREIGN KEY (idioma) REFERENCES idiomalibro (idioma);
+  ADD CONSTRAINT valoraciones_ibfk_3 FOREIGN KEY (id_idioma) REFERENCES idiomalibro (id_idioma);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
