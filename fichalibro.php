@@ -141,7 +141,37 @@ $libros = $otraconsulta->fetch();
 
         <h3 id="titulo-opinion">Irakurleen iritzia</h3>
         <div id="comentarios" class="">
-            <p>Ez dago iruzkinik, lehena izan zure iritzia ematen</p>
+            <?php
+
+            $otraconsulta = $miPDO->prepare('SELECT * FROM opiniones WHERE validado = 1 ORDER BY id_opinion DESC ');
+
+            // Ejecuta consulta
+            $otraconsulta->execute();
+            $comentarios = $otraconsulta->fetchAll();
+            $count = count($comentarios);
+
+
+            if ($count > 0) {
+            ?>
+                <div id="comment-count">
+                    <span id="count-number"><?php echo ('Liburu hau ' . $count . ' pertsonek iruzkindu dute'); ?></span>
+                    <br>
+                </div>
+            <?php
+            }
+            foreach ($comentarios as $opinion) {
+
+                //$titulo-libro = $libros['titulo_libro'];
+                echo "<br>";
+                echo "<div id='comentario'>";
+
+                echo "<p class='opinion' method='get'>" . $opinion['nickname'] . "</p>";
+                echo "<p class='opinion' method='get'>" . $opinion['opinion'] . "</p>";
+                echo "</div>";
+            }
+
+            ?>
+            </form>
         </div>
 
 
@@ -159,59 +189,39 @@ $libros = $otraconsulta->fetch();
 
             <div class="form-input-opinion">
                 <?php
-                include_once 'db.php';
+                $id_opinion = isset($_REQUEST['id_opinion']) ? $_REQUEST['id_opinion'] : null;
+                $nickname = isset($_REQUEST['nickname']) ? $_REQUEST['nickname'] : null;
+                $opinion = isset($_REQUEST['message']) ? $_REQUEST['message'] : null;
+                $validado = isset($_REQUEST['validado']) ? $_REQUEST['validado'] : null;
 
-                $otraconsulta = $miPDO->prepare('SELECT * FROM opiniones ORDER BY id_opinion DESC');
-
-                // Ejecuta consulta
-                $otraconsulta->execute(
-                    [
-                        'id_libro' => $libro
-                    ]
-                );
-                $libros = $otraconsulta->fetch();
-
-                $sql_sel = "SELECT * FROM opiniones ORDER BY id_opinion DESC";
-                $result = $conn->query($sql_sel);
-                $count = $result->num_rows;
-
-                if ($count > 0) {
+                $consulta = $miPDO->prepare('INSERT INTO opiniones (id_opinion , nickname , opinion, validado, id_libro)
+                VALUES (:id_opinion, :nickname, :opinion, :validado, :id_libro)');
+                $consulta->execute([
+                    'id_opinion' => $id_opinion,
+                    'nickname' => $_SESSION['nickname'],
+                    'opinion' => $opinion,
+                    'validado' => 0,
+                    'id_libro' => $libros['id_libro']
+                ]);
                 ?>
-                    <div id="comment-count">
-                        <span id="count-number"><?php echo $count; ?></span> Comentario(s)
+                <form action=" " id="frmComment" method="post">
+                    <div class="row">
+                        <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
                     </div>
-                <?php } ?>
-                <div id="response">
-                    <?php
-                    while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                    ?>
-                        <div id="comment-<?php echo $row["id"]; ?>" class="comment-row">
-                            <div class="comment-user"><?php echo $row["username"]; ?></div>
-                            <div class="comment-msg" id="msgdiv-<?php echo $row["id"]; ?>"><?php echo $row["message"]; ?></div>
-                            <div class="delete" name="delete" id="delete-<?php echo $row["id"]; ?>" onclick="deletecomment(<?php echo $row["id"]; ?>)">Eliminar</div>
-                        </div>
-                    <?php
-                    }
-                    ?>
-                    <form action=" " id="frmComment" method="post">
-                        <div class="row">
-                            <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
-                        </div>
-                        <div class="row">
-                            <label for="mesg"> Iritzia :</label>
-                            <br>
-                            <textarea class="form-field" id="message" name="message" rows="4"></textarea>
-                        </div>
-                        <div class="row">
-                            <input type="hidden" name="add" value="post" />
-                            <button type="submit" name="submit" id="submit" class="btn-add-comment">Añadir Comentario</button>
-                        </div>
+                    <div class="row">
+                        <label for="mesg"> Iritzia :</label>
+                        <br>
+                        <textarea class="form-field" id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <div class="row">
+                        <input type="hidden" name="add" value="post" />
+                        <button type="submit" name="submit" id="submit" class="btn-add-comment">Añadir Comentario</button>
+                    </div>
 
-                    </form>
                     <!--                 
                 <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
                 <button>iruzkindu</button> -->
-                </div>
+            </div>
 
         </form>
         <div id="btn-opinion">
