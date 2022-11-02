@@ -23,7 +23,7 @@ include_once "database/conexion.php";
             // Variables del formulario
             $isbn = isset($_REQUEST['isbn']) ? $_REQUEST['isbn'] : null;
             $titulo_libro = isset($_REQUEST['titulo_libro']) ? $_REQUEST['titulo_libro'] : null;
-            $foto = isset($_REQUEST['foto']) ? $_REQUEST['foto'] : null;
+            $foto = isset($_FILES['foto']) ? $_FILES['foto'] : null;
             $autor = isset($_REQUEST['autor']) ? $_REQUEST['autor'] : null;
             $ano_de_libro = isset($_REQUEST['ano_de_libro']) ? $_REQUEST['ano_de_libro'] : null;
             $sinopsis = isset($_REQUEST['sinopsis']) ? $_REQUEST['sinopsis'] : null;
