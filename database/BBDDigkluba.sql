@@ -131,6 +131,8 @@ CREATE TABLE listadeclases (
 CREATE TABLE opiniones (
   id_opinion int(11) NOT NULL AUTO_INCREMENT,
   nickname varchar(30) NOT NULL,
+  opinion varchar(500) NOT NULL,
+  validado tinyint(1) NOT NULL,
   id_libro int(11) NOT NULL,
   PRIMARY KEY (id_opinion)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
