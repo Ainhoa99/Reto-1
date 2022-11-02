@@ -563,15 +563,15 @@ body {
   justify-content: center;
 }
 
-  .foto {
-    width: 30%;
-    max-width: 150px;
-    border:1px solid rgb(211, 211, 211);
-  }
-  
-  .foto img {
-    width: 100%;
-  }
+.foto {
+  width: 30%;
+  max-width: 150px;
+  border: 1px solid rgb(211, 211, 211);
+}
+
+.foto img {
+  width: 100%;
+}
 
 .foto img {
   width: 100%;
@@ -804,7 +804,6 @@ a#btneditar {
     margin-top: 50px;
   }
 
-
   .ficha-img img {
     margin: 0;
   }
@@ -824,43 +823,42 @@ a#btneditar {
     width: 50%;
   }
 
-  #caja-fichatecnica{
+  #caja-fichatecnica {
     width: 50%;
   }
 
-/* imagen y valoracion - fichalibro*/
+  /* imagen y valoracion - fichalibro*/
 
-#contenido-fichalibro {
-  flex-direction: column;
-}
+  #contenido-fichalibro {
+    flex-direction: column;
+  }
 
-#caja-foto-info {
-  padding: 20px;
-  display: flex;
-  justify-content: flex-start;
-  border: 2px solid red;
-}
+  #caja-foto-info {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    border: 2px solid red;
+  }
 
-.ficha-img {
-  width: 50%;
-  max-width: 300px;
-  border: 2px solid black;
-}
+  .ficha-img {
+    width: 50%;
+    max-width: 300px;
+    border: 2px solid black;
+  }
 
-#caja-img{
-  border: 2px solid yellow;
-  justify-content: flex-end;
-  width: 60%;
-  margin-right: 40px;
-}
+  #caja-img {
+    border: 2px solid yellow;
+    justify-content: flex-end;
+    width: 60%;
+    margin-right: 40px;
+  }
 
-
-  .caja-contenedor-valoracion{
+  .caja-contenedor-valoracion {
     border: 2px solid green;
     margin: 0;
   }
 
-  #contenedor-valoracion{
+  #contenedor-valoracion {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
@@ -868,11 +866,11 @@ a#btneditar {
     border: 2px solid orange;
   }
 
-  .caja-ficha-edadmedia{
+  .caja-ficha-edadmedia {
     margin-top: 230px;
   }
 
-/*** contenido perfil personal***/
+  /*** contenido perfil personal***/
 
   .container2 {
     display: flex;
@@ -887,7 +885,6 @@ a#btneditar {
 /***********************  CORTE - TRAMO PANTALLA 2    **********************/
 
 @media (min-width: 1000px) {
-
   /* ficha libro */
   #libro {
     width: 25%;
@@ -906,8 +903,6 @@ a#btneditar {
   .ficha-img {
     max-width: 200px;
   }
-
- 
 
   /*** contenido perfil personal ***/
 
@@ -935,16 +930,13 @@ a#btneditar {
     width: 100%;
   }
 
-  
-  #datos-libro{
+  #datos-libro {
     width: 40%;
   }
 
-  #caja-fichatecnica{
+  #caja-fichatecnica {
     width: 40%;
   }
-
-
 }
 
 /***********************  CORTE - TRAMO PANTALLA 3    **********************/
@@ -955,26 +947,23 @@ a#btneditar {
     margin: 10px;
   }
 
-
-  #caja-img{
+  #caja-img {
     justify-content: flex-start;
     width: auto;
     margin: 0;
     padding: 0;
   }
 
-#contenedor-todo{
-  display: flex;
-  border: 2px solid pink;
-}
+  #contenedor-todo {
+    display: flex;
+    border: 2px solid pink;
+  }
 
-#caja-fichatecnica{
-  width: 40%;
-}
+  #caja-fichatecnica {
+    width: 40%;
+  }
 
-#caja-info-fichalibro{
-  border: 5px solid purple;
-}
-
-  
+  #caja-info-fichalibro {
+    border: 5px solid purple;
+  }
 }
