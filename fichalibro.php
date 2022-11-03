@@ -19,6 +19,16 @@ $otraconsulta->execute(
     ]
 );
 $libros = $otraconsulta->fetch();
+$id_idioma = $libros['id_idioma'];
+
+$consulta2 = $miPDO->prepare('SELECT idioma FROM idiomalibro WHERE id_idioma = :id_idioma;');
+// Ejecuta consulta
+$consulta2->execute(
+    [
+        'id_idioma' => $id_idioma
+    ]
+);
+$idioma = $consulta2->fetch();
 
 ?>
 
@@ -103,11 +113,11 @@ $libros = $otraconsulta->fetch();
         //Contenedor ficha tecnica
         echo "<dl id='contenido-fichatecnica' class='ocultar'>";
 
-                            //ISBN
-                            echo "<div class='elemento-fichatecnica'>";
-                                echo "<dt class='titulo-isbn'>ISBN</dt>";
-                                echo "<dd class='ficha-isbn'>" . $libros['isbn'] . "</dd>";
-                            echo "</div>";
+        //ISBN
+        echo "<div class='elemento-fichatecnica'>";
+        echo "<dt class='titulo-isbn'>ISBN</dt>";
+        echo "<dd class='ficha-isbn'>" . $libros['isbn'] . "</dd>";
+        echo "</div>";
 
         //Año publicacion
         echo "<div class='elemento-fichatecnica'>";
@@ -121,11 +131,11 @@ $libros = $otraconsulta->fetch();
         echo "<dd class='ficha-formato'>" . $libros['formato'] . "</dd>";
         echo "</div>";
 
-                            //Idioma
-                            echo "<div class='elemento-fichatecnica'>";
-                                echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
-                                echo "<dd class='ficha-idioma'>" . $libros['id_idioma'] . "</dd>";
-                            echo "</div>";
+        //Idioma
+        echo "<div class='elemento-fichatecnica'>";
+        echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
+        echo "<dd class='ficha-idioma'>" . $idioma['idioma'] . "</dd>";
+        echo "</div>";
 
         echo "</dl>";
         echo "</div>";
@@ -188,7 +198,7 @@ $libros = $otraconsulta->fetch();
                         <div id="comment-<?php echo $row["id"]; ?>" class="comment-row">
                             <div class="comment-user"><?php echo $row["username"]; ?></div>
                             <div class="comment-msg" id="msgdiv-<?php echo $row["id"]; ?>"><?php echo $row["message"]; ?></div>
-                            <div class="delete" name="delete" id="delete-<?php echo $row["id"]; ?>" onclick="deletecomment(<?php echo $row["id"]; ?>)">Eliminar</div>
+                            <div class="delete" name="delete" id="delete-<?php echo $row["id"]; ?>" onclick="deletecomment(<?php echo $row['id'] ?>)">Eliminar</div>
                         </div>
                     <?php
                     }
@@ -208,9 +218,6 @@ $libros = $otraconsulta->fetch();
                         </div>
 
                     </form>
-                    <!--                 
-                <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
-                <button>iruzkindu</button> -->
                 </div>
 
         </form>
