@@ -55,7 +55,7 @@ $idioma = $consulta2->fetch();
 
     <!-- Custom Scripts -->
     <script src="js/scripts.js"></script>
-    <script src="js/popUp.js"></script>
+    <script src="js/popUp.js" defer></script>
 </head>
 
 <body>
@@ -148,21 +148,17 @@ $idioma = $consulta2->fetch();
         ?>
 
 
-        <div id="btn-valorar" onclick="abrirPopUp()">
+        <div id="btn-valorar">
             <p>Baloratu liburua</p>
         </div>
 
-        <div class="overlay" id="abrir">
-            <div class="popup" id="popup">
-                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-                <h3>BALORATO</h3>
-                <form action="">
-                    <div class="contenedor-inputs">
-                        <input type="text" placeholder="Nombre">
-                        <input type="email" placeholder="Correo">
-                    </div>
-                    <input type="submit" class="btn-submit" value="Suscribirse">
-                </form>
+        <div id="modal_container" class="modal-container">
+            <div class="modal">
+                <h1>Ventana Modal</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque assumenda dignissimos illo explicabo natus quia repellat, praesentium voluptatibus harum ipsam dolorem cumque labore sunt dicta consectetur, nesciunt maiores delectus maxime?
+                </p>
+                <button id="close">Cerrar</button>
             </div>
         </div>
 
@@ -171,7 +167,7 @@ $idioma = $consulta2->fetch();
 
 
 
-        <h3 id="titulo-opinion">Irakurleen iritzia</h3>
+        <h3 id="titulo-opinion">Irakurleen iritziak</h3>
         <div id="comentarios" class="">
             <?php
 

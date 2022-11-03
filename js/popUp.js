@@ -1,12 +1,11 @@
-var abrir = document.getElementById("abrir");
-var popup = document.getElementById("popup");
+const open = document.getElementById("btn-valorar");
+const modal_container = document.getElementById("modal_container");
+const close = document.getElementById("close");
 
-function abrirPopUp() {
-  abrir.classList.add("active");
-  popup.classList.add("active");
-}
+open.addEventListener("click", () => {
+  modal_container.classList.add("show");
+});
 
-function cerrarPopUp() {
-  abrir.classList.remove("active");
-  popup.classList.remove("active");
-}
+close.addEventListener("click", () => {
+  modal_container.classList.remove("show");
+});
