@@ -19,6 +19,20 @@ $otraconsulta->execute(
     ]
 );
 $libros = $otraconsulta->fetch();
+<<<<<<< HEAD
+=======
+
+$id_idioma = $libros['id_idioma'];
+
+$consulta2 = $miPDO->prepare('SELECT idioma FROM idiomalibro WHERE id_idioma = :id_idioma;');
+// Ejecuta consulta
+$consulta2->execute(
+    [
+        'id_idioma' => $id_idioma
+    ]
+);
+$idioma = $consulta2->fetch();
+>>>>>>> 0e86531d37cca3c66ad8691150afef4664ee1501
 
 ?>
 
@@ -187,9 +201,11 @@ $libros = $otraconsulta->fetch();
             </div>
 
             <div class="form-input-opinion">
+
                 <?php
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $opinion = isset($_REQUEST['opinion']) ? $_REQUEST['opinion'] : null;
+<<<<<<< HEAD
 
                     $consulta = $miPDO->prepare('INSERT INTO opiniones ( nickname , opinion, validado, id_libro)
                 VALUES ( :nickname, :opinion, :validado, :id_libro)');
@@ -207,6 +223,34 @@ $libros = $otraconsulta->fetch();
                 </div>
                 <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
                 <button>iruzkindu</button>
+=======
+
+                    $consulta = $miPDO->prepare('INSERT INTO opiniones (nickname , opinion, validado, id_libro)
+                    VALUES (:nickname, :opinion, :validado, :id_libro)');
+                    $consulta->execute(
+                        [
+                            'nickname' => $_SESSION['nickname'],
+                            'opinion' => $opinion,
+                            'validado' => 0,
+                            'id_libro' => $libro
+                        ]
+                    );
+                }
+
+                ?>
+                <div class="row">
+                    <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
+                </div>
+                <div class="row">
+                    <label for="mesg"> Iritzia :</label>
+                    <br>
+                    <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
+                    <button>iruzkindu</button>
+                </div>
+
+
+
+>>>>>>> 0e86531d37cca3c66ad8691150afef4664ee1501
             </div>
 
         </form>
