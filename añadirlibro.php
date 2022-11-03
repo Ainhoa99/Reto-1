@@ -103,7 +103,6 @@ include_once "database/conexion.php";
                 <div class="fila">
                     <!-- CONTRASEÑA -->
                     <div class="formulario__grupo-input">
-                        <span>Hizkuntza:</span>
                         <select name="idioma" id="centro">
                             <?php
                             //Consulta
@@ -143,8 +142,9 @@ include_once "database/conexion.php";
                         </div>
                         <p class="formulario__input-error">Pasahitzak berdinak izan behar dira.</p>
                     </div>
-                    <!-- CONTRASEÑA 2 -->
-                    <!-- <div class="formulario__grupo" id="grupo__email">
+                    <?php include('funcionSubirLibros.php'); ?>
+                    <!-- CONTRASEÑA 2
+                    <div class="formulario__grupo" id="grupo__email">
                         <div class="formulario__grupo-input">
                             <input type="file" class="formulario__input" name="foto" id="foto" size="40" autofocus placeholder="Liburuaren azala">
                         </div>
