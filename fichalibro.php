@@ -219,6 +219,7 @@ $libros = $otraconsulta->fetch();
                         <button type="submit" name="submit" id="submit" class="btn-add-comment">Añadir Comentario</button>
                     </div>
 
+                    
                     <!--                 
                 <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
                 <button>iruzkindu</button> -->
