@@ -3,7 +3,7 @@
 function subirLibros()
 {
     $archivo = isset($_REQUEST['foto']) ? $_REQUEST['foto'] : null;
-    $target_dir = "C:\xampp\htdocs\Reto-1";
+    $target_dir = "C:\xampp\htdocs\Reto-1\img";
     $target_file = $target_dir . basename($_FILES[" $archivo"]["foto"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -11,7 +11,7 @@ function subirLibros()
 
     // Check if image file is a actual image or fake image
     if (isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        $check = getimagesize($_FILES["foto"]["tmp_name"]);
         if ($check !== false) {
             echo "azala - " . $check["foto"] . " da.";
             $uploadOk = 1;
@@ -28,7 +28,7 @@ function subirLibros()
     }
 
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["$archivo"]["size"] > 500000) {
         echo "Barkatu, azalaren argazkia oso handia da.";
         $uploadOk = 0;
     }
@@ -46,8 +46,8 @@ function subirLibros()
         echo "Barkatu, azala ezin izan da igo";
         // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . "azala ondo igo da.";
+        if (move_uploaded_file($_FILES["$archivo"]["tmp_name"], $target_file)) {
+            echo htmlspecialchars(basename($_FILES["$archivo"]["foto"])) . "azala ondo igo da.";
         } else {
             echo "Barkatu, arazo bat egon da azala igotzerakoan.";
         }
