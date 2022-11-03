@@ -134,7 +134,7 @@ $idioma = $consulta2->fetch();
         //Idioma
         echo "<div class='elemento-fichatecnica'>";
         echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
-        echo "<dd class='ficha-idioma'>" . $libros['id_idioma'] . "</dd>";
+        echo "<dd class='ficha-idioma'>" . $idioma['idioma'] . "</dd>";
         echo "</div>";
 
         echo "</dl>";
