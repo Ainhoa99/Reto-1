@@ -198,38 +198,36 @@ $idioma = $consulta2->fetch();
             </div>
 
             <div class="form-input-opinion">
+
                 <?php
-                $id_opinion = isset($_REQUEST['id_opinion']) ? $_REQUEST['id_opinion'] : null;
-                $opinion = isset($_REQUEST['message']) ? $_REQUEST['message'] : null;
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $opinion = isset($_REQUEST['opinion']) ? $_REQUEST['opinion'] : null;
 
-                $consulta = $miPDO->prepare('INSERT INTO opiniones (id_opinion , nickname , opinion, validado, id_libro)
-                VALUES (:id_opinion, :nickname, :opinion, :validado, :id_libro)');
-                $consulta->execute([
-                    'id_opinion' => $id_opinion,
-                    'nickname' => $_SESSION['nickname'],
-                    'opinion' => $opinion,
-                    'validado' => 0,
-                    'id_libro' => $libros['id_libro']
-                ]);
+                    $consulta = $miPDO->prepare('INSERT INTO opiniones (nickname , opinion, validado, id_libro)
+                    VALUES (:nickname, :opinion, :validado, :id_libro)');
+                    $consulta->execute(
+                        [
+                            'nickname' => $_SESSION['nickname'],
+                            'opinion' => $opinion,
+                            'validado' => 0,
+                            'id_libro' => $libro
+                        ]
+                    );
+                }
+
                 ?>
-        </form>
-        <form action=" " id="frmComment" method="post">
-            <div class="row">
-                <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
-            </div>
-            <div class="row">
-                <label for="mesg"> Iritzia :</label>
-                <br>
-                <textarea class="form-field" id="message" name="message" rows="4"></textarea>
-            </div>
-            <div class="row">
-                <input type="hidden" name="add" value="post" />
-                <button type="submit" name="submit" id="submit" class="btn-add-comment">Añadir Comentario</button>
-            </div>
+                <div class="row">
+                    <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
+                </div>
+                <div class="row">
+                    <label for="mesg"> Iritzia :</label>
+                    <br>
+                    <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
+                    <button>iruzkindu</button>
+                </div>
 
 
-            <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
-            <button>iruzkindu</button>
+
             </div>
 
         </form>
