@@ -20,6 +20,17 @@ $otraconsulta->execute(
 );
 $libros = $otraconsulta->fetch();
 
+$id_idioma = $libros['id_idioma'];
+
+$consulta2 = $miPDO->prepare('SELECT idioma FROM idiomalibro WHERE id_idioma = :id_idioma;');
+// Ejecuta consulta
+$consulta2->execute(
+    [
+        'id_idioma' => $id_idioma
+    ]
+);
+$idioma = $consulta2->fetch();
+
 ?>
 
 
@@ -124,7 +135,7 @@ $libros = $otraconsulta->fetch();
         //Idioma
         echo "<div class='elemento-fichatecnica'>";
         echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
-        echo "<dd class='ficha-idioma'>" . $libros['id_idioma'] . "</dd>";
+        echo "<dd class='ficha-idioma'>" . $idioma['idioma'] . "</dd>";
         echo "</div>";
 
         echo "</dl>";
@@ -168,11 +179,11 @@ $libros = $otraconsulta->fetch();
                 echo "<p class='nombre-opinion' method='get'>" . $opinion['nickname'] . "</p>";
                 echo "<p class='opinion' method='get'>" . $opinion['opinion'] . "</p>";
                 echo "<div class='responder'><p>Erantzun</p></div>";
+
                 echo "</div>";
             }
 
             ?>
-            </form>
         </div>
 
 
@@ -189,40 +200,36 @@ $libros = $otraconsulta->fetch();
             </div>
 
             <div class="form-input-opinion">
+
                 <?php
-                $id_opinion = isset($_REQUEST['id_opinion']) ? $_REQUEST['id_opinion'] : null;
-                $nickname = isset($_REQUEST['nickname']) ? $_REQUEST['nickname'] : null;
-                $opinion = isset($_REQUEST['message']) ? $_REQUEST['message'] : null;
-                $validado = isset($_REQUEST['validado']) ? $_REQUEST['validado'] : null;
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $opinion = isset($_REQUEST['opinion']) ? $_REQUEST['opinion'] : null;
 
-                $consulta = $miPDO->prepare('INSERT INTO opiniones (id_opinion , nickname , opinion, validado, id_libro)
-                VALUES (:id_opinion, :nickname, :opinion, :validado, :id_libro)');
-                $consulta->execute([
-                    'id_opinion' => $id_opinion,
-                    'nickname' => $_SESSION['nickname'],
-                    'opinion' => $opinion,
-                    'validado' => 0,
-                    'id_libro' => $libros['id_libro']
-                ]);
+                    $consulta = $miPDO->prepare('INSERT INTO opiniones (nickname , opinion, validado, id_libro)
+                    VALUES (:nickname, :opinion, :validado, :id_libro)');
+                    $consulta->execute(
+                        [
+                            'nickname' => $_SESSION['nickname'],
+                            'opinion' => $opinion,
+                            'validado' => 0,
+                            'id_libro' => $libro
+                        ]
+                    );
+                }
+
                 ?>
-                <form action=" " id="frmComment" method="post">
-                    <div class="row">
-                        <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
-                    </div>
-                    <div class="row">
-                        <label for="mesg"> Iritzia :</label>
-                        <br>
-                        <textarea class="form-field" id="message" name="message" rows="4"></textarea>
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="add" value="post" />
-                        <button type="submit" name="submit" id="submit" class="btn-add-comment">Añadir Comentario</button>
-                    </div>
+                <div class="row">
+                    <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
+                </div>
+                <div class="row">
+                    <label for="mesg"> Iritzia :</label>
+                    <br>
+                    <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
+                    <button>iruzkindu</button>
+                </div>
 
-                    
-                    <!--                 
-                <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
-                <button>iruzkindu</button> -->
+
+
             </div>
 
         </form>
