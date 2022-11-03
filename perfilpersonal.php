@@ -58,7 +58,7 @@ if (!isset($_SESSION['nickname'])) {
         <div id='container'>
             <div class="container2">
                 <div id="foto">
-                    <figure class='foto'><img src='img/<?php echo ($respuesta['foto']) ?>'></figure>
+                    <figure class='foto'><img src='src/<?php echo ($respuesta['foto']) ?>'></figure>
                     <input type='file' id='foto' style='display: none'>
                 </div>
 

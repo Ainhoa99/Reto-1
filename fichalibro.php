@@ -48,12 +48,14 @@ $idioma = $consulta2->fetch();
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estiloPopUp.css">
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="js/scripts.js"></script>
+    <script src="js/popUp.js" defer></script>
 </head>
 
 <body>
@@ -76,7 +78,7 @@ $idioma = $consulta2->fetch();
         echo "<div id='caja-foto-info'>";
         //Imagen
         echo "<div id='caja-img'>";
-        echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
+        echo "<figure class='ficha-img'><img src='src/" . $libros['foto'] . "'></figure>";
         echo "</div>";
 
         //Contenedor nota media y edad media
@@ -135,7 +137,7 @@ $idioma = $consulta2->fetch();
         //Idioma
         echo "<div class='elemento-fichatecnica'>";
         echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
-        echo "<dd class='ficha-idioma'>" . $libros['id_idioma'] . "</dd>";
+        echo "<dd class='ficha-idioma'>" . $idioma['idioma'] . "</dd>";
         echo "</div>";
 
         echo "</dl>";
@@ -150,14 +152,33 @@ $idioma = $consulta2->fetch();
             <p>Baloratu liburua</p>
         </div>
 
-        <h3 id="titulo-opinion">Irakurleen iritzia</h3>
+        <div id="modal_container" class="modal-container">
+            <div class="modal">
+                <h1>Ventana Modal</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque assumenda dignissimos illo explicabo natus quia repellat, praesentium voluptatibus harum ipsam dolorem cumque labore sunt dicta consectetur, nesciunt maiores delectus maxime?
+                </p>
+                <button id="close">Cerrar</button>
+            </div>
+        </div>
+
+
+
+
+
+
+        <h3 id="titulo-opinion">Irakurleen iritziak</h3>
         <div id="comentarios" class="">
             <?php
 
-            $otraconsulta = $miPDO->prepare('SELECT * FROM opiniones WHERE validado = 1 ORDER BY id_opinion DESC ');
+            $otraconsulta = $miPDO->prepare('SELECT * FROM opiniones WHERE validado = 1 AND id_libro = :id_libro ORDER BY id_opinion DESC ');
 
             // Ejecuta consulta
-            $otraconsulta->execute();
+            $otraconsulta->execute(
+                [
+                    'id_libro' => $libro
+                ]
+            );
             $comentarios = $otraconsulta->fetchAll();
             $count = count($comentarios);
 
@@ -176,9 +197,10 @@ $idioma = $consulta2->fetch();
                 echo "<br>";
                 echo "<div id='comentario'>";
 
-                echo "<p class='opinion' method='get'>" . $fechaActual = date('Y-m-d') . "</p>";
-                echo "<p class='opinion' method='get'>" . $opinion['nickname'] . "</p>";
+                echo "<p class='nombre-opinion' method='get'>" . $opinion['nickname'] . "</p>";
                 echo "<p class='opinion' method='get'>" . $opinion['opinion'] . "</p>";
+                echo "<div class='responder'><p>Erantzun</p></div>";
+
                 echo "</div>";
             }
 
@@ -188,9 +210,6 @@ $idioma = $consulta2->fetch();
 
         <form id="form-opinion" class="ocultar" action="" method="post">
 
-            <div class="nombre-opinion">
-
-            </div>
             <div class="fecha-opinion">
                 <?php
                 $fechaActual = date('d-m-Y');
