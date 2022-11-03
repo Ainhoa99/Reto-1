@@ -19,6 +19,7 @@ $otraconsulta->execute(
     ]
 );
 $libros = $otraconsulta->fetch();
+
 $id_idioma = $libros['id_idioma'];
 
 $consulta2 = $miPDO->prepare('SELECT idioma FROM idiomalibro WHERE id_idioma = :id_idioma;');
@@ -175,14 +176,12 @@ $idioma = $consulta2->fetch();
                 echo "<br>";
                 echo "<div id='comentario'>";
 
-                echo "<p class='nombre-opinion' method='get'>" . $opinion['nickname'] . "</p>";
+                echo "<p class='opinion' method='get'>" . $opinion['nickname'] . "</p>";
                 echo "<p class='opinion' method='get'>" . $opinion['opinion'] . "</p>";
-                echo "<div class='responder'><p>Erantzun</p></div>";
                 echo "</div>";
             }
 
             ?>
-            </form>
         </div>
 
 
@@ -201,9 +200,7 @@ $idioma = $consulta2->fetch();
             <div class="form-input-opinion">
                 <?php
                 $id_opinion = isset($_REQUEST['id_opinion']) ? $_REQUEST['id_opinion'] : null;
-                $nickname = isset($_REQUEST['nickname']) ? $_REQUEST['nickname'] : null;
                 $opinion = isset($_REQUEST['message']) ? $_REQUEST['message'] : null;
-                $validado = isset($_REQUEST['validado']) ? $_REQUEST['validado'] : null;
 
                 $consulta = $miPDO->prepare('INSERT INTO opiniones (id_opinion , nickname , opinion, validado, id_libro)
                 VALUES (:id_opinion, :nickname, :opinion, :validado, :id_libro)');
@@ -215,52 +212,30 @@ $idioma = $consulta2->fetch();
                     'id_libro' => $libros['id_libro']
                 ]);
                 ?>
-                <form action=" " id="frmComment" method="post">
-                    <div class="row">
-                        <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
-                    </div>
-                    <div class="row">
-                        <label for="mesg"> Iritzia :</label>
-                        <br>
-                        <textarea class="form-field" id="message" name="message" rows="4"></textarea>
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="add" value="post" />
-                        <button type="submit" name="submit" id="submit" class="btn-add-comment">Añadir Comentario</button>
-                    </div>
-                    <div id="response">
-                        <?php
-                        while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                        ?>
-                            <div id="comment-<?php echo $row["id"]; ?>" class="comment-row">
-                                <div class="comment-user"><?php echo $row["username"]; ?></div>
-                                <div class="comment-msg" id="msgdiv-<?php echo $row["id"]; ?>"><?php echo $row["message"]; ?></div>
-                                <div class="delete" name="delete" id="delete-<?php echo $row["id"]; ?>" onclick="deletecomment(<?php echo $row['id'] ?>)">Eliminar</div>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                        <form action=" " id="frmComment" method="post">
-                            <div class="row">
-                                <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
-                            </div>
-                            <div class="row">
-                                <label for="mesg"> Iritzia :</label>
-                                <br>
-                                <textarea class="form-field" id="message" name="message" rows="4"></textarea>
-                            </div>
-                            <div class="row">
-                                <input type="hidden" name="add" value="post" />
-                                <button type="submit" name="submit" id="submit" class="btn-add-comment">Añadir Comentario</button>
-                            </div>
+        </form>
+        <form action=" " id="frmComment" method="post">
+            <div class="row">
+                <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
+            </div>
+            <div class="row">
+                <label for="mesg"> Iritzia :</label>
+                <br>
+                <textarea class="form-field" id="message" name="message" rows="4"></textarea>
+            </div>
+            <div class="row">
+                <input type="hidden" name="add" value="post" />
+                <button type="submit" name="submit" id="submit" class="btn-add-comment">Añadir Comentario</button>
+            </div>
 
-                        </form>
-                    </div>
 
-                </form>
-                <div id="btn-opinion">
-                    <p>Eman zure iritzia</p>
-                </div>
+            <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
+            <button>iruzkindu</button>
+            </div>
+
+        </form>
+        <div id="btn-opinion">
+            <p>Eman zure iritzia</p>
+        </div>
 
     </main>
 
