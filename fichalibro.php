@@ -196,13 +196,13 @@ $libros = $otraconsulta->fetch();
 
                 $consulta = $miPDO->prepare('INSERT INTO opiniones (id_opinion , nickname , opinion, validado, id_libro)
                 VALUES (:id_opinion, :nickname, :opinion, :validado, :id_libro)');
-                $consulta->execute([
-                    'id_opinion' => $id_opinion,
-                    'nickname' => $_SESSION['nickname'],
-                    'opinion' => $opinion,
-                    'validado' => 0,
-                    'id_libro' => $libros['id_libro']
-                ]);
+                // $consulta->execute([
+                //     'id_opinion' => $id_opinion,
+                //     'nickname' => $_SESSION['nickname'],
+                //     'opinion' => $opinion,
+                //     'validado' => 0,
+                //     'id_libro' => $libros['id_libro']
+                // ]);
                 ?>
                 <form action=" " id="frmComment" method="post">
                     <div class="row">
@@ -218,9 +218,9 @@ $libros = $otraconsulta->fetch();
                         <button type="submit" name="submit" id="submit" class="btn-add-comment">Añadir Comentario</button>
                     </div>
 
-                    <!--                 
-                <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
-                <button>iruzkindu</button> -->
+
+                    <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
+                    <button>iruzkindu</button>
             </div>
 
         </form>
