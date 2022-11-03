@@ -2,7 +2,7 @@
 
     <div id="caja-logo-titulo">
         <figure id="logo">
-            <a href="index.php"><img src="img/logo.jpg" alt="logo"></a>
+            <a href="index.php"><img src="src/Logobueno.png" alt="logo"></a>
         </figure>
         <a href="index.php" style="text-decoration: none; color: black">
             <h1>IGKLUBA</h1>
@@ -38,6 +38,7 @@
             ?>
 
             <li><a href="mis_libros.php"><i class="fa fa-book-open"></i>Nire liburuak</a></li>
+            <li><a href="añadirlibro.php"><i class="fas fa-book-medical"></i>Liburu berria</a></li>
             <li><a href="perfilpersonal.php"><i class="fas fa-user"></i>Nire datuak</a></li>
             <?php
             if ($_SESSION['tipo'] == 'Administrador') {

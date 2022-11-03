@@ -3,7 +3,7 @@
 function subirLibros()
 {
     $archivo = isset($_REQUEST['foto']) ? $_REQUEST['foto'] : null;
-    $target_dir = "C:\xampp\htdocs\Reto-1\img";
+    $target_dir = "C:\xampp\htdocs\Reto-1\src";
     $target_file = $target_dir . basename($_FILES[" $archivo"]["foto"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
