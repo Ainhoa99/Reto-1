@@ -29,7 +29,7 @@ body {
 
 #logo img {
   width: 100%;
-  max-width: 200px;
+  max-width: 150px;
   display: block;
   transition: transform 0.7s ease-in-out;
 }
@@ -486,7 +486,6 @@ body {
   user-select: none;
 }
 
-
 .fa-star {
   color: rgb(238, 208, 57);
   padding-right: 3px;
@@ -566,41 +565,40 @@ body {
 
 /** estilo comentarios **/
 
-#comentario{
+#comentario {
   background-color: whitesmoke;
   padding: 15px;
   border-radius: 8px;
   max-width: 500px;
 }
 
-.opinion{
-font-size: 1.4rem;
-color:rgb(71, 71, 71);
-padding: 0 10px;
+.opinion {
+  font-size: 1.4rem;
+  color: rgb(71, 71, 71);
+  padding: 0 10px;
 }
 
-.responder{
+.responder {
   padding: 5px;
   display: flex;
   justify-content: flex-end;
 }
 
-.responder p{
+.responder p {
   font-size: 1.2rem;
-  color:rgb(71, 71, 71);
+  color: rgb(71, 71, 71);
   font-weight: bold;
   cursor: pointer;
   padding: 5px;
   position: relative;
 }
 
-.nombre-opinion{
+.nombre-opinion {
   font-size: 1.4rem;
   margin-bottom: 10px;
   font-weight: bold;
-  color:rgb(71, 71, 71);
+  color: rgb(71, 71, 71);
 }
-
 
 .responder p::after {
   content: "";
@@ -618,9 +616,6 @@ padding: 0 10px;
   opacity: 1;
   transition: 0.5s;
 }
-
-
-
 
 /****************      Página perfil personal         ***************/
 

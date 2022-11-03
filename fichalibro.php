@@ -19,8 +19,6 @@ $otraconsulta->execute(
     ]
 );
 $libros = $otraconsulta->fetch();
-<<<<<<< HEAD
-=======
 
 $id_idioma = $libros['id_idioma'];
 
@@ -32,7 +30,6 @@ $consulta2->execute(
     ]
 );
 $idioma = $consulta2->fetch();
->>>>>>> 0e86531d37cca3c66ad8691150afef4664ee1501
 
 ?>
 
@@ -51,12 +48,14 @@ $idioma = $consulta2->fetch();
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estiloPopUp.css">
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="js/scripts.js"></script>
+    <script src="js/popUp.js"></script>
 </head>
 
 <body>
@@ -79,7 +78,7 @@ $idioma = $consulta2->fetch();
         echo "<div id='caja-foto-info'>";
         //Imagen
         echo "<div id='caja-img'>";
-        echo "<figure class='ficha-img'><img src='img/" . $libros['foto'] . "'></figure>";
+        echo "<figure class='ficha-img'><img src='src/" . $libros['foto'] . "'></figure>";
         echo "</div>";
 
         //Contenedor nota media y edad media
@@ -138,7 +137,7 @@ $idioma = $consulta2->fetch();
         //Idioma
         echo "<div class='elemento-fichatecnica'>";
         echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
-        echo "<dd class='ficha-idioma'>" . $libros['id_idioma'] . "</dd>";
+        echo "<dd class='ficha-idioma'>" . $idioma['idioma'] . "</dd>";
         echo "</div>";
 
         echo "</dl>";
@@ -149,18 +148,41 @@ $idioma = $consulta2->fetch();
         ?>
 
 
-        <div id="btn-valorar">
+        <div id="btn-valorar" onclick="abrirPopUp()">
             <p>Baloratu liburua</p>
         </div>
+
+        <div class="overlay" id="abrir">
+            <div class="popup" id="popup">
+                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <h3>BALORATO</h3>
+                <form action="">
+                    <div class="contenedor-inputs">
+                        <input type="text" placeholder="Nombre">
+                        <input type="email" placeholder="Correo">
+                    </div>
+                    <input type="submit" class="btn-submit" value="Suscribirse">
+                </form>
+            </div>
+        </div>
+
+
+
+
+
 
         <h3 id="titulo-opinion">Irakurleen iritzia</h3>
         <div id="comentarios" class="">
             <?php
 
-            $otraconsulta = $miPDO->prepare('SELECT * FROM opiniones WHERE validado = 1 ORDER BY id_opinion DESC ');
+            $otraconsulta = $miPDO->prepare('SELECT * FROM opiniones WHERE validado = 1 AND id_libro = :id_libro ORDER BY id_opinion DESC ');
 
             // Ejecuta consulta
-            $otraconsulta->execute();
+            $otraconsulta->execute(
+                [
+                    'id_libro' => $libro
+                ]
+            );
             $comentarios = $otraconsulta->fetchAll();
             $count = count($comentarios);
 
@@ -192,9 +214,6 @@ $idioma = $consulta2->fetch();
 
         <form id="form-opinion" class="ocultar" action="" method="post">
 
-            <div class="nombre-opinion">
-
-            </div>
             <div class="fecha-opinion">
                 <?php
                 $fechaActual = date('d-m-Y');
@@ -207,25 +226,6 @@ $idioma = $consulta2->fetch();
                 <?php
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $opinion = isset($_REQUEST['opinion']) ? $_REQUEST['opinion'] : null;
-<<<<<<< HEAD
-
-                    $consulta = $miPDO->prepare('INSERT INTO opiniones ( nickname , opinion, validado, id_libro)
-                VALUES ( :nickname, :opinion, :validado, :id_libro)');
-                    $consulta->execute([
-                        'nickname' => $_SESSION['nickname'],
-                        'opinion' => $opinion,
-                        'validado' => 0,
-                        'id_libro' => $libros['id_libro']
-                    ]);
-                }
-                ?>
-
-                <div class="row">
-                    <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
-                </div>
-                <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
-                <button>iruzkindu</button>
-=======
 
                     $consulta = $miPDO->prepare('INSERT INTO opiniones (nickname , opinion, validado, id_libro)
                     VALUES (:nickname, :opinion, :validado, :id_libro)');
@@ -252,7 +252,6 @@ $idioma = $consulta2->fetch();
 
 
 
->>>>>>> 0e86531d37cca3c66ad8691150afef4664ee1501
             </div>
 
         </form>

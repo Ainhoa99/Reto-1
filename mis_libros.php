@@ -64,7 +64,7 @@ if (!isset($_SESSION['nickname'])) {
                 echo "<div id='libro'>";
 
                 //Imagen
-                echo "<figure class='img-libro'><img src='img/" . $libros['foto'] . "'></figure>";
+                echo "<figure class='img-libro'><img src='src/" . $libros['foto'] . "'></figure>";
 
 
                 echo "<div class='caja-info-libro'>";
