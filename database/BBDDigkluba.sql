@@ -198,7 +198,7 @@ CREATE TABLE valoraciones (
   nota varchar(30) NOT NULL,
   edad int(2) NOT NULL,
   nickname varchar(30) NOT NULL,
-  titulo_libro varchar(160) NOT NULL,
+  id_libro int(11) NOT NULL,
   id_idioma int(11) NOT NULL,
   PRIMARY KEY (id_valoracion)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -207,11 +207,11 @@ CREATE TABLE valoraciones (
 -- Volcado de datos para la tabla valoraciones
 --
 
-INSERT INTO valoraciones (nota, edad, nickname, titulo_libro, id_idioma) VALUES
-(8, 15, 'ainhoa', 'El guardián entre el centeno', '2'),
-(6, 16, 'claragutc', 'Momo', '3'),
-(9, 16, 'ainhoa', 'El principito', '2'),
-(6, 16, 'ainhoa', 'La isla del tesoro', '1');
+INSERT INTO valoraciones (nota, edad, nickname, id_libro, id_idioma) VALUES
+(8, 15, 'ainhoa', 3, '2'),
+(6, 16, 'claragutc', 2, '3'),
+(9, 16, 'ainhoa', 1, '2'),
+(6, 16, 'ainhoa', 2, '1');
 
 --
 -- Índices para tablas volcadas
@@ -270,7 +270,7 @@ ALTER TABLE usuarios
 --
 ALTER TABLE valoraciones
   ADD KEY nickname (nickname),
-  ADD KEY titulo_libro (titulo_libro),
+  ADD KEY id_libro (id_libro),
   ADD KEY id_idioma (id_idioma);
 
 --
@@ -335,7 +335,8 @@ ALTER TABLE usuarios
 --
 ALTER TABLE valoraciones
   ADD CONSTRAINT valoraciones_ibfk_1 FOREIGN KEY (nickname) REFERENCES usuarios (nickname),
-  ADD CONSTRAINT valoraciones_ibfk_3 FOREIGN KEY (id_idioma) REFERENCES idiomalibro (id_idioma);
+  ADD CONSTRAINT valoraciones_ibfk_3 FOREIGN KEY (id_idioma) REFERENCES idiomalibro (id_idioma),
+  ADD CONSTRAINT valoraciones_ibfk_2 FOREIGN KEY (id_libro) REFERENCES libros (id_libro);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

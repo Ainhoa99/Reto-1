@@ -28,11 +28,7 @@
   text-align: center;
 }
 
-.modal h1 {
-  margin: 0;
-}
-
-.close_popup {
+.modal p {
   display: block;
   margin: 0 0 20px auto;
   background-color: transparent;
@@ -40,5 +36,23 @@
   color: #c5c5c5;
   border: none;
   outline: none;
+  cursor: default;
+}
+
+.modal h1 {
+  margin: 0;
+}
+
+.submit {
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  display: block;
+  background-color: rgb(184, 52, 3);
+  color: #fff;
+  border: 1px solid rgb(184, 52, 3);
+  padding: 10px 0;
+  font-size: 20px;
   cursor: pointer;
+  border-radius: 5px;
 }
