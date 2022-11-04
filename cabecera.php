@@ -26,7 +26,6 @@
             <span class="linea"></span>
         </div>
     </div>
-
     <nav id="menu-nav" class="ocultar">
         <ul>
             <?php
