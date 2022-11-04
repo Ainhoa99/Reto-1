@@ -8,29 +8,41 @@ function anadirlibros($respuesta)
 
         echo "<div id='libro'>";
 
-        //Imagen
-        echo "<figure class='img-libro'><img src='src/" . $libros['foto'] . "'></figure>";
+            //Imagen
+            echo "<figure class='img-libro'><img src='src/" . $libros['foto'] . "'></figure>";
+
+            //Contenedor info libro
+            echo "<div class='caja-info-libro'>";
+
+                //Contenedor valoracion
+                echo "<div class='caja-medias-libro'>";
+                    //Nota media
+                    echo "<div class='caja-notamedia'>";
+                        echo "<p class='libro-notamedia'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
+                    echo "</div>";
+                    //Edad media
+                    echo "<div class='caja-libro-edadmedia'>";
+                        echo "<p class='libro-edadmedia-texto'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
+                        echo "<p class='libro-edadmedia'>" . $libros['edadmedia'] . "</p>";
+                    echo "</div>";
+
+                echo "</div>";
+
+                //ee
+                
+
+                //Titulo
+                echo "<p class='libro-titulo' method='get'>" . $libros['titulo_libro'] . "</p>";
 
 
-        echo "<div class='caja-info-libro'>";
-        //Titulo
-        echo "<p class='libro-titulo' method='get'>" . $libros['titulo_libro'] . "</p>";
+                //Autor
+                echo "<p class='libro-autor'>" . $libros['autor'] . "</p>";
 
-
-        //Autor
-        echo "<p class='libro-autor'>" . $libros['autor'] . "</p>";
-
-        //Valoración
-        echo "<div class='caja-notamedia'>";
-        echo "<p class='libro-notamedia-text'>Batez besteko nota</p>";
-        echo "<p class='libro-notamedia'>" . $libros['notamedia'] . "</p>";
+                //Enlace a la ficha
+                echo "<p class='enlace-ficha'><a href='fichalibro.php?liburua=" . $libros['id_libro'] . "'>Fitxa ikusi</a></p>";
+            
+            echo "</div>";
         echo "</div>";
-        //Edad media
-        echo "<p class='libro-edad-media'>Batez besteko adina: " . $libros['edadmedia'] . "</p>";
-
-        //Enlace a la ficha
-        echo "<p class='enlace-ficha'><a href='fichalibro.php?liburua=" . $libros['id_libro'] . "'>Fitxa ikusi</a></p>";
-        echo "</div>";
-        echo "</div>";
+      
     }
 }
