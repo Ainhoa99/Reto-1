@@ -27,6 +27,13 @@ body {
   font-weight: normal;
 }
 
+@font-face {
+  font-family: "Playfair";
+  src: url("PlayfairDisplay-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
 
 /*** Cabecera ****/
 
@@ -56,7 +63,6 @@ body {
 #cabecera h1 {
   text-align: center;
   width: 100%;
-  border: 2px solid green;
 }
 
 #cabecera h1>a{
@@ -199,6 +205,7 @@ body {
   padding: 0;
   margin: 0;
   z-index: 99999;
+  font-family: "Playfair";
 }
 
 #menu-nav ul {
@@ -224,7 +231,7 @@ body {
 
 #menu-nav a {
   width: 100%;
-  color: #535353;
+  color: #444444;
   text-decoration: none;
   padding: 0 20px;
 }
@@ -269,6 +276,12 @@ body {
   font-size: 2.2rem;
   color:rgb(76, 76, 76);
   letter-spacing: 0.02em;
+}
+
+.libro-autor{
+  font-family: "Playfair";
+  color:rgb(0, 0, 0);
+  font-size: 1.5rem;
 }
 
 
@@ -413,10 +426,9 @@ body {
 }
 
 .ficha-autor {
-  text-transform: uppercase;
-  letter-spacing: 0em;
-  color: #8d8d8d;
-  font-size: 1.6rem;
+  font-size: 1.9rem;
+  font-family: "Playfair";
+  color:rgb(0, 0, 0);
 }
 
 /** Imagen **/

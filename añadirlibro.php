@@ -23,7 +23,6 @@ include_once "database/conexion.php";
             // Variables del formulario
             $isbn = isset($_REQUEST['isbn']) ? $_REQUEST['isbn'] : null;
             $titulo_libro = isset($_REQUEST['titulo_libro']) ? $_REQUEST['titulo_libro'] : null;
-            $foto = isset($_FILES['foto']) ? $_FILES['foto'] : null;
             $autor = isset($_REQUEST['autor']) ? $_REQUEST['autor'] : null;
             $ano_de_libro = isset($_REQUEST['ano_de_libro']) ? $_REQUEST['ano_de_libro'] : null;
             $sinopsis = isset($_REQUEST['sinopsis']) ? $_REQUEST['sinopsis'] : null;
@@ -36,13 +35,64 @@ include_once "database/conexion.php";
             $comprobar = $comprobar->fetch();
 
             if (empty($comprobar)) {
+                $archivo = isset($_FILES['foto']) ? $_FILES['foto'] : null;
+                $target_dir = "C:\\xampp\\htdocs\\Reto-1\\src\\";
+                $target_file = $target_dir . basename($archivo["name"]);
+                $uploadOk = 1;
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                // Check if image file is a actual image or fake image
+
+                // Check if image file is a actual image or fake image
+                if (isset($_POST["submit"])) {
+                    $check = getimagesize($archivo["tmp_name"]);
+                    if ($check !== false) {
+                        echo "azala - " . $check["foto"] . " da.";
+                        $uploadOk = 1;
+                    } else {
+                        echo "Barkatu, argazkiak bakarrik igo daitezke";
+                        $uploadOk = 0;
+                    }
+                }
+
+                // Check if file already exists
+                if (file_exists($target_file)) {
+                    echo "azala errepikatuta dago";
+                    $uploadOk = 0;
+                }
+
+                // Check file size
+                if ($archivo["size"] > 500000) {
+                    echo "Barkatu, azalaren argazkia oso handia da.";
+                    $uploadOk = 0;
+                }
+
+                // Allow certain file formats
+                if (
+                    $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                ) {
+                    echo "Barkatu, bakarrik JPG, JPEG eta PNG irudiak.";
+                    $uploadOk = 0;
+                }
+
+                // Check if $uploadOk is set to 0 by an error
+                if ($uploadOk == 0) {
+                    echo "Barkatu, azala ezin izan da igo";
+                    // if everything is ok, try to upload file
+                } else {
+                    if (move_uploaded_file($archivo["tmp_name"], $target_file)) {
+                        echo htmlspecialchars(basename($archivo["foto"])) . "azala ondo igo da.";
+                    } else {
+                        echo "Barkatu, arazo bat egon da azala igotzerakoan.";
+                    }
+                }
+
                 // Base de datos.
-                $consulta = $miPDO->prepare('INSERT INTO libros (isbn, titulo_libro, foto, autor, ano_de_libro, sinopsis, formato, edadmedia, notamedia, num_lectores, id_idioma, link_compra)
-                                            VALUES (:isbn, :titulo_libro, :foto, :autor, :ano_de_libro, :sinopsis, :formato, :edadmedia, :notamedia, :num_lectores, :id_idioma, :link_compra)');
+                $consulta = $miPDO->prepare('INSERT INTO libros (isbn, titulo_libro, foto, autor, ano_de_libro, sinopsis, formato, edadmedia, notamedia, num_lectores, /*validado,*/ id_idioma, link_compra)
+                                            VALUES (:isbn, :titulo_libro, :foto, :autor, :ano_de_libro, :sinopsis, :formato, :edadmedia, :notamedia, :num_lectores, /*:validado,*/ :id_idioma, :link_compra)');
                 $consulta->execute([
                     'isbn' => $isbn,
                     'titulo_libro' => $titulo_libro,
-                    'foto' => 'default.jpg',
+                    'foto' => basename($archivo["name"]),
                     'autor' => $autor,
                     'ano_de_libro' => $ano_de_libro,
                     'sinopsis' => $sinopsis,
@@ -50,19 +100,17 @@ include_once "database/conexion.php";
                     'edadmedia' => 0,
                     'notamedia' => 0,
                     'num_lectores' => 0,
+                    //'validado' => 0,
                     'id_idioma' => $idioma,
                     'link_compra' => $link_compra
-
                 ]);
 
                 header('Location: index.php');
                 die();
-            } else {
-                echo '<div><p style="color: red" class="form__text">Liburu hau web orrian dago jada.</p></div>';
             };
         }
         ?>
-        <form class="form" id="register" action="" method="post">
+        <form class="form" id="register" action="" method="post" enctype="multipart/form-data">
             <img id="logobueno" src="src/Logobueno.png" alt="Logo">
             <div id="main">
                 <div class="fila">
@@ -143,20 +191,20 @@ include_once "database/conexion.php";
                         <p class="formulario__input-error">Pasahitzak berdinak izan behar dira.</p>
                     </div>
                     <?php include('funcionSubirLibros.php'); ?>
-                    <!-- CONTRASEÑA 2
+                    <!-- CONTRASEÑA 2 -->
                     <div class="formulario__grupo" id="grupo__email">
                         <div class="formulario__grupo-input">
                             <input type="file" class="formulario__input" name="foto" id="foto" size="40" autofocus placeholder="Liburuaren azala">
                         </div>
                         <p class="formulario__input-error">Email-a letrak, zenbakiak, puntuak, gidoiak eta gidoi baxua baino ezin ditu izan.</p>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="formulario__mensaje" id="formulario__mensaje">
                     <p><i class="fas fa-exclamation-triangle"></i><b>Errorea:</b> Mesedez, bete formularioa behar bezala.</p>
                 </div>
 
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
-                    <button class="form__button" type="submit" id="btnRegistro">Erregistratu</button>
+                    <button class="form__button" type="submit" id="btnRegistro">GeHitu Liburua</button>
                     <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Ondo bidalitako formularioa!</p>
                 </div>
 

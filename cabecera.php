@@ -6,7 +6,6 @@
         </figure>
         
         <h1><a href="index.php">Igkluba</a></h1>
-
     </div>
 
     <div id="caja-botones">
@@ -27,7 +26,6 @@
             <span class="linea"></span>
         </div>
     </div>
-
     <nav id="menu-nav" class="ocultar">
         <ul>
             <?php
