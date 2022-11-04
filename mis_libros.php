@@ -32,9 +32,11 @@ if (!isset($_SESSION['nickname'])) {
 
     <?php include('cabecera.php'); ?>
 
-    <main id="contenido">
+    <main id="contenido-mislibros">
 
-        <?php
+        <div class="mis-libros"><h2>Nire liburuak</h2></div>
+        <div class="todos-mis-libros">
+       <?php
         $nickname = $_SESSION['nickname'];
         // Prepara SELECT
         $misLibros = $miPDO->prepare('SELECT * FROM valoraciones WHERE nickname = :nickname');
@@ -67,30 +69,38 @@ if (!isset($_SESSION['nickname'])) {
                 echo "<figure class='img-libro'><img src='src/" . $libros['foto'] . "'></figure>";
 
 
-                echo "<div class='caja-info-libro'>";
-                //Titulo
-                echo "<p class='libro-titulo' method='get'>" . $libros['titulo_libro'] . "</p>";
+                //Contenedor info libro
+            echo "<div class='caja-info-libro'>";
 
-                //Autor
-                echo "<p class='libro-autor'>" . $libros['autor'] . "</p>";
-
-                //Valoración
+            //Contenedor valoracion
+            echo "<div class='caja-medias-libro'>";
+                //Nota media
                 echo "<div class='caja-notamedia'>";
-                echo "<p class='libro-notamedia-text'>Batez besteko nota</p>";
-                echo "<p class='libro-notamedia'>" . $libros['notamedia'] . "</p>";
+                    echo "<p class='libro-notamedia'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
                 echo "</div>";
                 //Edad media
-                echo "<p class='libro-edad-media'>Batez besteko adina: " . $libros['edadmedia'] . "</p>";
+                echo "<div class='caja-libro-edadmedia'>";
+                    echo "<p class='libro-edadmedia-texto'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
+                    echo "<p class='libro-edadmedia'>" . $libros['edadmedia'] . "</p>";
+                echo "</div>";
 
-                //Enlace a la ficha
-                echo "<p class='enlace-ficha'><a href='fichalibro.php?liburua=" . $libros['id_libro'] . "'>Fitxa ikusi</a></p>";
-                echo "</div>";
-                echo "</div>";
+            echo "</div>";
+
+            //Titulo
+            echo "<p class='libro-titulo' method='get'>" . $libros['titulo_libro'] . "</p>";
+
+            //Autor
+            echo "<p class='libro-autor'>" . $libros['autor'] . "</p>";
+
+            //Enlace a la ficha
+            echo "<p class='enlace-ficha'><a href='fichalibro.php?liburua=" . $libros['id_libro'] . "'>Fitxa ikusi</a></p>";
+        
+        echo "</div>";
             }
         }
 
         ?>
-
+    </div>
 
     </main>
 
