@@ -1090,6 +1090,13 @@ a#btneditar {
 
 /***********************  CORTE - TRAMO PANTALLA 3    **********************/
 
+@font-face {
+  font-family: "Six Caps";
+  src: url("SixCaps-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
 @media (min-width: 1300px) {
   #libro {
     width: 20%;
