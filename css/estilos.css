@@ -12,6 +12,22 @@ body {
   font-size: 1.5rem;
 }
 
+/**Fuentes**/
+@font-face {
+  font-family: "Xanh Mono";
+  src: url("XanhMono-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("BebasNeue-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+
 /*** Cabecera ****/
 
 #cabecera {
@@ -25,11 +41,11 @@ body {
 
 #logo {
   width: 25%;
+  max-width: 100px;
 }
 
 #logo img {
   width: 100%;
-  max-width: 150px;
   display: block;
   transition: transform 0.7s ease-in-out;
 }
@@ -38,12 +54,24 @@ body {
 }
 
 #cabecera h1 {
-  letter-spacing: 1em;
-  font-size: 1.6rem;
+  text-align: center;
+  width: 100%;
+  border: 2px solid green;
+}
+
+#cabecera h1>a{
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  font-size: 5rem;
+  font-weight: normal;
+  font-family: "Bebas Neue";
+  color: white;
+  width: 100%;
 }
 
 #caja-logo-titulo {
   display: flex;
+  justify-content: space-around;
   align-items: center;
   padding: 10px;
   width: 100%;
@@ -237,16 +265,18 @@ body {
 }
 
 .libro-titulo {
-  font-weight: bold;
+  font-family: "Bebas Neue";
+  font-size: 2.2rem;
+  color:rgb(76, 76, 76);
+  letter-spacing: 0.02em;
 }
+
 
 /* Imagen libro */
 
 #libro .img-libro {
   width: 50%;
-  padding: 5px 0;
   max-width: 250px;
-  position: relative;
 }
 
 #libro .img-libro img {
@@ -258,10 +288,10 @@ body {
 .enlace-ficha {
   margin: 20px;
   display: none;
-  text-transform: uppercase;
   border: 1px solid rgb(71, 71, 71);
   border-radius: 4px;
   transition: 0.7s;
+  font-family: "Bebas Neue";
 }
 
 .enlace-ficha:hover {
@@ -279,44 +309,80 @@ body {
 
 .enlace-ficha a {
   color: rgb(71, 71, 71);
-  font-size: 1.3rem;
+  font-size: 2rem;
   padding: 10px;
   text-decoration: none;
 }
 
+/** Caja texto con la informacion del libro **/
+
 .caja-info-libro {
   background-color: white;
-  padding: 20px;
+  padding: 0 20px;
   transition: 0.5s;
-  height: 200px;
+  height: 230px;
   min-width: 250px;
 }
+
 
 #libro:hover .caja-info-libro {
   transform: translateY(-80px);
   transition: 0.5s;
 }
 
-/* Nota media del libro */
-
-.caja-notamedia {
-  position: sticky;
-  top: 0;
-  right: 0;
+/* Medias del libro - nota y edad */
+.caja-medias-libro{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 
+.caja-notamedia{
+  width: 40%;
+  margin: 0;
+  padding: 0;
+}
+
+.libro-edad-media{
+  border: 2px solid pink;
+  width: 60%;
+  font-family: "Bebas Neue";
+  font-size: 1.6rem;
+  color:rgb(76, 76, 76);
+}
+
+/* Nota media libros */
 .libro-notamedia {
-  color: rgb(184, 52, 3);
+  font-family: "Bebas Neue";
   font-weight: bold;
+  color:rgb(59, 58, 58);
+  font-size: 2rem;
 }
 
-.libro-notamedia-text {
-  background-color: white;
+/* Edad media libros */
+
+.caja-libro-edadmedia {
   color: rgb(184, 52, 3);
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.libro-edadmedia-texto {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 5px;
+}
+
+.libro-edadmedia {
+  color: whitesmoke;
+  border-radius: 50%;
+  background-color: rgb(198, 67, 19);
+  padding: 7px;
+}
+
 
 /********* Ficha libro ************/
 
@@ -334,16 +400,16 @@ body {
 
 .ficha-titulo,
 .ficha-autor {
-  text-transform: uppercase;
   font-weight: normal;
   text-align: center;
   padding: 10px;
 }
 
 .ficha-titulo {
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   color: #525252;
-  font-size: 2rem;
+  font-size: 3.5rem;
+  font-family: "Bebas Neue";
 }
 
 .ficha-autor {
@@ -381,8 +447,9 @@ body {
 /** Información libro **/
 
 #datos-libro dt {
-  text-transform: uppercase;
-  color: #000000;
+  font-size: 2.7rem;
+  font-family: "Bebas Neue";
+  color: #464646;
   padding: 5px 0;
 }
 
@@ -422,6 +489,9 @@ body {
   border-radius: 5px;
   position: relative;
   max-width: 850px;
+  font-family: "Bebas Neue";
+  font-size: 2rem;
+  color: #464646;
 }
 
 #contenido-fichatecnica {
