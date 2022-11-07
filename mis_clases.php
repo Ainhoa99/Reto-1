@@ -14,6 +14,8 @@ if (!isset($_SESSION['nickname'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
     <title>Mis Clases</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
@@ -26,6 +28,7 @@ if (!isset($_SESSION['nickname'])) {
             <h2>Nire klaseak</h2>
         </div>
         <div class="todos-mis-libros">
+            <p class='enlace-clase'><a href=''>Klase berria</a></p>
             <?php
             // Prepara SELECT
             $misClases = $miPDO->prepare('SELECT * FROM clase');
@@ -39,27 +42,28 @@ if (!isset($_SESSION['nickname'])) {
                     ]
                 );
                 $alumnos = $clasesAlumnos->fetch();
-
-                echo "<div class='caja-clase'>";
-
-                //Contenedor valoracion
-                echo "<div class='caja-info-clase'>";
-                //Nota media
-                echo "<div class='caja-Nombre'>";
-                echo "<p class='nombre_clase'></i><span>" . $clase['nivel'] . "</span></p>";
-                echo "</div>";
-                //Edad media
-                echo "<div class='caja-alumnos'>";
-                echo "<p class='numero_alumnos'>" . $alumnos['num_alumnos'] . "<span> ikasleak</span></p>";
-                echo "</div>";
-
-                echo "</div>";
-
-
-                echo "</div>";
-            }
-
             ?>
+                <div class='caja-clase'>
+
+                    <!-- Contenedor valoracion -->
+                    <div class='caja-info-clase'>
+                        <!-- Nota media -->
+                        <div class='caja-Nombre'>
+                            <p class='nombre_clase'></i><span> <?php echo ($clase['nivel']) ?> </span></p>
+                        </div>
+                        <!-- Edad media -->
+                        <div class='caja-alumnos'>
+                            <p class='numero_alumnos'> <?php echo ($alumnos['num_alumnos']) ?> <span> ikasleak</span></p>
+                        </div>
+                    </div>
+
+
+                </div>
+            <?php
+            }
+            ?>
+
+
         </div>
 
     </main>
