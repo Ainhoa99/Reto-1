@@ -4,7 +4,7 @@
         <figure id="logo">
             <a href="index.php"><img src="src/logoSinLetra.png" alt="logo"></a>
         </figure>
-        
+
         <h1><a href="index.php">Igkluba</a></h1>
     </div>
 
@@ -29,8 +29,8 @@
     <nav id="menu-nav" class="ocultar">
         <ul>
             <?php
-            if (($_SESSION['tipo'] == 'Profesor') || ($_SESSION['tipo'] == 'Administrador')) {
-                echo " <li><a href=''><i class='fas fa-chalkboard-teacher'></i>Nire klaseak</a></li>";
+            if (($_SESSION['tipo'] == 'Profesor')) {
+                echo " <li><a href='mis_clases.php'><i class='fas fa-chalkboard-teacher'></i>Nire klaseak</a></li>";
             }
             ?>
 

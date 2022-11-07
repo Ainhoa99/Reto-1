@@ -50,10 +50,22 @@ INSERT INTO centro (nombre_centro) VALUES
 --
 
 CREATE TABLE clase (
+  id_nivel int(11) NOT NULL AUTO_INCREMENT,
   fecha_limite date NOT NULL,
-  nickname varchar(30) NOT NULL,
-  codigo int(4) NOT NULL
+  nivel varchar(30) NOT NULL,
+  PRIMARY KEY (id_nivel)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Volcado de datos para la tabla clase
+--
+
+INSERT INTO clase (fecha_limite, nivel) VALUES
+(2023-07-01, 'DBH1'),
+(2023-07-01, 'DBH2'),
+(2023-07-01, 'DBH3'),
+(2023-07-01, 'DBH4');
 
 -- --------------------------------------------------------
 
@@ -113,15 +125,6 @@ INSERT INTO libros (isbn, titulo_libro, foto, autor, ano_de_libro, sinopsis, for
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla listadeclases
---
-
-CREATE TABLE listadeclases (
-  codigo int(4) NOT NULL,
-  nickname varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 -- --------------------------------------------------------
 
 --
@@ -170,7 +173,7 @@ CREATE TABLE usuarios (
   validado tinyint(1) NOT NULL,
   movil char(9) DEFAULT NULL,
   password varchar(25) NOT NULL,
-  nivel enum('DBH1','DBH2','DBH3','DBH4') DEFAULT NULL,
+  id_nivel int(11),
   curso char(9) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -178,14 +181,14 @@ CREATE TABLE usuarios (
 -- Volcado de datos para la tabla usuarios
 --
 
-INSERT INTO usuarios (nombre, apellidos, correo, nickname, foto, id_centro, fecha_nacimiento, tipo, validado, movil, password, nivel, curso) VALUES
-('Ainhoa', 'Lopez Castro', 'ainhoalopez99.al@gmail.com', 'ainhoa', NULL, 2, 1999-09-28, 'Alumno', 1, NULL, 'cont_ainhoa', 'DBH3', '2022-2023'),
-('Augusto', 'dlc', 'augusto@gmail.com', 'augusto', NULL, 1, 2003-06-06, 'Alumno', 1, NULL, 'cont_augusto', 'DBH3', '2022-2023'),
-('Clara', 'Gutierrez', 'Clara@gmail.com', 'claragutc', NULL, 2, 1993-03-21, 'Alumno', 1, NULL, 'clara_cont', 'DBH4', '2022-2023'),
+INSERT INTO usuarios (nombre, apellidos, correo, nickname, foto, id_centro, fecha_nacimiento, tipo, validado, movil, password, id_nivel, curso) VALUES
+('Ainhoa', 'Lopez Castro', 'ainhoalopez99.al@gmail.com', 'ainhoa', NULL, 2, 1999-09-28, 'Alumno', 1, NULL, 'cont_ainhoa', 3, '2022-2023'),
+('Augusto', 'dlc', 'augusto@gmail.com', 'augusto', NULL, 1, 2003-06-06, 'Alumno', 1, NULL, 'cont_augusto', 3, '2022-2023'),
+('Clara', 'Gutierrez', 'Clara@gmail.com', 'claragutc', NULL, 2, 1993-03-21, 'Alumno', 1, NULL, 'clara_cont', 4, '2022-2023'),
 ('Endika', 'Avellaneda', 'endika@gmail.com', 'endika_profe', NULL, 1, 1990-01-01, 'Profesor', 1, NULL, 'cont_endika', NULL, '2022-2023'),
-('Iker', 'Gonzalez', 'iker@gmail.com', 'iker', NULL, 2, 2022-10-19, 'Alumno', 0, NULL, 'cont_iker', 'DBH2', '2022-2023'),
-('Luka', 'Carmona', 'lukacarmona115@gmail.com', 'lukita_', NULL, 2, 5555-05-05, 'Alumno', 1, NULL, 1234, 'DBH3', '2022-2023'),
-('Unai', 'Cabo', 'unai@gmail.com', 'unai', NULL, 1, 2000-07-15, 'Alumno', 1, NULL, 'unai_cont', 'DBH3', '2022-2023');
+('Iker', 'Gonzalez', 'iker@gmail.com', 'iker', NULL, 2, 2022-10-19, 'Alumno', 0, NULL, 'cont_iker', 2, '2022-2023'),
+('Luka', 'Carmona', 'lukacarmona115@gmail.com', 'lukita_', NULL, 2, 5555-05-05, 'Alumno', 1, NULL, 1234, 3, '2022-2023'),
+('Unai', 'Cabo', 'unai@gmail.com', 'unai', NULL, 1, 2000-07-15, 'Alumno', 1, NULL, 'unai_cont', 3, '2022-2023');
 
 -- --------------------------------------------------------
 
@@ -221,13 +224,6 @@ INSERT INTO valoraciones (nota, edad, nickname, id_libro, id_idioma) VALUES
 -- Indices de la tabla centro
 --
 
---
--- Indices de la tabla clase
---
-ALTER TABLE clase
-  ADD PRIMARY KEY (codigo),
-  ADD KEY nickname (nickname);
-
 
 
 --
@@ -237,11 +233,6 @@ ALTER TABLE libros
   ADD KEY id_idioma (id_idioma);
 
 --
--- Indices de la tabla listadeclases
---
-ALTER TABLE listadeclases
-  ADD KEY codigo (codigo),
-  ADD KEY nickname (nickname);
 
 --
 -- Indices de la tabla opiniones
@@ -263,7 +254,8 @@ ALTER TABLE peticiondelibro
 ALTER TABLE usuarios
   ADD PRIMARY KEY (correo),
   ADD UNIQUE KEY nickname (nickname),
-  ADD KEY centro (id_centro);
+  ADD KEY id_centro (id_centro),
+  ADD KEY id_nivel (id_nivel);
 
 --
 -- Indices de la tabla valoraciones
@@ -274,42 +266,20 @@ ALTER TABLE valoraciones
   ADD KEY id_idioma (id_idioma);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
---
 
---
--- AUTO_INCREMENT de la tabla clase
---
-
-
---
--- AUTO_INCREMENT de la tabla listadeclases
---
-ALTER TABLE listadeclases
-  MODIFY codigo int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla clase
---
-ALTER TABLE clase
-  ADD CONSTRAINT clase_ibfk_1 FOREIGN KEY (nickname) REFERENCES usuarios (nickname);
 
---
 -- Filtros para la tabla libros
 --
 ALTER TABLE libros
   ADD CONSTRAINT libros_ibfk_1 FOREIGN KEY (id_idioma) REFERENCES idiomalibro (id_idioma);
 
 --
--- Filtros para la tabla listadeclases
---
-ALTER TABLE listadeclases
-  ADD CONSTRAINT listadeclases_ibfk_1 FOREIGN KEY (codigo) REFERENCES clase (codigo),
-  ADD CONSTRAINT listadeclases_ibfk_2 FOREIGN KEY (nickname) REFERENCES usuarios (nickname);
 
 --
 -- Filtros para la tabla opiniones
@@ -328,7 +298,8 @@ ALTER TABLE peticiondelibro
 -- Filtros para la tabla usuarios
 --
 ALTER TABLE usuarios
-  ADD CONSTRAINT usuarios_ibfk_1 FOREIGN KEY (id_centro) REFERENCES centro (id_centro);
+  ADD CONSTRAINT usuarios_ibfk_1 FOREIGN KEY (id_centro) REFERENCES centro (id_centro),
+  ADD CONSTRAINT usuarios_ibfk_2 FOREIGN KEY (id_nivel) REFERENCES clase (id_nivel);
 
 --
 -- Filtros para la tabla valoraciones
