@@ -53,42 +53,61 @@ body {
 
 /** Logo **/
 
-#logo {
-  width: 25%;
-  max-width: 100px;
-}
-
-#logo img {
-  width: 100%;
-  display: block;
-  transition: transform 0.7s ease-in-out;
-}
-#logo img:hover {
-  transform: rotate(360deg);
-}
-
-#cabecera h1 {
-  text-align: center;
-  width: 100%;
-}
-
-#cabecera h1>a{
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  font-size: 5rem;
-  font-weight: normal;
-  font-family: "Bebas Neue";
-  color: white;
-  width: 100%;
-}
 
 #caja-logo-titulo {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px;
   width: 100%;
-  background: rgb(184, 52, 3);
+  background-color: rgb(210, 53, 5);
+  position: relative;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:3px solid blue;
+}
+
+#logo {
+  width: 150px;
+  max-width: 200px;
+  margin-left: 20%;
+  border:3px solid green;
+}
+
+#logo img {
+  width: 100%;
+  display: block;
+  /*transition: transform 0.7s ease-in-out;*/
+}
+
+#logo img:hover {
+  transform: rotate(360deg);
+}
+
+#cabecera h1 {
+  width: 50%;
+  position: relative;
+  display: flex;
+  border:3px solid blue;
+}
+
+#cabecera h1>a{
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: normal;
+  font-family: "Bebas Neue";
+  color: white;
+  width: 100%;
+  font-family: "Playfair";
+}
+
+#cabecera h1 span{
+  font-size: 5rem;
+  color: black;
+  /*position: absolute;
+  bottom: 10px;*/
+  font-family: "Bebas Neue";
 }
 
 #caja-botones {
@@ -418,6 +437,7 @@ body {
       opacity: 1;
   }
 }
+
 
 /**** Listado de libros ****/
 .libro {
@@ -1059,6 +1079,25 @@ a#btneditar {
   margin-top: 30px;
 }
 
+#caja-fotofrase p{
+  padding: 30px;
+}
+
+#logo-pie {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  width: 50%;
+  max-width: 300px;
+  padding: 0 50px;
+  margin: 20px;
+}
+
+#logo-pie img{
+  width: 100%;
+}
+
 #contacto{
   padding: 20px;
 }
@@ -1079,11 +1118,12 @@ a#btneditar {
 
 #pie-pagina .copyright {
   text-align: center;
-  font-family: arial;
-  letter-spacing: 0.9em;
-  background-color: rgb(184, 52, 3);
+  letter-spacing: 0.2em;
+  background-color: rgb(210, 53, 5);
   width: 100%;
-  color: #d0d0d0;
+  color: white;
+  font-family: "Bebas Neue";
+  font-size: 2rem;
 }
 
 /***********************    CORTE - TRAMO PANTALLA     **********************/
@@ -1166,12 +1206,32 @@ a#btneditar {
     border-top: none;
   }
 
+  #caja-fotofrase{
+    display: flex;
+  }
+
+  #caja-fotofrase p{
+    padding: 20px;
+    margin: 30px;
+    max-width: 650px;
+  }
+
+  #logo-pie{
+    background-color: transparent;
+  }
+
   #pie-pagina p {
-    border-right: 1px solid rgb(77, 77, 77);
+    border-right: 1px solid rgb(203, 203, 203);
+    border-bottom: none;
   }
 
   #pie-pagina p:last-child {
     border-right: none;
+  }
+
+  #contenedor-pie p:last-child{
+    font-size: 3rem;
+    color:rgb(155, 155, 155);
   }
 
   /* contenido libros */
@@ -1483,6 +1543,8 @@ a#btneditar {
   display: flex;
   justify-content: center;
 }
+
+
 
 
 }

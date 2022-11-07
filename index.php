@@ -94,7 +94,7 @@ if (!isset($_SESSION['nickname'])) {
             }
             ?>
             <div class="mejorvalorados-text">
-                <p>Valorazio onena duten liburuak</p>
+                <p>Balorazio onena duten liburuak</p>
             </div>
 
         </div>
@@ -142,7 +142,7 @@ if (!isset($_SESSION['nickname'])) {
             }
             ?>
             <div class="mejorvalorados-text">
-                <p>Geien irakurri diren liburuak</p>
+                <p>Gehien irakurri diren liburuak</p>
             </div>
 
         </div>

@@ -2,10 +2,10 @@
 
     <div id="caja-logo-titulo">
         <figure id="logo">
-            <a href="index.php"><img src="src/logoSinLetra.png" alt="logo"></a>
+            <a href="index.php"><img src="src/LOGOSINTEXTO.png" alt="logo"></a>
         </figure>
         
-        <h1><a href="index.php">Igkluba</a></h1>
+        <h1><a href="index.php"><span>Ig</span>kluba</a></h1>
     </div>
 
     <div id="caja-botones">
