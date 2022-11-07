@@ -36,7 +36,7 @@ include_once "database/conexion.php";
 
             if (empty($comprobar)) {
                 $archivo = isset($_FILES['foto']) ? $_FILES['foto'] : null;
-                $target_dir = "C:\\xampp\\htdocs\\Reto-1\\src\\";
+                $target_dir = "C:\\xampp\\htdocs\\2DW3\\src\\";
                 $target_file = $target_dir . basename($archivo["name"]);
                 $uploadOk = 1;
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -190,7 +190,6 @@ include_once "database/conexion.php";
                         </div>
                         <p class="formulario__input-error">Pasahitzak berdinak izan behar dira.</p>
                     </div>
-                    <?php include('funcionSubirLibros.php'); ?>
                     <!-- CONTRASEÑA 2 -->
                     <div class="formulario__grupo" id="grupo__email">
                         <div class="formulario__grupo-input">

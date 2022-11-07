@@ -34,63 +34,65 @@ if (!isset($_SESSION['nickname'])) {
 
     <main id="contenido-mislibros">
 
-        <div class="mis-libros"><h2>Nire liburuak</h2></div>
+        <div class="mis-libros">
+            <h2>Nire liburuak</h2>
+        </div>
         <div class="todos-mis-libros">
-       <?php
-        $nickname = $_SESSION['nickname'];
-        // Prepara SELECT
-        $misLibros = $miPDO->prepare('SELECT * FROM valoraciones WHERE nickname = :nickname');
-        $misLibros->execute(
-            [
-                'nickname' => $nickname,
-            ]
-        );
-        $mios = $misLibros->fetchAll();
-        foreach ($mios as $posicion => $libro) {
-            $titulo = $libro['titulo_libro'];
-            $consulta = $miPDO->prepare('SELECT * FROM libros WHERE titulo_libro = :titulo_libro');
-            // Ejecuta consulta
-            $consulta->execute(
+            <?php
+            $nickname = $_SESSION['nickname'];
+            // Prepara SELECT
+            $misLibros = $miPDO->prepare('SELECT * FROM valoraciones WHERE nickname = :nickname');
+            $misLibros->execute(
                 [
-                    'titulo_libro' => $titulo,
+                    'nickname' => $nickname,
                 ]
             );
+            $mios = $misLibros->fetchAll();
+            foreach ($mios as $posicion => $libro) {
+                $titulo = $libro['id_libro'];
+                $consulta = $miPDO->prepare('SELECT * FROM libros WHERE id_libro = :id_libro');
+                // Ejecuta consulta
+                $consulta->execute(
+                    [
+                        'id_libro' => $titulo,
+                    ]
+                );
 
-            $respuesta = $consulta->fetchAll();
-            // foreach($respuesta as $posicion =>$libros):   
+                $respuesta = $consulta->fetchAll();
+                // foreach($respuesta as $posicion =>$libros):   
 
-            foreach ($respuesta as $posicion => $libros) {
+                foreach ($respuesta as $posicion => $libros) {
 
-                //$titulo-libro = $libros['titulo_libro'];
+                    //$titulo-libro = $libros['titulo_libro'];
 
                 echo "<div class='libro'>";
 
-                //Imagen
-                echo "<figure class='img-libro'><img src='src/" . $libros['foto'] . "'></figure>";
+                    //Imagen
+                    echo "<figure class='img-libro'><img src='src/" . $libros['foto'] . "'></figure>";
 
 
-                //Contenedor info libro
-            echo "<div class='caja-info-libro'>";
+                    //Contenedor info libro
+                    echo "<div class='caja-info-libro'>";
 
-            //Contenedor valoracion
-            echo "<div class='caja-medias-libro'>";
-                //Nota media
-                echo "<div class='caja-notamedia'>";
+                    //Contenedor valoracion
+                    echo "<div class='caja-medias-libro'>";
+                    //Nota media
+                    echo "<div class='caja-notamedia'>";
                     echo "<p class='libro-notamedia'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
-                echo "</div>";
-                //Edad media
-                echo "<div class='caja-libro-edadmedia'>";
+                    echo "</div>";
+                    //Edad media
+                    echo "<div class='caja-libro-edadmedia'>";
                     echo "<p class='libro-edadmedia-texto'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
                     echo "<p class='libro-edadmedia'>" . $libros['edadmedia'] . "</p>";
-                echo "</div>";
+                    echo "</div>";
 
-            echo "</div>";
+                    echo "</div>";
 
-            //Titulo
-            echo "<p class='libro-titulo' method='get'>" . $libros['titulo_libro'] . "</p>";
+                    //Titulo
+                    echo "<p class='libro-titulo' method='get'>" . $libros['titulo_libro'] . "</p>";
 
-            //Autor
-            echo "<p class='libro-autor'>" . $libros['autor'] . "</p>";
+                    //Autor
+                    echo "<p class='libro-autor'>" . $libros['autor'] . "</p>";
 
             //Enlace a la ficha
             echo "<p class='enlace-ficha'><a href='fichalibro.php?liburua=" . $libros['id_libro'] . "'>Fitxa ikusi</a></p>";
@@ -98,7 +100,6 @@ if (!isset($_SESSION['nickname'])) {
         echo "</div>";
         echo "</div>";
             }
-        }
 
         ?>
         </div>
