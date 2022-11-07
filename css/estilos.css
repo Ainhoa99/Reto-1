@@ -34,6 +34,13 @@ body {
   font-weight: normal;
 }
 
+@font-face {
+  font-family: "Palaquin";
+  src: url("PalanquinDark-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
 
 /*** Cabecera ****/
 
@@ -200,7 +207,7 @@ body {
 #menu-nav {
   position: absolute;
   top: 100%;
-  left: -5px;
+  left: 0;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -259,8 +266,20 @@ body {
 /***** Galeria libros ****/
 
 /* imagenes */
+
+.contenedor-galeria{
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.foto-enlace{
+  width: 30%;
+  max-width: 250px;
+  transition: 0.5s;
+}
 .galeria-img{
-  width: 130px;
   margin: 0;
 }
 
@@ -268,6 +287,17 @@ body {
   width: 100%;
   display: block;
   padding: 0;
+  transition: 0.5s;
+}
+
+.galeria-img img:hover{
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.foto-enlace:hover{
+  width: 35%;
+  transition: 0.3s;
 }
 
 .foto-enlace{
@@ -325,26 +355,24 @@ body {
 
 /* Caption text */
 .mejorvalorados-text {
-  color: black;
-  font-size: 15px;
+  color: rgb(99, 99, 99);
+  font-size: 2rem;
   position: absolute;
   top: -84px;
   width: 100%;
   text-align: center;
-  text-align: center;
   background-color: white;
   padding: 30px;
-  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mejorvalorados-text::after{
   content: "";
-  display: flex;
-  position: relative;
-  bottom: -5px;
-  left: 38%;
   width: 100px;
-  border-bottom: 2px solid grey;
+  padding-top: 7px;
+  border-bottom: 2px solid rgb(167, 167, 167);
 }
 
 /* Number text (1/3 etc) */
@@ -391,10 +419,8 @@ body {
   }
 }
 
-
-
 /**** Listado de libros ****/
-#libro {
+.libro {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -406,7 +432,7 @@ body {
   position: relative;
 }
 
-#libro p {
+.libro p {
   padding: 7px;
 }
 
@@ -426,12 +452,12 @@ body {
 
 /* Imagen libro */
 
-#libro .img-libro {
+.libro .img-libro {
   width: 50%;
   max-width: 250px;
 }
 
-#libro .img-libro img {
+.libro .img-libro img {
   width: 100%;
 }
 
@@ -455,7 +481,7 @@ body {
   color: whitesmoke;
 }
 
-#libro:hover .enlace-ficha {
+.libro:hover .enlace-ficha {
   display: block;
 }
 
@@ -477,7 +503,7 @@ body {
 }
 
 
-#libro:hover .caja-info-libro {
+.libro:hover .caja-info-libro {
   transform: translateY(-80px);
   transition: 0.5s;
 }
@@ -536,14 +562,12 @@ body {
 }
 
 
-/******** Mis libros **************/
-
+/****************** Mis libros *****************/
 
 .mis-libros{
   display: flex;
   justify-content: center;
 }
-
 
 .mis-libros h2{
   font-size: 3rem;
@@ -741,8 +765,10 @@ body {
 
 .ficha-notamedia-text {
   display: flex;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-family: "Bebas Neue";
 }
+
 
 #contenedor-valoracion {
   display: flex;
@@ -750,6 +776,12 @@ body {
   margin-top: 5px;
   padding-bottom: 20px;
   border-bottom: 1px solid rgb(209, 209, 209);
+  width: 60%;
+}
+
+.caja-contenedor-valoracion{
+  display: flex;
+  justify-content: center;
 }
 
 .caja-notamedia {
@@ -793,41 +825,93 @@ body {
 }
 
 #comentarios {
-  padding: 20px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgb(222, 222, 222);
   padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#comentario {
+  background-color: rgb(246, 246, 246);
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
 }
 
 #opinion {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   height: 100px;
   border-radius: 5px;
   padding: 15px;
-  border: 1px solid #cbcbcb;
+  border: 1px solid #d8d8d8;
+}
+
+/***** Estilo añadir opinion *****/
+
+.añadir-comentario{
+  padding: 0 10px;
+  color: rgb(212, 56, 9);
+  font-family: "Palaquin";
 }
 
 .fecha-opinion {
   margin: 10px;
 }
 
+
 /** estilo comentarios **/
 
-#comentario {
-  background-color: whitesmoke;
-  padding: 15px;
-  border-radius: 8px;
-  max-width: 500px;
+#titulo-opinion{
+  font-family: "Bebas Neue";
+  color:rgb(74, 74, 74);
+  font-size: 2.3rem;
+  letter-spacing: 0.1em;
+  padding-left: 20px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#comment-count{
+  font-family: "Palaquin";
+  text-align: center;
+
+}
+
+.nombre-opinion {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: rgb(71, 71, 71);
+  font-family: "Palaquin";
 }
 
 .opinion {
   font-size: 1.4rem;
   color: rgb(71, 71, 71);
-  padding: 0 10px;
+  padding: 0 40px;
+  padding-top: 15px;
+  font-family: "Playfair";
+  text-align: justify;
+}
+
+.opinion span{
+  color: black;
+  font-size: 8rem;
+  padding-right: 10px;
+  font-family:"Palaquin";
+  position: absolute;
+  top: 20px;
+  left: 25px;
 }
 
 .responder {
-  padding: 5px;
+  padding: 0 20px;
+  padding-top: 20px;
   display: flex;
   justify-content: flex-end;
 }
@@ -839,13 +923,6 @@ body {
   cursor: pointer;
   padding: 5px;
   position: relative;
-}
-
-.nombre-opinion {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: rgb(71, 71, 71);
 }
 
 .responder p::after {
@@ -902,10 +979,6 @@ body {
 
 .caja-info-usuario {
   width: 50%;
-}
-
-#foto-nombre-apellido {
-  border: 2px solid green;
 }
 
 #caja-info-perfil {
@@ -1111,7 +1184,14 @@ a#btneditar {
     margin-top: 100px;
   }
 
-  #libro {
+  .todos-mis-libros{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+
+  .libro {
     width: 45%;
     margin: 20px;
     justify-content: flex-end;
@@ -1194,6 +1274,10 @@ a#btneditar {
     max-width: 800px;
   }
 
+  .ficha-notamedia-text {
+    font-size: 3rem;
+  }
+
   /*** contenido perfil personal***/
 
   .container2 {
@@ -1216,7 +1300,7 @@ a#btneditar {
 
 @media (min-width: 1000px) {
   /* ficha libro */
-  #libro {
+  .libro {
     width: 25%;
     margin: 10px;
   }
@@ -1271,21 +1355,12 @@ a#btneditar {
   #caja-fichatecnica {
     width: 40%;
   }
-
- 
 }
 
 /***********************  CORTE - TRAMO PANTALLA 3    **********************/
 
-@font-face {
-  font-family: "Six Caps";
-  src: url("SixCaps-Regular.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-}
-
 @media (min-width: 1300px) {
-  #libro {
+  .libro {
     width: 20%;
     margin: 10px;
   }
@@ -1359,6 +1434,47 @@ a#btneditar {
     cursor: auto;
   }
 
+  /******* Indice galeria ******/
+
+  .mejorvalorados-text {
+   width: 400px;
+   position: static;
+   font-family: "Playfair";
+   margin: 0;
+   margin-left: 30px;
+  }
+
+  .slideshow-container{
+    display: flex;
+  }
+
+  .mejorvalorados-text p{
+    font-size: 3rem;
+    color: #6d6d6d;
+    margin-bottom: 50px;
+    width: auto;
+    padding: 10px;
+  }
+
+  .foto-enlace{
+    width: 40%;
+  }
+
+  .foto-enlace:hover{
+    width: 50%;
+  }
+
+  .next{
+    right: 25%;
+  }
+
+  .prev{
+    left: -5%;
+  }
+
+  .contenedor-galeria{
+    max-width: 950px;
+  }
 
   /**** Mis libros ***/
   /******** Mis libros **************/
@@ -1366,11 +1482,6 @@ a#btneditar {
 .mis-libros{
   display: flex;
   justify-content: center;
-  border: 2px solid red;
-}
-
-.mis-libros h2{
-  border: 2px solid green;
 }
 
 

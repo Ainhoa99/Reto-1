@@ -163,12 +163,8 @@ $idioma = $consulta2->fetch();
         </div>
 
 
-
-
-
-
         <h3 id="titulo-opinion">Irakurleen iritziak</h3>
-        <div id="comentarios" class="">
+        
             <?php
 
             $otraconsulta = $miPDO->prepare('SELECT * FROM opiniones WHERE validado = 1 AND id_libro = :id_libro ORDER BY id_opinion DESC ');
@@ -189,6 +185,7 @@ $idioma = $consulta2->fetch();
                     <span id="count-number"><?php echo ('Liburu hau ' . $count . ' pertsonek iruzkindu dute'); ?></span>
                     <br>
                 </div>
+                <div id="comentarios" class="">
             <?php
             }
             foreach ($comentarios as $opinion) {
@@ -198,7 +195,7 @@ $idioma = $consulta2->fetch();
                 echo "<div id='comentario'>";
 
                 echo "<p class='nombre-opinion' method='get'>" . $opinion['nickname'] . "</p>";
-                echo "<p class='opinion' method='get'>" . $opinion['opinion'] . "</p>";
+                echo "<p class='opinion' method='get'><span>\"</span>" . $opinion['opinion'] . "</p>";
                 echo "<div class='responder'><p>Erantzun</p></div>";
 
                 echo "</div>";
@@ -236,14 +233,14 @@ $idioma = $consulta2->fetch();
                 }
 
                 ?>
-                <div class="row">
-                    <label> Ezizena: </label><?php echo $_SESSION['nickname']; ?>
+                <div class="añadir-comentario">
+                    <label>Ezizena: </label><?php echo $_SESSION['nickname']; ?>
                 </div>
-                <div class="row">
-                    <label for="mesg"> Iritzia :</label>
+                <div class="añadir-comentario">
+                    <label for="mesg">Iritzia:</label>
                     <br>
                     <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
-                    <button>iruzkindu</button>
+                    <button>Iruzkindu</button>
                 </div>
 
 

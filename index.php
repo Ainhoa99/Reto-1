@@ -73,6 +73,7 @@ if (!isset($_SESSION['nickname'])) {
         ?>
 
 <!-- Slideshow container -->
+<div class="contenedor-galeria">
 <div class="slideshow-container">
         <!-- Full-width images with number and caption text -->
         <div class="mySlides fade">
@@ -157,6 +158,7 @@ if (!isset($_SESSION['nickname'])) {
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
     </div>
 
     <script>
