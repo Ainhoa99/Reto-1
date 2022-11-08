@@ -20,32 +20,34 @@ include_once "database/conexion.php";
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            // Variables del formulario
-            $form_nickname = isset($_REQUEST['nickname']) ? $_REQUEST['nickname'] : null;
-            $form_password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
 
             // Base de datos.
-            $consulta = $miPDO->prepare('SELECT correo, nickname, password, validado, tipo FROM usuarios');
-            $consulta->execute();
-            $usuarios = $consulta->fetchAll();
-            foreach ($usuarios as $posicion => $usuario) {
-                $email = $usuario['correo'];
-                $nickname = $usuario['nickname'];
-                $password = $usuario['password'];
-                $validado = $usuario['validado'];
+            $consulta = $miPDO->prepare('SELECT nickname, correo, password, validado, tipo FROM usuarios WHERE nickname = :usuario OR correo = :usuario');
+            $consulta->execute(
+                [
+                    'usuario' => $_REQUEST['nickname']
+                ]
+            );
+            $usuario = $consulta->fetch();
+            $correo = $usuario['correo'];
+            $nickname = $usuario['nickname'];
+            $validado = $usuario['validado'];
 
-                // Comprobamos si los datos son correctos
-                if (($email == $form_nickname || $nickname == $form_nickname) && $form_password == $password && $validado == 1) {
-                    // Si son correctos, creamos la sesión
-                    session_start();
-                    $_SESSION['nickname'] = $_REQUEST['nickname'];
-                    $_SESSION['email'] = $_REQUEST['email'];
-                    $_SESSION['tipo'] = $usuario['tipo'];
-                    // Redireccionamos a la página segura
-                    header('Location: index.php');
-                    die();
-                }
+            // Comprobamos si los datos son correctos
+            if (password_verify($_REQUEST['password'], $usuario['password']) && $validado == 1) {
+                // Si son correctos, creamos la sesión
+                session_start();
+                $_SESSION['nickname'] = $usuario['nickname'];
+                $_SESSION['email'] = $usuario['correo'];
+                $_SESSION['tipo'] = $usuario['tipo'];
+                // Redireccionamos a la página segura
+                header('Location: index.php');
+                die();
             }
+            echo $_REQUEST['password'];
+            echo $usuario['password'];
+            var_dump(password_verify($_REQUEST['password'], $usuario['password']));
+
             echo '<p style="color: red" class="form__text">El email o la contraseña es incorrecta.</p>';
         }
         ?>

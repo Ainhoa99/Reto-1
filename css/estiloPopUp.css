@@ -27,8 +27,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
-
-.modal p {
+form #close {
   display: block;
   margin: 0 0 20px auto;
   background-color: transparent;
@@ -36,14 +35,20 @@
   color: #c5c5c5;
   border: none;
   outline: none;
-  cursor: default;
+  cursor: pointer;
 }
 
-.modal h1 {
+form h1 {
   margin: 0;
+  margin-bottom: 1rem;
 }
 
-.submit {
+form label {
+  margin-left: 0.5rem;
+}
+
+#valorar {
+  margin-top: 2rem;
   text-decoration: none;
   width: 100%;
   text-align: center;
@@ -55,4 +60,10 @@
   font-size: 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+#valorar:hover {
+  background-color: white;
+  color: rgb(184, 52, 3);
+  border: 1px solid rgb(184, 52, 3);
 }
