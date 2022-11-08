@@ -45,6 +45,10 @@ form h1 {
 
 form label {
   margin-left: 0.5rem;
+  font-size: large;
+}
+form input {
+  margin: 1rem;
 }
 
 #valorar {
