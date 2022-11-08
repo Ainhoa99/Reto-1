@@ -31,14 +31,13 @@ if (!isset($_SESSION['nickname'])) {
 <body>
 
     <?php include('cabecera.php'); ?>
-    <?php include('funcionLibros.php'); ?>
+    <<?php include('funcionLibros.php'); ?>
 
     <main id="pagina-inicio">
         <div id="contenido">
             <?php
             $busqueda = '';
             $busqueda = isset($_REQUEST['busqueda']) ? $_REQUEST['busqueda'] : null;
-
 
             if ($busqueda === '' || $busqueda === null) {
                 $consulta = $miPDO->prepare('SELECT * FROM libros;');

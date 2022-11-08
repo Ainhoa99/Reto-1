@@ -56,23 +56,26 @@ body {
 
 #caja-logo-titulo {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
   width: 100%;
   background-color: rgb(210, 53, 5);
   position: relative;
-  height: 100px;
+}
+
+.caja-dos-logo{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 75px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border:3px solid blue;
 }
 
 #logo {
   width: 150px;
   max-width: 200px;
-  margin-left: 20%;
-  border:3px solid green;
 }
 
 #logo img {
@@ -90,7 +93,6 @@ body {
   width: 50%;
   position: relative;
   display: flex;
-  border:3px solid blue;
 }
 
 #cabecera h1>a{
@@ -160,6 +162,12 @@ body {
 #btn-buscador:hover {
   background-color: #dedede;
   border-radius: 50%;
+}
+
+#textobusqueda{
+  color: rgb(121, 121, 121);
+  font-size: 2rem;
+  margin: 40px;
 }
 
 /**** Menú navegación ****/
@@ -1258,6 +1266,13 @@ a#btneditar {
     margin: 6px;
   }
 
+  /* Logo y titulo */
+
+  #caja-logo-titulo{
+    justify-content: flex-start;
+    padding: 5px;
+  }
+
   /* Menú navegacion */
 
   #btn-nav {
@@ -1492,6 +1507,13 @@ a#btneditar {
 /***********************  CORTE - TRAMO PANTALLA 2    **********************/
 
 @media (min-width: 1000px) {
+  /* texto resultado de buscador */
+
+  #textobusqueda{
+    width: 100%;
+    margin: 0;
+  }
+  
   /* ficha libro */
   .libro {
     width: 25%;
