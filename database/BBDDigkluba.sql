@@ -174,7 +174,7 @@ CREATE TABLE usuarios (
   tipo enum('Alumno','Profesor','Administrador') NOT NULL,
   validado tinyint(1) NOT NULL,
   movil char(9) DEFAULT NULL,
-  password varchar(25) NOT NULL,
+  password varchar(250) NOT NULL,
   id_nivel int(11),
   curso char(9) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

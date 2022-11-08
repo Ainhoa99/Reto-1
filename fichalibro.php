@@ -64,129 +64,107 @@ $idioma = $consulta2->fetch();
 
     <main id="contenido-fichalibro">
 
-        <?php
 
-        echo "<div id='caja-titulo-fichafibro'>";
-        //Titulo
-        echo "<h2 class='ficha-titulo'>" . $libros['titulo_libro'] . "</h2>";
-        //Autor
-        echo "<h3 class='ficha-autor'>" . $libros['autor'] . "</h3>";
-        echo "</div>";
+        <div id='caja-titulo-fichafibro'>
+            <!-- Titulo -->
+            <h2 class='ficha-titulo'> <?php echo $libros['titulo_libro'] ?> </h2>
+            <!-- Autor -->
+            <h3 class='ficha-autor'><?php echo $libros['autor'] ?></h3>
+        </div>
 
-        echo "<div id='contenedor-todo'>";
+        <div id='contenedor-todo'>
 
-        echo "<div id='caja-foto-info'>";
-        //Imagen
-        echo "<div id='caja-img'>";
-        echo "<figure class='ficha-img'><img src='src/" . $libros['foto'] . "'></figure>";
-        echo "</div>";
+            <div id='caja-foto-info'>
+                <!-- Imagen -->
+                <div id='caja-img'>
+                    <figure class='ficha-img'><img src='src/<?php echo $libros['foto'] ?>'></figure>
+                </div>
+                <!-- Contenedor nota media y edad media  -->
+                <div class='caja-contenedor-valoracion'>
+                    <div id='contenedor-valoracion'>
+                        <!-- Valoración -nota media  -->
+                        <div class='caja-notamedia'>
+                            <p class='ficha-notamedia-text'><i class='fas fa-star'></i><span><?php echo $libros['notamedia'] ?> </span></p>
+                            <!-- batez besteko nota -->
+                        </div>
+                        <!-- Edad media -->
+                        <div class='caja-ficha-edadmedia'>
+                            <p class='texto-edadmedia'><span>Batez</span> <span>besteko</span> <span>adina</span></p>
+                            <p class='ficha-edadmedia'> <?php echo $libros['edadmedia'] ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='caja-info-fichafibro'>
+                <dl id='datos-libro'>
+                    <!-- Sinopsis -->
+                    <dt class='titulo-sinopsis'>Sinopsia</dt>
+                    <dd class='ficha-sinopsis'><?php echo $libros['sinopsis'] ?></dd>
+                </dl>
+                <div id='caja-fichatecnica'>
+                    <div id='btn-fichatecnica'>
+                        <p>Fitxa teknikoa</p>
+                    </div>
+                    <!-- Contenedor ficha tecnica -->
+                    <dl id='contenido-fichatecnica' class='ocultar'>
+                        <!-- ISBN -->
+                        <div class='elemento-fichatecnica'>
+                            <dt class='titulo-isbn'>ISBN</dt>
+                            <dd class='ficha-isbn'><?php echo $libros['isbn'] ?> </dd>
+                        </div>
+                        <!-- Año publicacion  -->
+                        <div class='elemento-fichatecnica'>
+                            <dt class='titulo-anyo'>Argitalpen-urtea</dt>
+                            <dd class='ficha-anyo'><?php echo $libros['ano_de_libro'] ?></dd>
+                        </div>
+                        <!-- Formato -->
+                        <div class='elemento-fichatecnica'>
+                            <dt class='titulo-formato'>Formatua</dt>
+                            <dd class='ficha-formato'><?php echo $libros['formato'] ?> </dd>
+                        </div>
+                        <!-- Idioma -->
+                        <div class='elemento-fichatecnica'>
+                            <dt class='titulo-idioma'>Hizkuntza</dt>
+                            <dd class='ficha-idioma'><?php echo $idioma['idioma'] ?> </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
 
-        //Contenedor nota media y edad media
-        echo "<div class='caja-contenedor-valoracion'>";
-
-        echo "<div id='contenedor-valoracion'>";
-        //Valoración -nota media
-        echo "<div class='caja-notamedia'>";
-        echo "<p class='ficha-notamedia-text'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
-        //batez besteko nota
-        echo "</div>";
-
-        //Edad media
-        echo "<div class='caja-ficha-edadmedia'>";
-        echo "<p class='texto-edadmedia'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
-        echo "<p class='ficha-edadmedia'>" . $libros['edadmedia'] . "</p>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-
-        echo "<div id='caja-info-fichafibro'>";
-        echo "<dl id='datos-libro'>";
-        //Sinopsis
-        echo "<dt class='titulo-sinopsis'>Sinopsia</dt>";
-        echo "<dd class='ficha-sinopsis'>" . $libros['sinopsis'] . "</dd>";
-        echo "</dl>";
-
-        echo "<div id='caja-fichatecnica'>";
-
-        echo "<div id='btn-fichatecnica'>
-                            <p>Fitxa teknikoa</p>";
-        echo "</div>";
-
-        //Contenedor ficha tecnica
-        echo "<dl id='contenido-fichatecnica' class='ocultar'>";
-
-        //ISBN
-        echo "<div class='elemento-fichatecnica'>";
-        echo "<dt class='titulo-isbn'>ISBN</dt>";
-        echo "<dd class='ficha-isbn'>" . $libros['isbn'] . "</dd>";
-        echo "</div>";
-
-        //Año publicacion
-        echo "<div class='elemento-fichatecnica'>";
-        echo "<dt class='titulo-anyo'>Argitalpen-urtea</dt>";
-        echo "<dd class='ficha-anyo'>" . $libros['ano_de_libro'] . "</dd>";
-        echo "</div>";
-
-        //Formato
-        echo "<div class='elemento-fichatecnica'>";
-        echo "<dt class='titulo-formato'>Formatua</dt>";
-        echo "<dd class='ficha-formato'>" . $libros['formato'] . "</dd>";
-        echo "</div>";
-
-        //Idioma
-        echo "<div class='elemento-fichatecnica'>";
-        echo "<dt class='titulo-idioma'>Hizkuntza</dt>";
-        echo "<dd class='ficha-idioma'>" . $idioma['idioma'] . "</dd>";
-        echo "</div>";
-
-        echo "</dl>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-
-        ?>
-
-
+        </div>
         <div id="btn-valorar">
             <p>Baloratu liburua</p>
         </div>
 
-        <div id="modal_container" class="modal-container">
-            <div class="modal">
-                <h1>Ventana Modal</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque assumenda dignissimos illo explicabo natus quia repellat, praesentium voluptatibus harum ipsam dolorem cumque labore sunt dicta consectetur, nesciunt maiores delectus maxime?
-                </p>
-                <button id="close">Cerrar</button>
-            </div>
-        </div>
+
+
 
 
         <h3 id="titulo-opinion">Irakurleen iritziak</h3>
-        
+
+        <?php
+
+        $otraconsulta = $miPDO->prepare('SELECT * FROM opiniones WHERE validado = 1 AND id_libro = :id_libro ORDER BY id_opinion DESC ');
+
+        // Ejecuta consulta
+        $otraconsulta->execute(
+            [
+                'id_libro' => $libro
+            ]
+        );
+        $comentarios = $otraconsulta->fetchAll();
+        $count = count($comentarios);
+
+
+
+        ?>
+        <div id="comment-count">
+            <span id="count-number"><?php echo ('Liburu hau iruskindu duten pertsonek: ' . $count); ?></span>
+            <br>
+        </div>
+        <div id="comentarios" class="">
             <?php
-
-            $otraconsulta = $miPDO->prepare('SELECT * FROM opiniones WHERE validado = 1 AND id_libro = :id_libro ORDER BY id_opinion DESC ');
-
-            // Ejecuta consulta
-            $otraconsulta->execute(
-                [
-                    'id_libro' => $libro
-                ]
-            );
-            $comentarios = $otraconsulta->fetchAll();
-            $count = count($comentarios);
-
-
             if ($count > 0) {
-            ?>
-                <div id="comment-count">
-                    <span id="count-number"><?php echo ('Liburu hau ' . $count . ' pertsonek iruzkindu dute'); ?></span>
-                    <br>
-                </div>
-                <div id="comentarios" class="">
-            <?php
             }
             foreach ($comentarios as $opinion) {
 
@@ -204,8 +182,11 @@ $idioma = $consulta2->fetch();
             ?>
         </div>
 
+        <div id="btn-opinion">
+            <p>Eman zure iritzia</p>
+        </div>
 
-        <form id="form-opinion" class="ocultar" action="" method="post">
+        <form id="form-opinion" class="ocultar" action="formopiniones.php" method="get">
 
             <div class="fecha-opinion">
                 <?php
@@ -216,23 +197,7 @@ $idioma = $consulta2->fetch();
 
             <div class="form-input-opinion">
 
-                <?php
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $opinion = isset($_REQUEST['opinion']) ? $_REQUEST['opinion'] : null;
 
-                    $consulta = $miPDO->prepare('INSERT INTO opiniones (nickname , opinion, validado, id_libro)
-                    VALUES (:nickname, :opinion, :validado, :id_libro)');
-                    $consulta->execute(
-                        [
-                            'nickname' => $_SESSION['nickname'],
-                            'opinion' => $opinion,
-                            'validado' => 0,
-                            'id_libro' => $libro
-                        ]
-                    );
-                }
-
-                ?>
                 <div class="añadir-comentario">
                     <label>Ezizena: </label><?php echo $_SESSION['nickname']; ?>
                 </div>
@@ -240,7 +205,9 @@ $idioma = $consulta2->fetch();
                     <label for="mesg">Iritzia:</label>
                     <br>
                     <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
-                    <button>Iruzkindu</button>
+                    <input type="hidden" name="libro" value="<?php echo $_GET['liburua'] ?>">
+                    <br>
+                    <button name="iritzia" id="opinar">Iruzkindu</button>
                 </div>
 
 
@@ -248,13 +215,39 @@ $idioma = $consulta2->fetch();
             </div>
 
         </form>
-        <div id="btn-opinion">
-            <p>Eman zure iritzia</p>
-        </div>
+
 
     </main>
 
     <?php include('pie-pagina.php'); ?>
+    <div id="modal_container" class="modal-container">
+        <div class="modal">
+            <form id="form-valorar" action="formvaloraciones.php" method="get">
+                <button id="close">&times;</button>
+                <h1>BALORAZIOA</h1>
+                <br>
+                <input type="hidden" name="libro" value="<?php echo $_GET['liburua'] ?>">
+                <label for="nota">Nota: </label>
+                <input type="number" id="nota" name="nota" min="0" max="10">
+                <label for="edad">Adina: </label>
+                <input type="number" id="edad" name="edad" min="5" max="70">
+                <label for="idioma">Hizkuntza: </label>
+                <select name="idioma" id="idioma">
+                    <?php
+                    //Consulta
+                    $consulta = $miPDO->prepare("SELECT * FROM idiomalibro");
+                    $consulta->execute();
+                    $idiomas = $consulta->fetchAll();
+                    foreach ($idiomas as $posicion => $idioma) {
+                        echo "<option value = '" . $idioma['id_idioma'] . "'>" . $idioma['idioma'] . "</option>";
+                    }
+                    ?>
+                </select>
+                <br>
+                <button id="valorar">Baloratu</button>
+            </form>
+        </div>
+    </div>
 
 </body>
 

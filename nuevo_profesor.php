@@ -47,8 +47,8 @@ if (!isset($_SESSION['nickname'])) {
 
             if (empty($comprobar)) {
                 // Base de datos.
-                $consulta = $miPDO->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, password, nivel, curso)
-                                            VALUES (:nombre, :apellidos, :correo, :nickname, :id_centro, :fecha_nacimiento, :tipo, :validado, :password, :nivel, :curso)');
+                $consulta = $miPDO->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, password, curso)
+                                            VALUES (:nombre, :apellidos, :correo, :nickname, :id_centro, :fecha_nacimiento, :tipo, :validado, :password, :curso)');
                 $consulta->execute([
                     'nombre' => $nombre,
                     'apellidos' => $apellidos,
@@ -58,8 +58,7 @@ if (!isset($_SESSION['nickname'])) {
                     'fecha_nacimiento' => $fecha,
                     'tipo' => 'Profesor',
                     'validado' => 1,
-                    'password' => $password,
-                    'nivel' => $nivel,
+                    'password' => password_hash($password, PASSWORD_DEFAULT),
                     'curso' => '2022-2023'
 
                 ]);

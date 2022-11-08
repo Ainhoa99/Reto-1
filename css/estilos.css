@@ -41,7 +41,6 @@ body {
   font-weight: normal;
 }
 
-
 /*** Cabecera ****/
 
 #cabecera {
@@ -53,7 +52,6 @@ body {
 
 /** Logo **/
 
-
 #caja-logo-titulo {
   display: flex;
   justify-content: center;
@@ -62,7 +60,7 @@ body {
   position: relative;
 }
 
-.caja-dos-logo{
+.caja-dos-logo {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -95,7 +93,7 @@ body {
   display: flex;
 }
 
-#cabecera h1>a{
+#cabecera h1 > a {
   text-decoration: none;
   font-size: 3rem;
   font-weight: normal;
@@ -105,7 +103,7 @@ body {
   font-family: "Playfair";
 }
 
-#cabecera h1 span{
+#cabecera h1 span {
   font-size: 5rem;
   color: black;
   /*position: absolute;
@@ -164,7 +162,7 @@ body {
   border-radius: 50%;
 }
 
-#textobusqueda{
+#textobusqueda {
   color: rgb(121, 121, 121);
   font-size: 2rem;
   margin: 40px;
@@ -290,51 +288,50 @@ body {
 
 /***** Contenido página inicio *******/
 
-
 /***** Galeria libros ****/
 
 /* imagenes */
 
-#pagina-inicio{
+#pagina-inicio {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.contenedor-galeria{
+.contenedor-galeria {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.foto-enlace{
+.foto-enlace {
   width: 30%;
   max-width: 250px;
   transition: 0.5s;
 }
-.galeria-img{
+.galeria-img {
   margin: 0;
 }
 
-.galeria-img img{
+.galeria-img img {
   width: 100%;
   display: block;
   padding: 0;
   transition: 0.5s;
 }
 
-.galeria-img img:hover{
+.galeria-img img:hover {
   opacity: 0.6;
   transition: 0.2s;
 }
 
-.foto-enlace:hover{
+.foto-enlace:hover {
   width: 35%;
   transition: 0.5s;
 }
 
-.foto-enlace{
+.foto-enlace {
   padding: 5px;
 }
 
@@ -402,7 +399,7 @@ body {
   align-items: center;
 }
 
-.mejorvalorados-text::after{
+.mejorvalorados-text::after {
   content: "";
   width: 100px;
   padding-top: 7px;
@@ -426,7 +423,7 @@ body {
   transition: background-color 0.6s ease;
 }
 
-#puntos-galeria{
+#puntos-galeria {
   margin-bottom: 50px;
   padding-bottom: 50px;
   border-bottom: 1px solid rgb(209, 209, 209);
@@ -445,14 +442,13 @@ body {
 
 @keyframes fade {
   from {
-      opacity: 0.4;
+    opacity: 0.4;
   }
 
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
-
 
 /**** Listado de libros ****/
 
@@ -476,16 +472,15 @@ body {
 .libro-titulo {
   font-family: "Bebas Neue";
   font-size: 2.2rem;
-  color:rgb(76, 76, 76);
+  color: rgb(76, 76, 76);
   letter-spacing: 0.02em;
 }
 
-.libro-autor{
+.libro-autor {
   font-family: "Playfair";
-  color:rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   font-size: 1.5rem;
 }
-
 
 /* Imagen libro */
 
@@ -539,39 +534,38 @@ body {
   min-width: 250px;
 }
 
-
 .libro:hover .caja-info-libro {
   transform: translateY(-80px);
   transition: 0.5s;
 }
 
 /* Medias del libro - nota y edad */
-.caja-medias-libro{
+.caja-medias-libro {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   margin-bottom: 20px;
 }
 
-.caja-notamedia{
+.caja-notamedia {
   width: 40%;
   margin: 0;
   padding: 0;
 }
 
-.libro-edad-media{
+.libro-edad-media {
   border: 2px solid pink;
   width: 60%;
   font-family: "Bebas Neue";
   font-size: 1.6rem;
-  color:rgb(76, 76, 76);
+  color: rgb(76, 76, 76);
 }
 
 /* Nota media libros */
 .libro-notamedia {
   font-family: "Bebas Neue";
   font-weight: bold;
-  color:rgb(59, 58, 58);
+  color: rgb(59, 58, 58);
   font-size: 2rem;
 }
 
@@ -598,15 +592,14 @@ body {
   padding: 7px;
 }
 
-
 /****************** Mis libros *****************/
 
-.mis-libros{
+.mis-libros {
   display: flex;
   justify-content: center;
 }
 
-.mis-libros h2{
+.mis-libros h2 {
   font-size: 3rem;
   font-family: "Playfair";
   color: #6d6d6d;
@@ -617,7 +610,7 @@ body {
   width: auto;
 }
 
-.mis-libros h2::after{
+.mis-libros h2::after {
   content: "";
   display: flex;
   position: absolute;
@@ -630,14 +623,14 @@ body {
 /******** Mis clases **************/
 
 /*Btn nueva clase*/
-#btn-clase-nueva{
+#btn-clase-nueva {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.enlace-clase-nueva{
+#enlace-clase-nueva {
   width: 120px;
   background-color: rgb(212, 212, 212);
   padding: 5px;
@@ -650,45 +643,45 @@ body {
   align-items: center;
 }
 
-.enlace-clase-nueva:hover{
+#enlace-clase-nueva:hover {
   background-color: rgb(163, 163, 163);
 }
 
-.enlace-clase-nueva:hover{
+#enlace-clase-nueva:hover {
   color: whitesmoke;
 }
 
-.enlace-clase-nueva{
-    color: black;
-    text-decoration: none;
-    font-family: "Playfair";
+#enlace-clase-nueva {
+  color: black;
+  text-decoration: none;
+  font-family: "Playfair";
 }
 
-.enlace-clase-nueva p{
+#enlace-clase-nueva p {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.fa-plus-square{
+.fa-plus-square {
   color: rgb(41, 41, 41);
   margin-right: 10px;
   font-size: 2.5rem;
 }
 
-.enlace-clase-nueva:hover .fa-plus-square{
+#enlace-clase-nueva:hover .fa-plus-square {
   color: white;
   font-size: 2.5rem;
 }
 
 /** Estilo clases **/
 
-.titulo-misclases{
+.titulo-misclases {
   display: flex;
   justify-content: center;
 }
 
-.titulo-misclases h2{
+.titulo-misclases h2 {
   font-size: 3rem;
   font-family: "Playfair";
   color: #6d6d6d;
@@ -699,7 +692,7 @@ body {
   width: auto;
 }
 
-.titulo-misclases h2::after{
+.titulo-misclases h2::after {
   content: "";
   display: flex;
   position: absolute;
@@ -709,7 +702,7 @@ body {
   border-bottom: 2px solid grey;
 }
 
-.caja-info-clase{
+.caja-info-clase {
   background-color: #f5f5f5;
   border-radius: 5px;
   padding: 30px;
@@ -719,27 +712,26 @@ body {
   margin: 10px 0;
 }
 
-.caja-clase{
+.caja-clase {
   width: 100%;
 }
 
-.caja-Nombre p{
+.caja-Nombre p {
   font-size: 3rem;
   color: #717171;
 }
 
-.caja-alumnos{
+.caja-alumnos {
   font-size: 1.5rem;
   color: #717171;
 }
 
-.todas-mis-clases{
+.todas-mis-clases {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   margin: 20px;
 }
-
 
 /********* Ficha libro ************/
 
@@ -768,7 +760,7 @@ body {
 .ficha-autor {
   font-size: 1.9rem;
   font-family: "Playfair";
-  color:rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
 /** Imagen **/
@@ -919,7 +911,6 @@ body {
   font-family: "Bebas Neue";
 }
 
-
 #contenedor-valoracion {
   display: flex;
   justify-content: space-around;
@@ -929,7 +920,7 @@ body {
   width: 60%;
 }
 
-.caja-contenedor-valoracion{
+.caja-contenedor-valoracion {
   display: flex;
   justify-content: center;
 }
@@ -1003,7 +994,7 @@ body {
 
 /***** Estilo añadir opinion *****/
 
-.añadir-comentario{
+.añadir-comentario {
   padding: 0 10px;
   color: rgb(212, 56, 9);
   font-family: "Palaquin";
@@ -1013,12 +1004,11 @@ body {
   margin: 10px;
 }
 
-
 /** estilo comentarios **/
 
-#titulo-opinion{
+#titulo-opinion {
   font-family: "Bebas Neue";
-  color:rgb(74, 74, 74);
+  color: rgb(74, 74, 74);
   font-size: 2.3rem;
   letter-spacing: 0.1em;
   padding-left: 20px;
@@ -1026,10 +1016,9 @@ body {
   border-bottom: 1px solid #e5e5e5;
 }
 
-#comment-count{
+#comment-count {
   font-family: "Palaquin";
   text-align: center;
-
 }
 
 .nombre-opinion {
@@ -1049,11 +1038,11 @@ body {
   text-align: justify;
 }
 
-.opinion span{
+.opinion span {
   color: black;
   font-size: 8rem;
   padding-right: 10px;
-  font-family:"Palaquin";
+  font-family: "Palaquin";
   position: absolute;
   top: 20px;
   left: 25px;
@@ -1314,7 +1303,7 @@ a#btneditar {
   margin-top: 30px;
 }
 
-#caja-fotofrase p{
+#caja-fotofrase p {
   padding: 30px;
 }
 
@@ -1329,11 +1318,11 @@ a#btneditar {
   margin: 20px;
 }
 
-#logo-pie img{
+#logo-pie img {
   width: 100%;
 }
 
-#contacto{
+#contacto {
   padding: 20px;
 }
 
@@ -1372,7 +1361,7 @@ a#btneditar {
 
   /* Logo y titulo */
 
-  #caja-logo-titulo{
+  #caja-logo-titulo {
     justify-content: flex-start;
     padding: 5px;
   }
@@ -1448,17 +1437,17 @@ a#btneditar {
     border-top: none;
   }
 
-  #caja-fotofrase{
+  #caja-fotofrase {
     display: flex;
   }
 
-  #caja-fotofrase p{
+  #caja-fotofrase p {
     padding: 20px;
     margin: 30px;
     max-width: 650px;
   }
 
-  #logo-pie{
+  #logo-pie {
     background-color: transparent;
   }
 
@@ -1471,9 +1460,9 @@ a#btneditar {
     border-right: none;
   }
 
-  #contenedor-pie p:last-child{
+  #contenedor-pie p:last-child {
     font-size: 3rem;
-    color:rgb(155, 155, 155);
+    color: rgb(155, 155, 155);
   }
 
   /* contenido libros */
@@ -1486,12 +1475,11 @@ a#btneditar {
     margin-top: 100px;
   }
 
-  .todos-mis-libros{
+  .todos-mis-libros {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
-
 
   .libro {
     width: 45%;
@@ -1591,19 +1579,18 @@ a#btneditar {
     max-width: 300px;
   }
 
-   /** Mis libros **/
-   #contenido-mislibros{
+  /** Mis libros **/
+  #contenido-mislibros {
     margin-top: 50px;
-  
   }
 
   /**** mis clases ****/
-  .caja-clase{
+  .caja-clase {
     width: 40%;
     margin: 20px;
   }
-  
-  .todas-mis-clases{
+
+  .todas-mis-clases {
     justify-content: center;
   }
 }
@@ -1613,11 +1600,11 @@ a#btneditar {
 @media (min-width: 1000px) {
   /* texto resultado de buscador */
 
-  #textobusqueda{
+  #textobusqueda {
     width: 100%;
     margin: 0;
   }
-  
+
   /* ficha libro */
   .libro {
     width: 25%;
@@ -1676,9 +1663,9 @@ a#btneditar {
   }
 
   /**** Mi perfil ****/
-#foto {
-  min-width: 170px;
-}
+  #foto {
+    min-width: 170px;
+  }
 }
 
 /***********************  CORTE - TRAMO PANTALLA 3    **********************/
@@ -1761,18 +1748,18 @@ a#btneditar {
   /******* Indice galeria ******/
 
   .mejorvalorados-text {
-   width: 400px;
-   position: static;
-   font-family: "Playfair";
-   margin: 0;
-   margin-left: 30px;
+    width: 400px;
+    position: static;
+    font-family: "Playfair";
+    margin: 0;
+    margin-left: 30px;
   }
 
-  .slideshow-container{
+  .slideshow-container {
     display: flex;
   }
 
-  .mejorvalorados-text p{
+  .mejorvalorados-text p {
     font-size: 3rem;
     color: #6d6d6d;
     margin-bottom: 50px;
@@ -1780,39 +1767,36 @@ a#btneditar {
     padding: 10px;
   }
 
-  .foto-enlace{
+  .foto-enlace {
     width: 40%;
   }
 
-  .foto-enlace:hover{
+  .foto-enlace:hover {
     width: 50%;
   }
 
-  .next{
+  .next {
     right: 25%;
   }
 
-  .prev{
+  .prev {
     left: -5%;
   }
 
-  .contenedor-galeria{
+  .contenedor-galeria {
     max-width: 950px;
   }
 
   /**** Mis libros ***/
   /******** Mis libros **************/
 
-.mis-libros{
-  display: flex;
-  justify-content: center;
-}
+  .mis-libros {
+    display: flex;
+    justify-content: center;
+  }
 
- /**** Mi perfil ****/
- #foto {
+  /**** Mi perfil ****/
+  #foto {
     min-width: 250px;
-}
-
-
-
+  }
 }

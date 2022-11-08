@@ -20,8 +20,10 @@ if (!isset($_SESSION['nickname'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Custom Scripts -->
     <script src="js/scripts.js"></script>
+    <script src="js/popUp.js" defer></script>
     <title>Mis Clases</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estiloPopUp.css">
 </head>
 
 <body>
@@ -29,13 +31,16 @@ if (!isset($_SESSION['nickname'])) {
 
     <main id="contenido-mislibros">
         <div id="btn-clase-nueva">
-            <a  class='enlace-clase-nueva' href=''><i class="fas fa-plus-square"></i><p><span>Klase </span><span>berria</span></p></a>
+            <div id='enlace-clase-nueva'>
+                <i class="fas fa-plus-square"></i>
+                <p><span>Klase </span><span>berria</span></p>
+            </div>
         </div>
         <div class="titulo-misclases">
             <h2>Nire klaseak</h2>
         </div>
         <div class="todas-mis-clases">
-           
+
             <?php
             // Prepara SELECT
             $misClases = $miPDO->prepare('SELECT * FROM clase');
@@ -76,6 +81,20 @@ if (!isset($_SESSION['nickname'])) {
     </main>
 
     <?php include('pie-pagina.php'); ?>
+    <div id="modal_container" class="modal-container">
+        <div class="modal">
+            <form id="form-valorar" action="formClases.php" method="get">
+                <button id="close">&times;</button>
+                <h1>KLASE BERRIA</h1>
+                <label for="fecha">Fecha límite: </label>
+                <input type="date" name="fecha" id="fecha">
+                <br>
+                <label for="nombre">Nombre de la clase:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre de la clase">
+                <button id="valorar">Klasea sortu</button>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
