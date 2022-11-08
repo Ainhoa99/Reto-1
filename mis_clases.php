@@ -14,6 +14,7 @@ if (!isset($_SESSION['nickname'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -27,12 +28,14 @@ if (!isset($_SESSION['nickname'])) {
     <?php include('cabecera.php'); ?>
 
     <main id="contenido-mislibros">
-
-        <div class="mis-libros">
+        <div id="btn-clase-nueva">
+            <a  class='enlace-clase-nueva' href=''><i class="fas fa-plus-square"></i><p><span>Klase </span><span>berria</span></p></a>
+        </div>
+        <div class="titulo-misclases">
             <h2>Nire klaseak</h2>
         </div>
-        <div class="todos-mis-libros">
-            <p class='enlace-clase'><a href=''>Klase berria</a></p>
+        <div class="todas-mis-clases">
+           
             <?php
             // Prepara SELECT
             $misClases = $miPDO->prepare('SELECT * FROM clase');
@@ -51,11 +54,11 @@ if (!isset($_SESSION['nickname'])) {
 
                     <!-- Contenedor valoracion -->
                     <div class='caja-info-clase'>
-                        <!-- Nota media -->
+                        <!-- Nombre clase -->
                         <div class='caja-Nombre'>
                             <p class='nombre_clase'></i><span> <?php echo ($clase['nivel']) ?> </span></p>
                         </div>
-                        <!-- Edad media -->
+                        <!-- Numero alumnos -->
                         <div class='caja-alumnos'>
                             <p class='numero_alumnos'> <?php echo ($alumnos['num_alumnos']) ?> <span> ikasleak</span></p>
                         </div>

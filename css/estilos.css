@@ -611,6 +611,119 @@ body {
   border-bottom: 2px solid grey;
 }
 
+/******** Mis clases **************/
+
+/*Btn nueva clase*/
+#btn-clase-nueva{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.enlace-clase-nueva{
+  width: 120px;
+  background-color: rgb(212, 212, 212);
+  padding: 5px;
+  margin-top: 30px;
+  margin-right: 30px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enlace-clase-nueva:hover{
+  background-color: rgb(163, 163, 163);
+}
+
+.enlace-clase-nueva:hover{
+  color: whitesmoke;
+}
+
+.enlace-clase-nueva{
+    color: black;
+    text-decoration: none;
+    font-family: "Playfair";
+}
+
+.enlace-clase-nueva p{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fa-plus-square{
+  color: rgb(41, 41, 41);
+  margin-right: 10px;
+  font-size: 2.5rem;
+}
+
+.enlace-clase-nueva:hover .fa-plus-square{
+  color: white;
+  font-size: 2.5rem;
+}
+
+/** Estilo clases **/
+
+.titulo-misclases{
+  display: flex;
+  justify-content: center;
+}
+
+.titulo-misclases h2{
+  font-size: 3rem;
+  font-family: "Playfair";
+  color: #6d6d6d;
+  padding: 10px;
+  margin: 30px 0;
+  margin-bottom: 20px;
+  position: relative;
+  width: auto;
+}
+
+.titulo-misclases h2::after{
+  content: "";
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 26%;
+  width: 100px;
+  border-bottom: 2px solid grey;
+}
+
+.caja-info-clase{
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 30px;
+  max-width: 700px;
+  font-family: "Playfair";
+  width: 100%;
+  margin: 10px 0;
+}
+
+.caja-clase{
+  width: 100%;
+}
+
+.caja-Nombre p{
+  font-size: 3rem;
+  color: #717171;
+}
+
+.caja-alumnos{
+  font-size: 1.5rem;
+  color: #717171;
+}
+
+.todas-mis-clases{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 20px;
+}
+
 
 /********* Ficha libro ************/
 
@@ -1354,6 +1467,17 @@ a#btneditar {
    #contenido-mislibros{
     margin-top: 50px;
   
+  }
+
+  /**** mis clases ****/
+  .caja-clase{
+    width: 40%;
+    margin: 20px;
+  }
+  
+  .todas-mis-clases{
+    justify-content: center;
+    border: 2px solid blue;
   }
 }
 
