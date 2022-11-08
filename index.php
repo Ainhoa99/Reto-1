@@ -31,47 +31,46 @@ if (!isset($_SESSION['nickname'])) {
 <body>
 
     <?php include('cabecera.php'); ?>
-    <?php include('funcionLibros.php'); ?>
+    <<?php include('funcionLibros.php'); ?>
 
-    <main id="contenido">
+    <main id="pagina-inicio">
+        <div id="contenido">
+            <?php
+            $busqueda = '';
+            $busqueda = isset($_REQUEST['busqueda']) ? $_REQUEST['busqueda'] : null;
 
-        <?php
-        $busqueda = '';
-        $busqueda = isset($_REQUEST['busqueda']) ? $_REQUEST['busqueda'] : null;
+            if ($busqueda === '' || $busqueda === null) {
+                $consulta = $miPDO->prepare('SELECT * FROM libros;');
 
+                // Ejecuta consulta
+                $consulta->execute();
 
-        if ($busqueda === '' || $busqueda === null) {
-            $consulta = $miPDO->prepare('SELECT * FROM libros;');
-
-            // Ejecuta consulta
-            $consulta->execute();
-
-            $respuesta = $consulta->fetchAll();
-            // funcion de cargar libros
-            anadirlibros($respuesta);
-        } else {
-            // Variables del formulario
-            $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor LIKE '%$busqueda%' oR titulo_libro LIKE '%$busqueda%'");
-            $respuesta->execute();
-            $respuesta = $respuesta->fetchAll();
-
-            //texto de informacion de la busqueda
-            if ($respuesta) {
-                $contador = count($respuesta);
-                echo ("<div id='textobusqueda'>
-                <p>(<strong>" . $contador . "</strong>) aurkipen daude (<strong>" . $busqueda . "</strong>) libururekin erlazionatuta. 
-                </p></div>"
-                );
-                echo ('<div id = "contenedorLibros">' . anadirlibros($respuesta) . '</div>');
+                $respuesta = $consulta->fetchAll();
+                // funcion de cargar libros
+                anadirlibros($respuesta);
             } else {
-                echo 'NO EXISTE NINGUN LIBRO CON ESTE AUTOR O TITULO';
+                // Variables del formulario
+                $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor LIKE '%$busqueda%' oR titulo_libro LIKE '%$busqueda%'");
+                $respuesta->execute();
+                $respuesta = $respuesta->fetchAll();
+
+                //texto de informacion de la busqueda
+                if ($respuesta) {
+                    $contador = count($respuesta);
+                    echo ("<div id='textobusqueda'>
+                    <p>(<strong>" . $contador . "</strong>) aurkipen daude (<strong>" . $busqueda . "</strong>) libururekin erlazionatuta. 
+                    </p></div>"
+                    );
+                    echo ('<div id = "contenedorLibros">' . anadirlibros($respuesta) . '</div>');
+                } else {
+                    echo 'NO EXISTE NINGUN LIBRO CON ESTE AUTOR O TITULO';
+                }
+                // foreach($respuesta as $posicion =>$libros): 
+
             }
-            // foreach($respuesta as $posicion =>$libros): 
 
-        }
-
-        ?>
-
+            ?>
+        </div>
         <!-- Slideshow container -->
         <div class="contenedor-galeria">
             <div class="slideshow-container">
@@ -150,22 +149,22 @@ if (!isset($_SESSION['nickname'])) {
                     <div class="mejorvalorados-text">
                         <p>Gehien irakurri diren liburuak</p>
                     </div>
+                    
 
                 </div>
-
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                <!-- The dots/circles -->
-
-    </div>
-    <br />
-    <div id="puntos-galeria" style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-    </div>
+                
+                <!-- The dots/circles 
+                <div id="puntos-galeria" style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div> -->
+            </div>
+            <br />
+        </div>
 
         <script>
             let slideIndex = 1;

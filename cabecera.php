@@ -1,11 +1,12 @@
 <header id="cabecera">
 
     <div id="caja-logo-titulo">
-        <figure id="logo">
-            <a href="index.php"><img src="src/LOGOSINTEXTO.png" alt="logo"></a>
-        </figure>
-        
-        <h1><a href="index.php"><span>Ig</span>kluba</a></h1>
+        <div class="caja-dos-logo">
+            <figure id="logo">
+                <a href="index.php"><img src="src/LOGOSINTEXTO.png" alt="logo"></a>
+            </figure>
+            <h1><a href="index.php"><span>Ig</span>kluba</a></h1>
+        </div>
     </div>
 
     <div id="caja-botones">
