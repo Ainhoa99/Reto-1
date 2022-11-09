@@ -40,55 +40,45 @@ if (!isset($_SESSION['nickname'])) {
             $busqueda = isset($_REQUEST['busqueda']) ? $_REQUEST['busqueda'] : null;
 
             if ($busqueda === '' || $busqueda === null) {
-                $consulta = $miPDO->prepare('SELECT * FROM libros WHERE validado = 1 ORDER BY id_libro ASC');
+                $consulta = $miPDO->prepare('SELECT * FROM libros;');
 
                 // Ejecuta consulta
                 $consulta->execute();
 
                 $respuesta = $consulta->fetchAll();
                 // funcion de cargar libros
-                $respuesta = (array_chunk($respuesta, 3));
-                $n = count($respuesta);
-
-                $n = $n - 1;
-                anadirlibros($respuesta[$n]);
-
-                // paginacion(botones y indice)
-
-
-                echo ("<div>");
-                echo ("<a class='prev' onclick=''>&#10094;</a> <p> " .  1  . "/" . $n + 1 . " </p> <a class='next' onclick=''>&#10095;</a>");
-                echo ("</div>");
+                anadirlibros($respuesta);
             } else {
                 // Variables del formulario
-                $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE validado=0 AND autor LIKE '%$busqueda%' oR titulo_libro LIKE '%$busqueda%' ORDER BY id_libro DESC");
+                $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor LIKE '%$busqueda%' oR titulo_libro LIKE '%$busqueda%'");
                 $respuesta->execute();
                 $respuesta = $respuesta->fetchAll();
 
                 //texto de informacion de la busqueda
                 if ($respuesta) {
                     $contador = count($respuesta);
-
-                    // cambiar diseño
                     echo ("<div id='textobusqueda'>
-                <p>(<strong>" . $contador . "</strong>) aurkipen daude (<strong>" . $busqueda . "</strong>) libururekin erlazionatuta. 
-                </p></div>"
+                    <p>(<strong>" . $contador . "</strong>) aurkipen daude (<strong>" . $busqueda . "</strong>) libururekin erlazionatuta. 
+                    </p></div>"
                     );
                     echo ('<div id = "contenedorLibros">' . anadirlibros($respuesta) . '</div>');
                 } else {
-                    echo 'EZ dago libururik idazle edo izenburu honekin';
+                    echo 'NO EXISTE NINGUN LIBRO CON ESTE AUTOR O TITULO';
                 }
+                // foreach($respuesta as $posicion =>$libros): 
+
             }
 
             ?>
-
-            <!-- Slideshow container -->
+        </div>
+        <!-- Slideshow container -->
+        <div class="contenedor-galeria">
             <div class="slideshow-container">
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                     <?php
                     // Prepara SELECT
-                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros WHERE validado = 1 ORDER BY notamedia DESC LIMIT 3');
+                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros ORDER BY notamedia DESC LIMIT 3');
 
                     // Ejecuta consulta
                     $otraconsulta->execute();
@@ -113,7 +103,7 @@ if (!isset($_SESSION['nickname'])) {
                 <div class="mySlides fade">
                     <?php
                     // Prepara SELECT
-                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros WHERE validado = 1 ORDER BY id_libro DESC LIMIT 3');
+                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros ORDER BY id_libro DESC LIMIT 3');
 
                     // Ejecuta consulta
                     $otraconsulta->execute();
@@ -140,7 +130,7 @@ if (!isset($_SESSION['nickname'])) {
                 <div class="mySlides fade">
                     <?php
                     // Prepara SELECT
-                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros WHERE validado = 1 ORDER BY num_lectores DESC LIMIT 3');
+                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros ORDER BY num_lectores DESC LIMIT 3');
 
                     // Ejecuta consulta
                     $otraconsulta->execute();
@@ -160,55 +150,56 @@ if (!isset($_SESSION['nickname'])) {
                         <p>Gehien irakurri diren liburuak</p>
                     </div>
 
-                </div>
 
+                </div>
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                <!-- The dots/circles -->
 
+                <!-- The dots/circles 
+                <div id="puntos-galeria" style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div> -->
             </div>
             <br />
-            <div id="puntos-galeria" style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
+        </div>
 
-            <script>
-                let slideIndex = 1;
-                showSlides(slideIndex);
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
 
-                // Next/previous controls
-                function plusSlides(n) {
-                    showSlides((slideIndex += n));
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides((slideIndex += n));
+            }
+
+            // Thumbnail image controls
+            function currentSlide(n) {
+                showSlides((slideIndex = n));
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {
+                    slideIndex = 1;
                 }
-
-                // Thumbnail image controls
-                function currentSlide(n) {
-                    showSlides((slideIndex = n));
+                if (n < 1) {
+                    slideIndex = slides.length;
                 }
-
-                function showSlides(n) {
-                    let i;
-                    let slides = document.getElementsByClassName("mySlides");
-                    let dots = document.getElementsByClassName("dot");
-                    if (n > slides.length) {
-                        slideIndex = 1;
-                    }
-                    if (n < 1) {
-                        slideIndex = slides.length;
-                    }
-                    for (i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                    }
-                    for (i = 0; i < dots.length; i++) {
-                        dots[i].className = dots[i].className.replace(" active", "");
-                    }
-                    slides[slideIndex - 1].style.display = "flex";
-                    dots[slideIndex - 1].className += " active";
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
                 }
-            </script>
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "flex";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
 
     </main>
 
