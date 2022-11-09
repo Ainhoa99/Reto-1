@@ -206,9 +206,6 @@ include_once "database/conexion.php";
                     <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Ondo bidalitako formularioa!</p>
                 </div>
 
-                <p class="form__text">
-                    <a class="form__link" href="login.php" id="linkCreateAccount">Baduzu kontu bat? Saioa hasi</a>
-                </p>
 
         </form>
     </div>
