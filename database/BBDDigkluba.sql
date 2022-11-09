@@ -187,7 +187,7 @@ INSERT INTO usuarios (nombre, apellidos, correo, nickname, foto, id_centro, fech
 ('Ainhoa', 'Lopez Castro', 'ainhoalopez99.al@gmail.com', 'ainhoa', NULL, 2, 1999-09-28, 'Alumno', 1, NULL, 'cont_ainhoa', 3, '2022-2023'),
 ('Augusto', 'dlc', 'augusto@gmail.com', 'augusto', NULL, 1, 2003-06-06, 'Alumno', 1, NULL, 'cont_augusto', 3, '2022-2023'),
 ('Clara', 'Gutierrez', 'Clara@gmail.com', 'claragutc', NULL, 2, 1993-03-21, 'Alumno', 1, NULL, 'clara_cont', 4, '2022-2023'),
-('Endika', 'Avellaneda', 'endika@gmail.com', 'endika_profe', NULL, 1, 1990-01-01, 'Profesor', 1, NULL, 'cont_endika', NULL, '2022-2023'),
+('Endika', 'Avellaneda', 'endika@gmail.com', 'endika_profe', NULL, 1, 1990-01-01, 'Profesor', 1, NULL, '$2y$10$cUsgdesjffS1GojAy5nVF.tA75A3J04JIXXYEAhIu/ie.udzPM.yG', NULL, '2022-2023'),
 ('Iker', 'Gonzalez', 'iker@gmail.com', 'iker', NULL, 2, 2022-10-19, 'Alumno', 0, NULL, 'cont_iker', 2, '2022-2023'),
 ('Luka', 'Carmona', 'lukacarmona115@gmail.com', 'lukita_', NULL, 2, 5555-05-05, 'Alumno', 1, NULL, 1234, 3, '2022-2023'),
 ('Unai', 'Cabo', 'unai@gmail.com', 'unai', NULL, 1, 2000-07-15, 'Alumno', 1, NULL, 'unai_cont', 3, '2022-2023');
