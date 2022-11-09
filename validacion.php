@@ -94,6 +94,7 @@ if (!isset($_SESSION['nickname'])) {
                     echo "</tr>";
                 }
                 ?>
+
                 <table class="tabla-validar">
                     <tr class="definicion-usuario">
                         <th>Azala</th>
@@ -145,8 +146,61 @@ if (!isset($_SESSION['nickname'])) {
                         echo "</td>";
                         echo "</tr>";
                     }
+
                     ?>
-                </table>
+                    <h2>Liburuak</h2>
+                    <table class="tabla-validar">
+                        <tr class="definicion-usuario">
+                            <th>Ezizena</th>
+                            <th>Iruzkina</th>
+                            <th>Onartu?</th>
+
+                        </tr>
+                        <?php
+                        $validar = (int) isset($_REQUEST['validado']) ? $_REQUEST['validado'] : null;
+                        $nickname = isset($_REQUEST['nickname']) ? $_REQUEST['nickname'] : null;
+
+                        if ($validar == 1) {
+                            // Prepara UPDATE
+                            $miUpdate = $miPDO->prepare('UPDATE opiniones SET VALIDADO  = 1 WHERE nickname = :nickname');
+                            // Ejecuta UPDATE con los datos
+                            $miUpdate->execute(
+                                [
+                                    'nickname' => $nickname,
+                                ]
+                            );
+                            // Prepara UPDATE
+                            // Redireccionamos a Leer
+                        } else {
+                            // Prepara UPDATE
+                            $miDelete = $miPDO->prepare('DELETE FROM opiniones WHERE nickname = :nickname');
+                            // Ejecuta UPDATE con los datos
+                            $miDelete->execute(
+                                [
+                                    'nickname' => $nickname,
+                                ]
+                            );
+                        }
+                        //Consulta
+                        $consulta = $miPDO->prepare("SELECT opinion, nickname FROM opiniones WHERE validado=0");
+                        $consulta->execute();
+                        $usuarios = $consulta->fetchAll();
+                        $miUpdate = '';
+                        foreach ($usuarios as $posicion => $usuario) {
+                            $correo = $usuario['nickname'];
+                            echo "<tr>";
+                            echo "<td>" . $usuario['opinion'] . "</td>";
+                            echo "<td class='correo-usu' name= 'correo'>" . $usuario['nickname'] . "</td>";
+                            echo "<td>";
+                            echo "<a class='boton_validacion validar-si' name='check' href='validacion.php?validado=1&nickname=" . $usuario['nickname'] . "' ><i class='fas fa-check-circle'></i></a> ";
+                            echo "<a class='boton_validacion validar-no' name='check' href='validacion.php?validado=0&nickname=" . $usuario['nickname'] . "' ><i class='fas fa-times-circle'></i></a> ";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                        <h2>Iruzkinak</h2>
+                    </table>
+
         </form>
     </main>
     <?php include('pie-pagina.php'); ?>
