@@ -50,10 +50,22 @@ INSERT INTO centro (nombre_centro) VALUES
 --
 
 CREATE TABLE clase (
+  id_nivel int(11) NOT NULL AUTO_INCREMENT,
   fecha_limite date NOT NULL,
-  nickname varchar(30) NOT NULL,
-  codigo int(4) NOT NULL
+  nivel varchar(30) NOT NULL,
+  PRIMARY KEY (id_nivel)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Volcado de datos para la tabla clase
+--
+
+INSERT INTO clase (fecha_limite, nivel) VALUES
+(2023-07-01, 'DBH1'),
+(2023-07-01, 'DBH2'),
+(2023-07-01, 'DBH3'),
+(2023-07-01, 'DBH4');
 
 -- --------------------------------------------------------
 
@@ -109,18 +121,11 @@ INSERT INTO libros (isbn, titulo_libro, foto, autor, ano_de_libro, sinopsis, for
 ('9788466794992', 'La isla del tesoro', 'laisladeltesoro.jpg', 'Robert Louis Stevenson', 1883, 'El protagonista de este magnífico libro es un niño, Jim Hawkins. Su emocionante aventura comienza el día en que un viejo marinero con la cara marcada por un sablazo llega a la posada de su padre. El cofre que transporta el desconocido contiene un extraño mapa, que Jim descubrirá por casualidad. A partir de este momento, nuestro joven protagonista emprenderá un arriesgado viaje en busca del tesoro del temido capitán Flint.', 'Novela', 14, 8, 4, '1'),
 ('9783140464066', 'Los juegos del hambre', 'losjuegosdelhambre.jpg', 'Suzanne Collins', 2008, 'En una oscura versión del futuro próximo, doce chicos y doce chicas se ven obligados a participar en un reality show llamado Los Juegos del Hambre. Solo hay una regla: matar o morir.Cuando Katniss Everdeen, una joven de dieciseis años se presenta voluntaria para ocupar el lugar de su hermana en los juegos, lo entiende como una condena a muerte. Sin embargo, Katniss ya ha visto la muerte de cerca y la supervivencia forma parte de su naturaleza.', 'Novela', 16, 7, 4, '1'),
 ('9788467502695', 'Memorias de Idhún. La Resistencia', 'memoriasdeidhun.jpg', 'Laura Gallego', 2004, 'El día en que se produjo en Idhún la conjunción astral de los tres soles y las tres lunas, Ashran el Nigromante se hizo con el poder en aquel planeta. En nuestro mundo, un guerrero y un mago exiliados de Idhún han formado la Resistencia, a la que pertenecen también Jack y Victoria, dos adolescentes nacidos en la Tierra. El objetivo del grupo es acabar con el reinado de las serpientes aladas, pero Kirtash, un joven y despiadado asesino, enviado por Ashran a la Tierra, no se lo va a permitir.', 'Novela', 16, 9, 3, '1'),
-('9788420482767', 'Momo', 'momo.jpg',' Michael Ende', 1973, 'Momo es una niña con un don muy especial: sólo con escuchar consigue que los que están tristes se sientan mejor, los que están enfadados solucionen sus problemas o que a los que están aburridos se les ocurran cosas divertidas. De repente, la llegada de los hombres grises va a cambiar su vida. Porque prometen que ahorrar tiempo es lo mejor que se puede hacer, y pronto nadie va a tener tiempo para nada. Ni siquiera para jugar con los niños. Momo es la unica que no cae en la trampa, y con la ayuda de la tortuga Casiopea y del maestro Hora, llevará al lector a una aventura fantástica llena de enseñanzas sobre la amistad, la bondad y el valor de las cosas sencillas. En definitiva, sobre lo que de verdad nos hace felices.', 'Novela', 13, 8, 3, '1');
-
+('9788420482767', 'Momo', 'momo.jpg',' Michael Ende', 1973, 'Momo es una niña con un don muy especial: sólo con escuchar consigue que los que están tristes se sientan mejor, los que están enfadados solucionen sus problemas o que a los que están aburridos se les ocurran cosas divertidas. De repente, la llegada de los hombres grises va a cambiar su vida. Porque prometen que ahorrar tiempo es lo mejor que se puede hacer, y pronto nadie va a tener tiempo para nada. Ni siquiera para jugar con los niños. Momo es la unica que no cae en la trampa, y con la ayuda de la tortuga Casiopea y del maestro Hora, llevará al lector a una aventura fantástica llena de enseñanzas sobre la amistad, la bondad y el valor de las cosas sencillas. En definitiva, sobre lo que de verdad nos hace felices.', 'Novela', 13, 8, 3, '1'),
+('9788445000656', 'El Hobbit', 'elhobbit.jpg','J.R.R. Tolkien','1973' , 'Smaug parecía profundamente dormido cuando Bilbo espió una vez más desde la entrada. ¡Pero fingía! ¡Estaba vigilando la entrada del túnel!... Sacado de su cómodo agujero-hobbit por Gandalf y una banda de enanos, Bilbo se encuentra de pronto en medio de una conspiración que pretende apoderarse del tesoro de Smaug el Magnífico, un enorme y muy peligroso dragón...','Novela', 14 , 4 , 3 ,'1'),
+('9788497593069', 'Diario de Anne Frank', 'annefrank.jpg','Anne Frank','1947' , 'Oculta con su familia y otra familia judía (los Van Daan), en una buhardilla de unos almacenes de Ámsterdam durante la ocupación nazi de Holanda. Ana Frank con trece años, cuenta en su diario, al que llamó «Kitty», la vida del grupo. Ayudados por varios empleados de la oficina, permanecieron durante más de dos años en el achterhuis (conocido como «el anexo secreto») hasta que, finalmente, fueron delatados y detenidos.','Novela', 14, 4 ,3,'1'),
+('9783140464081', 'El principe de la niebla', 'elprincipedelaniebla.jpg','Carlos Ruiz Zafón','1993' , 'El primer gran éxito de Carlos Ruiz Zafón.El nuevo hogar de los Carver, que se han mudado a la costa huyendo de la ciudad y de la guerra, está rodeado de misterio.Todavía se respira el espíritu de Jacob, el hijo de los antiguos propietarios, que murió ahogado. Las extrañas circunstancias de esa muerte sólo se empiezan a aclarar con la aparición de un diabólico personaje: el Príncipe de la Niebla, capaz de conceder cualquier deseo a una persona; eso sí, a un alto precio.','Novela', 16, 7,4,'1'); 
 -- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla listadeclases
---
-
-CREATE TABLE listadeclases (
-  codigo int(4) NOT NULL,
-  nickname varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -170,7 +175,7 @@ CREATE TABLE usuarios (
   validado tinyint(1) NOT NULL,
   movil char(9) DEFAULT NULL,
   password varchar(250) NOT NULL,
-  nivel enum('DBH1','DBH2','DBH3','DBH4') DEFAULT NULL,
+  id_nivel int(11),
   curso char(9) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -178,14 +183,14 @@ CREATE TABLE usuarios (
 -- Volcado de datos para la tabla usuarios
 --
 
-INSERT INTO usuarios (nombre, apellidos, correo, nickname, foto, id_centro, fecha_nacimiento, tipo, validado, movil, password, nivel, curso) VALUES
-('Ainhoa', 'Lopez Castro', 'ainhoalopez99.al@gmail.com', 'ainhoa', NULL, 2, 1999-09-28, 'Alumno', 1, NULL, 'cont_ainhoa', 'DBH3', '2022-2023'),
-('Augusto', 'dlc', 'augusto@gmail.com', 'augusto', NULL, 1, 2003-06-06, 'Alumno', 1, NULL, 'cont_augusto', 'DBH3', '2022-2023'),
-('Clara', 'Gutierrez', 'Clara@gmail.com', 'claragutc', NULL, 2, 1993-03-21, 'Alumno', 1, NULL, 'clara_cont', 'DBH4', '2022-2023'),
+INSERT INTO usuarios (nombre, apellidos, correo, nickname, foto, id_centro, fecha_nacimiento, tipo, validado, movil, password, id_nivel, curso) VALUES
+('Ainhoa', 'Lopez Castro', 'ainhoalopez99.al@gmail.com', 'ainhoa', NULL, 2, 1999-09-28, 'Alumno', 1, NULL, 'cont_ainhoa', 3, '2022-2023'),
+('Augusto', 'dlc', 'augusto@gmail.com', 'augusto', NULL, 1, 2003-06-06, 'Alumno', 1, NULL, 'cont_augusto', 3, '2022-2023'),
+('Clara', 'Gutierrez', 'Clara@gmail.com', 'claragutc', NULL, 2, 1993-03-21, 'Alumno', 1, NULL, 'clara_cont', 4, '2022-2023'),
 ('Endika', 'Avellaneda', 'endika@gmail.com', 'endika_profe', NULL, 1, 1990-01-01, 'Profesor', 1, NULL, 'cont_endika', NULL, '2022-2023'),
-('Iker', 'Gonzalez', 'iker@gmail.com', 'iker', NULL, 2, 2022-10-19, 'Alumno', 0, NULL, 'cont_iker', 'DBH2', '2022-2023'),
-('Luka', 'Carmona', 'lukacarmona115@gmail.com', 'lukita_', NULL, 2, 5555-05-05, 'Alumno', 1, NULL, 1234, 'DBH3', '2022-2023'),
-('Unai', 'Cabo', 'unai@gmail.com', 'unai', NULL, 1, 2000-07-15, 'Alumno', 1, NULL, 'unai_cont', 'DBH3', '2022-2023');
+('Iker', 'Gonzalez', 'iker@gmail.com', 'iker', NULL, 2, 2022-10-19, 'Alumno', 0, NULL, 'cont_iker', 2, '2022-2023'),
+('Luka', 'Carmona', 'lukacarmona115@gmail.com', 'lukita_', NULL, 2, 5555-05-05, 'Alumno', 1, NULL, 1234, 3, '2022-2023'),
+('Unai', 'Cabo', 'unai@gmail.com', 'unai', NULL, 1, 2000-07-15, 'Alumno', 1, NULL, 'unai_cont', 3, '2022-2023');
 
 -- --------------------------------------------------------
 
@@ -221,13 +226,6 @@ INSERT INTO valoraciones (nota, edad, nickname, id_libro, id_idioma) VALUES
 -- Indices de la tabla centro
 --
 
---
--- Indices de la tabla clase
---
-ALTER TABLE clase
-  ADD PRIMARY KEY (codigo),
-  ADD KEY nickname (nickname);
-
 
 
 --
@@ -237,11 +235,6 @@ ALTER TABLE libros
   ADD KEY id_idioma (id_idioma);
 
 --
--- Indices de la tabla listadeclases
---
-ALTER TABLE listadeclases
-  ADD KEY codigo (codigo),
-  ADD KEY nickname (nickname);
 
 --
 -- Indices de la tabla opiniones
@@ -263,7 +256,8 @@ ALTER TABLE peticiondelibro
 ALTER TABLE usuarios
   ADD PRIMARY KEY (correo),
   ADD UNIQUE KEY nickname (nickname),
-  ADD KEY centro (id_centro);
+  ADD KEY id_centro (id_centro),
+  ADD KEY id_nivel (id_nivel);
 
 --
 -- Indices de la tabla valoraciones
@@ -274,42 +268,20 @@ ALTER TABLE valoraciones
   ADD KEY id_idioma (id_idioma);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
---
 
---
--- AUTO_INCREMENT de la tabla clase
---
-
-
---
--- AUTO_INCREMENT de la tabla listadeclases
---
-ALTER TABLE listadeclases
-  MODIFY codigo int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla clase
---
-ALTER TABLE clase
-  ADD CONSTRAINT clase_ibfk_1 FOREIGN KEY (nickname) REFERENCES usuarios (nickname);
 
---
 -- Filtros para la tabla libros
 --
 ALTER TABLE libros
   ADD CONSTRAINT libros_ibfk_1 FOREIGN KEY (id_idioma) REFERENCES idiomalibro (id_idioma);
 
 --
--- Filtros para la tabla listadeclases
---
-ALTER TABLE listadeclases
-  ADD CONSTRAINT listadeclases_ibfk_1 FOREIGN KEY (codigo) REFERENCES clase (codigo),
-  ADD CONSTRAINT listadeclases_ibfk_2 FOREIGN KEY (nickname) REFERENCES usuarios (nickname);
 
 --
 -- Filtros para la tabla opiniones
@@ -328,7 +300,8 @@ ALTER TABLE peticiondelibro
 -- Filtros para la tabla usuarios
 --
 ALTER TABLE usuarios
-  ADD CONSTRAINT usuarios_ibfk_1 FOREIGN KEY (id_centro) REFERENCES centro (id_centro);
+  ADD CONSTRAINT usuarios_ibfk_1 FOREIGN KEY (id_centro) REFERENCES centro (id_centro),
+  ADD CONSTRAINT usuarios_ibfk_2 FOREIGN KEY (id_nivel) REFERENCES clase (id_nivel);
 
 --
 -- Filtros para la tabla valoraciones

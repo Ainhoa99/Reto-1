@@ -54,6 +54,14 @@ if (!isset($_SESSION['nickname'])) {
             ]
         );
         $respuesta2 = $consulta2->fetch();
+        $id_nivel = $respuesta['id_nivel'];
+        $consulta3 = $miPDO->prepare('SELECT nivel FROM clase WHERE id_nivel = :id_nivel');
+        $consulta3->execute(
+            [
+                'id_nivel' => $id_nivel,
+            ]
+        );
+        $respuesta3 = $consulta3->fetch();
         ?>
         <div id='container'>
             <div class="container2">
@@ -104,7 +112,7 @@ if (!isset($_SESSION['nickname'])) {
                         <input type='text' id='movil' style='display: none'>
 
                         <dt>Maila</dt>
-                        <dd class='nivel'><?php echo ($respuesta['nivel']) ?></dd>
+                        <dd class='nivel'><?php echo ($respuesta3['nivel']) ?></dd>
 
 
                     </dl>

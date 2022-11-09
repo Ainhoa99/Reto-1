@@ -42,8 +42,8 @@ include_once "database/conexion.php";
 
             if (empty($comprobar)) {
                 // Base de datos.
-                $consulta = $miPDO->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, password, nivel, curso)
-                                            VALUES (:nombre, :apellidos, :correo, :nickname, :id_centro, :fecha_nacimiento, :tipo, :validado, :password, :nivel, :curso)');
+                $consulta = $miPDO->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, password, id_nivel, curso)
+                                            VALUES (:nombre, :apellidos, :correo, :nickname, :id_centro, :fecha_nacimiento, :tipo, :validado, :password, :id_nivel, :curso)');
                 $consulta->execute([
                     'nombre' => $nombre,
                     'apellidos' => $apellidos,
@@ -54,7 +54,7 @@ include_once "database/conexion.php";
                     'tipo' => 'Alumno',
                     'validado' => 0,
                     'password' => password_hash($password, PASSWORD_DEFAULT),
-                    'nivel' => $nivel,
+                    'id_nivel' => $nivel,
                     'curso' => '2022-2023'
 
                 ]);
@@ -130,10 +130,15 @@ include_once "database/conexion.php";
                     <div class="formulario__grupo-input">
                         <span>Curtsoa:</span>
                         <select name="nivel" id="nivel">
-                            <option value="DBH1">DBH 1</option>
-                            <option value="DBH2">DBH 2</option>
-                            <option value="DBH3">DBH 3</option>
-                            <option value="DBH4">DBH 4</option>
+                            <?php
+                            //Consulta
+                            $consulta = $miPDO->prepare("SELECT * FROM clase");
+                            $consulta->execute();
+                            $niveles = $consulta->fetchAll();
+                            foreach ($niveles as $posicion => $nivel) {
+                                echo "<option value = '" . $nivel['id_nivel'] . "'>" . $nivel['nivel'] . "</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="formulario__grupo-input">

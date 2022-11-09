@@ -65,7 +65,7 @@ if (!isset($_SESSION['nickname'])) {
 
                     //$titulo-libro = $libros['titulo_libro'];
 
-                    echo "<div id='libro'>";
+                    echo "<div class='libro'>";
 
                     //Imagen
                     echo "<figure class='img-libro'><img src='src/" . $libros['foto'] . "'></figure>";
@@ -97,10 +97,11 @@ if (!isset($_SESSION['nickname'])) {
                     //Enlace a la ficha
                     echo "<p class='enlace-ficha'><a href='fichalibro.php?liburua=" . $libros['id_libro'] . "'>Fitxa ikusi</a></p>";
 
+
+                    echo "</div>";
                     echo "</div>";
                 }
             }
-
             ?>
         </div>
 

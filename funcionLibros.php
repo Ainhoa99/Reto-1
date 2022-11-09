@@ -7,7 +7,7 @@ function anadirlibros($respuesta)
 
         //$titulo-libro = $libros['titulo_libro'];
 
-        echo "<div id='libro'>";
+        echo "<div class='libro'>";
 
         //Imagen
         echo "<figure class='img-libro'><img src='src/" . $libros['foto'] . "'></figure>";
