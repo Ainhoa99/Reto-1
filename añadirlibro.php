@@ -87,8 +87,8 @@ include_once "database/conexion.php";
                 }
 
                 // Base de datos.
-                $consulta = $miPDO->prepare('INSERT INTO libros (isbn, titulo_libro, foto, autor, ano_de_libro, sinopsis, formato, edadmedia, notamedia, num_lectores, /*validado,*/ id_idioma, link_compra)
-                                            VALUES (:isbn, :titulo_libro, :foto, :autor, :ano_de_libro, :sinopsis, :formato, :edadmedia, :notamedia, :num_lectores, /*:validado,*/ :id_idioma, :link_compra)');
+                $consulta = $miPDO->prepare('INSERT INTO libros (isbn, titulo_libro, foto, autor, ano_de_libro, sinopsis, formato, edadmedia, notamedia, num_lectores, validado, id_idioma)
+                                            VALUES (:isbn, :titulo_libro, :foto, :autor, :ano_de_libro, :sinopsis, :formato, :edadmedia, :notamedia, :num_lectores, :validado, :id_idioma)');
                 $consulta->execute([
                     'isbn' => $isbn,
                     'titulo_libro' => $titulo_libro,
@@ -100,9 +100,8 @@ include_once "database/conexion.php";
                     'edadmedia' => 0,
                     'notamedia' => 0,
                     'num_lectores' => 0,
-                    //'validado' => 0,
-                    'id_idioma' => $idioma,
-                    'link_compra' => $link_compra
+                    'validado' => 0,
+                    'id_idioma' => $idioma
                 ]);
 
                 header('Location: index.php');
