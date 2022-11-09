@@ -1,9 +1,9 @@
 <?php
 //Variables
-$hostDB = '127.0.0.1';
+$hostDB = 'localhost';
 $nombreDB = 'igkluba';
 $usuarioDB = 'root';
-$contrasenyaDB = '';
+$contrasenyaDB = 'admin';
 
 //Conecta con base de datos
 $hostPDO = "mysql:host=$hostDB;dbname=$nombreDB;";
