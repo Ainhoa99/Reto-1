@@ -1,10 +1,10 @@
 <?php
 //Variables
 //Cambiar variables para el servidor 
-$hostDB = '127.0.0.1'/*'localhost'*/;
+$hostDB = /*'127.0.0.1'*/ 'localhost';
 $nombreDB = 'igkluba';
 $usuarioDB = 'root';
-$contrasenyaDB = ''/*admin*/;
+$contrasenyaDB = 'admin';
 
 //Conecta con base de datos
 $hostPDO = "mysql:host=$hostDB;dbname=$nombreDB;";
