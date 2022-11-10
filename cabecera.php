@@ -30,20 +30,23 @@
     <nav id="menu-nav" class="ocultar">
         <ul>
             <?php
+            // Dependiendo de el tipo de sesion aparecen mas botones
             if (($_SESSION['tipo'] == 'Profesor')) {
                 echo " <li><a href='mis_clases.php'><i class='fas fa-chalkboard-teacher'></i>Nire klaseak</a></li>";
             }
             ?>
-
+            <!-- Cargar todos los botonesgenericos -->
             <li><a href="mis_libros.php"><i class="fa fa-book-open"></i>Nire liburuak</a></li>
             <li><a href="añadirlibro.php"><i class="fas fa-book-medical"></i>Liburu berria</a></li>
             <li><a href="perfilpersonal.php"><i class="fas fa-user"></i>Nire datuak</a></li>
             <?php
+            // Dependiendo de el tipo de sesion aparecen mas botones
             if ($_SESSION['tipo'] == 'Administrador') {
                 echo " <li><a href='nuevo_profesor.php'><i class='far fa-id-badge'></i>Irakasle berria</a></li>";
             }
             ?>
             <?php
+            // Dependiendo de el tipo de sesion aparecen mas botones
             if (($_SESSION['tipo'] == 'Profesor') || ($_SESSION['tipo'] == 'Administrador')) {
                 echo " <li><a href='validacion.php'><i class='fas fa-check'></i>Balioztatzeko</a></li>";
             }

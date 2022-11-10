@@ -1,3 +1,4 @@
+<!-- incluimos la conexion a la base de datos -->
 <?php include('database/conexion.php');
 // Comprobamos si existe la sesión de apodo
 session_start();
@@ -26,7 +27,7 @@ if (!isset($_SESSION['nickname'])) {
     <!-- Custom Scripts -->
     <script src="js/scripts.js"></script>
     <!-- <script src="js/scriptValidaciones.js" defer></script> -->
-    
+
 </head>
 
 <body>
@@ -49,8 +50,10 @@ if (!isset($_SESSION['nickname'])) {
                 ]
             );
             $usuario = $consulta->fetch();
+            // Comprobamos que la contraseña sea correcta
             if ($usuario['password'] === $contActual) {
                 if ($contNueva === $contNuevaRepe) {
+                    // Cambiamos la contraseña a la contraseña que ha escrito el usuario
                     $consulta = $miPDO->prepare('UPDATE usuarios SET password = :password WHERE nickname = :nickname');
                     $consulta->execute(
                         [
@@ -58,28 +61,35 @@ if (!isset($_SESSION['nickname'])) {
                             'nickname' => $_SESSION['nickname'],
                         ]
                     );
+                    // Si es correcta nos lleva a perfil persona
                     header('Location: perfilpersonal.php');
                     die();
                 } else {
+                    // Si no coinciden da error
                     echo "Las contraseñas no coinciden";
                 }
             } else {
+                // Si la contraseña no es correcta nos da error
                 echo "Contraseña incorrecta";
             }
         }
         ?>
+        <!-- Formulario con los campos -->
         <form class="form-n" id="cambio-contra" action="" method="post">
-
+            <!-- Campo de contraseña -->
             <div class="formulario__grupo-input">
                 <input type="text" class="formulario__input" name="password" autofocus placeholder="Zure pasahitza">
 
             </div>
+            <!-- Campo de nueva contraseña -->
             <div class="formulario__grupo-input">
                 <input type="password" class="formulario__input" name="password1" autofocus placeholder="Pasahitza berria">
             </div>
+            <!-- Campo de nueva contraseña 2-->
             <div class="formulario__grupo-input">
                 <input type="password" class="formulario__input" name="password2" autofocus placeholder="Errepikatu pasahitza">
             </div>
+            <!-- Boton de cambiar la contraseña -->
             <button class="form__button" type="submit">Pasahitza aldatu</button>
 
         </form>
