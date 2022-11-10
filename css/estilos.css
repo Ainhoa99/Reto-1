@@ -14,12 +14,6 @@ body {
 }
 
 /**Fuentes**/
-@font-face {
-  font-family: "Xanh Mono";
-  src: url("XanhMono-Regular.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-}
 
 @font-face {
   font-family: "Bebas Neue";
@@ -143,7 +137,7 @@ body {
 }
 
 #buscador .fa-search {
-  color: #555555;
+  color: #a8a8a8;
   position: absolute;
   top: 10px;
   right: 168px;
@@ -1852,6 +1846,22 @@ a#btneditar {
   max-width: 700px;
 }
 
+#caja-input-file .input-file {
+  padding: 15px;
+  width: 100%;
+}
+
+#caja-select-añadirlibro {
+  margin-top: 5px;
+  margin-left: 5px;
+  padding: 0;
+  color: grey;
+}
+
+#caja-select-añadirlibro select {
+  color: grey;
+}
+
 .container,
 .formulario__input,
 .form__button {
@@ -1939,10 +1949,6 @@ select:focus {
   padding: 0.5rem;
 }
 
-select {
-  background-color: #eeeeee;
-}
-
 .formulario__input-error {
   display: none;
 }
@@ -2028,7 +2034,4 @@ select {
   text-align: center;
   margin: 30px;
   padding-bottom: 30px;
-}
-
-@media (min-width: 900px) {
 }

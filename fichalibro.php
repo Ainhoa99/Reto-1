@@ -133,10 +133,28 @@ $idioma = $consulta2->fetch();
             </div>
 
         </div>
-        <!-- Boton para valorar el libro -->
-        <div id="btn-valorar">
-            <p>Baloratu liburua</p>
-        </div>
+
+        <?php
+        $consulta = $miPDO->prepare('SELECT id_valoracion FROM valoraciones WHERE nickname = :nickname AND id_libro = :id_libro');
+        $consulta->execute(
+            [
+                'nickname' => $_SESSION['nickname'],
+                'id_libro' => $_GET['liburua']
+            ]
+        );
+        $consultaValoracion=$consulta->fetch();
+        if(!empty($consultaValoracion)){
+            echo "<div id='comment-count'>";
+            echo "<p>Liburu hau dagoeneko baloratu duzu </p>";
+            echo "</div>";
+        } else{
+            // Boton para valorar el libro
+            echo "<div id='btn-valorar'>";
+            echo "<p >Baloratu liburua</p>";
+            echo "</div>";
+        };
+        ?>
+       
 
 
 
@@ -229,27 +247,39 @@ $idioma = $consulta2->fetch();
         <div class="modal">
             <form id="form-valorar" action="formvaloraciones.php" method="get">
                 <button id="close">&times;</button>
-                <h1>BALORAZIOA</h1>
-                <br>
-                <input type="hidden" name="libro" value="<?php echo $_GET['liburua'] ?>">
-                <label for="nota">Nota: </label>
-                <input type="number" id="nota" name="nota" min="0" max="10">
-                <label for="edad">Adina: </label>
-                <input type="number" id="edad" name="edad" min="5" max="70">
-                <label for="idioma">Hizkuntza: </label>
-                <select name="idioma" id="idioma">
-                    <?php
-                    //Consulta
-                    $consulta = $miPDO->prepare("SELECT * FROM idiomalibro");
-                    $consulta->execute();
-                    $idiomas = $consulta->fetchAll();
-                    foreach ($idiomas as $posicion => $idioma) {
-                        echo "<option value = '" . $idioma['id_idioma'] . "'>" . $idioma['idioma'] . "</option>";
-                    }
-                    ?>
-                </select>
-                <br>
-                <button id="valorar">Baloratu</button>
+                <div class="caja-todo">
+                    <h1>Balorazioa</h1>
+                    <br>
+                    <div class="caja-input-valorar">
+                        <input type="hidden" name="libro" value="<?php echo $_GET['liburua'] ?>">
+                        <div class="caja-texto">
+                            <label for="nota">Nota: </label>
+                            <input type="number" id="nota" name="nota" min="0" max="10">
+                        </div>
+                        <div class="caja-texto">
+                            <label for="edad">Adina: </label>
+                            <input type="number" id="edad" name="edad" min="5" max="70">
+                        </div>
+                        <div class="caja-texto">
+                            <label for="idioma">Hizkuntza: </label>
+                            <select name="idioma" id="idioma">
+                                <?php
+                                //Consulta
+                                $consulta = $miPDO->prepare("SELECT * FROM idiomalibro");
+                                $consulta->execute();
+                                $idiomas = $consulta->fetchAll();
+                                foreach ($idiomas as $posicion => $idioma) {
+                                    echo "<option value = '" . $idioma['id_idioma'] . "'>" . $idioma['idioma'] . "</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="caja-valorar">
+                        <button id="valorar">Baloratu</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
