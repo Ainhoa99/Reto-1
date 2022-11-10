@@ -74,9 +74,7 @@ if (!isset($_SESSION['nickname'])) {
                 }
 
                 // comproar que sea un formato valido
-                if (
-                    $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                ) {
+                if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                     echo "Barkatu, bakarrik JPG, JPEG eta PNG irudiak.";
                     $uploadOk = 0;
                 }
@@ -93,7 +91,7 @@ if (!isset($_SESSION['nickname'])) {
                     }
                 }
 
-                $foto = isset($_REQUEST['foto']) ? $_REQUEST['foto'] : null;
+
                 // Cambiamos la contraseña a la contraseña que ha escrito el usuario
                 $consulta = $miPDO->prepare('UPDATE usuarios SET foto = :foto WHERE nickname = :nickname');
                 $consulta->execute(
