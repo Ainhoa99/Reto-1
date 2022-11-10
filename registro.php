@@ -157,14 +157,16 @@ include_once "database/conexion.php";
                     </div>
 
                 </div>
-                <div class="formulario__mensaje" id="formulario__mensaje">
-                    <p><i class="fas fa-exclamation-triangle"></i><b>Errorea:</b> Mesedez, bete formularioa behar bezala.</p>
-                </div>
+                <input type="checkbox" id="politicaDePrivacidad">Pribatutasun-politika onartu jarraitzeko <a href=""> Pribatutasun-politika</a></input>
+            </div>
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i><b>Errorea:</b> Mesedez, bete formularioa behar bezala.</p>
+            </div>
 
-                <div class="formulario__grupo formulario__grupo-btn-enviar">
-                    <button class="form__button" type="submit" id="btnRegistro">Erregistratu</button>
-                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Ondo bidalitako formularioa!</p>
-                </div>
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button class="form__button" type="submit" id="btnRegistro">Erregistratu</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Ondo bidalitako formularioa!</p>
+            </div>
 
                 <p class="form__text">
                     <a class="form__link" href="login.php" id="linkCreateAccount">Baduzu kontu bat? <span>Saioa hasi</span></a>
