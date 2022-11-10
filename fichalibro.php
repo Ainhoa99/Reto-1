@@ -133,12 +133,30 @@ $idioma = $consulta2->fetch();
             </div>
 
         </div>
-        <!-- Boton para valorar el libro -->
-        <div id="caja-btn-valorar">
-            <div id="btn-valorar">
-            <p>Baloratu liburua</p>
-            </div>
-        </div>
+
+        <?php
+        $consulta = $miPDO->prepare('SELECT id_valoracion FROM valoraciones WHERE nickname = :nickname AND id_libro = :id_libro');
+        $consulta->execute(
+            [
+                'nickname' => $_SESSION['nickname'],
+                'id_libro' => $_GET['liburua']
+            ]
+        );
+        $consultaValoracion=$consulta->fetch();
+        if(!empty($consultaValoracion)){
+            echo "<div id='comment-count'>";
+            echo "<p>Liburu hau dagoeneko baloratu duzu </p>";
+            echo "</div>";
+        } else{
+            // Boton para valorar el libro
+            echo "<div id='caja-btn-valorar'>"
+            echo "<div id='btn-valorar'>";
+            echo "<p >Baloratu liburua</p>";
+            echo "</div>";
+            echo "</div>";
+        };
+        ?>
+       
 
 
 
@@ -198,33 +216,40 @@ $idioma = $consulta2->fetch();
 
             <div class="fecha-opinion">
                 <?php
+                // Asignamos una fecha a la opinion
                 $fechaActual = date('d-m-Y');
                 echo "<p class='texto-opinion'>" . $fechaActual . "</p>";
                 ?>
             </div>
 
+            <!-- Formulario de comentario -->
             <div class="form-input-opinion">
-
-
                 <div class="añadir-comentario">
+                    <!-- Asociamos un nickname a la opinion/comentario -->
                     <label>Ezizena: </label><?php echo $_SESSION['nickname']; ?>
                 </div>
                 <div class="añadir-comentario">
                     <label for="mesg">Iritzia:</label>
                     <br>
                     <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
+                    <!-- Asociamos un libro a la opinion/comentario -->
                     <input type="hidden" name="libro" value="<?php echo $_GET['liburua'] ?>">
                     <br>
                     <button name="iritzia" id="opinar">Iruzkindu</button>
                 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> ab36091924d44f0a73a24f76bf8653b1a21853d7
             </div>
 
         </form>
 
 
     </main>
-
+    <!-- Cargamos el pie de pagina  -->
     <?php include('pie-pagina.php'); ?>
+    <!-- Especificamos el contenedor de valoracion Esta en una pagina aparte -->
     <div id="modal_container" class="modal-container">
         <div class="modal">
             <form id="form-valorar" action="formvaloraciones.php" method="get">

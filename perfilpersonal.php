@@ -68,6 +68,7 @@ if (!isset($_SESSION['nickname'])) {
                 <div id="foto">
                     <figure class='foto'><img src='src/<?php echo ($respuesta['foto']) ?>'></figure>
                     <input type='file' id='foto' style='display: none'>
+                    <button class="btn-editar"><a id="btneditar" href=''>higo argazkia</a></button>
                 </div>
 
                 <div id='caja-info-perfil'>
@@ -107,14 +108,15 @@ if (!isset($_SESSION['nickname'])) {
                                                 echo ('Ez daukat mugikorra');
                                             } else {
                                                 echo ($respuesta['movil']);
-                                            }
-                                            echo ($respuesta['movil']) ?></dd>
+                                            } ?></dd>
                         <input type='text' id='movil' style='display: none'>
 
                         <dt>Maila</dt>
-                        <dd class='nivel'><?php echo ($respuesta3['nivel']) ?></dd>
-
-
+                        <dd class='nivel'><?php if ($respuesta['id_nivel'] == '') {
+                                                echo ('Irakaslea edo Administratzailea');
+                                            } else {
+                                                echo ($respuesta3['nivel']);
+                                            } ?></dd>
                     </dl>
                 </div>
 

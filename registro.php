@@ -157,7 +157,9 @@ include_once "database/conexion.php";
                     </div>
 
                 </div>
-                <input type="checkbox" id="politicaDePrivacidad">Pribatutasun-politika onartu jarraitzeko <a href=""> Pribatutasun-politika</a></input>
+                <p type="text" id="politicaDePrivacidad">
+                    Erregistratzean, gure  <a href=""> baldintzak eta pribatutasun politika</a> onartzen dituzu
+                </p>
             </div>
             <div class="formulario__mensaje" id="formulario__mensaje">
                 <p><i class="fas fa-exclamation-triangle"></i><b>Errorea:</b> Mesedez, bete formularioa behar bezala.</p>

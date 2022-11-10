@@ -316,7 +316,7 @@ body {
   transition: 0.5s;
 }
 
-.galeria-img img:hover{
+.galeria-img img:hover {
   transition: 0.2s;
 }
 
@@ -1239,7 +1239,7 @@ a#btneditar {
   max-width: 800px;
 }
 
-#validacion h2{
+#validacion h2 {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1250,14 +1250,14 @@ a#btneditar {
   font-size: 2.5rem;
 }
 
-#validacion h2::after{
+#validacion h2::after {
   content: "";
   width: 80px;
   padding-top: 7px;
   border-bottom: 2px solid rgb(107, 107, 107);
 }
 
-#validacion h3{
+#validacion h3 {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1305,11 +1305,11 @@ a#btneditar {
 }
 
 /*validacon libro */
-#validacion .img-libro-validado{
+#validacion .img-libro-validado {
   width: 100px;
 }
 
-.img-libro-validado img{
+.img-libro-validado img {
   width: 100%;
 }
 
@@ -1636,7 +1636,7 @@ a#btneditar {
   }
 
   /*** nuevo profesor y añadir libro ***/
-  .container-nuevo{
+  .container-nuevo {
     margin-top: 50px;
   }
 }
@@ -1879,7 +1879,7 @@ a#btneditar {
 }
 
 /************************  NUEVO PROFESOR *******************/
-.container-nuevo{
+.container-nuevo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1906,27 +1906,32 @@ a#btneditar {
   border-bottom: 2px solid grey;
 }
 
+<<<<<<< HEAD
 .form-n{
   background-color:rgb(244, 243, 243);
+=======
+.form-n {
+  border: 1px solid rgb(221, 221, 221);
+>>>>>>> ab36091924d44f0a73a24f76bf8653b1a21853d7
   border-radius: 3px;
   padding: 40px;
   width: 90%;
   max-width: 700px;
 }
 
-#caja-input-file .input-file{
+#caja-input-file .input-file {
   padding: 15px;
   width: 100%;
 }
 
-#caja-select-añadirlibro{
+#caja-select-añadirlibro {
   margin-top: 5px;
   margin-left: 5px;
   padding: 0;
   color: grey;
 }
 
-#caja-select-añadirlibro select{
+#caja-select-añadirlibro select {
   color: grey;
 }
 
@@ -1968,7 +1973,7 @@ select:focus {
 
 /* Boton formulario */
 
-.formulario__grupo-btn-enviar{
+.formulario__grupo-btn-enviar {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -2076,7 +2081,7 @@ select:focus {
   text-decoration: underline;
 }
 
-.form__link{
+.form__link {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2084,23 +2089,26 @@ select:focus {
   border-top: 1px solid rgb(218, 218, 218);
 }
 
-.form-n .form__link{
+.form-n .form__link {
   margin-top: 30px;
 }
 
-#cambio-contra{
+#cambio-contra {
   margin: 100px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.ninguno-mislibros{
+.ninguno-mislibros {
   font-size: 2.5rem;
-  color:rgb(99, 99, 99);
+  color: rgb(99, 99, 99);
   font-family: "Playfair";
   text-align: center;
   margin: 30px;
   padding-bottom: 30px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ab36091924d44f0a73a24f76bf8653b1a21853d7
