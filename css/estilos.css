@@ -88,7 +88,7 @@ body {
   display: flex;
 }
 
-#cabecera h1 > a {
+#cabecera h1>a {
   text-decoration: none;
   font-size: 3rem;
   font-weight: normal;
@@ -277,7 +277,7 @@ body {
   color: black;
 }
 
-#menu-nav a > i {
+#menu-nav a>i {
   padding-right: 7px;
 }
 
@@ -305,6 +305,7 @@ body {
   max-width: 250px;
   transition: 0.5s;
 }
+
 .galeria-img {
   margin: 0;
 }
@@ -637,6 +638,7 @@ body {
   align-items: center;
 }
 
+
 #enlace-clase-nueva:hover {
   background-color: rgb(163, 163, 163);
 }
@@ -710,7 +712,9 @@ body {
   width: 100%;
 }
 
-.caja-Nombre p {
+
+#enlace-alumnos {
+  text-decoration: none;
   font-size: 3rem;
   color: #717171;
 }
@@ -911,7 +915,7 @@ body {
   user-select: none;
 }
 
-#caja-btn-valorar{
+#caja-btn-valorar {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -921,7 +925,7 @@ body {
   border-top: 1px solid rgb(218, 218, 218);
 }
 
-#caja-btn-opinion{
+#caja-btn-opinion {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -998,9 +1002,10 @@ body {
   font-family: Arial;
 }
 
-.ya-valorado, #count-number{
+.ya-valorado,
+#count-number {
   padding-top: 20px;
-  color:rgb(74, 74, 74);
+  color: rgb(74, 74, 74);
 }
 
 #comentarios {
@@ -1032,7 +1037,7 @@ body {
 /***** Estilo añadir opinion *****/
 
 .añadir-comentario {
-  
+
   color: rgb(212, 56, 9);
   font-family: "Palaquin";
   display: flex;
@@ -1041,10 +1046,11 @@ body {
   width: 100%;
 }
 
-.añadir-comentario label{
+.añadir-comentario label {
   display: flex;
   justify-content: flex-start;
-  border-bottom: 1px solid rgb(230, 230, 230);;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  ;
 }
 
 .añadir-comentario:first-child {
@@ -1238,6 +1244,7 @@ a#btneditar {
   color: white;
   text-decoration: none;
 }
+
 .btn-editar:hover a#btneditar {
   color: rgb(184, 52, 3);
 }
@@ -1294,7 +1301,7 @@ a#btneditar {
   padding: 5px 0;
   font-weight: bold;
   color: rgb(74, 74, 74);
-  text-align: start;
+  text-align: center;
   font-size: 1.5rem;
 }
 
@@ -1316,6 +1323,7 @@ a#btneditar {
 .tabla-validar td {
   padding: 5px 0;
   font-size: 1.4rem;
+  text-align: center;
   min-width: 77px;
 }
 
@@ -1368,7 +1376,7 @@ a#btneditar {
   padding: 30px;
 }
 
-#caja-logo-pie{
+#caja-logo-pie {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -1393,8 +1401,8 @@ a#btneditar {
   padding: 20px;
 }
 
-#contacto:hover a{
-  color:rgb(151, 151, 151);
+#contacto:hover a {
+  color: rgb(151, 151, 151);
 }
 
 
@@ -1426,6 +1434,7 @@ a#btneditar {
 /***********************    CORTE - TRAMO PANTALLA     **********************/
 
 @media (min-width: 850px) {
+
   /* Buscador */
   #btn-buscador {
     padding: 8px;
@@ -1457,7 +1466,7 @@ a#btneditar {
     justify-content: right;
   }
 
-  #menu-nav > ul > li {
+  #menu-nav>ul>li {
     display: flex;
     align-items: center;
     width: auto;
@@ -1467,15 +1476,15 @@ a#btneditar {
     position: relative;
   }
 
-  #menu-nav > ul > li:hover a {
+  #menu-nav>ul>li:hover a {
     transform: translateX(0px);
   }
 
-  #menu-nav > ul > li > a {
+  #menu-nav>ul>li>a {
     padding: 5px;
   }
 
-  #menu-nav > ul > li > a::after {
+  #menu-nav>ul>li>a::after {
     content: "";
     display: inline-block;
     position: absolute;
@@ -1486,11 +1495,11 @@ a#btneditar {
     opacity: 0;
   }
 
-  #menu-nav > ul > li > a:hover {
+  #menu-nav>ul>li>a:hover {
     color: rgb(49, 45, 45);
   }
 
-  #menu-nav > ul a:hover::after {
+  #menu-nav>ul a:hover::after {
     width: 100%;
     opacity: 1;
     transition: 0.5s;
@@ -1502,7 +1511,7 @@ a#btneditar {
     width: 100%;
   }
 
-  #caja-logo-pie{
+  #caja-logo-pie {
     width: 50%;
   }
 
@@ -1511,7 +1520,7 @@ a#btneditar {
     justify-content: space-around;
   }
 
-  #caja-fotofrase{
+  #caja-fotofrase {
     max-width: none;
     width: 100%;
     display: flex;
@@ -1524,7 +1533,7 @@ a#btneditar {
     padding: 10px;
   }
 
-  #contenedor-pie{
+  #contenedor-pie {
     display: flex;
     flex-direction: column;
     margin-left: 30px;
@@ -1720,32 +1729,32 @@ a#btneditar {
     max-width: 250px;
   }
 
-  
+
   /** Ficha libro valorar y opinar **/
 
 
-  #contenedor-todo{
+  #contenedor-todo {
     margin-bottom: 0;
   }
-  
-  #caja-btn-opinion{
+
+  #caja-btn-opinion {
     justify-content: flex-start;
     padding-left: 10%;
   }
 
-  #titulo-opinion{
+  #titulo-opinion {
     padding-left: 10%;
     padding-bottom: 20px;
   }
 
-  #form-opinion{
+  #form-opinion {
     padding-left: 10%;
   }
 
-  #comment-count{
+  #comment-count {
     text-align: start;
     padding-left: 10%;
-    color:#797979;
+    color: #797979;
   }
 
 
@@ -1852,6 +1861,7 @@ a#btneditar {
     width: 80%;
     margin: 0;
   }
+
   #contenedor-valoracion {
     border-bottom: none;
   }
@@ -1955,8 +1965,8 @@ a#btneditar {
   border-bottom: 2px solid grey;
 }
 
-.form-n{
-  background-color:rgb(244, 243, 243);
+.form-n {
+  background-color: rgb(244, 243, 243);
   border-radius: 3px;
   padding: 40px;
   width: 90%;
@@ -1984,19 +1994,24 @@ a#btneditar {
 .form__button {
   font: 500 0.9rem "Quicksand", sans-serif;
 }
+
 .form--hidden {
   display: none;
 }
-.form-n > *:last-child {
+
+.form-n>*:last-child {
   margin-bottom: 0;
 }
+
 .form__title {
   margin-bottom: 2rem;
   text-align: center;
 }
+
 .formulario__grupo-input {
   margin-bottom: 1rem;
 }
+
 .formulario__input,
 select {
   width: 100%;
@@ -2009,6 +2024,7 @@ select {
   background: #ffffff;
   transition: background 0.2s, border-color 0.2s;
 }
+
 .formulario__input:focus,
 select:focus {
   border-color: var(--color-primary);
@@ -2039,9 +2055,11 @@ select:focus {
   background-color: rgb(210, 53, 5);
   font-family: "Arial";
 }
+
 .form__button:hover {
   background-color: rgb(254, 99, 52);
 }
+
 .form__button:active {
   transform: scale(0.98);
 }
@@ -2121,6 +2139,7 @@ select:focus {
   cursor: pointer;
   font-size: 1.5rem;
 }
+
 .form__link:hover {
   text-decoration: underline;
 }

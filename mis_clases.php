@@ -47,7 +47,7 @@ if (!isset($_SESSION['nickname'])) {
             $misClases->execute();
             $clases = $misClases->fetchAll();
             foreach ($clases as $posicion => $clase) {
-                $clasesAlumnos = $miPDO->prepare('SELECT COUNT(id_nivel) AS num_alumnos FROM usuarios WHERE id_nivel=:id_nivel');
+                $clasesAlumnos = $miPDO->prepare('SELECT COUNT(id_nivel) AS num_alumnos FROM usuarios WHERE id_nivel=:id_nivel AND validado=1');
                 $clasesAlumnos->execute(
                     [
                         'id_nivel' => $clase['id_nivel']
@@ -61,7 +61,7 @@ if (!isset($_SESSION['nickname'])) {
                     <div class='caja-info-clase'>
                         <!-- Nombre clase -->
                         <div class='caja-Nombre'>
-                            <p class='nombre_clase'></i><span> <?php echo ($clase['nivel']) ?> </span></p>
+                            <p class='nombre_clase'></i><span> <a id="enlace-alumnos" href='alumnosclase.php?id_nivel=<?php echo $clase['id_nivel'] ?>'><?php echo $clase['nivel'] ?></a></span></p>
                         </div>
                         <!-- Numero alumnos -->
                         <div class='caja-alumnos'>

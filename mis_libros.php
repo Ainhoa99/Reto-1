@@ -38,7 +38,7 @@ if (!isset($_SESSION['nickname'])) {
             <h2>Nire liburuak</h2>
         </div>
         <div class="todos-mis-libros">
-        <?php
+            <?php
             $nickname = $_SESSION['nickname'];
             // Prepara SELECT
             $misLibros = $miPDO->prepare('SELECT * FROM valoraciones WHERE nickname = :nickname');
@@ -104,9 +104,9 @@ if (!isset($_SESSION['nickname'])) {
                     }
                 }
             } else {
-                echo ("<p class='ninguno-mislibros'>Ez dusu libururik baloratu.</p>");
+                echo ("<p class='ninguno-mislibros'> Ez duzu libururik baloratu</p>");
             }
- 
+
             ?>
         </div>
 
