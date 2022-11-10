@@ -657,13 +657,13 @@ body {
   justify-content: center;
 }
 
-.fa-plus-square {
+.fa-plus {
   color: rgb(41, 41, 41);
   margin-right: 10px;
   font-size: 2.5rem;
 }
 
-#enlace-clase-nueva:hover .fa-plus-square {
+#enlace-clase-nueva:hover .fa-plus {
   color: white;
   font-size: 2.5rem;
 }
@@ -881,18 +881,55 @@ body {
 
 #btn-valorar,
 #btn-opinion {
+  text-align: center;
   text-decoration: none;
-  font-family: Arial;
+  font-family: "Playfair";
+  font-size: 1.6rem;
   color: #d6d6d6;
   background-color: rgb(184, 52, 3);
   padding: 8px;
   border-radius: 4px;
-  font-size: 1.3rem;
   cursor: pointer;
   margin: 10px 0;
-  width: 115px;
+  width: 150px;
   user-select: none;
 }
+
+#opinar {
+  text-align: center;
+  text-decoration: none;
+  font-family: "Playfair";
+  font-size: 1.6rem;
+  color: #d6d6d6;
+  background-color: rgb(184, 52, 3);
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px 0;
+  width: 150px;
+  user-select: none;
+}
+
+#caja-btn-valorar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(218, 218, 218);
+}
+
+#caja-btn-opinion{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid rgb(218, 218, 218);
+}
+
 
 .fa-star {
   color: rgb(238, 208, 57);
@@ -948,7 +985,8 @@ body {
 /** Opiniones **/
 
 #btn-opinion:hover,
-#btn-valorar:hover {
+#btn-valorar:hover,
+#opinar:hover {
   background-color: whitesmoke;
   color: orangered;
   border: 1px solid orangered;
@@ -960,7 +998,6 @@ body {
 }
 
 #comentarios {
-  border-bottom: 1px solid rgb(222, 222, 222);
   padding-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -1633,6 +1670,35 @@ a#btneditar {
     max-width: 250px;
   }
 
+  
+  /** Ficha libro valorar y opinar **/
+
+
+  #contenedor-todo{
+    margin-bottom: 0;
+  }
+  
+  #caja-btn-opinion{
+    justify-content: flex-start;
+    padding-left: 10%;
+  }
+
+  #titulo-opinion{
+    padding-left: 10%;
+    padding-bottom: 20px;
+  }
+
+  #form-opinion{
+    padding-left: 10%;
+  }
+
+  #comment-count{
+    text-align: start;
+    padding-left: 10%;
+    color:#797979;
+  }
+
+
   /*** contenido perfil personal ***/
 
   #caja-info-perfil {
@@ -1754,6 +1820,8 @@ a#btneditar {
     cursor: auto;
   }
 
+
+
   /******* Indice galeria ******/
 
   .mejorvalorados-text {
@@ -1838,8 +1906,13 @@ a#btneditar {
   border-bottom: 2px solid grey;
 }
 
+<<<<<<< HEAD
+.form-n{
+  background-color:rgb(244, 243, 243);
+=======
 .form-n {
   border: 1px solid rgb(221, 221, 221);
+>>>>>>> ab36091924d44f0a73a24f76bf8653b1a21853d7
   border-radius: 3px;
   padding: 40px;
   width: 90%;
@@ -1889,7 +1962,7 @@ select {
   font-size: 1.3rem;
   border: 1px solid #dddddd;
   outline: none;
-  background: #eeeeee;
+  background: #ffffff;
   transition: background 0.2s, border-color 0.2s;
 }
 .formulario__input:focus,
@@ -2035,3 +2108,7 @@ select:focus {
   margin: 30px;
   padding-bottom: 30px;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> ab36091924d44f0a73a24f76bf8653b1a21853d7
