@@ -135,6 +135,7 @@ $idioma = $consulta2->fetch();
         </div>
 
         <?php
+        // Hacer un select de las ids de valoraciones para mostrarlas
         $consulta = $miPDO->prepare('SELECT id_valoracion FROM valoraciones WHERE nickname = :nickname AND id_libro = :id_libro');
         $consulta->execute(
             [
@@ -143,6 +144,7 @@ $idioma = $consulta2->fetch();
             ]
         );
         $consultaValoracion = $consulta->fetch();
+        // Comprovamos si el libro ya ha sido valorado
         if (!empty($consultaValoracion)) {
             echo "<div id='comment-count'>";
             echo "<p>Liburu hau dagoeneko baloratu duzu </p>";
