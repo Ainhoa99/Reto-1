@@ -39,7 +39,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  background-color: rgb(231, 231, 231);
+  background-image: url('../src/fondo3.jpg');
   position: static;
 }
 

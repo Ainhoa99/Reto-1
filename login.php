@@ -47,9 +47,6 @@ include_once "database/conexion.php";
                 header('Location: index.php');
                 die();
             }
-            echo $_REQUEST['password'];
-            echo $usuario['password'];
-            var_dump(password_verify($_REQUEST['password'], $usuario['password']));
             } else{
                   echo '<p style="color: red" class="form__text">El email o la contraseña es incorrecta.</p>';
             };
