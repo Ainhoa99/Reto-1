@@ -66,7 +66,6 @@ if (!isset($_SESSION['nickname'])) {
                     echo 'NO EXISTE NINGUN LIBRO CON ESTE AUTOR O TITULO';
                 }
                 // foreach($respuesta as $posicion =>$libros): 
-
             }
 
             ?>

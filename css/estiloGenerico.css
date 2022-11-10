@@ -96,6 +96,7 @@ select {
   background: #eeeeee;
   transition: background 0.2s, border-color 0.2s;
 }
+
 .formulario__input:focus,
 select:focus {
   border-color: var(--color-primary);

@@ -166,7 +166,7 @@ if (!isset($_SESSION['nickname'])) {
                 </div>
                 <div class="fila">
                     <!-- Idioma del libro -->
-                    <div class="formulario__grupo-input">
+                    <div class="formulario__grupo-input" id="caja-select-añadirlibro">
                         <select name="idioma" id="centro">
                             <?php
                             //Consulta
@@ -198,8 +198,8 @@ if (!isset($_SESSION['nickname'])) {
                 <div class="fila">
                     <!-- Portada del libro -->
                     <div class="formulario__grupo" id="grupo__email">
-                        <div class="formulario__grupo-input">
-                            <input type="file" class="formulario__input" name="foto" id="foto" size="40" autofocus placeholder="Liburuaren azala">
+                        <div class="formulario__grupo-input" id="caja-input-file">
+                            <input type="file" class="formulario__input input-file" name="foto" id="foto" size="40" autofocus placeholder="Liburuaren azala">
                         </div>
                     </div>
                 </div>
