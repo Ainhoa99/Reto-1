@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /** HOLO **/
 }
 
 html {
@@ -1193,7 +1194,7 @@ a#btneditar {
 
 /* Página Validaciones */
 
-#validacion{
+#validacion {
   width: 100%;
   font-family: "Playfair";
   display: flex;
@@ -1202,7 +1203,7 @@ a#btneditar {
   margin-top: 50px;
 }
 
-#validacion form{
+#validacion form {
   width: 95%;
   max-width: 800px;
 }
@@ -1237,36 +1238,36 @@ a#btneditar {
   border-bottom: 1px solid #d6d6d6;
 }
 
-.tabla-validar th{
+.tabla-validar th {
   padding: 5px 0;
   font-weight: bold;
-  color:rgb(74, 74, 74);
+  color: rgb(74, 74, 74);
   text-align: start;
   font-size: 1.5rem;
 }
 
-.tabla-validar{
+.tabla-validar {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
   border-bottom: 1px solid rgb(220, 220, 220);
 }
 
-.tabla-validar tr:first-child{
+.tabla-validar tr:first-child {
   background-color: #f5f5f5;
 }
 
-.tabla-validar tr{
+.tabla-validar tr {
   background-color: white;
 }
 
-.tabla-validar td{
+.tabla-validar td {
   padding: 5px 0;
   font-size: 1.4rem;
   min-width: 77px;
 }
 
-.tabla-validar td:last-child{
+.tabla-validar td:last-child {
   display: flex;
   justify-content: flex-start;
   min-width: 0;
@@ -1290,18 +1291,17 @@ a#btneditar {
   color: grey;
 }
 
-.boton_validacion i{
+.boton_validacion i {
   font-size: 2.2rem;
 }
 
-.fa-check-circle:hover{
+.fa-check-circle:hover {
   color: #119200;
 }
 
-.fa-times-circle:hover{
+.fa-times-circle:hover {
   color: red;
 }
-
 
 /**** Pie de página ****/
 

@@ -58,23 +58,23 @@ if (!isset($_SESSION['nickname'])) {
                             'id_libro' => $titulo,
                         ]
                     );
- 
+
                     $respuesta = $consulta->fetchAll();
-                    // foreach($respuesta as $posicion =>$libros):  
- 
+                    // foreach($respuesta as $posicion =>$libros):   
+
                     foreach ($respuesta as $posicion => $libros) {
- 
+
                         //$titulo-libro = $libros['titulo_libro'];
- 
+
                         echo "<div class='libro'>";
- 
+
                         //Imagen
                         echo "<figure class='img-libro'><img src='src/" . $libros['foto'] . "'></figure>";
- 
- 
+
+
                         //Contenedor info libro
                         echo "<div class='caja-info-libro'>";
- 
+
                         //Contenedor valoracion
                         echo "<div class='caja-medias-libro'>";
                         //Nota media
@@ -86,19 +86,19 @@ if (!isset($_SESSION['nickname'])) {
                         echo "<p class='libro-edadmedia-texto'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
                         echo "<p class='libro-edadmedia'>" . $libros['edadmedia'] . "</p>";
                         echo "</div>";
- 
+
                         echo "</div>";
- 
+
                         //Titulo
                         echo "<p class='libro-titulo' method='get'>" . $libros['titulo_libro'] . "</p>";
- 
+
                         //Autor
                         echo "<p class='libro-autor'>" . $libros['autor'] . "</p>";
- 
+
                         //Enlace a la ficha
                         echo "<p class='enlace-ficha'><a href='fichalibro.php?liburua=" . $libros['id_libro'] . "'>Fitxa ikusi</a></p>";
- 
- 
+
+
                         echo "</div>";
                         echo "</div>";
                     }

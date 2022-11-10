@@ -40,7 +40,7 @@ if (!isset($_SESSION['nickname'])) {
             $busqueda = isset($_REQUEST['busqueda']) ? $_REQUEST['busqueda'] : null;
 
             if ($busqueda === '' || $busqueda === null) {
-                $consulta = $miPDO->prepare('SELECT * FROM libros;');
+                $consulta = $miPDO->prepare('SELECT * FROM libros WHERE validado = 1');
 
                 // Ejecuta consulta
                 $consulta->execute();
@@ -50,7 +50,7 @@ if (!isset($_SESSION['nickname'])) {
                 anadirlibros($respuesta);
             } else {
                 // Variables del formulario
-                $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor LIKE '%$busqueda%' oR titulo_libro LIKE '%$busqueda%'");
+                $respuesta = $miPDO->prepare("SELECT * FROM libros WHERE autor LIKE '%$busqueda%' oR titulo_libro LIKE '%$busqueda%' AND validado = 1");
                 $respuesta->execute();
                 $respuesta = $respuesta->fetchAll();
 
@@ -78,7 +78,7 @@ if (!isset($_SESSION['nickname'])) {
                 <div class="mySlides fade">
                     <?php
                     // Prepara SELECT
-                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros ORDER BY notamedia DESC LIMIT 3');
+                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros WHERE validado = 1 ORDER BY notamedia DESC LIMIT 3');
 
                     // Ejecuta consulta
                     $otraconsulta->execute();
@@ -103,7 +103,7 @@ if (!isset($_SESSION['nickname'])) {
                 <div class="mySlides fade">
                     <?php
                     // Prepara SELECT
-                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros ORDER BY id_libro DESC LIMIT 3');
+                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros WHERE validado = 1 ORDER BY id_libro DESC LIMIT 3');
 
                     // Ejecuta consulta
                     $otraconsulta->execute();
@@ -130,7 +130,7 @@ if (!isset($_SESSION['nickname'])) {
                 <div class="mySlides fade">
                     <?php
                     // Prepara SELECT
-                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros ORDER BY num_lectores DESC LIMIT 3');
+                    $otraconsulta = $miPDO->prepare('SELECT foto, id_libro FROM libros WHERE validado = 1 ORDER BY num_lectores DESC LIMIT 3');
 
                     // Ejecuta consulta
                     $otraconsulta->execute();
@@ -149,13 +149,13 @@ if (!isset($_SESSION['nickname'])) {
                     <div class="mejorvalorados-text">
                         <p>Gehien irakurri diren liburuak</p>
                     </div>
-                    
+
 
                 </div>
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                
+
                 <!-- The dots/circles 
                 <div id="puntos-galeria" style="text-align:center">
                     <span class="dot" onclick="currentSlide(1)"></span>

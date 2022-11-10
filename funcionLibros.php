@@ -2,6 +2,7 @@
 //hh
 function anadirlibros($respuesta)
 {
+
     foreach ($respuesta as $libros) {
 
         //$titulo-libro = $libros['titulo_libro'];
