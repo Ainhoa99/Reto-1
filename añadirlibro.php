@@ -1,3 +1,4 @@
+<!-- incluimos la conexion a la base de datos -->
 <?php
 include_once "database/conexion.php";
 ?>
@@ -30,19 +31,19 @@ include_once "database/conexion.php";
             $idioma  = isset($_REQUEST['idioma']) ? $_REQUEST['idioma'] : null;
             $link_compra = isset($_REQUEST['link_compra']) ? $_REQUEST['link_compra'] : null;
 
+            // Hacemos la consulta para comprobar si el libro ya esta en la base de datos
             $comprobar = $miPDO->prepare('SELECT id_libro FROM libros WHERE isbn = :isbn');
             $comprobar->execute(['isbn' => $isbn]);
             $comprobar = $comprobar->fetch();
-
+            // Hacemos la comprobaciones para saver si la foto es valida y la podemos insertar 
             if (empty($comprobar)) {
                 $archivo = isset($_FILES['foto']) ? $_FILES['foto'] : null;
                 $target_dir = "C:\\xampp\\htdocs\\2DW3\\src\\";
                 $target_file = $target_dir . basename($archivo["name"]);
                 $uploadOk = 1;
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                // Check if image file is a actual image or fake image
 
-                // Check if image file is a actual image or fake image
+                //Comprobar si la imagen es una imagen o otro tipo de archivo
                 if (isset($_POST["submit"])) {
                     $check = getimagesize($archivo["tmp_name"]);
                     if ($check !== false) {
@@ -54,19 +55,19 @@ include_once "database/conexion.php";
                     }
                 }
 
-                // Check if file already exists
+                // comprobar si el archivo ya existe en la carpeta
                 if (file_exists($target_file)) {
                     echo "azala errepikatuta dago";
                     $uploadOk = 0;
                 }
 
-                // Check file size
+                // comprobar el tamaño de la imagen
                 if ($archivo["size"] > 500000) {
                     echo "Barkatu, azalaren argazkia oso handia da.";
                     $uploadOk = 0;
                 }
 
-                // Allow certain file formats
+                // comproar que sea un formato valido
                 if (
                     $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 ) {
@@ -74,10 +75,10 @@ include_once "database/conexion.php";
                     $uploadOk = 0;
                 }
 
-                // Check if $uploadOk is set to 0 by an error
+                // comprobar si da error o se puede subir
                 if ($uploadOk == 0) {
                     echo "Barkatu, azala ezin izan da igo";
-                    // if everything is ok, try to upload file
+                    // al comprobar que todo esta bien se puede hacer la insercion
                 } else {
                     if (move_uploaded_file($archivo["tmp_name"], $target_file)) {
                         echo htmlspecialchars(basename($archivo["foto"])) . "azala ondo igo da.";
@@ -86,7 +87,7 @@ include_once "database/conexion.php";
                     }
                 }
 
-                // Base de datos.
+                // Hacemos la insercion en la base de datos 
                 $consulta = $miPDO->prepare('INSERT INTO libros (isbn, titulo_libro, foto, autor, ano_de_libro, sinopsis, formato, edadmedia, notamedia, num_lectores, validado, id_idioma)
                                             VALUES (:isbn, :titulo_libro, :foto, :autor, :ano_de_libro, :sinopsis, :formato, :edadmedia, :notamedia, :num_lectores, :validado, :id_idioma)');
                 $consulta->execute([
