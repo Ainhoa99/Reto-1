@@ -49,14 +49,12 @@ $idioma = $consulta2->fetch();
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estiloPopUp.css">
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="js/scripts.js"></script>
-    <script src="js/popUp.js" defer></script>
 </head>
 
 <body>

@@ -38,9 +38,9 @@ if (!isset($_SESSION['nickname'])) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Variables del formulario
-            $contActual = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
-            $contNueva = isset($_REQUEST['password1']) ? $_REQUEST['password1'] : null;
-            $contNuevaRepe = isset($_REQUEST['password2']) ? $_REQUEST['password2'] : null;
+            $contActual = $_REQUEST['password'];
+            $contNueva = $_REQUEST['password1'];
+            $contNuevaRepe = $_REQUEST['password2'];
 
             // Base de datos.
             $consulta = $miPDO->prepare('SELECT password FROM usuarios WHERE nickname = :nickname');
@@ -51,26 +51,30 @@ if (!isset($_SESSION['nickname'])) {
             );
             $usuario = $consulta->fetch();
             // Comprobamos que la contraseña sea correcta
-            if ($usuario['password'] === $contActual) {
-                if ($contNueva === $contNuevaRepe) {
-                    // Cambiamos la contraseña a la contraseña que ha escrito el usuario
-                    $consulta = $miPDO->prepare('UPDATE usuarios SET password = :password WHERE nickname = :nickname');
-                    $consulta->execute(
-                        [
-                            'password' => $contNueva,
-                            'nickname' => $_SESSION['nickname'],
-                        ]
-                    );
-                    // Si es correcta nos lleva a perfil persona
-                    header('Location: perfilpersonal.php');
-                    die();
+            if (password_verify($_REQUEST['password'], $usuario['password'])) {
+                if ($contNueva != "" && $contNuevaRepe != "") {
+                    if ($contNueva === $contNuevaRepe) {
+                        // Cambiamos la contraseña a la contraseña que ha escrito el usuario
+                        $consulta = $miPDO->prepare('UPDATE usuarios SET password = :password WHERE nickname = :nickname');
+                        $consulta->execute(
+                            [
+                                'password' => password_hash($_REQUEST['password1'], PASSWORD_DEFAULT),
+                                'nickname' => $_SESSION['nickname'],
+                            ]
+                        );
+                        // Si es correcta nos lleva a perfil persona
+                        header('Location: perfilpersonal.php');
+                        die();
+                    } else {
+                        // Si no coinciden da error
+                        echo "<p style='color:red;margin-top:1rem;font-size:medium'>Pasahitzak berdinak izan behar dira</p>";
+                    }
                 } else {
-                    // Si no coinciden da error
-                    echo "Las contraseñas no coinciden";
+                    echo "<p style='color:red;margin-top:1rem;font-size:medium'>Ez duzu ipini beste pasahitz bat</p>";
                 }
             } else {
                 // Si la contraseña no es correcta nos da error
-                echo "Contraseña incorrecta";
+                echo "<p style='color:red;margin-top:1rem;font-size:medium'>Pasahitz okerra</p>";
             }
         }
         ?>
