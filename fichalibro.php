@@ -185,7 +185,7 @@ $idioma = $consulta2->fetch();
 
             ?>
         </div>
-
+        <!-- Boton de opiniom -->
         <div id="btn-opinion">
             <p>Eman zure iritzia</p>
         </div>
@@ -194,27 +194,27 @@ $idioma = $consulta2->fetch();
 
             <div class="fecha-opinion">
                 <?php
+                // Asignamos una fecha a la opinion
                 $fechaActual = date('d-m-Y');
                 echo "<p class='texto-opinion'>" . $fechaActual . "</p>";
                 ?>
             </div>
 
+            <!-- Formulario de comentario -->
             <div class="form-input-opinion">
-
-
                 <div class="añadir-comentario">
+                    <!-- Asociamos un nickname a la opinion/comentario -->
                     <label>Ezizena: </label><?php echo $_SESSION['nickname']; ?>
                 </div>
                 <div class="añadir-comentario">
                     <label for="mesg">Iritzia:</label>
                     <br>
                     <textarea class="form__input" name="opinion" id="opinion" size="40" autofocus placeholder="Iritzia"></textarea>
+                    <!-- Asociamos un libro a la opinion/comentario -->
                     <input type="hidden" name="libro" value="<?php echo $_GET['liburua'] ?>">
                     <br>
                     <button name="iritzia" id="opinar">Iruzkindu</button>
                 </div>
-
-
 
             </div>
 
@@ -222,8 +222,9 @@ $idioma = $consulta2->fetch();
 
 
     </main>
-
+    <!-- Cargamos el pie de pagina  -->
     <?php include('pie-pagina.php'); ?>
+    <!-- Especificamos el contenedor de valoracion Esta en una pagina aparte -->
     <div id="modal_container" class="modal-container">
         <div class="modal">
             <form id="form-valorar" action="formvaloraciones.php" method="get">

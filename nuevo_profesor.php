@@ -25,7 +25,7 @@ if (!isset($_SESSION['nickname'])) {
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/estilos.css">
-    
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -53,6 +53,7 @@ if (!isset($_SESSION['nickname'])) {
             $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
             $password2 = isset($_REQUEST['password2']) ? $_REQUEST['password2'] : null;
             $centro = isset($_REQUEST['centro']) ? $_REQUEST['centro'] : null;
+            $movil = isset($_REQUEST['movil']) ? $_REQUEST['movil'] : null;
             $fecha = isset($_REQUEST['fecha']) ? $_REQUEST['fecha'] : null;
             $nivel = isset($_REQUEST['nivel']) ? $_REQUEST['nivel'] : null;
 
@@ -62,8 +63,8 @@ if (!isset($_SESSION['nickname'])) {
 
             if (empty($comprobar)) {
                 // Base de datos.
-                $consulta = $miPDO->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, password, curso)
-                                            VALUES (:nombre, :apellidos, :correo, :nickname, :id_centro, :fecha_nacimiento, :tipo, :validado, :password, :curso)');
+                $consulta = $miPDO->prepare('INSERT INTO usuarios (nombre, apellidos, correo, nickname, id_centro, fecha_nacimiento, tipo, validado, movil, password, curso)
+                                            VALUES (:nombre, :apellidos, :correo, :nickname, :id_centro, :fecha_nacimiento, :tipo, :validado, :movil, :password, :curso)');
                 $consulta->execute([
                     'nombre' => $nombre,
                     'apellidos' => $apellidos,
@@ -73,6 +74,7 @@ if (!isset($_SESSION['nickname'])) {
                     'fecha_nacimiento' => $fecha,
                     'tipo' => 'Profesor',
                     'validado' => 1,
+                    'movil' => $movil,
                     'password' => password_hash($password, PASSWORD_DEFAULT),
                     'curso' => '2022-2023'
 
@@ -86,7 +88,7 @@ if (!isset($_SESSION['nickname'])) {
         }
         ?>
         <form class="form-n" id="register" action="" method="post">
-        
+
             <div>
                 <div class="fila">
                     <!-- NOMRBRE -->
@@ -143,6 +145,10 @@ if (!isset($_SESSION['nickname'])) {
                     <!-- FECHA_NACIMIENTO -->
                     <div class="formulario__grupo-input">
                         <input type="text" name="fecha" class="formulario__input" id="fecha" size="40" autofocus placeholder="Jaiotze-data" onfocus="(this.type='date')">
+                    </div>
+                    <!-- NUMERO TELEFONO -->
+                    <div class="formulario__grupo-input">
+                        <input type="text" name="movil" class="formulario__input" id="movil" size="40" autofocus placeholder="Mugikor zembakia">
                     </div>
                 </div>
 
