@@ -151,7 +151,7 @@ if (!isset($_SESSION['nickname'])) {
                         </div>
                     </div>
 
-                    <!-- NICKNAME -->
+                    <!-- Formato -->
                     <div class="formulario__grupo" id="grupo__password">
                         <div class="formulario__grupo-input">
                             <input type="text" name="formato" class="formulario__input" id="password" size="40" autofocus placeholder="Formatua">
@@ -160,7 +160,7 @@ if (!isset($_SESSION['nickname'])) {
 
                 </div>
                 <div class="fila">
-                    <!-- CONTRASEÑA -->
+                    <!-- Idioma del libro -->
                     <div class="formulario__grupo-input">
                         <select name="idioma" id="centro">
                             <?php
@@ -174,7 +174,7 @@ if (!isset($_SESSION['nickname'])) {
                             ?>
                         </select>
                     </div>
-                    <!-- CONTRASEÑA 2 -->
+                    <!-- ISBN -->
                     <div class="formulario__grupo" id="grupo__nombre">
                         <div class="formulario__grupo-input">
                             <input type="text" class="formulario__input" name="isbn" id="nombre" size="40" autofocus placeholder="Isbn zembakia">
@@ -183,7 +183,7 @@ if (!isset($_SESSION['nickname'])) {
                 </div>
                 <div class="fila">
 
-                    <!-- Sinopsis 2 -->
+                    <!-- Sinopsis -->
                     <div class="formulario__grupo" id="grupo__password2">
                         <div class="formulario__grupo-input">
                             <textarea type="text" name="sinopsis" class="formulario__input" id="password2" size="40" autofocus placeholder="Sinopsia/laburpena"></textarea>

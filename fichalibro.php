@@ -1,3 +1,4 @@
+<!-- incluimos la conexion a la base de datos -->
 <?php
 include('database/conexion.php');
 // Comprobamos si existe la sesión de apodo
@@ -59,7 +60,7 @@ $idioma = $consulta2->fetch();
 </head>
 
 <body>
-
+    <!-- Hacemos conexion con la pagina de cavezera para mostrarla -->
     <?php include("cabecera.php"); ?>
 
     <main id="contenido-fichalibro">
@@ -132,6 +133,7 @@ $idioma = $consulta2->fetch();
             </div>
 
         </div>
+        <!-- Boton para valorar el libro -->
         <div id="btn-valorar">
             <p>Baloratu liburua</p>
         </div>
@@ -143,7 +145,7 @@ $idioma = $consulta2->fetch();
         <h3 id="titulo-opinion">Irakurleen iritziak</h3>
 
         <?php
-
+        // Cargamos las opiniones de los libros
         $otraconsulta = $miPDO->prepare('SELECT * FROM opiniones WHERE validado = 1 AND id_libro = :id_libro ORDER BY id_opinion DESC ');
 
         // Ejecuta consulta
@@ -159,11 +161,13 @@ $idioma = $consulta2->fetch();
 
         ?>
         <div id="comment-count">
+            <!-- Mostramos la gente que ha comentado el libro -->
             <span id="count-number"><?php echo ('Liburu hau iruskindu duten pertsonek: ' . $count); ?></span>
             <br>
         </div>
         <div id="comentarios" class="">
             <?php
+            // Mientras haya comentrarios los cargamos 
             if ($count > 0) {
             }
             foreach ($comentarios as $opinion) {
