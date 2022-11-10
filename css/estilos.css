@@ -1906,13 +1906,8 @@ a#btneditar {
   border-bottom: 2px solid grey;
 }
 
-<<<<<<< HEAD
 .form-n{
   background-color:rgb(244, 243, 243);
-=======
-.form-n {
-  border: 1px solid rgb(221, 221, 221);
->>>>>>> ab36091924d44f0a73a24f76bf8653b1a21853d7
   border-radius: 3px;
   padding: 40px;
   width: 90%;
@@ -2108,7 +2103,3 @@ select:focus {
   margin: 30px;
   padding-bottom: 30px;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> ab36091924d44f0a73a24f76bf8653b1a21853d7

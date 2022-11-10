@@ -87,13 +87,13 @@ if (!isset($_SESSION['nickname'])) {
                 <button id="close">&times;</button>
                 <h1>Klase berria</h1>
                 <div class="caja-texto">
-                    <label for="fecha">Fecha límite: </label>
+                    <label for="fecha">Berreste-data: </label>
                     <input type="date" name="fecha" id="fecha">
                 </div>
                 <br>
                 <div class="caja-texto">
-                    <label for="nombre">Nombre de la clase:</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre de la clase" size="15">
+                    <label for="nombre">Klasearen izena:</label>
+                    <input type="text" name="nombre" id="nombre" placeholder="Klasearen izena" size="15">
                 </div>
                 <div class="caja-valorar">
                     <button id="valorar">Klasea sortu</button>

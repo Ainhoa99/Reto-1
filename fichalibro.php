@@ -237,7 +237,6 @@ $idioma = $consulta2->fetch();
                     <br>
                     <button name="iritzia" id="opinar">Iruzkindu</button>
                 </div>
-                <<<<<<< HEAD=======>>>>>>> ab36091924d44f0a73a24f76bf8653b1a21853d7
             </div>
 
         </form>

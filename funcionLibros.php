@@ -19,12 +19,21 @@ function anadirlibros($respuesta)
         echo "<div class='caja-medias-libro'>";
         //Nota media
         echo "<div class='caja-notamedia'>";
-        echo "<p class='libro-notamedia'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
+        if($libros['notamedia'] == ""){
+            echo "<p class='libro-notamedia'><i class='fas fa-star'></i><span>-</span></p>";
+        }else{
+            echo "<p class='libro-notamedia'><i class='fas fa-star'></i><span>" . $libros['notamedia'] . "</span></p>";
+        };
+        
         echo "</div>";
         //Edad media
         echo "<div class='caja-libro-edadmedia'>";
         echo "<p class='libro-edadmedia-texto'><span>Batez</span> <span>besteko</span> <span>adina</span></p>";
-        echo "<p class='libro-edadmedia'>" . $libros['edadmedia'] . "</p>";
+        if($libros['edadmedia'] == ""){
+            echo "<p class='libro-edadmedia'>-</p>";
+        }else{
+            echo "<p class='libro-edadmedia'>" . $libros['edadmedia'] . "</p>";
+        };
         echo "</div>";
 
         echo "</div>";
