@@ -13,20 +13,35 @@ if (!isset($_SESSION['nickname'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
+    <title>Nuevo profesor</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estiloGenerico.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Custom Scripts -->
     <script src="js/scriptValidaciones.js" defer></script>
-    <title>Nuevo profesor</title>
+    <script src="js/scripts.js"></script>
+</head>
+
+
+
 </head>
 
 <body>
-    <div class="container">
-        <button class="form__button" type="submit" id="volverInicio"><a href="index.php" class='boton_inicio'>Volver a la pagina principal</a></button>
+    <?php include('cabecera.php'); ?>
+    <main class="container-nuevo">
+        <h2>Gehitu irakaslea</h2>
         <?php
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -70,10 +85,9 @@ if (!isset($_SESSION['nickname'])) {
             };
         }
         ?>
-        <form class="form" id="register" action="" method="post">
-            <img id="logobueno" src="src/Logobueno.png" alt="Logo">
-            <div id="main">
-
+        <form class="form-n" id="register" action="" method="post">
+        
+            <div>
                 <div class="fila">
                     <!-- NOMRBRE -->
                     <div class="formulario__grupo" id="grupo__nombre">
@@ -159,7 +173,8 @@ if (!isset($_SESSION['nickname'])) {
 
 
         </form>
-    </div>
+    </main>
+    <?php include('pie-pagina.php'); ?>
 </body>
 
 </html>

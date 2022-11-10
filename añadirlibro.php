@@ -1,5 +1,12 @@
 <?php
 include_once "database/conexion.php";
+
+session_start();
+if (!isset($_SESSION['nickname'])) {
+    // En caso contrario devolvemos a la página login.php
+    header('Location: login.php');
+    die();
+}
 ?>
 
 
@@ -10,13 +17,22 @@ include_once "database/conexion.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estiloGenerico.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="js/scripts.js"></script>
     <!-- <script src="js/scriptValidaciones.js" defer></script> -->
-    <title>AÑADIRLIBRO</title>
+    <title>Liburu berria - IGKLUBA</title>
 </head>
 
 <body>
-    <div class="container">
+    <?php include('cabecera.php'); ?>
+    <main class="container-nuevo">
+        <h2>Liburu berria</h2>
         <?php
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -110,9 +126,8 @@ include_once "database/conexion.php";
             };
         }
         ?>
-        <form class="form" id="register" action="" method="post" enctype="multipart/form-data">
-            <img id="logobueno" src="src/Logobueno.png" alt="Logo">
-            <div id="main">
+        <form class="form-n" id="añadir-libro" action="" method="post" enctype="multipart/form-data">
+            <div>
                 <div class="fila">
                     <!-- TITULO LIBRO -->
                     <div class="formulario__grupo" id="grupo__apellidos">
@@ -172,12 +187,11 @@ include_once "database/conexion.php";
                     </div>
                 </div>
                 <div class="fila">
-                    <!-- CONTRASEÑA -->
 
-                    <!-- CONTRASEÑA 2 -->
+                    <!-- Sinopsis 2 -->
                     <div class="formulario__grupo" id="grupo__password2">
                         <div class="formulario__grupo-input">
-                            <textarea type="text" name="sinopsis" class="formulario__input" id="password2" size="40" autofocus placeholder="sinopsia/laburpena"></textarea>
+                            <textarea type="text" name="sinopsis" class="formulario__input" id="password2" size="40" autofocus placeholder="Sinopsia/laburpena"></textarea>
                         </div>
                         <!-- <p class="formulario__input-error">Pasahitzak berdinak izan behar dira.</p> -->
                     </div>
@@ -208,11 +222,12 @@ include_once "database/conexion.php";
                 </div>
 
                 <p class="form__text">
-                    <a class="form__link" href="login.php" id="linkCreateAccount">Baduzu kontu bat? Saioa hasi</a>
+                    <a class="form__link" href="index.php" id="linkCreateAccount">Baduzu kontu bat? Saioa hasi</a>
                 </p>
 
         </form>
-    </div>
+    </main>
+    <?php include('pie-pagina.php'); ?>
 </body>
 
 </html>

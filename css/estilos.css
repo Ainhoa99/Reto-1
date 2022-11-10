@@ -321,8 +321,7 @@ body {
   transition: 0.5s;
 }
 
-.galeria-img img:hover {
-  opacity: 0.6;
+.galeria-img img:hover{
   transition: 0.2s;
 }
 
@@ -1208,7 +1207,7 @@ a#btneditar {
   max-width: 800px;
 }
 
-#validacion h1{
+#validacion h2{
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1216,16 +1215,17 @@ a#btneditar {
   color: #555555;
   margin-top: 20px;
   margin-bottom: 30px;
+  font-size: 2.5rem;
 }
 
-#validacion h1::after{
+#validacion h2::after{
   content: "";
   width: 80px;
   padding-top: 7px;
   border-bottom: 2px solid rgb(107, 107, 107);
 }
 
-#validacion h2{
+#validacion h3{
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1233,6 +1233,7 @@ a#btneditar {
   color: #555555;
   margin-bottom: 30px;
   padding-bottom: 20px;
+  font-size: 2rem;
   border-bottom: 1px solid #d6d6d6;
 }
 
@@ -1267,8 +1268,17 @@ a#btneditar {
 
 .tabla-validar td:last-child{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 0;
+}
+
+/*validacon libro */
+#validacion .img-libro-validado{
+  width: 100px;
+}
+
+.img-libro-validado img{
+  width: 100%;
 }
 
 /* botones validar */
@@ -1593,6 +1603,11 @@ a#btneditar {
   .todas-mis-clases {
     justify-content: center;
   }
+
+  /*** nuevo profesor y añadir libro ***/
+  .container-nuevo{
+    margin-top: 50px;
+  }
 }
 
 /***********************  CORTE - TRAMO PANTALLA 2    **********************/
@@ -1800,3 +1815,226 @@ a#btneditar {
     min-width: 250px;
   }
 }
+
+/************************  NUEVO PROFESOR *******************/
+.container-nuevo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-nuevo h2 {
+  font-size: 3rem;
+  font-family: "Playfair";
+  color: #6d6d6d;
+  padding: 10px;
+  margin: 30px 0;
+  margin-bottom: 50px;
+  position: relative;
+  width: auto;
+}
+
+.container-nuevo h2::after {
+  content: "";
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 26%;
+  width: 100px;
+  border-bottom: 2px solid grey;
+}
+
+.form-n{
+  border:1px solid rgb(221, 221, 221);
+  border-radius: 3px;
+  padding: 40px;
+  width: 90%;
+  max-width: 700px;
+}
+
+.container,
+.formulario__input,
+.form__button {
+  font: 500 0.9rem "Quicksand", sans-serif;
+}
+.form--hidden {
+  display: none;
+}
+.form-n > *:last-child {
+  margin-bottom: 0;
+}
+.form__title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.formulario__grupo-input {
+  margin-bottom: 1rem;
+}
+.formulario__input,
+select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  font-size: 1.3rem;
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+  transition: background 0.2s, border-color 0.2s;
+}
+.formulario__input:focus,
+select:focus {
+  border-color: var(--color-primary);
+  background: #ffffff;
+}
+
+/* Boton formulario */
+
+.formulario__grupo-btn-enviar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.form__button {
+  width: 50%;
+  max-width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(210, 53, 5);
+  font-family: "Arial";
+}
+.form__button:hover {
+  background-color: rgb(254, 99, 52);
+}
+.form__button:active {
+  transform: scale(0.98);
+}
+
+/* texto y lik otro form */
+.form__text {
+  text-align: center;
+  font-family: "Playfair";
+  font-size: 1.1rem;
+}
+
+.fila,
+#nombre {
+  display: flex;
+}
+
+.fila div {
+  width: 100%;
+}
+
+.formulario__grupo {
+  padding: 0.5rem;
+}
+
+select {
+  background-color: #eeeeee;
+}
+
+.formulario__input-error {
+  display: none;
+}
+
+.formulario__input-error-activo {
+  display: block;
+  margin-top: 0;
+}
+
+.formulario__mensaje-exito {
+  font-size: 14px;
+  color: #119200;
+  display: none;
+}
+
+.formulario__mensaje-exito-activo {
+  display: block;
+  font-size: small;
+}
+
+.formulario__mensaje {
+  background: #f66060;
+  padding: 0 15px;
+  border-radius: 3px;
+  display: none;
+  margin-top: 15px;
+}
+
+.formulario__mensaje-activo {
+  display: block;
+}
+
+.formulario__mensaje p {
+  margin: 0;
+  padding-block: 0.5rem;
+}
+
+/*VALIDACION*/
+/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario__grupo-correcto .formulario__input {
+  border: 3px solid var(--color-success);
+  border-radius: var(--border-radius);
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+  border: 3px solid #bb2929;
+  border-radius: var(--border-radius);
+}
+
+.form__link {
+  color: var(--color-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.form__link:hover {
+  text-decoration: underline;
+}
+
+.form__link{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  border-top: 1px solid rgb(218, 218, 218);
+}
+
+.form-n .form__link{
+  margin-top: 30px;
+}
+
+#cambio-contra{
+  margin: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ninguno-mislibros{
+  font-size: 2.5rem;
+  color:rgb(99, 99, 99);
+  font-family: "Playfair";
+  text-align: center;
+  margin: 30px;
+  padding-bottom: 30px;
+}
+
+
+@media(min-width: 900px){
+
+  
+
+
+}
+

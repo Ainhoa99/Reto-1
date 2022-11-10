@@ -16,7 +16,7 @@ include_once "database/conexion.php";
 </head>
 
 <body>
-    <div class="container">
+    <main class="container">
         <?php
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -67,7 +67,7 @@ include_once "database/conexion.php";
         }
         ?>
         <form class="form" id="register" action="" method="post">
-            <img id="logobueno" src="src/Logobueno.png" alt="Logo">
+            <img id="logobueno" src="src/LOGO.png" alt="Logo">
             <div id="main">
                 <div class="fila">
                     <!-- NOMRBRE -->
@@ -126,7 +126,7 @@ include_once "database/conexion.php";
                 </div>
 
 
-                <div class="fila">
+                <div class="fila ultima-fila">
                     <div class="formulario__grupo-input">
                         <span>Curtsoa:</span>
                         <select name="nivel" id="nivel">
@@ -167,11 +167,11 @@ include_once "database/conexion.php";
                 </div>
 
                 <p class="form__text">
-                    <a class="form__link" href="login.php" id="linkCreateAccount">Baduzu kontu bat? Saioa hasi</a>
+                    <a class="form__link" href="login.php" id="linkCreateAccount">Baduzu kontu bat? <span>Saioa hasi</span></a>
                 </p>
 
         </form>
-    </div>
+    </main>
 </body>
 
 </html>

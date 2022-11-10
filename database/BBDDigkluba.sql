@@ -107,6 +107,7 @@ CREATE TABLE libros (
   notamedia int(2) NOT NULL,
   num_lectores int(4) NOT NULL,
   id_idioma int(11) NOT NULL,
+  validado tinyint(1) NOT NULL,
   link_compra varchar(100) DEFAULT NULL,
   PRIMARY KEY (id_libro)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -14,14 +14,24 @@ if (!isset($_SESSION['nickname'])) {
 
 <head>
     <meta charset="UTF-8">
+    <title>Pasahitza Berria</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estiloGenerico.css">
-    <title>Pasahitza Berria</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="js/scripts.js"></script>
+    <!-- <script src="js/scriptValidaciones.js" defer></script> -->
+    
 </head>
 
 <body>
-    <div class="container">
+    <?php include('cabecera.php'); ?>
+    <main class="container-nuevo">
         <?php
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -58,8 +68,7 @@ if (!isset($_SESSION['nickname'])) {
             }
         }
         ?>
-        <form class="form" id="login" action="" method="post">
-            <img id="logobueno" src="src/Logobueno.png" alt="Logo">
+        <form class="form-n" id="cambio-contra" action="" method="post">
 
             <div class="formulario__grupo-input">
                 <input type="text" class="formulario__input" name="password" autofocus placeholder="Zure pasahitza">
@@ -74,7 +83,8 @@ if (!isset($_SESSION['nickname'])) {
             <button class="form__button" type="submit">Pasahitza aldatu</button>
 
         </form>
-    </div>
+    </main>
+    <?php include('pie-pagina.php'); ?>
 </body>
 
 </html>

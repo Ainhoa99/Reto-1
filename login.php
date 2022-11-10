@@ -10,12 +10,15 @@ include_once "database/conexion.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
     <link rel="stylesheet" href="css/estiloGenerico.css">
-    <title>LOGIN</title>
+    <title>Login - IGKLUBA</title>
 </head>
 
 <body>
-    <div class="container">
+    <main class="container">
         <?php
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -52,22 +55,32 @@ include_once "database/conexion.php";
         }
         ?>
         <form class="form" id="login" action="" method="post">
-            <img id="logobueno" src="src/Logobueno.png" alt="Logo">
-
-            <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="nickname" autofocus placeholder="Email-a edo ezizena">
-
+            <div class="form-caja-logo">
             </div>
-            <div class="formulario__grupo-input">
-                <input type="password" class="formulario__input" name="password" autofocus placeholder="Pasahitza">
-            </div>
-            <button class="form__button" type="submit">Saioa hasi</button>
+            
+            <div class="form-caja-campos">
+                <figure class="login-caja-logo">
+                    <img class="logobueno" src="src/LOGO.png" alt="Logo">
+                </figure>
+                <div class="formulario__grupo-input login-usuario">
+                    <input type="text" class="formulario__input" name="nickname" autofocus placeholder="Email-a edo ezizena">
+                    <i class="far fa-user"></i>
+                </div>
 
-            <p class="form__text">
-                <a class="form__link" href="registro.php" id="linkCreateAccount">Oraindik ez duzu konturik? Sortu bat</a>
-            </p>
+                <div class="formulario__grupo-input login-contra">
+                    <input type="password" class="formulario__input" name="password" autofocus placeholder="Pasahitza">
+                    <i class="fas fa-unlock-alt"></i>
+                </div>
+
+                <div class="formulario__grupo formulario__grupo-btn-enviar">
+                    <button class="form__button" type="submit">Saioa hasi</button>
+                </div>
+                <p class="form__text">
+                    <a class="form__link" href="registro.php" id="linkCreateAccount">Oraindik ez duzu konturik? <span>Sortu bat</span></a>
+                </p>
+            </div>
         </form>
-    </div>
+    </main>
 </body>
 
 </html>
