@@ -85,13 +85,19 @@ if (!isset($_SESSION['nickname'])) {
         <div class="modal">
             <form id="form-valorar" action="formClases.php" method="get">
                 <button id="close">&times;</button>
-                <h1>KLASE BERRIA</h1>
-                <label for="fecha">Fecha límite: </label>
-                <input type="date" name="fecha" id="fecha">
+                <h1>Klase berria</h1>
+                <div class="caja-texto">
+                    <label for="fecha">Fecha límite: </label>
+                    <input type="date" name="fecha" id="fecha">
+                </div>
                 <br>
-                <label for="nombre">Nombre de la clase:</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre de la clase">
-                <button id="valorar">Klasea sortu</button>
+                <div class="caja-texto">
+                    <label for="nombre">Nombre de la clase:</label>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre de la clase" size="15">
+                </div>
+                <div class="caja-valorar">
+                    <button id="valorar">Klasea sortu</button>
+                </div>
             </form>
         </div>
     </div>
