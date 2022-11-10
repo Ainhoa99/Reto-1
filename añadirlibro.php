@@ -134,14 +134,12 @@ if (!isset($_SESSION['nickname'])) {
                         <div class="formulario__grupo-input">
                             <input type="text" class="formulario__input" name="titulo_libro" id="apellidos" size="40" autofocus placeholder="Liburuaren Izenburua">
                         </div>
-                        <!-- <p class="formulario__input-error">Abizenak 3 eta 16 digitu artekoa izan behar du, eta letrak bakarrik eduki ditzake, beti letra larriz hasita.</p> -->
                     </div>
                     <!-- ESCRITOR -->
                     <div class="formulario__grupo" id="grupo__nickname">
                         <div class="formulario__grupo-input">
                             <input type="text" class="formulario__input" name="autor" id="nickname" size="40" autofocus placeholder="Idazlea">
                         </div>
-                        <!-- <p class="formulario__input-error">Ezizena 4-16 digitu izan behar ditu, eta zenbakiak, letrak eta gidoi baxua baino ezin ditu izan.</p> -->
                     </div>
 
                 </div>
@@ -151,7 +149,6 @@ if (!isset($_SESSION['nickname'])) {
                         <div class="formulario__grupo-input">
                             <input type="year" name="ano_de_libro" class="formulario__input" id="password" size="40" autofocus placeholder="Liburuaren argitaratze data">
                         </div>
-                        <!-- <p class="formulario__input-error">Pasahitzak 4 eta 12 digitu artekoa izan behar du.</p> -->
                     </div>
 
                     <!-- NICKNAME -->
@@ -159,7 +156,6 @@ if (!isset($_SESSION['nickname'])) {
                         <div class="formulario__grupo-input">
                             <input type="text" name="formato" class="formulario__input" id="password" size="40" autofocus placeholder="Formatua">
                         </div>
-                        <!-- <p class="formulario__input-error">Pasahitzak 4 eta 12 digitu artekoa izan behar du.</p> -->
                     </div>
 
                 </div>
@@ -183,7 +179,6 @@ if (!isset($_SESSION['nickname'])) {
                         <div class="formulario__grupo-input">
                             <input type="text" class="formulario__input" name="isbn" id="nombre" size="40" autofocus placeholder="Isbn zembakia">
                         </div>
-                        <!-- <p class="formulario__input-error">Izenak 3 eta 16 digitu artekoa izan behar du, eta letrak bakarrik eduki ditzake, beti letra larriz hasita.</p> -->
                     </div>
                 </div>
                 <div class="fila">
@@ -193,23 +188,14 @@ if (!isset($_SESSION['nickname'])) {
                         <div class="formulario__grupo-input">
                             <textarea type="text" name="sinopsis" class="formulario__input" id="password2" size="40" autofocus placeholder="Sinopsia/laburpena"></textarea>
                         </div>
-                        <!-- <p class="formulario__input-error">Pasahitzak berdinak izan behar dira.</p> -->
                     </div>
                 </div>
                 <div class="fila">
-                    <!-- CONTRASEÑA -->
-                    <div class="formulario__grupo" id="grupo__password2">
-                        <div class="formulario__grupo-input">
-                            <input type="text" name="link_compra" class="formulario__input" id="password2" size="40" autofocus placeholder="Erosteko linka">
-                        </div>
-                        <!-- <p class="formulario__input-error">Pasahitzak berdinak izan behar dira.</p> -->
-                    </div>
-                    <!-- CONTRASEÑA 2 -->
+                    <!-- Portada del libro -->
                     <div class="formulario__grupo" id="grupo__email">
                         <div class="formulario__grupo-input">
                             <input type="file" class="formulario__input" name="foto" id="foto" size="40" autofocus placeholder="Liburuaren azala">
                         </div>
-                        <!-- <p class="formulario__input-error">Email-a letrak, zenbakiak, puntuak, gidoiak eta gidoi baxua baino ezin ditu izan.</p> -->
                     </div>
                 </div>
                 <div class="formulario__mensaje" id="formulario__mensaje">
