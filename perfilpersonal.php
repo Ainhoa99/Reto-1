@@ -68,7 +68,6 @@ if (!isset($_SESSION['nickname'])) {
                 <div id="foto">
                     <figure class='foto'><img src='src/<?php echo ($respuesta['foto']) ?>'></figure>
                     <input type='file' id='foto' style='display: none'>
-                    <button class="btn-editar"><a id="btneditar" href='cambioFoto.php'>higo argazkia</a></button>
                 </div>
 
                 <div id='caja-info-perfil'>
