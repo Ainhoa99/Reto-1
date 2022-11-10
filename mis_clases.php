@@ -32,7 +32,7 @@ if (!isset($_SESSION['nickname'])) {
     <main id="contenido-mislibros">
         <div id="btn-clase-nueva">
             <div id='enlace-clase-nueva'>
-                <i class="fas fa-plus-square"></i>
+                <i class="fas fa-plus"></i>
                 <p><span>Klase </span><span>berria</span></p>
             </div>
         </div>

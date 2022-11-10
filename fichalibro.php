@@ -134,8 +134,10 @@ $idioma = $consulta2->fetch();
 
         </div>
         <!-- Boton para valorar el libro -->
-        <div id="btn-valorar">
+        <div id="caja-btn-valorar">
+            <div id="btn-valorar">
             <p>Baloratu liburua</p>
+            </div>
         </div>
 
 
@@ -186,8 +188,10 @@ $idioma = $consulta2->fetch();
             ?>
         </div>
 
-        <div id="btn-opinion">
-            <p>Eman zure iritzia</p>
+        <div id="caja-btn-opinion">
+            <div id="btn-opinion">
+                <p>Eman zure iritzia</p>
+            </div>
         </div>
 
         <form id="form-opinion" class="ocultar" action="formopiniones.php" method="get">
@@ -213,9 +217,6 @@ $idioma = $consulta2->fetch();
                     <br>
                     <button name="iritzia" id="opinar">Iruzkindu</button>
                 </div>
-
-
-
             </div>
 
         </form>
