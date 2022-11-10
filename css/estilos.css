@@ -452,7 +452,7 @@ body {
   flex-direction: column;
   align-items: center;
   border-bottom: 1px solid rgb(185, 185, 185);
-  margin: 30px;
+  margin: 10px;
   padding-top: 30px;
   font-family: Arial;
   font-size: 1.4rem;
@@ -994,7 +994,13 @@ body {
 
 #titulo-opinion {
   margin: 20px 0;
+  padding-top: 20px;
   font-family: Arial;
+}
+
+.ya-valorado, #count-number{
+  padding-top: 20px;
+  color:rgb(74, 74, 74);
 }
 
 #comentarios {
@@ -1026,14 +1032,29 @@ body {
 /***** Estilo añadir opinion *****/
 
 .añadir-comentario {
-  padding: 0 10px;
+  
   color: rgb(212, 56, 9);
   font-family: "Palaquin";
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.añadir-comentario label{
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid rgb(230, 230, 230);;
+}
+
+.añadir-comentario:first-child {
+  margin-bottom: 20px;
 }
 
 .fecha-opinion {
   margin: 10px;
 }
+
 
 /** estilo comentarios **/
 
@@ -1304,7 +1325,7 @@ a#btneditar {
   min-width: 0;
 }
 
-/*validacon libro */
+/*validacion libro */
 #validacion .img-libro-validado {
   width: 100px;
 }
@@ -1334,7 +1355,7 @@ a#btneditar {
   color: red;
 }
 
-/**** Pie de página ****/
+/********** Pie de página *********/
 
 #pie-pagina {
   font-size: 1.4rem;
@@ -1346,6 +1367,12 @@ a#btneditar {
 
 #caja-fotofrase p {
   padding: 30px;
+}
+
+#caja-logo-pie{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #logo-pie {
@@ -1366,6 +1393,12 @@ a#btneditar {
 #contacto {
   padding: 20px;
 }
+
+#contacto:hover a{
+  color:rgb(151, 151, 151);
+}
+
+
 
 #pie-pagina a {
   text-decoration: none;
@@ -1466,31 +1499,50 @@ a#btneditar {
 
   /*Pie pagina*/
 
+  #logo-pie {
+    width: 100%;
+  }
+
+  #caja-logo-pie{
+    width: 50%;
+  }
+
   #contenedor-pie {
     display: flex;
     justify-content: space-around;
   }
 
-  #contenedor-pie p {
-    width: 50%;
-    max-width: 550px;
-    margin: 20px;
-    border-top: none;
+  #caja-fotofrase{
+    max-width: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
   }
 
-  #caja-fotofrase {
-    display: flex;
+  #contenedor-pie p {
+    max-width: 550px;
+    border: none;
+    padding: 10px;
   }
+
+  #contenedor-pie{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    border: 2px solid red;
+    padding: 0;
+  }
+
 
   #caja-fotofrase p {
+    display: flex;
     padding: 20px;
     margin: 30px;
-    max-width: 650px;
+    border-right: none;
+    width: 50%;
+    max-width: 600px;
   }
 
-  #logo-pie {
-    background-color: transparent;
-  }
 
   #pie-pagina p {
     border-right: 1px solid rgb(203, 203, 203);

@@ -48,13 +48,13 @@ include_once "database/conexion.php";
                     header('Location: index.php');
                     die();
                 } else{
-                    echo '<p style="color: red" class="form__text">El email o la contraseña es incorrecta.</p>';
+                    echo '<p style="color: red" class="form__text">Email-a edo pasahitza ez dira zuzenak.</p>';
                 };
             } else{
-                    echo '<p style="color: red" class="form__text">El email o la contraseña es incorrecta.</p>';
+                    echo '<p style="color: red" class="form__text">Email-a edo pasahitza ez dira zuzenak.</p>';
                 };
             }else{
-                echo '<p style="color: red" class="form__text">Datu guztiak bete behar dituzu</p>';
+                echo '<p style="color: red" class="form__text">Datu guztiak bete behar dituzu.</p>';
             }
             
             

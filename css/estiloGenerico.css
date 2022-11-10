@@ -321,6 +321,7 @@ button#volverInicio {
   margin-bottom: 0.5rem;
 }
 
+
 @media(min-width: 900px){
 
   /* Formulario inicio */
@@ -354,6 +355,8 @@ button#volverInicio {
   .form{
     padding: 0;
   }
+
+  
 
 
 }

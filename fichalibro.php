@@ -145,22 +145,17 @@ $idioma = $consulta2->fetch();
         $consultaValoracion = $consulta->fetch();
         if (!empty($consultaValoracion)) {
             echo "<div id='comment-count'>";
-            echo "<p>Liburu hau dagoeneko baloratu duzu </p>";
+            echo "<p class='ya-valorado'>Liburu hau dagoeneko baloratu duzu </p>";
             echo "</div>";
         } else {
             // Boton para valorar el libro
             echo "<div id='caja-btn-valorar'>";
-            echo "<div id='btn-valorar'>";
-            echo "<p >Baloratu liburua</p>";
-            echo "</div>";
+                echo "<div id='btn-valorar'>";
+                    echo "<p >Baloratu liburua</p>";
+                echo "</div>";
             echo "</div>";
         };
         ?>
-
-
-
-
-
 
         <h3 id="titulo-opinion">Irakurleen iritziak</h3>
 
@@ -235,8 +230,8 @@ $idioma = $consulta2->fetch();
                     <!-- Asociamos un libro a la opinion/comentario -->
                     <input type="hidden" name="libro" value="<?php echo $_GET['liburua'] ?>">
                     <br>
-                    <button name="iritzia" id="opinar">Iruzkindu</button>
                 </div>
+                <button name="iritzia" id="opinar">Iruzkindu</button>
             </div>
 
         </form>
