@@ -142,20 +142,6 @@ CREATE TABLE opiniones (
   PRIMARY KEY (id_opinion)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla peticiondelibro
---
-
-CREATE TABLE peticiondelibro (
-  id_peticion int(11) NOT NULL AUTO_INCREMENT,
-  titulo_libro varchar(20) NOT NULL,
-  estado enum('Aceptada','Espera','Denegada') DEFAULT NULL,
-  nickname varchar(30) NOT NULL,
-  edad int(2) NOT NULL,
-  PRIMARY KEY (id_peticion)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -235,12 +221,6 @@ ALTER TABLE opiniones
   ADD KEY nickname (nickname),
   ADD KEY id_libro (id_libro);
 
---
--- Indices de la tabla peticiondelibro
---
-ALTER TABLE peticiondelibro
-  ADD KEY titulo_libro (titulo_libro),
-  ADD KEY nickname (nickname);
 
 --
 -- Indices de la tabla usuarios
@@ -282,13 +262,7 @@ ALTER TABLE opiniones
   ADD CONSTRAINT opiniones_ibfk_1 FOREIGN KEY (nickname) REFERENCES usuarios (nickname),
   ADD CONSTRAINT opiniones_ibfk_2 FOREIGN KEY (id_libro) REFERENCES libros (id_libro);
 
---
--- Filtros para la tabla peticiondelibro
---
-ALTER TABLE peticiondelibro
-  ADD CONSTRAINT peticiondelibro_ibfk_2 FOREIGN KEY (nickname) REFERENCES usuarios (nickname);
 
---
 -- Filtros para la tabla usuarios
 --
 ALTER TABLE usuarios

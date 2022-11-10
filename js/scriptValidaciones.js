@@ -156,7 +156,7 @@ formulario.addEventListener("submit", (e) => {
       .classList.add("formulario__mensaje-exito-activo");
     setTimeout(() => {
       // document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-    }, 1000);
+    }, 1);
     formulario.submit();
   } else {
     document

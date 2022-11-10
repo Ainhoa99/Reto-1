@@ -85,13 +85,30 @@ $idioma = $consulta2->fetch();
                     <div id='contenedor-valoracion'>
                         <!-- Valoración -nota media  -->
                         <div class='caja-notamedia'>
-                            <p class='ficha-notamedia-text'><i class='fas fa-star'></i><span><?php echo $libros['notamedia'] ?> </span></p>
-                            <!-- batez besteko nota -->
+                            <p class='ficha-notamedia-text'><i class='fas fa-star'></i>
+                                <span>
+                                    <?php
+                                    if ($libros['notamedia'] == "") {
+                                        echo "-";
+                                    } else {
+                                        echo $libros['notamedia'];
+                                    };
+                                    ?>
+                                </span>
+                            </p>
                         </div>
                         <!-- Edad media -->
                         <div class='caja-ficha-edadmedia'>
                             <p class='texto-edadmedia'><span>Batez</span> <span>besteko</span> <span>adina</span></p>
-                            <p class='ficha-edadmedia'> <?php echo $libros['edadmedia'] ?></p>
+                            <p class='ficha-edadmedia'>
+                                <?php
+                                if ($libros['edadmedia'] == "") {
+                                    echo "-";
+                                } else {
+                                    echo $libros['edadmedia'];
+                                };
+                                ?>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -152,9 +169,9 @@ $idioma = $consulta2->fetch();
         } else {
             // Boton para valorar el libro
             echo "<div id='caja-btn-valorar'>";
-                echo "<div id='btn-valorar'>";
-                    echo "<p >Baloratu liburua</p>";
-                echo "</div>";
+            echo "<div id='btn-valorar'>";
+            echo "<p >Baloratu liburua</p>";
+            echo "</div>";
             echo "</div>";
         };
         ?>
@@ -195,7 +212,6 @@ $idioma = $consulta2->fetch();
 
                 echo "<p class='nombre-opinion' method='get'>" . $opinion['nickname'] . "</p>";
                 echo "<p class='opinion' method='get'><span>\"</span>" . $opinion['opinion'] . "</p>";
-                echo "<div class='responder'><p>Erantzun</p></div>";
 
                 echo "</div>";
             }

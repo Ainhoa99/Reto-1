@@ -1,5 +1,6 @@
 <?php
 include_once "database/conexion.php";
+$todo_ok = true;
 ?>
 
 
@@ -20,6 +21,7 @@ include_once "database/conexion.php";
         <?php
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
             // Variables del formulario
             $nombre = isset($_REQUEST['nombre']) ? $_REQUEST['nombre'] : null;
             $apellidos = isset($_REQUEST['apellidos']) ? $_REQUEST['apellidos'] : null;
@@ -62,7 +64,7 @@ include_once "database/conexion.php";
                 header('Location: login.php');
                 die();
             } else {
-                echo '<div><p style="color: red" class="form__text">Badago erabiltzaile bat ezizen edo email honekin</p></div>';
+                $todo_ok = false;
             };
         }
         ?>
@@ -158,21 +160,27 @@ include_once "database/conexion.php";
 
                 </div>
                 <p type="text" id="politicaDePrivacidad">
-                    Erregistratzean, gure  <a href=""> baldintzak eta pribatutasun politika</a> onartzen dituzu
+                    Erregistratzean, gure <a href=""> baldintzak eta pribatutasun politika</a> onartzen dituzu
                 </p>
             </div>
+            <?php
+            if ($todo_ok == false) {
+                echo '<div><p style="color: red" class="form__text">Badago erabiltzaile bat ezizen edo email honekin</p></div>';
+            }
+            ?>
             <div class="formulario__mensaje" id="formulario__mensaje">
                 <p><i class="fas fa-exclamation-triangle"></i><b>Errorea:</b> Mesedez, bete formularioa behar bezala.</p>
             </div>
+
 
             <div class="formulario__grupo formulario__grupo-btn-enviar">
                 <button class="form__button" type="submit" id="btnRegistro">Erregistratu</button>
                 <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Ondo bidalitako formularioa!</p>
             </div>
 
-                <p class="form__text">
-                    <a class="form__link" href="login.php" id="linkCreateAccount">Baduzu kontu bat? <span>Saioa hasi</span></a>
-                </p>
+            <p class="form__text">
+                <a class="form__link" href="login.php" id="linkCreateAccount">Baduzu kontu bat? <span>Saioa hasi</span></a>
+            </p>
 
         </form>
     </main>

@@ -122,10 +122,10 @@ if (!isset($_SESSION['nickname'])) {
                     header('Location: index.php');
                     die();
                 } else {
-                    echo '<p style="color: red" class="form__text">Liburu hau dagoeneko gehitu da</p>';
+                    echo '<p style="color: red; font-size:medium" class="form__text">Liburu hau dagoeneko gehitu da</p>';
                 };
             } else {
-                echo '<p style="color: red" class="form__text">Eremu guztiak bete behar dituzu</p>';
+                echo '<p style="color: red; font-size:medium" class="form__text">Eremu guztiak bete behar dituzu</p>';
             };
         }
         ?>
@@ -135,13 +135,13 @@ if (!isset($_SESSION['nickname'])) {
                     <!-- TITULO LIBRO -->
                     <div class="formulario__grupo" id="grupo__apellidos">
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="titulo_libro" id="apellidos" size="40" autofocus placeholder="Liburuaren Izenburua">
+                            <input type="text" class="formulario__input" name="titulo_libro" id="titulo" size="40" autofocus placeholder="Liburuaren Izenburua">
                         </div>
                     </div>
                     <!-- ESCRITOR -->
                     <div class="formulario__grupo" id="grupo__nickname">
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="autor" id="nickname" size="40" autofocus placeholder="Idazlea">
+                            <input type="text" class="formulario__input" name="autor" id="autor" size="40" autofocus placeholder="Idazlea">
                         </div>
                     </div>
 
@@ -150,14 +150,14 @@ if (!isset($_SESSION['nickname'])) {
                     <!-- AÑO DEL LIBRO -->
                     <div class="formulario__grupo" id="grupo__password">
                         <div class="formulario__grupo-input">
-                            <input type="year" name="ano_de_libro" class="formulario__input" id="password" size="40" autofocus placeholder="Liburuaren argitaratze data">
+                            <input type="number" min="0" max="9999" name="ano_de_libro" class="formulario__input" id="año" size="40" autofocus placeholder="Liburuaren argitaratze data">
                         </div>
                     </div>
 
                     <!-- Formato -->
                     <div class="formulario__grupo" id="grupo__password">
                         <div class="formulario__grupo-input">
-                            <input type="text" name="formato" class="formulario__input" id="password" size="40" autofocus placeholder="Formatua">
+                            <input type="text" name="formato" class="formulario__input" id="formato" size="40" autofocus placeholder="Formatua">
                         </div>
                     </div>
 
@@ -165,7 +165,7 @@ if (!isset($_SESSION['nickname'])) {
                 <div class="fila">
                     <!-- Idioma del libro -->
                     <div class="formulario__grupo-input" id="caja-select-añadirlibro">
-                        <select name="idioma" id="centro">
+                        <select name="idioma" id="idioma">
                             <?php
                             //Consulta
                             $consulta = $miPDO->prepare("SELECT * FROM idiomalibro");
@@ -180,7 +180,7 @@ if (!isset($_SESSION['nickname'])) {
                     <!-- ISBN -->
                     <div class="formulario__grupo" id="grupo__nombre">
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="isbn" id="nombre" size="40" autofocus placeholder="Isbn zembakia">
+                            <input type="number" min="0000000000000" max="9999999999999" class="formulario__input" name="isbn" id="isbn" size="40" autofocus placeholder="Isbn zembakia">
                         </div>
                     </div>
                 </div>
@@ -189,7 +189,7 @@ if (!isset($_SESSION['nickname'])) {
                     <!-- Sinopsis -->
                     <div class="formulario__grupo" id="grupo__password2">
                         <div class="formulario__grupo-input">
-                            <textarea type="text" name="sinopsis" class="formulario__input" id="password2" size="40" autofocus placeholder="Sinopsia/laburpena"></textarea>
+                            <textarea type="text" name="sinopsis" class="formulario__input" id="sinopsis" size="40" autofocus placeholder="Sinopsia/laburpena"></textarea>
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,7 @@ if (!isset($_SESSION['nickname'])) {
                 </div>
 
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
-                    <button class="form__button" type="submit" id="btnRegistro">GeHitu Liburua</button>
+                    <button class="form__button" type="submit" id="btnRegistro">Gehitu Liburua</button>
                     <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Ondo bidalitako formularioa!</p>
                 </div>
 
