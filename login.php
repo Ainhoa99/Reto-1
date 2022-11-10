@@ -32,24 +32,31 @@ include_once "database/conexion.php";
                 ]
             );
             $usuario = $consulta->fetch();
-            $correo = $usuario['correo'];
-            $nickname = $usuario['nickname'];
-            $validado = $usuario['validado'];
+            if (!empty($usuario)){
+                $correo = $usuario['correo'];
+                $nickname = $usuario['nickname'];
+                $validado = $usuario['validado'];
 
-            // Comprobamos si los datos son correctos
-            if (password_verify($_REQUEST['password'], $usuario['password']) && $validado == 1) {
-                // Si son correctos, creamos la sesión
-                session_start();
-                $_SESSION['nickname'] = $usuario['nickname'];
-                $_SESSION['email'] = $usuario['correo'];
-                $_SESSION['tipo'] = $usuario['tipo'];
-                // Redireccionamos a la página segura
-                header('Location: index.php');
-                die();
-            }
+                // Comprobamos si los datos son correctos
+                if (password_verify($_REQUEST['password'], $usuario['password']) && $validado == 1) {
+                    // Si son correctos, creamos la sesión
+                    session_start();
+                    $_SESSION['nickname'] = $usuario['nickname'];
+                    $_SESSION['email'] = $usuario['correo'];
+                    $_SESSION['tipo'] = $usuario['tipo'];
+                    // Redireccionamos a la página segura
+                    header('Location: index.php');
+                    die();
+                } else{
+                    echo '<p style="color: red" class="form__text">El email o la contraseña es incorrecta.</p>';
+                };
             } else{
-                  echo '<p style="color: red" class="form__text">El email o la contraseña es incorrecta.</p>';
-            };
+                    echo '<p style="color: red" class="form__text">El email o la contraseña es incorrecta.</p>';
+                };
+            }else{
+                echo '<p style="color: red" class="form__text">Datu guztiak bete behar dituzu</p>';
+            }
+            
             
 
           
