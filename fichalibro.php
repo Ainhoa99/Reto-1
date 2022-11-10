@@ -149,7 +149,7 @@ $idioma = $consulta2->fetch();
             echo "</div>";
         } else{
             // Boton para valorar el libro
-            echo "<div id='caja-btn-valorar'>"
+            echo "<div id='caja-btn-valorar'>";
             echo "<div id='btn-valorar'>";
             echo "<p >Baloratu liburua</p>";
             echo "</div>";
