@@ -133,10 +133,28 @@ $idioma = $consulta2->fetch();
             </div>
 
         </div>
-        <!-- Boton para valorar el libro -->
-        <div id="btn-valorar">
-            <p>Baloratu liburua</p>
-        </div>
+
+        <?php
+        $consulta = $miPDO->prepare('SELECT id_valoracion FROM valoraciones WHERE nickname = :nickname AND id_libro = :id_libro');
+        $consulta->execute(
+            [
+                'nickname' => $_SESSION['nickname'],
+                'id_libro' => $_GET['liburua']
+            ]
+        );
+        $consultaValoracion=$consulta->fetch();
+        if(!empty($consultaValoracion)){
+            echo "<div id='comment-count'>";
+            echo "<p>Liburu hau dagoeneko baloratu duzu </p>";
+            echo "</div>";
+        } else{
+            // Boton para valorar el libro
+            echo "<div id='btn-valorar'>";
+            echo "<p >Baloratu liburua</p>";
+            echo "</div>";
+        };
+        ?>
+       
 
 
 
