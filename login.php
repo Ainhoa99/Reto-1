@@ -20,7 +20,7 @@ include_once "database/conexion.php";
         // Comprobamos que nos llega los datos del formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-
+            if(($_REQUEST['password']!="") && ($_REQUEST['nickname']!="")){
             // Base de datos.
             $consulta = $miPDO->prepare('SELECT nickname, correo, password, validado, tipo FROM usuarios WHERE nickname = :usuario OR correo = :usuario');
             $consulta->execute(
@@ -47,9 +47,13 @@ include_once "database/conexion.php";
             echo $_REQUEST['password'];
             echo $usuario['password'];
             var_dump(password_verify($_REQUEST['password'], $usuario['password']));
+            } else{
+                  echo '<p style="color: red" class="form__text">El email o la contraseña es incorrecta.</p>';
+            };
+            
 
-            echo '<p style="color: red" class="form__text">El email o la contraseña es incorrecta.</p>';
-        }
+          
+                     }
         ?>
         <form class="form" id="login" action="" method="post">
             <img id="logobueno" src="src/Logobueno.png" alt="Logo">
