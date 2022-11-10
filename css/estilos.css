@@ -1320,7 +1320,6 @@ a#btneditar {
 }
 
 .tabla-validar td:last-child {
-  display: flex;
   justify-content: flex-start;
   min-width: 0;
 }
@@ -1799,7 +1798,6 @@ a#btneditar {
 
 @media (min-width: 1300px) {
   .libro {
-    width: 20%;
     margin: 10px;
   }
 

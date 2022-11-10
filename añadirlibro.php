@@ -46,7 +46,7 @@ if (!isset($_SESSION['nickname'])) {
             $formato = $_REQUEST['formato'];
             $idioma  = $_REQUEST['idioma'];
 
-            if(($isbn !="")&&($titulo_libro !="")&&($autor !="")&&($ano_de_libro !="")&&($sinopsis !="")&&($formato !="")&&($idioma !="")){
+            if (($isbn != "") && ($titulo_libro != "") && ($autor != "") && ($ano_de_libro != "") && ($sinopsis != "") && ($formato != "") && ($idioma != "")) {
                 // Hacemos la consulta para comprobar si el libro ya esta en la base de datos
                 $comprobar = $miPDO->prepare('SELECT id_libro FROM libros WHERE isbn = :isbn');
                 $comprobar->execute(['isbn' => $isbn]);
@@ -121,14 +121,12 @@ if (!isset($_SESSION['nickname'])) {
 
                     header('Location: index.php');
                     die();
-                } else{
+                } else {
                     echo '<p style="color: red" class="form__text">Liburu hau dagoeneko gehitu da</p>';
                 };
-            } else{
+            } else {
                 echo '<p style="color: red" class="form__text">Eremu guztiak bete behar dituzu</p>';
             };
-
-            
         }
         ?>
         <form class="form-n" id="añadir-libro" action="" method="post" enctype="multipart/form-data">
