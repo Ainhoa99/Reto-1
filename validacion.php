@@ -147,49 +147,46 @@ if (!isset($_SESSION['nickname'])) {
                         <th>Azala</th>
                         <th>Izenburua</th>
                         <th>Idazlea</th>
-                        <th>Sinopsia</th>
-                        <th>ISBN</th>
+                        <th>Fitxa teknikoa</th>
                         <th>Onartu?</th>
                     </tr>
  
                     <?php
-                    $isbn = isset($_REQUEST['isbn']) ? $_REQUEST['isbn'] : null;
+                    $id_libro = isset($_REQUEST['id_libro']) ? $_REQUEST['id_libro'] : null;
                     $validar = (int) isset($_REQUEST['validado']) ? $_REQUEST['validado'] : null;
                     if ($validar == 1) {
                         // Prepara UPDATE
-                        $miUpdate = $miPDO->prepare('UPDATE libros SET VALIDADO  = 1 WHERE isbn = :isbn');
+                        $miUpdate = $miPDO->prepare('UPDATE libros SET VALIDADO  = 1 WHERE id_libro = :id_libro');
                         // Ejecuta UPDATE con los datos
                         $miUpdate->execute(
                             [
-                                'isbn' => $isbn,
+                                'id_libro' => $id_libro,
                             ]
                         );
                         // Redireccionamos a Leer
                     } else {
-                        $miDelete = $miPDO->prepare('DELETE FROM libros WHERE isbn = :isbn');
+                        $miDelete = $miPDO->prepare('DELETE FROM libros WHERE id_libro = :id_libro');
                         // Ejecuta UPDATE con los datos
                         $miDelete->execute(
                             [
-                                'isbn' => $isbn,
+                                'id_libro' => $id_libro,
                             ]
                         );
                         //Consulta
                     }
-                    $consulta = $miPDO->prepare("SELECT foto, titulo_libro, autor, sinopsis, isbn FROM libros WHERE validado=0");
+                    $consulta = $miPDO->prepare("SELECT id_libro, foto, titulo_libro, autor FROM libros WHERE validado=0");
                     $consulta->execute();
                     $usuarios = $consulta->fetchAll();
                     $miUpdate = '';
                     foreach ($usuarios as $posicion => $usuario) {
-                        $isbn = $usuario['isbn'];
                         echo "<tr>";
                         echo "<td> <figure class='img-libro-validado'><img src='src/" . $usuario['foto'] . "'></figure> </td>";
                         echo "<td>" . $usuario['titulo_libro'] . "</td>";
                         echo "<td>" . $usuario['autor'] . "</td>";
-                        echo "<td>" . $usuario['sinopsis'] . "</td>";
-                        echo "<td class='isbn-libro' name= 'isbn'>" . $usuario['isbn'] . "</td>";
+                        echo "<td> <a class='boton_validacion validar-si' name='check' href='fichalibro.php?liburua=" . $usuario['id_libro'] . "' ><i class='fas fa-question-circle'></i></a></td>";
                         echo "<td>";
-                        echo "<a class='boton_validacion validar-si' name='check' href='validacion.php?validado=1&isbn=" . $usuario['isbn'] . "' ><i class='fas fa-check-circle'></i></a> ";
-                        echo "<a class='boton_validacion validar-no' name='check' href='validacion.php?validado=0&isbn=" . $usuario['isbn'] . "' ><i class='fas fa-times-circle'></i></a> ";
+                        echo "<a class='boton_validacion validar-si' name='check' href='validacion.php?validado=1&id_libro=" . $usuario['id_libro'] . "' ><i class='fas fa-check-circle'></i></a> ";
+                        echo "<a class='boton_validacion validar-no' name='check' href='validacion.php?validado=0&id_libro=" . $usuario['id_libro'] . "' ><i class='fas fa-times-circle'></i></a> ";
                         echo "</td>";
                         echo "</tr>";
                     }
