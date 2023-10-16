@@ -4,7 +4,7 @@
 $hostDB = /*'127.0.0.1'*/ 'localhost';
 $nombreDB = 'igkluba';
 $usuarioDB = 'root';
-$contrasenyaDB = 'admin';
+$contrasenyaDB = '';
 
 //Conecta con base de datos
 $hostPDO = "mysql:host=$hostDB;dbname=$nombreDB;";
